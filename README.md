@@ -108,6 +108,10 @@
 [Figma](https://www.figma.com/file/EWhhdX6Laad9SzDdOefpUk/children_risk_management_app?type=design&node-id=0%3A1&mode=design&t=J85eOYoD4gyJ7fTA-1)
 
 
+## ER図
+<%= image_tag 'children_risk_ER図.drawio.png' %>
+
+
 ## 使用技術
 ### フロントエンド
 - HTML/CSS/JavaScript

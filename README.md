@@ -109,7 +109,7 @@
 
 
 ## ER図
-![risk_management_of_children](images/children_risk_ER図.drawio.png)
+![Alt text](app/assets/images/children_risk_ER%E5%9B%B3.drawio.png)
 
 
 ## 使用技術

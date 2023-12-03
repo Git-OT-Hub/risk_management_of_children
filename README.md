@@ -109,7 +109,7 @@
 
 
 ## ER図
-<%= image_tag 'children_risk_ER図.drawio.png' %>
+![risk_management_of_children](images/children_risk_ER図.drawio.png)
 
 
 ## 使用技術

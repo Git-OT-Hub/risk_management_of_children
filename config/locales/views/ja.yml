@@ -173,3 +173,9 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  defaults:
+  posts:
+    index:
+      title: "投稿一覧"
+      no_result: "投稿がありません"
+      new_post: "投稿する"

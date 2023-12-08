@@ -174,6 +174,15 @@ ja:
       short: "%m/%d %H:%M"
     pm: 午後
   defaults:
+    diagnosis: "診断"
+    post: "投稿"
+    login: "ログイン"
+    logout: "ログアウト"
+    my_page: "マイページ"
+    how_to_use: "使い方"
+    enquiry: "問い合わせ"
+    privacy: "プライバシー"
+    terms_of_service: "利用規約"
   posts:
     index:
       title: "投稿一覧"

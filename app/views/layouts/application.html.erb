@@ -10,7 +10,10 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
+  <body class="bg-warning bg-opacity-10">
+    <!-- if文で分岐 -->
+    <%= render "shared/header" %>
+    <!-- if文で分岐 -->
     <%= yield %>
   </body>
 </html>

@@ -176,6 +176,7 @@ ja:
   defaults:
     diagnosis: "診断"
     post: "投稿"
+    register: "登録"
     login: "ログイン"
     logout: "ログアウト"
     my_page: "マイページ"
@@ -183,6 +184,13 @@ ja:
     enquiry: "問い合わせ"
     privacy: "プライバシー"
     terms_of_service: "利用規約"
+  users:
+    new:
+      title: "ユーザー登録"
+      to_login_page: "すでにアカウントをお持ちの場合はこちら"
+    create:
+      success: "ユーザー登録が完了しました"
+      fail: "ユーザー登録に失敗しました"
   posts:
     index:
       title: "投稿一覧"

@@ -17,7 +17,7 @@
             <%= link_to t("defaults.post"), posts_path, class: "nav-link" %>
           </li>
           <li class="nav-item ms-3">
-            <%= link_to t("defaults.logout"), "#", method: :delete, class: "nav-link" %>
+            <%= link_to t("defaults.logout"), logout_path, data: { turbo_method: :delete, turbo_confirm: t("defaults.logout_confirmation") }, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown ms-3">
             <%= link_to "#", class: "nav-link dropdown-toggle", role: "button", "data-bs-toggle" => "dropdown", "aria-expanded" => "false" do %>

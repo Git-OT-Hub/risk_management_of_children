@@ -179,6 +179,7 @@ ja:
     register: "登録"
     login: "ログイン"
     logout: "ログアウト"
+    logout_confirmation: "ログアウトしますか？"
     my_page: "マイページ"
     how_to_use: "使い方"
     enquiry: "問い合わせ"
@@ -191,6 +192,17 @@ ja:
     create:
       success: "ユーザー登録が完了しました"
       fail: "ユーザー登録に失敗しました"
+  user_sessions:
+    new:
+      title: "ログイン"
+      guest_user: "ゲストユーザーとしてログイン"
+      to_register_page: "アカウントをお持ちでない場合はこちら"
+      password_forget: "パスワードをお忘れの場合はこちら"
+    create:
+      success: "ログインしました"
+      fail: "ログインに失敗しました"
+    destroy:
+      success: "ログアウトしました"
   posts:
     index:
       title: "投稿一覧"

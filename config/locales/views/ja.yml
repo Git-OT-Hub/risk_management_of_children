@@ -179,12 +179,15 @@ ja:
     register: "登録"
     login: "ログイン"
     logout: "ログアウト"
-    logout_confirmation: "ログアウトしますか？"
     my_page: "マイページ"
     how_to_use: "使い方"
     enquiry: "問い合わせ"
     privacy: "プライバシー"
     terms_of_service: "利用規約"
+    message:
+      mixed_alphanumeric: "は半角英数を両方含む必要があります"
+      logout_confirmation: "ログアウトしますか？"
+      require_login: "ログインしてください"
   users:
     new:
       title: "ユーザー登録"

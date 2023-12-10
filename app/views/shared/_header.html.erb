@@ -17,14 +17,14 @@
             <%= link_to t("defaults.post"), posts_path, class: "nav-link" %>
           </li>
           <li class="nav-item ms-3">
-            <%= link_to t("defaults.logout"), logout_path, data: { turbo_method: :delete, turbo_confirm: t("defaults.logout_confirmation") }, class: "nav-link" %>
+            <%= link_to t("defaults.logout"), logout_path, data: { turbo_method: :delete, turbo_confirm: t("defaults.message.logout_confirmation") }, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown ms-3">
             <%= link_to "#", class: "nav-link dropdown-toggle", role: "button", "data-bs-toggle" => "dropdown", "aria-expanded" => "false" do %>
               <%= image_tag "sample1.png", class: "rounded-circle", size: "60x60" %>
             <% end %>
             <ul class="dropdown-menu dropdown-menu-end">
-              <li class="dropdown-item">ユーザー名</li>
+              <li class="dropdown-item"><%= current_user.name %></li>
               <li><hr class="dropdown-divider"></li>
               <li><%= link_to t("defaults.my_page"), "#", class: "dropdown-item" %></li>
             </ul>

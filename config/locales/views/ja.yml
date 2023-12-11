@@ -192,6 +192,7 @@ ja:
     new:
       title: "ユーザー登録"
       to_login_page: "すでにアカウントをお持ちの場合はこちら"
+      password_explanation: "パスワードは8文字以上で、半角英数字を両方含む必要があります。"
     create:
       success: "ユーザー登録が完了しました"
       fail: "ユーザー登録に失敗しました"

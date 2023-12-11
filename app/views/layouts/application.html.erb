@@ -11,9 +11,12 @@
   </head>
 
   <body class="bg-warning bg-opacity-10">
-    <!-- if文で分岐 -->
-    <%= render "shared/header" %>
-    <!-- if文で分岐 -->
+    <% if logged_in? %>
+      <%= render "shared/header" %>
+    <% else %>
+      <%= render "shared/before_login_header" %>
+    <% end %>
+    <%= render "shared/flash_message" %>
     <%= yield %>
     <%= render "shared/footer" %>
   </body>

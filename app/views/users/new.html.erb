@@ -1,0 +1,33 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+      <h1 class="text-center mb-4"><%= t(".title") %></h1>
+      <%= form_with model: @user do |f| %>
+        <%= render "shared/error_messages", object: f.object %>
+        <div class="mb-3">
+          <%= f.label :name, class: "form-label" %>
+          <%= f.text_field :name, class: "form-control rounded-pill" %>
+        </div>
+        <div class="mb-3">
+          <%= f.label :email, class: "form-label" %>
+          <%= f.email_field :email, class: "form-control rounded-pill" %>
+        </div>
+        <div class="mb-3">
+          <%= f.label :password, class: "form-label" %>
+          <div class="form-text mb-1"><%= t(".password_explanation") %></div>
+          <%= f.password_field :password, class: "form-control rounded-pill" %>
+        </div>
+        <div class="mb-5">
+          <%= f.label :password_confirmation, class: "form-label" %>
+          <%= f.password_field :password_confirmation, class: "form-control rounded-pill" %>
+        </div>
+        <div class="mb-5 text-center d-grid gap-2 col-6 mx-auto">
+          <%= f.submit t("defaults.register"), class: "btn btn-success rounded-pill" %>
+        </div>
+      <% end %>
+      <div class="text-center">
+        <%= link_to t(".to_login_page"), login_path, class: "text-black link-offset-2 link-offset-3-hover link-underline-dark link-underline-opacity-0 link-underline-opacity-75-hover" %>
+      </div>
+    </div>
+  </div>
+</div>

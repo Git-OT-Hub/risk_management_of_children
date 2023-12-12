@@ -49,3 +49,7 @@
 /db/development.sqlite3-wal
 /db/test.sqlite3-shm
 /db/test.sqlite3-wal
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml

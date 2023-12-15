@@ -192,12 +192,14 @@ ja:
     new:
       title: "ユーザー登録"
       to_login_page: "すでにアカウントをお持ちの場合はこちら"
-      password_explanation: "パスワードは8文字以上で、半角英数字を両方含む必要があります。"
+      password_explanation: "パスワードは8文字以上で、入力する必要があります。"
     create:
       success: "ユーザー登録が完了しました"
       fail: "ユーザー登録に失敗しました"
   user_sessions:
     new:
+      login_with_google: "Googleアカウントでログイン"
+      or: "または"
       title: "ログイン"
       guest_user: "ゲストユーザーとしてログイン"
       to_register_page: "アカウントをお持ちでない場合はこちら"
@@ -207,6 +209,10 @@ ja:
       fail: "ログインに失敗しました"
     destroy:
       success: "ログアウトしました"
+  oauths:
+    callback:
+      success: "アカウントでログインしました"
+      fail: "アカウントでのログインに失敗しました"
   posts:
     index:
       title: "投稿一覧"

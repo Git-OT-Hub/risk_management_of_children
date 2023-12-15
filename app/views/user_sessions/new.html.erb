@@ -1,7 +1,13 @@
-<div class="container mt-4">
+<div class="container mt-5">
   <div class="row">
     <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-      <h1 class="text-center mb-4"><%= t(".title") %></h1>
+      <h1 class="text-center mb-5"><%= t(".title") %></h1>
+      <div class="mb-5 text-center d-grid gap-2 col-6 mx-auto">
+        <%= link_to auth_at_provider_path(provider: :google), class: "btn btn-success rounded-pill" do %>
+          <i class="fa-brands fa-google fa-lg me-2"></i><%= t(".login_with_google") %>
+        <% end %>
+      </div>
+      <p class="text-center mb-5"><%= t(".or") %></p>
       <%= form_with url: login_path, method: :post do |f| %>
         <div class="mb-3">
           <%= f.label :email, User.human_attribute_name(:email), class: "form-label" %>

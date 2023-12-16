@@ -209,6 +209,10 @@ ja:
       fail: "ログインに失敗しました"
     destroy:
       success: "ログアウトしました"
+    guest_login:
+      already_logged_in: "すでにログインしています"
+      guest_login_success: "ゲストとしてログインしました"
+      guest_login_fail: "ゲストとしてログインできませんでした"
   oauths:
     callback:
       success: "アカウントでログインしました"

@@ -24,12 +24,21 @@ RSpec.describe "UserSessions", type: :system do
         expect(current_path).to eq login_path
       end
     end
+
+    context "「ゲストユーザーとしてログイン」をクリック" do
+      it "ゲストユーザーとしてログインできる" do
+        visit login_path
+        click_link "ゲストユーザーとしてログイン"
+        expect(page).to have_content "ゲストユーザーとしてログインしました"
+      end
+    end
   end
 
   describe "ログイン後" do
+    before { login_as(user) }
+
     context "ログアウトボタンをクリック" do
       it "ログアウト処理が成功する" do
-        login_as(user)
         click_link "ログアウト"
         expect(page.accept_confirm).to eq "ログアウトしますか？"
         expect(page).to have_content "ログアウトしました"

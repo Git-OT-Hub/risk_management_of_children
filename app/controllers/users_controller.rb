@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: %i[new create]
+  before_action :check_not_logged_in, only: %i[new create]
 
   def new
     @user = User.new
@@ -21,5 +22,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+
+  def check_not_logged_in
+    redirect_to root_path, danger: t("defaults.message.already_logged_in") if current_user
   end
 end

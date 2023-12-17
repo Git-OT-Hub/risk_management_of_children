@@ -188,6 +188,7 @@ ja:
       mixed_alphanumeric: "は半角英数を両方含む必要があります"
       logout_confirmation: "ログアウトしますか？"
       require_login: "ログインしてください"
+      already_logged_in: "すでにログインしています。別のアカウントに切り替える場合やアカウントを新規登録する場合は、一度ログアウトしてください。"
   users:
     new:
       title: "ユーザー登録"
@@ -209,6 +210,9 @@ ja:
       fail: "ログインに失敗しました"
     destroy:
       success: "ログアウトしました"
+    guest_login:
+      guest_login_success: "ゲストユーザーとしてログインしました"
+      guest_login_fail: "ゲストユーザーとしてログインできませんでした"
   oauths:
     callback:
       success: "アカウントでログインしました"

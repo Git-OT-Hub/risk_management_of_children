@@ -23,8 +23,10 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_12_124412) do
   create_table "posts", force: :cascade do |t|
     t.string "title", null: false
     t.text "body"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -38,4 +40,5 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_12_124412) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "posts", "users"
 end

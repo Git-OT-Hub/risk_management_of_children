@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get "oauth/:provider", to: "oauths#oauth", as: :auth_at_provider
 
   resources :top_pages
-  resources :posts
   resources :users, only: %i[new create]
+  resources :posts, only: %i[index new create show edit update destroy]
 
 end

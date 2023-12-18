@@ -1,11 +1,20 @@
-<p style="color: green"><%= notice %></p>
-<div class="container text-center">
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-10 offset-lg-1">
+      <h1 class="text-center mb-5"><%= t(".title") %></h1>
+      <div class="mb-5 text-center d-grid gap-2 col-3 mx-auto">
+        <%= link_to t(".new_post"), new_post_path, class: "btn btn-success rounded-pill" %>
+      </div>
+      <!-- 検索フォーム -->
+    </div>
+  </div>
+
+  <hr size="10", class="bg-success border border-0 mb-4">
+
   <!-- 投稿一覧 -->
   <div class="row">
     <div class="col-12">
       <div class="row">
-        <h1><%= t(".title") %></h1>
-        <p><%= link_to t(".new_post"), new_post_path %></p>
         <% if @posts.present? %>
           <%= render partial: "post", collection: @posts %>
         <% else %>

@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
 
   def index
-    @posts = Post.all
+    @posts = Post.all.includes(:user).order(created_at: :desc)
   end
 
   def show
@@ -11,9 +11,6 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-  end
-
-  def edit
   end
 
   def create
@@ -24,6 +21,9 @@ class PostsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def edit
   end
 
   def update
@@ -40,11 +40,12 @@ class PostsController < ApplicationController
   end
 
   private
-    def set_post
-      @post = Post.find(params[:id])
-    end
 
-    def post_params
-      params.require(:post).permit(:title, :body)
-    end
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
+  def post_params
+    params.require(:post).permit(:title, :body)
+  end
 end

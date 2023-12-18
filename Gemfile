@@ -60,6 +60,7 @@ group :development, :test do
   gem "sqlite3", "1.6.9"
   gem "rspec-rails", "6.1.0"
   gem "factory_bot_rails", "6.4.2"
+  gem "faker", "3.2.2"
 end
 
 group :development do

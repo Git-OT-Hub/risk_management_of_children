@@ -52,6 +52,8 @@ gem "pry-byebug", "3.10.1"
 
 gem "rails-i18n", "7.0.8"
 
+gem "redis-rails", "5.0.2"
+
 gem "sorcery", "0.16.5"
 
 group :development, :test do

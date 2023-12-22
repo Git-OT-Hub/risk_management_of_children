@@ -189,6 +189,9 @@ ja:
       logout_confirmation: "ログアウトしますか？"
       require_login: "ログインしてください"
       already_logged_in: "すでにログインしています。別のアカウントに切り替える場合やアカウントを新規登録する場合は、一度ログアウトしてください。"
+      created: "%{item}を作成しました"
+      not_created: "%{item}を作成できませんでした"
+      input_required: "※入力必須"
   users:
     new:
       title: "ユーザー登録"
@@ -222,3 +225,6 @@ ja:
       title: "投稿一覧"
       no_result: "投稿がありません"
       new_post: "投稿する"
+    new:
+      title: "投稿作成"
+      to_posts_page: "投稿一覧に戻る"

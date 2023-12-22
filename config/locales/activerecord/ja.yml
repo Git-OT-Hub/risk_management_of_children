@@ -8,9 +8,13 @@ ja:
           has_many: "%{record}が存在しているので削除できません"
     models:
       user: "ユーザー"
+      post: "投稿"
     attributes:
       user:
         name: "名前"
         email: "メールアドレス"
         password: "パスワード"
         password_confirmation: "パスワード確認"
+      post:
+        title: "タイトル"
+        body: "本文"

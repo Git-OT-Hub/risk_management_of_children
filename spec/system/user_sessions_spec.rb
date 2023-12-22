@@ -39,6 +39,7 @@ RSpec.describe "UserSessions", type: :system do
 
     context "ログアウトボタンをクリック" do
       it "ログアウト処理が成功する" do
+        expect(page).to have_content "ログインしました"
         click_link "ログアウト"
         expect(page.accept_confirm).to eq "ログアウトしますか？"
         expect(page).to have_content "ログアウトしました"

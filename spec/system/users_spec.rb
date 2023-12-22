@@ -78,6 +78,5 @@ RSpec.describe "Users", type: :system do
   end
 
   describe "ログイン後" do
-    before { login_as(user) }
   end
 end

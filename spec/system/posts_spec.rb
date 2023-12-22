@@ -54,6 +54,7 @@ RSpec.describe "Posts", type: :system do
           fill_in "本文", with: "test本文"
           click_button "投稿"
           expect(page).to have_content "投稿を作成できませんでした"
+          expect(page).to have_content "タイトルを入力してください"
           expect(current_path).to eq new_post_path
         end
       end

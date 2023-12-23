@@ -1,9 +1,35 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @post %>
-
-<div>
-  <%= link_to "Edit this post", edit_post_path(@post) %> |
-  <%= link_to "Back to posts", posts_path %>
-  <%= button_to "Destroy this post", post_path(@post), method: :delete %>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-10 offset-lg-1">
+      <h1 class="text-center mb-5"><%= t(".title") %></h1>
+      <!-- 掲示板内容 -->
+      <article class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-5">
+              <%= image_tag "sample1.png", class: "card-img-top img-fluid", size: "300x200" %>
+            </div>
+            <div class="col-md-7">
+              <h3 class="card-title my-4"><%= @post.title %></h3>
+              <ul class="list-inline mb-4">
+                <li class="list-inline-item">
+                  <%= image_tag "sample1.png", class: "rounded-circle me-2", size: "80x80" %>
+                  <%= @post.user.name %>
+                </li>
+              </ul>
+              <ul class="list-inline mb-4">
+                <li class="list-inline-item">
+                  <i class="fa-regular fa-calendar me-2"></i>
+                  <%= l @post.created_at, format: :long %>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <hr size="10", class="bg-success border border-0 mb-4">
+          <%= simple_format(@post.body) %>
+          <hr size="10", class="bg-success border border-0 mb-4">
+        </div>
+      </article>
+    </div>
+  </div>
 </div>

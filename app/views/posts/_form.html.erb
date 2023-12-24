@@ -9,6 +9,11 @@
     <%= f.label :body, class: "form-label" %>
     <%= f.text_area :body, class: "form-control rounded-4", rows: 10 %>
   </div>
+  <div class="mb-4">
+    <%= f.label :images, class: "form-label" %>
+    <div class="form-text mb-1"><%= t("defaults.message.quantity_limit") %></div>
+    <%= f.file_field :images, multiple: true, class: "form-control rounded-pill" %>
+  </div>
   <div class="mb-5 text-center d-grid gap-2 col-3 mx-auto">
     <%= f.submit t("defaults.post"), class: "btn btn-success rounded-pill" %>
   </div>

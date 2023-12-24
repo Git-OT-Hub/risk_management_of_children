@@ -5,7 +5,7 @@ class Post < ApplicationRecord
 
   validates :title, presence: true, length: { maximum: 255 }
   validates :body, length: { maximum: 65_535 }
-  validate :image_content_type, image_size, image_length
+  validate :image_content_type, :image_size, :image_length
 
   def image_content_type
     images.each do |image|

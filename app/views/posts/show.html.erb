@@ -3,11 +3,37 @@
     <div class="col-lg-10 offset-lg-1">
       <h1 class="text-center mb-5"><%= t(".title") %></h1>
       <!-- 掲示板内容 -->
-      <article class="card">
+      <article class="card mb-5">
         <div class="card-body">
           <div class="row">
             <div class="col-md-5">
-              <%= image_tag "sample1.png", class: "card-img-top img-fluid", size: "300x200" %>
+              <!-- スライド形式の画像 -->
+              <% if @post.images.attached? %>
+                <div id="carouselExampleIndicators" class="carousel carousel-dark slide">
+                  <div class="carousel-indicators">
+                    <% @post.images.each_with_index do |image, index| %>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%= index %>" class="<%= index == 0 ? "active" : "" %>" aria-current="<%= index == 0 ? "true" : "" %>" aria-label="Slide <%= index + 1 %>"></button>
+                    <% end %>
+                  </div>
+                  <div class="carousel-inner">
+                    <% @post.images.each_with_index do |image, index| %>
+                      <div class="carousel-item <%= index == 0 ? "active" : "" %>">
+                        <%= image_tag image.variant(resize_to_limit: [1280, 670]).processed, class: "d-block w-100" %>
+                      </div>
+                    <% end %>
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+              <% else %>
+                <%= image_tag "no_posted_image.png", class: "card-img-top img-fluid" %>
+              <% end %>
             </div>
             <div class="col-md-7">
               <h3 class="card-title my-4"><%= @post.title %></h3>
@@ -30,6 +56,9 @@
           <hr size="10", class="bg-success border border-0 mb-4">
         </div>
       </article>
+      <div class="text-center mb-3">
+        <%= link_to t(".to_posts_page"), posts_path, class: "text-black link-offset-2 link-offset-3-hover link-underline-dark link-underline-opacity-0 link-underline-opacity-75-hover" %>
+      </div>
     </div>
   </div>
 </div>

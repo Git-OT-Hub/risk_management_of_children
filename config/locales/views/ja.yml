@@ -191,7 +191,8 @@ ja:
       already_logged_in: "すでにログインしています。別のアカウントに切り替える場合やアカウントを新規登録する場合は、一度ログアウトしてください。"
       created: "%{item}を作成しました"
       not_created: "%{item}を作成できませんでした"
-      input_required: "※入力必須"
+      input_required: "※ 入力必須"
+      quantity_limit: "※ 4枚まで投稿可能"
   users:
     new:
       title: "ユーザー登録"
@@ -230,3 +231,4 @@ ja:
       to_posts_page: "投稿一覧に戻る"
     show:
       title: "投稿詳細"
+      to_posts_page: "投稿一覧に戻る"

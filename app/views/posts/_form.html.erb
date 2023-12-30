@@ -12,7 +12,8 @@
   <div class="mb-4">
     <%= f.label :images, class: "form-label" %>
     <div class="form-text mb-1"><%= t("defaults.message.quantity_limit") %></div>
-    <%= f.file_field :images, multiple: true, accept: "image/*", class: "form-control rounded-pill" %>
+    <%= f.file_field :images, multiple: true, direct_upload: true, accept: "image/*", class: "form-control rounded-pill" %>
+    <%= f.hidden_field :images_cache, value: post.images.signed_id if post.images.attached? %>
   </div>
   <div class="mb-5 text-center d-grid gap-2 col-3 mx-auto">
     <%= f.submit t("defaults.post"), class: "btn btn-success rounded-pill" %>

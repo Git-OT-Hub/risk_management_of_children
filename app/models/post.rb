@@ -8,6 +8,16 @@ class Post < ApplicationRecord
   validates :body, length: { maximum: 65_535 }
   validate :image_content_type, :image_size, :image_length
 
+  before_validation :set_images_cache
+
+  private
+
+  def set_images_cache
+    if images_cache.present? && images.blank?
+      self.images = images_cache
+    end
+  end
+
   def image_content_type
     images.each do |image|
       if !image.blob.content_type.in?(%w[image/jpeg image/jpg image/png image/gif])

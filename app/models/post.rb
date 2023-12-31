@@ -1,22 +1,15 @@
 class Post < ApplicationRecord
   belongs_to :user
 
-  has_many_attached :images
-  attribute :images_cache, :string
+  has_many_attached :images do |attachable|
+    attachable.variant :medium, resize_to_limit: [1080, 1080]
+  end
   
   validates :title, presence: true, length: { maximum: 255 }
   validates :body, length: { maximum: 65_535 }
   validate :image_content_type, :image_size, :image_length
 
-  before_validation :set_images_cache
-
   private
-
-  def set_images_cache
-    if images_cache.present? && images.blank?
-      self.images = images_cache
-    end
-  end
 
   def image_content_type
     images.each do |image|

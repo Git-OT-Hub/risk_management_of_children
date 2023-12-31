@@ -10,7 +10,7 @@
     <%= f.text_area :body, class: "form-control rounded-4", rows: 10 %>
   </div>
   <%= render "posts/image_previews", f: f, post: post %>
-  <div class="mb-5 text-center d-grid gap-2 col-3 mx-auto">
+  <div class="my-5 text-center d-grid gap-2 col-3 mx-auto">
     <%= f.submit t("defaults.post"), class: "btn btn-success rounded-pill" %>
   </div>
 <% end %>

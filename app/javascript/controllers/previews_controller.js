@@ -26,7 +26,7 @@ export default class extends Controller {
     reader.onloadend = function () {
       let img = document.createElement("img");
       img.src = reader.result;
-      img.classList.add("img-fluid", "rounded-4");
+      img.classList.add("img-fluid", "rounded-4", "mb-2");
 
       let previewContainer = document.createElement("div");
       previewContainer.classList.add("image-preview", "mb-4");
@@ -38,7 +38,7 @@ export default class extends Controller {
 
       let cancelButton = document.createElement("button");
       cancelButton.textContent = "取り消し";
-      cancelButton.classList.add("btn", "btn-danger", "mb-2");
+      cancelButton.classList.add("btn", "btn-danger", "rounded-pill", "mb-4");
       cancelButton.addEventListener("click", function () {
         previewContainer.remove();
         controller.removeFileFromInput(file);

@@ -192,7 +192,9 @@ ja:
       created: "%{item}を作成しました"
       not_created: "%{item}を作成できませんでした"
       input_required: "※ 入力必須"
-      quantity_limit: "※ 4枚まで投稿可能"
+      quantity_limit: "※ 4枚まで 投稿可能です。"
+      byte_size_limit: "※ 1枚あたり、10MB以下 にしてください。"
+      content_type_limit: "※ 投稿可能なファイル形式は、JPEG, JPG, PNG, GIF となります。"
   users:
     new:
       title: "ユーザー登録"

@@ -16,9 +16,9 @@
                     <% end %>
                   </div>
                   <div class="carousel-inner">
-                    <% @post.images.each_with_index do |image, index| %>
+                    <% @post.images.with_all_variant_records.each_with_index do |image, index| %>
                       <div class="carousel-item <%= index == 0 ? "active" : "" %>">
-                        <%= image_tag image.variant(resize_to_limit: [1280, 670]).processed, class: "d-block w-100" %>
+                        <%= image_tag image.variant(:medium).processed.url, class: "d-block w-100" %>
                       </div>
                     <% end %>
                   </div>

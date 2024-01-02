@@ -1,11 +1,15 @@
 class Post < ApplicationRecord
   belongs_to :user
 
-  has_many_attached :images
+  has_many_attached :images do |attachable|
+    attachable.variant :medium, resize_to_limit: [1080, 1080]
+  end
   
   validates :title, presence: true, length: { maximum: 255 }
   validates :body, length: { maximum: 65_535 }
   validate :image_content_type, :image_size, :image_length
+
+  private
 
   def image_content_type
     images.each do |image|
@@ -18,7 +22,7 @@ class Post < ApplicationRecord
   def image_size
     images.each do |image|
       if image.blob.byte_size > 10.megabytes
-        errors.add(:images, ": 1ファイルあたり、10MB以下にしてください。")
+        errors.add(:images, ": 1枚あたり、10MB以下にしてください。")
       end
     end
   end

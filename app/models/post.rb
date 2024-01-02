@@ -22,7 +22,7 @@ class Post < ApplicationRecord
   def image_size
     images.each do |image|
       if image.blob.byte_size > 10.megabytes
-        errors.add(:images, ": 1ファイルあたり、10MB以下にしてください。")
+        errors.add(:images, ": 1枚あたり、10MB以下にしてください。")
       end
     end
   end

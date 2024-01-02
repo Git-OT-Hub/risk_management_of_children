@@ -11,6 +11,6 @@
   </div>
   <%= render "posts/image_previews", f: f, post: post %>
   <div class="my-5 text-center d-grid gap-2 col-3 mx-auto">
-    <%= f.submit t("defaults.post"), class: "btn btn-success rounded-pill" %>
+    <%= f.submit t("defaults.post"), class: "btn btn-success rounded-pill", id: "submit-button" %>
   </div>
 <% end %>

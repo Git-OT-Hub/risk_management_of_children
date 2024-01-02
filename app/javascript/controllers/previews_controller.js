@@ -17,6 +17,8 @@ export default class extends Controller {
       let file = files[i];
       this.createPreview(file, previews);
     }
+
+    this.validateFiles(); // プレビューが追加された後にバリデーションを再実行
   }
 
   createPreview(file, previews) {
@@ -42,6 +44,7 @@ export default class extends Controller {
       cancelButton.addEventListener("click", function () {
         previewContainer.remove();
         controller.removeFileFromInput(file);
+        controller.validateFiles(); // ファイルが削除された後にバリデーションを再実行
       });
 
       previewContainer.appendChild(cancelButton);
@@ -64,5 +67,23 @@ export default class extends Controller {
     newFiles.forEach(f => newTransfer.items.add(f));
 
     input.files = newTransfer.files;
+
+    this.validateFiles(); // ファイルが削除された後にバリデーションを再実行
+  }
+
+  validateFiles() {
+    let input = this.inputTarget;
+
+    if (input) {
+      let files = input.files;
+
+      if (files.length >= 5) {
+        // 投稿ボタンを非活性化
+        document.getElementById("submit-button").disabled = true;
+      } else {
+        // 5枚未満の場合、投稿ボタンを活性化
+        document.getElementById("submit-button").disabled = false;
+      }
+    }
   }
 }

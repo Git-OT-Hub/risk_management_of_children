@@ -1,7 +1,8 @@
 <div class="mb-4" data-controller="previews">
   <%= f.label :images, class: "form-label" %>
   <div class="form-text mb-1"><%= t("defaults.message.quantity_limit") %></div>
-  <div class="form-text mb-1"><%= t("defaults.message.image_explanation") %></div>
+  <div class="form-text mb-1"><%= t("defaults.message.byte_size_limit") %></div>
+  <div class="form-text mb-1"><%= t("defaults.message.content_type_limit") %></div>
   <%= f.file_field :images, multiple: true, direct_upload: true, accept: "image/*", class: "form-control rounded-pill mb-4", data: { previews_target: "input", action: "change->previews#preview" } %>
 
   <div data-previews-target="previews">

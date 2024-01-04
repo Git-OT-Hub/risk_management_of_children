@@ -33,7 +33,9 @@ RSpec.describe "Posts", type: :system do
       end
 
       context "ログインしている場合" do
-        before { login_as(user) }
+        before do
+          login_as(user)
+        end
 
         it "投稿が作成できる" do
           expect(page).to have_content "ログインしました"
@@ -41,12 +43,15 @@ RSpec.describe "Posts", type: :system do
           expect(page).to have_content "投稿作成"
           fill_in "タイトル", with: "testタイトル"
           fill_in "本文", with: "test本文"
+          file_path = Rails.root.join("spec", "fixtures", "test1.png")
+          attach_file "画像", file_path
           click_button "投稿"
           expect(page).to have_content "投稿を作成しました"
           expect(page).to have_content "testタイトル"
+          expect(page).to have_selector "img[src$='test1.png']"
         end
 
-        it "投稿の作成に失敗する" do
+        it "タイトルが未入力の場合、投稿の作成に失敗する" do
           expect(page).to have_content "ログインしました"
           visit new_post_path
           expect(page).to have_content "投稿作成"

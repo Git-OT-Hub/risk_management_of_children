@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  # include ActiveStorage::SetCurrent  # rspec で画像投稿のテストをする際に、コメントアウトを外す
   add_flash_types :success, :info, :warning, :danger
   before_action :require_login
 

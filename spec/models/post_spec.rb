@@ -46,5 +46,54 @@ RSpec.describe Post, type: :model do
         expect(post.errors[:body]).to include("は65535文字以内で入力してください")
       end
     end
+
+    context "投稿画像が JPEG, JPG, PNG, GIF 以外の場合" do
+      it "無効であること" do
+        post = build(:post)
+        post.images.attach(io: File.open("spec/fixtures/test.pdf"), filename: "test.pdf", content_type: "application/pdf")
+        expect(post).to be_invalid
+        expect(post.errors[:images]).to include(": ファイル形式が、JPEG, JPG, PNG, GIF 以外になっています。ファイル形式をご確認ください。")
+      end
+    end
+
+    context "投稿画像が 10MB を超える場合" do
+      it "無効であること" do
+        post = build(:post)
+        post.images.attach(io: File.open("spec/fixtures/100MB.png"), filename: "100MB.png", content_type: "image/png")
+        expect(post).to be_invalid
+        expect(post.errors[:images]).to include(": 1枚あたり、10MB以下にしてください。")
+      end
+    end
+
+    context "投稿画像が 4枚以下 の場合" do
+      it "有効であること" do
+        post = build(:post)
+        images = Array.new(4) do
+          {
+            io: File.open("spec/fixtures/test1.png"),
+            filename: "test1.png",
+            content_type: "image/png"
+          }
+        end
+        post.images.attach(images)
+        expect(post).to be_valid
+      end
+    end
+
+    context "投稿画像が 5枚以上 の場合" do
+      it "無効であること" do
+        post = build(:post)
+        images = Array.new(5) do
+          {
+            io: File.open("spec/fixtures/test1.png"),
+            filename: "test1.png",
+            content_type: "image/png"
+          }
+        end
+        post.images.attach(images)
+        expect(post).to be_invalid
+        expect(post.errors[:images]).to include(": 4枚以下にしてください。")
+      end
+    end
   end
 end

@@ -41,6 +41,16 @@ class PostsController < ApplicationController
     redirect_to posts_path, notice: "Post was successfully destroyed."
   end
 
+  def delete_image
+    @post = Post.find(params[:id])
+    image = @post.images.find(params[:image_id])
+    image.purge
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.remove(image) }
+    end
+    #delete_image_post_path(post, image)
+  end
+
   private
 
   def set_post

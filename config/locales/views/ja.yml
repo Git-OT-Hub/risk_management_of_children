@@ -195,6 +195,7 @@ ja:
       quantity_limit: "※ 4枚まで 投稿可能です。"
       byte_size_limit: "※ 1枚あたり、10MB以下 にしてください。"
       content_type_limit: "※ 投稿可能なファイル形式は、JPEG, JPG, PNG, GIF となります。"
+      delete: "削除"
   users:
     new:
       title: "ユーザー登録"

@@ -19,6 +19,9 @@ Rails.application.routes.draw do
 
   resources :top_pages
   resources :users, only: %i[new create]
-  resources :posts, only: %i[index new create show edit update destroy]
-
+  resources :posts, only: %i[index new create show edit update destroy] do
+    member do
+      delete "delete_image"
+    end
+  end
 end

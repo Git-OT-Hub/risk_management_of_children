@@ -54,7 +54,7 @@
           <hr size="10", class="bg-success border border-0 mb-4">
           <%= simple_format(@post.body) %>
           <hr size="10", class="bg-success border border-0 mb-4">
-          <%= render "crud_menus", post: post if current_user.own?(post) %>
+          <%= render "crud_menus", post: @post if current_user.own?(@post) %>
         </div>
       </article>
       <div class="text-center mb-3">

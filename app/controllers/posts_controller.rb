@@ -38,7 +38,10 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy!
-    redirect_to posts_path, success: t("defaults.message.deleted", item: Post.model_name.human), status: :see_other
+    respond_to do |format|
+      format.turbo_stream { flash.now[:success] = t("defaults.message.deleted", item: Post.model_name.human) }
+      format.html { redirect_to posts_path, success: t("defaults.message.deleted", item: Post.model_name.human), status: :see_other }
+    end
   end
 
   def delete_image

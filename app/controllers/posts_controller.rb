@@ -46,9 +46,10 @@ class PostsController < ApplicationController
     image = @post.images.find(params[:image_id])
     image.purge
     respond_to do |format|
-      format.turbo_stream { render turbo_stream: turbo_stream.remove(image) }
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.remove("attachment_#{image.id}")
+      end
     end
-    #delete_image_post_path(post, image)
   end
 
   private

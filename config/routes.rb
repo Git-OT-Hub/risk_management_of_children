@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create]
   resources :posts, only: %i[index new create show edit update destroy] do
     member do
-      delete "delete_image"
+      delete "delete_image/:image_id", action: :delete_image, as: :delete_image
     end
   end
 end

@@ -22,7 +22,7 @@
     <div data-file-upload-target="validationImages">
       <% if !post.persisted? && post.images.attached? %>
         <% post.images.each_with_index do |image, index| %>
-          <div class="mb-4" data-index="<%= index %>">
+          <div class="mb-5" data-index="<%= index %>">
             <%= f.hidden_field :images, multiple: true, value: image.signed_id %>
             <%= image_tag image.variant(:medium).processed.url, class: "img-fluid rounded-4 mb-2" %>
             <p><%= image.blob.filename %></p>
@@ -35,16 +35,18 @@
     <!-- 編集画面用 -->
     <% if post.persisted? && post.images.attached? %>
       <% post.images.each do |image| %>
-        <div class="mb-4">
-          <%= f.hidden_field :images, multiple: true, value: image.signed_id %>
-          <%= image_tag image.variant(:medium).processed.url, class: "img-fluid rounded-4 mb-2" %>
-          <p><%= image.blob.filename %></p>
-          <%= link_to "defaults.message.delete", "", data: { turbo_method: :delete }, class: "" %>
-        </div>
+        <%= turbo_frame_tag dom_id(image) do %>
+          <div class="mb-5">
+            <%= f.hidden_field :images, multiple: true, value: image.signed_id %>
+            <%= image_tag image.variant(:medium).processed.url, class: "img-fluid rounded-4 mb-2" %>
+            <p><%= image.blob.filename %></p>
+            <%= link_to t("defaults.message.delete"), delete_image_post_path(post, image_id: image.id), data: { turbo_method: :delete }, class: "btn btn-danger rounded-pill mb-4" %>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
   </div>
   <div class="my-5 text-center d-grid gap-2 col-3 mx-auto">
-    <%= f.submit t("defaults.post"), class: "btn btn-success rounded-pill", id: "submit-button" %>
+    <%= f.submit class: "btn btn-success rounded-pill" %>
   </div>
 <% end %>

@@ -42,6 +42,7 @@
             <%= l post.created_at, format: :long %>
           </li>
         </ul>
+        <%= render "crud_menus", post: post if current_user.own?(post) %>
       </div>
     </div>
   </div>

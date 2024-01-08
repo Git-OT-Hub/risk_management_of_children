@@ -25,20 +25,20 @@ class PostsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @post.update(post_params)
-      redirect_to post_path(@post), notice: "Post was successfully updated."
+      redirect_to post_path(@post), success: t("defaults.message.updated", item: Post.model_name.human)
     else
+      flash.now[:danger] = t("defaults.message.not_updated", item: Post.model_name.human)
       render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
-    @post.destroy
-    redirect_to posts_path, notice: "Post was successfully destroyed."
+    @post.destroy!
+    redirect_to posts_path, success: t("defaults.message.deleted", item: Post.model_name.human), status: :see_other
   end
 
   def delete_image
@@ -54,7 +54,7 @@ class PostsController < ApplicationController
   private
 
   def set_post
-    @post = Post.find(params[:id])
+    @post = current_user.posts.find(params[:id])
   end
 
   def post_params

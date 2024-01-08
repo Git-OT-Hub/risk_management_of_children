@@ -196,6 +196,10 @@ ja:
       byte_size_limit: "※ 1枚あたり、10MB以下 にしてください。"
       content_type_limit: "※ 投稿可能なファイル形式は、JPEG, JPG, PNG, GIF となります。"
       delete: "削除"
+      updated: "%{item}を更新しました"
+      not_updated: "%{item}を更新できませんでした"
+      deleted: "%{item}を削除しました"
+      delete_confirm: '削除しますか？'
   users:
     new:
       title: "ユーザー登録"

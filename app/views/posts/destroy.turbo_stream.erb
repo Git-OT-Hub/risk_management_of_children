@@ -1,2 +1,2 @@
-<%= turbo_stream.remove "post-id-#{@post.id}" %>
+<%= turbo_stream.remove dom_id(@post) %>
 <%= turbo_stream.prepend "flash_message", partial: "shared/flash_message" %>

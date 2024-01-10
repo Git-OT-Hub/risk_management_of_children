@@ -185,6 +185,7 @@ ja:
     privacy: "プライバシー"
     terms_of_service: "利用規約"
     message:
+      test: "テストです"
       mixed_alphanumeric: "は半角英数を両方含む必要があります"
       logout_confirmation: "ログアウトしますか？"
       require_login: "ログインしてください"

@@ -25,20 +25,26 @@ class PostsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @post.update(post_params)
-      redirect_to post_path(@post), notice: "Post was successfully updated."
+      redirect_to post_path(@post), success: t("defaults.message.updated", item: Post.model_name.human)
     else
+      flash.now[:danger] = t("defaults.message.not_updated", item: Post.model_name.human)
       render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
-    @post.destroy
-    redirect_to posts_path, notice: "Post was successfully destroyed."
+    @post.destroy!
+    respond_to do |format|
+      if params[:redirect_after_delete] == "true"
+        format.html { redirect_to posts_path, success: t("defaults.message.deleted", item: Post.model_name.human), status: :see_other }
+      else
+        format.turbo_stream { flash.now[:success] = t("defaults.message.deleted", item: Post.model_name.human) }
+      end
+    end
   end
 
   def delete_image
@@ -46,15 +52,14 @@ class PostsController < ApplicationController
     image = @post.images.find(params[:image_id])
     image.purge
     respond_to do |format|
-      format.turbo_stream { render turbo_stream: turbo_stream.remove(image) }
+      format.turbo_stream { render turbo_stream: turbo_stream.remove("attachment_#{image.id}") }
     end
-    #delete_image_post_path(post, image)
   end
 
   private
 
   def set_post
-    @post = Post.find(params[:id])
+    @post = current_user.posts.find(params[:id])
   end
 
   def post_params

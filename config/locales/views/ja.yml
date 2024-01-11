@@ -109,7 +109,7 @@ ja:
     select:
       prompt: 選択してください
     submit:
-      create: 登録する
+      create: 投稿する
       submit: 保存する
       update: 更新する
   number:
@@ -185,6 +185,7 @@ ja:
     privacy: "プライバシー"
     terms_of_service: "利用規約"
     message:
+      test: "テストです"
       mixed_alphanumeric: "は半角英数を両方含む必要があります"
       logout_confirmation: "ログアウトしますか？"
       require_login: "ログインしてください"
@@ -196,6 +197,10 @@ ja:
       byte_size_limit: "※ 1枚あたり、10MB以下 にしてください。"
       content_type_limit: "※ 投稿可能なファイル形式は、JPEG, JPG, PNG, GIF となります。"
       delete: "削除"
+      updated: "%{item}を更新しました"
+      not_updated: "%{item}を更新できませんでした"
+      deleted: "%{item}を削除しました"
+      delete_confirm: "削除しますか？"
   users:
     new:
       title: "ユーザー登録"
@@ -234,4 +239,7 @@ ja:
       to_posts_page: "投稿一覧に戻る"
     show:
       title: "投稿詳細"
+      to_posts_page: "投稿一覧に戻る"
+    edit:
+      title: "投稿編集"
       to_posts_page: "投稿一覧に戻る"

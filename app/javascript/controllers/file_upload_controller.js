@@ -40,7 +40,7 @@ export default class extends Controller {
   addPreview(signedId, fileName) {
     const previews = this.previewsTarget;
     const previewDiv = document.createElement('div');
-    previewDiv.classList.add('image-preview', 'mb-4');
+    previewDiv.classList.add('image-preview', 'mb-5');
     previewDiv.dataset.signedId = signedId;
     const previewImage = document.createElement('img');
     previewImage.src = `/rails/active_storage/blobs/${signedId}/download`;

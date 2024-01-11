@@ -28,7 +28,7 @@
               <%= image_tag image.variant(:medium).processed.url, class: "img-fluid rounded-4 mb-2" %>
               <p><%= image.blob.filename %></p>
               <% if image.persisted? %>
-                <%= link_to t("defaults.message.delete"), delete_image_post_path(post, image_id: image.id), data: { turbo_method: :delete }, class: "btn btn-danger rounded-pill mb-4" %>
+                <%= link_to t("defaults.message.delete"), delete_image_post_path(post, image_id: image.id), data: { turbo_method: :delete }, class: "btn btn-danger rounded-pill mb-4", id: "rspec-image-#{image.id}" %>
               <% else %>
                 <%= link_to t("defaults.message.delete"), "", class: "btn btn-danger rounded-pill mb-4", data: { action: "click->file-upload#deleteImage", index: "#{index}" } %>
               <% end %>

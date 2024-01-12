@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :top_pages
   resources :users, only: %i[new create]
   resources :posts, only: %i[index new create show edit update destroy] do
+    resources :comments, only: %i[create update destroy], shallow: true
     member do
       delete "delete_image/:image_id", action: :delete_image, as: :delete_image
     end

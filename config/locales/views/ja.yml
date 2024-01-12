@@ -201,6 +201,8 @@ ja:
       not_updated: "%{item}を更新できませんでした"
       deleted: "%{item}を削除しました"
       delete_confirm: "削除しますか？"
+      new_comment: "コメントする"
+      cancel: "キャンセル"
   users:
     new:
       title: "ユーザー登録"

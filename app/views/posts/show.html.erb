@@ -70,6 +70,15 @@
           <% end %>
         </div>
       </article>
+    </div>
+  </div>
+
+  <div id="<%= dom_id(Comment.new) %>" %>
+    <%= render "comments/new_comment_link", post: @post %>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-10 offset-lg-1">
       <div class="text-center mb-3">
         <%= link_to t(".to_posts_page"), posts_path, class: "text-black link-offset-2 link-offset-3-hover link-underline-dark link-underline-opacity-0 link-underline-opacity-75-hover" %>
       </div>

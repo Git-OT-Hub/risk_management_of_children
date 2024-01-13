@@ -1,25 +1,48 @@
 <div class="card mb-3" id="<%= dom_id(comment) %>">
-  <div class="row g-0">
-    <div class="col-sm-4">
-      <%= image_tag "no_posted_image.png", class: "img-fluid rounded-start" %>
-    </div>
-    <div class="col-sm-8">
-      <div class="card-body">
-        <div class="card-header">
-          <ul class="list-inline mb-0">
-            <li class="list-inline-item me-2 mb-2">
-              <%= image_tag "sample1.png", class: "rounded-circle me-2", size: "60x60" %>
-            </li>
-            <li class="list-inline-item fs-5">
-              <%= comment.user.name %>
-            </li>
-          </ul>
-        </div>
-        <p class="card-text"><%= simple_format(comment.body) %></p>
-        <p class="card-text text-end mb-2"><small class="text-body-secondary"><%= l comment.created_at, format: :long %></small></p>
-        <div class="card-footer">
+  <% if comment.comment_image.attached? %>
+    <div class="row g-0">
+      <div class="col-sm-4">
+        <%= image_tag comment.comment_image.variant(:thumb).processed.url, class: "img-fluid rounded-start" %>
+      </div>
+      <div class="col-sm-8">
+        <div class="card-body">
+          <div class="card-header">
+            <ul class="list-inline mb-0">
+              <li class="list-inline-item me-2 mb-2">
+                <%= image_tag "sample1.png", class: "rounded-circle me-2", size: "60x60" %>
+              </li>
+              <li class="list-inline-item fs-5">
+                <%= comment.user.name %>
+              </li>
+            </ul>
+          </div>
+          <p class="card-text"><%= simple_format(comment.body) %></p>
+          <p class="card-text text-end mb-2"><small class="text-body-secondary"><%= l comment.created_at, format: :long %></small></p>
+          <div class="card-footer">
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  <% else %>
+    <div class="row g-0">
+      <div class="col-12">
+        <div class="card-body">
+          <div class="card-header">
+            <ul class="list-inline mb-0">
+              <li class="list-inline-item me-2 mb-2">
+                <%= image_tag "sample1.png", class: "rounded-circle me-2", size: "60x60" %>
+              </li>
+              <li class="list-inline-item fs-5">
+                <%= comment.user.name %>
+              </li>
+            </ul>
+          </div>
+          <p class="card-text"><%= simple_format(comment.body) %></p>
+          <p class="card-text text-end mb-2"><small class="text-body-secondary"><%= l comment.created_at, format: :long %></small></p>
+          <div class="card-footer">
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>

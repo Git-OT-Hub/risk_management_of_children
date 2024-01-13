@@ -1,10 +1,10 @@
 <div class="card mb-3" id="<%= dom_id(comment) %>">
   <% if comment.comment_image.attached? %>
-    <div class="row g-0">
-      <div class="col-sm-4">
-        <%= image_tag comment.comment_image.variant(:thumb).processed.url, class: "img-fluid rounded-start" %>
+    <div class="row g-0 justify-content-center">
+      <div class="col-sm-4 align-self-center me-0">
+        <%= image_tag comment.comment_image.variant(:thumb).processed.url, class: "img-fluid rounded" %>
       </div>
-      <div class="col-sm-8">
+      <div class="col-sm-7">
         <div class="card-body">
           <div class="card-header">
             <ul class="list-inline mb-0">

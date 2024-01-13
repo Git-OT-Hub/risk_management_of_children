@@ -4,7 +4,7 @@
     <%= f.label :body, class: "form-label" %>
     <%= f.text_area :body, class: "form-control rounded-4 mb-3", rows: 2, placeholder: Comment.human_attribute_name(:body) %>
   </div>
-  <div class="text-end mb-3">
+  <div class="d-flex justify-content-end mb-3">
     <%= f.submit class: "btn btn-success rounded-pill me-4" %>
     <% if comment.new_record? %>
       <%= link_to t("defaults.message.cancel"), cancel_new_comment_post_comments_path(post), data: { turbo_stream: true }, class: "btn btn-outline-secondary rounded-pill" %>

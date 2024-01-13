@@ -38,7 +38,7 @@
             <div class="col-md-7">
               <h3 class="card-title my-4"><%= @post.title %></h3>
               <ul class="list-inline mb-4">
-                <li class="list-inline-item">
+                <li class="list-inline-item fs-4">
                   <%= image_tag "sample1.png", class: "rounded-circle me-2", size: "80x80" %>
                   <%= @post.user.name %>
                 </li>
@@ -72,11 +72,14 @@
       </article>
     </div>
   </div>
-
-  <div id="<%= dom_id(Comment.new) %>" %>
-    <%= render "comments/new_comment_link", post: @post %>
+  <!-- コメントエリア -->
+  <div class="row">
+    <div class="col-lg-10 offset-lg-1" id="<%= dom_id(Comment.new) %>">
+      <%= render "comments/new_comment_link", post: @post %>
+    </div>
   </div>
 
+  <%= render "comments/comments", comments: @comments %>
   <div class="row">
     <div class="col-lg-10 offset-lg-1">
       <div class="text-center mb-3">

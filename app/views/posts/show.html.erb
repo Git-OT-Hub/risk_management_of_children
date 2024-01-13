@@ -1,5 +1,5 @@
 <div class="container mt-5">
-  <div class="row">
+  <div class="row mb-5">
     <div class="col-lg-10 offset-lg-1">
       <h1 class="text-center mb-5"><%= t(".title") %></h1>
       <!-- 掲示板内容 -->
@@ -36,27 +36,33 @@
               <% end %>
             </div>
             <div class="col-md-7">
-              <h3 class="card-title my-4"><%= @post.title %></h3>
+              <h3 class="card-title my-4 fs-2"><%= @post.title %></h3>
               <ul class="list-inline mb-4">
+                <li class="list-inline-item me-3 mb-2">
+                  <%= image_tag "sample1.png", class: "rounded-circle", size: "80x80" %>
+                </li>
                 <li class="list-inline-item fs-4">
-                  <%= image_tag "sample1.png", class: "rounded-circle me-2", size: "80x80" %>
                   <%= @post.user.name %>
                 </li>
               </ul>
-              <ul class="list-inline mb-4">
+              <ul class="list-inline mb-3">
+                <li class="list-inline-item me-2 mb-2">
+                  <i class="fa-regular fa-calendar"></i>
+                </li>
                 <li class="list-inline-item">
-                  <i class="fa-regular fa-calendar me-2"></i>
                   <%= l @post.created_at, format: :long %>
                 </li>
               </ul>
             </div>
           </div>
-          <hr size="10", class="bg-success border border-0 mb-4">
-          <%= simple_format(@post.body) %>
+          <hr size="10", class="bg-success border border-0 mb-3">
+          <div class="mb-3">
+            <%= simple_format(@post.body) %>
+          </div>
           <hr size="10", class="bg-success border border-0 mb-4">
           <% if logged_in? && current_user.own?(@post) %>
             <ul class="crud-menu-btn list-inline float-start">
-              <li class="list-inline-item me-5">
+              <li class="list-inline-item me-5 mb-3">
                 <%= link_to edit_post_path(@post), class: "link-success link-offset-2 link-underline link-underline-opacity-0 link-opacity-100-hover", id: "button-edit-#{@post.id}" do %>
                   <i class="fa-regular fa-pen-to-square fa-xl"></i>
                 <% end %>
@@ -73,16 +79,15 @@
     </div>
   </div>
   <!-- コメントエリア -->
-  <div class="row">
+  <div class="row mb-4">
     <div class="col-lg-10 offset-lg-1" id="<%= dom_id(Comment.new) %>">
       <%= render "comments/new_comment_link", post: @post %>
     </div>
   </div>
-
   <%= render "comments/comments", comments: @comments %>
-  <div class="row">
+  <div class="row mb-3">
     <div class="col-lg-10 offset-lg-1">
-      <div class="text-center mb-3">
+      <div class="text-center">
         <%= link_to t(".to_posts_page"), posts_path, class: "text-black link-offset-2 link-offset-3-hover link-underline-dark link-underline-opacity-0 link-underline-opacity-75-hover" %>
       </div>
     </div>

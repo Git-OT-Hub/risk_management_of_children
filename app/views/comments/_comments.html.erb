@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row mb-4">
   <div class="col-lg-10 offset-lg-1" id="<%= dom_id(@post, :comments) %>">
     <% if comments.present? %> 
       <%= render partial: "comments/comment", collection: comments %>

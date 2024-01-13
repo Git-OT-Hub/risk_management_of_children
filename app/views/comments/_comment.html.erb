@@ -1,4 +1,4 @@
-<div class="card mb-3" style="max-width: 540px;" id="<%= dom_id(comment) %>">
+<div class="card mb-3" id="<%= dom_id(comment) %>">
   <div class="row g-0">
     <div class="col-sm-4">
       <%= image_tag "no_posted_image.png", class: "img-fluid rounded-start" %>
@@ -6,15 +6,17 @@
     <div class="col-sm-8">
       <div class="card-body">
         <div class="card-header">
-          <ul class="list-inline">
-            <li class="list-inline-item fs-5">
+          <ul class="list-inline mb-0">
+            <li class="list-inline-item me-2 mb-2">
               <%= image_tag "sample1.png", class: "rounded-circle me-2", size: "60x60" %>
+            </li>
+            <li class="list-inline-item fs-5">
               <%= comment.user.name %>
             </li>
           </ul>
         </div>
         <p class="card-text"><%= simple_format(comment.body) %></p>
-        <p class="card-text"><small class="text-body-secondary"><%= l comment.created_at, format: :long %></small></p>
+        <p class="card-text text-end mb-2"><small class="text-body-secondary"><%= l comment.created_at, format: :long %></small></p>
         <div class="card-footer">
         </div>
       </div>

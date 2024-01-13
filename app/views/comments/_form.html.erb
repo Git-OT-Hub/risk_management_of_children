@@ -4,12 +4,23 @@
     <%= f.label :body, class: "form-label" %>
     <%= f.text_area :body, class: "form-control rounded-4 mb-3", rows: 4, placeholder: Comment.human_attribute_name(:body) %>
   </div>
-  <div class="mb-3">
-    <%= f.label :comment_image, class: "form-label" %>
-    <div class="form-text mb-1"><%= t("defaults.message.comment_image_quantity_limit") %></div>
-    <div class="form-text mb-1"><%= t("defaults.message.byte_size_limit") %></div>
-    <div class="form-text mb-1"><%= t("defaults.message.content_type_limit") %></div>
-    <%= f.file_field :comment_image, direct_upload: true, accept: "image/*", class: "form-control rounded-pill" %>
+  <div class="card mb-3">
+    <div class="row g-0 justify-content-center">
+      <div class="col-sm-7">
+        <div class="card-body p-2">
+          <%= f.label :comment_image, class: "form-label" %>
+          <div class="form-text mb-1"><%= t("defaults.message.comment_image_quantity_limit") %></div>
+          <div class="form-text mb-1"><%= t("defaults.message.byte_size_limit") %></div>
+          <div class="form-text mb-3"><%= t("defaults.message.content_type_limit") %></div>
+          <%= f.file_field :comment_image, direct_upload: true, accept: "image/*", class: "form-control rounded-pill" %>
+        </div>
+      </div>
+      <div class="col-sm-4 align-self-center ms-0">
+        <div class="card-body p-1">
+          <%= image_tag "no_image.png", class: "img-fluid rounded" %>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="mb-3">
     <ul class="list-inline float-end">

@@ -4,7 +4,7 @@
     <%= f.label :body, class: "form-label" %>
     <%= f.text_area :body, class: "form-control rounded-4 mb-3", rows: 4, placeholder: Comment.human_attribute_name(:body) %>
   </div>
-  <div class="card mb-3">
+  <div class="card mb-3" data-controller="comment-image">
     <div class="row g-0 justify-content-center">
       <div class="col-sm-7">
         <div class="card-body p-2">
@@ -12,12 +12,17 @@
           <div class="form-text mb-1"><%= t("defaults.message.comment_image_quantity_limit") %></div>
           <div class="form-text mb-1"><%= t("defaults.message.byte_size_limit") %></div>
           <div class="form-text mb-3"><%= t("defaults.message.content_type_limit") %></div>
-          <%= f.file_field :comment_image, direct_upload: true, accept: "image/*", class: "form-control rounded-pill" %>
+          <%= f.file_field :comment_image, direct_upload: true, accept: "image/*", class: "form-control rounded-pill", data: { comment_image_target: "input", action: "change->comment-image#preview" } %>
         </div>
       </div>
       <div class="col-sm-4 align-self-center ms-0">
         <div class="card-body p-1">
-          <%= image_tag "no_image.png", class: "img-fluid rounded" %>
+          <%= image_tag "no_image.png", class: "img-fluid rounded mb-1", data: { comment_image_target: "preview" } %>
+          <div class="d-flex justify-content-end">
+            <button type="button" class="btn btn-danger rounded-pill" data-action="click->comment-image#delete" data-comment-image-target="deleteButton" style="display: none;">
+              <%= t("defaults.message.delete") %>
+            </button>
+          </div>
         </div>
       </div>
     </div>

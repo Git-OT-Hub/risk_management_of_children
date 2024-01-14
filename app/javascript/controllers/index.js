@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import CommentImageController from "./comment_image_controller"
+application.register("comment-image", CommentImageController)
+
 import FileUploadController from "./file_upload_controller"
 application.register("file-upload", FileUploadController)
 

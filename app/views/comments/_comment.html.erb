@@ -6,9 +6,9 @@
           <%= image_tag comment.comment_image.variant(:thumb).processed.url, class: "img-fluid rounded" %>
         </div>
       </div>
-      <div class="col-sm-7">
-        <div class="card-body p-2">
-          <div class="card-header">
+      <div class="col-sm-7 p-1">
+        <div class="card">
+          <div class="card-header p-1">
             <ul class="list-inline mb-0">
               <li class="list-inline-item me-2 mb-2">
                 <%= image_tag "sample1.png", class: "rounded-circle me-2", size: "60x60" %>
@@ -18,18 +18,21 @@
               </li>
             </ul>
           </div>
-          <p class="card-text"><%= simple_format(comment.body) %></p>
-          <p class="card-text text-end mb-2"><small class="text-body-secondary"><%= l comment.created_at, format: :long %></small></p>
+          <div class="card-body p-2">
+            <p class="card-text mb-0"><%= simple_format(comment.body) %></p>
+            <p class="card-text text-end"><small class="text-body-secondary"><%= l comment.created_at, format: :long %></small></p>
+          </div>
           <div class="card-footer">
+            <%= render "comments/crud_menus", comment: comment %>
           </div>
         </div>
       </div>
     </div>
   <% else %>
     <div class="row g-0">
-      <div class="col-12">
-        <div class="card-body">
-          <div class="card-header">
+      <div class="col-12 p-1">
+        <div class="card">
+          <div class="card-header p-1">
             <ul class="list-inline mb-0">
               <li class="list-inline-item me-2 mb-2">
                 <%= image_tag "sample1.png", class: "rounded-circle me-2", size: "60x60" %>
@@ -39,9 +42,12 @@
               </li>
             </ul>
           </div>
-          <p class="card-text"><%= simple_format(comment.body) %></p>
-          <p class="card-text text-end mb-2"><small class="text-body-secondary"><%= l comment.created_at, format: :long %></small></p>
+          <div class="card-body p-2">
+            <p class="card-text mb-0"><%= simple_format(comment.body) %></p>
+            <p class="card-text text-end"><small class="text-body-secondary"><%= l comment.created_at, format: :long %></small></p>
+          </div>
           <div class="card-footer">
+            <%= render "comments/crud_menus", comment: comment %>
           </div>
         </div>
       </div>

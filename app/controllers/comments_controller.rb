@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :set_comment, only: %i[edit update destroy]
 
   def new
     @post = Post.find(params[:post_id])
@@ -34,6 +35,21 @@ class CommentsController < ApplicationController
     end
   end
 
+  def edit
+    @post = @comment.post
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.update("comment_#{@comment.id}", partial: "form", locals: { post: @post, comment: @comment }) }
+      format.html {  }
+    end
+    #binding.pry
+  end
+
+  def update
+  end
+
+  def destroy
+  end
+
   def cancel_new_comment
     @post = Post.find(params[:post_id])
     respond_to do |format|
@@ -43,6 +59,10 @@ class CommentsController < ApplicationController
   end
 
   private
+
+  def set_comment
+    @comment = current_user.comments.find(params[:id])
+  end
 
   def comment_params
     params.require(:comment).permit(:body, :comment_image).merge(post_id: params[:post_id])

@@ -1,4 +1,4 @@
-<%= form_with model: comment, url: (comment.persisted? ? comment_path(comment) : post_comments_path(post, comment)) do |f| %>
+<%= form_with model: comment, url: (comment.persisted? ? comment_path(comment) : post_comments_path(post, comment)), class: "my-4" do |f| %>
   <%= render "shared/error_messages", object: f.object %>
   <div class="mb-3">
     <%= f.label :body, class: "form-label" %>
@@ -43,7 +43,7 @@
       </div>
     </div>
   </div>
-  <div class="mb-3">
+  <div class="clearfix mb-3">
     <ul class="list-inline float-end">
       <li class="list-inline-item me-4 mb-2">
         <%= f.submit class: "btn btn-success rounded-pill" %>

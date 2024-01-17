@@ -52,7 +52,7 @@
         <% if comment.new_record? %>
           <%= link_to t("defaults.message.cancel"), cancel_new_comment_post_comments_path(post), data: { turbo_stream: true }, class: "btn btn-outline-secondary rounded-pill" %>
         <% else %>
-          <%= link_to t("defaults.message.cancel"), "", class: "btn btn-outline-secondary rounded-pill" %>
+          <%= link_to t("defaults.message.cancel"), cancel_edit_comment_path(comment), data: { turbo_stream: true }, class: "btn btn-outline-secondary rounded-pill" %>
         <% end %>
       </li>
     </ul>

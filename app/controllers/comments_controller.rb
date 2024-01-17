@@ -41,7 +41,6 @@ class CommentsController < ApplicationController
       format.turbo_stream { render turbo_stream: turbo_stream.update("comment_#{@comment.id}", partial: "form", locals: { post: @post, comment: @comment }) }
       format.html {  }
     end
-    #binding.pry
   end
 
   def update
@@ -54,6 +53,15 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     respond_to do |format|
       format.turbo_stream { render turbo_stream: turbo_stream.update("new_comment", partial: "new_comment_link", locals: { post: @post }) }
+      format.html { redirect_to post_path(@post) }
+    end
+  end
+
+  def cancel_edit
+    @comment = current_user.comments.find(params[:id])
+    @post = @comment.post
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.replace("comment_#{@comment.id}", partial: "comment", locals: { comment: @comment }) }
       format.html { redirect_to post_path(@post) }
     end
   end

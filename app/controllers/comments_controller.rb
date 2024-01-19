@@ -44,6 +44,27 @@ class CommentsController < ApplicationController
   end
 
   def update
+    @post = @comment.post
+    if @comment.update(comment_update_params)
+      respond_to do |format|
+        format.turbo_stream { flash.now[:success] = t("defaults.message.updated", item: Comment.model_name.human) }
+        format.html { redirect_to post_path(@post), success: t("defaults.message.updated", item: Comment.model_name.human) }
+      end
+    else
+      respond_to do |format|
+        format.turbo_stream do
+          flash.now[:danger] = t("defaults.message.not_updated", item: Comment.model_name.human)
+          render turbo_stream: [
+            turbo_stream.update("comment_#{@comment.id}", partial: "form", locals: { post: @post, comment: @comment }),
+            turbo_stream.update("flash_message", partial: "shared/flash_message")
+          ]
+        end
+        format.html do
+          flash.now[:danger] = t("defaults.message.not_updated", item: Comment.model_name.human)
+          render :edit, status: :unprocessable_entity
+        end
+      end
+    end
   end
 
   def destroy
@@ -66,6 +87,17 @@ class CommentsController < ApplicationController
     end
   end
 
+  def delete_comment_image
+    comment = current_user.comments.find(params[:id])
+    comment.comment_image.purge
+    @comment_after_purge = current_user.comments.find(params[:id])
+    @post = @comment_after_purge.post
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.update("form_comment_#{@comment_after_purge.id}", partial: "form_part", locals: { post: @post, comment: @comment_after_purge }) }
+      format.html { redirect_to edit_comment_path(@comment_after_purge) }
+    end
+  end
+
   private
 
   def set_comment
@@ -74,5 +106,9 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:body, :comment_image).merge(post_id: params[:post_id])
+  end
+
+  def comment_update_params
+    params.require(:comment).permit(:body, :comment_image)
   end
 end

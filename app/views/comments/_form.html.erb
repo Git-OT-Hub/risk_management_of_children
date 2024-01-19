@@ -13,17 +13,17 @@
           <div class="form-text mb-1"><%= t("defaults.message.byte_size_limit") %></div>
           <div class="form-text mb-3"><%= t("defaults.message.content_type_limit") %></div>
           <%= f.hidden_field :comment_image, value: comment.comment_image.signed_id, data: { comment_image_target: "hiddenField" } %>
-          <%= f.file_field :comment_image, direct_upload: true, accept: "image/*", class: "form-control rounded-pill", data: { comment_image_target: "input", action: "change->comment-image#preview" } %>
+          <%= f.file_field :comment_image, direct_upload: true, accept: "image/*", class: "form-control rounded-pill", data: { comment_image_target: "input", action: "click->comment-image#checkForExistingImage change->comment-image#preview" } %>
         </div>
       </div>
-      <div class="col-sm-4 align-self-center ms-0">
+      <div class="col-sm-4 align-self-center ms-0" id="<%= dom_id(comment, "form") %>">
         <div class="card-body p-1">
           <% if comment.comment_image.attached? %>
             <div>
               <%= image_tag comment.comment_image.variant(:thumb).processed.url, class: "img-fluid rounded mb-1", data: { comment_image_target: "preview" } %>
               <div class="d-flex justify-content-end">
                 <% if comment.comment_image.persisted? %>
-                  <%= link_to t("defaults.message.delete"), "", data: { turbo_method: :delete }, class: "btn btn-danger rounded-pill", id: "rspec-image-#{comment.comment_image.id}" %>
+                  <%= link_to t("defaults.message.delete"), delete_comment_image_comment_path(comment), data: { turbo_method: :delete, action: "click->comment-image#hiddenClear" }, class: "btn btn-danger rounded-pill" %>
                 <% else %>
                   <button type="button" class="btn btn-danger rounded-pill" data-action="click->comment-image#delete">
                     <%= t("defaults.message.delete") %>

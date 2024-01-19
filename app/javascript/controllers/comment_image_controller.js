@@ -11,23 +11,20 @@ export default class extends Controller {
   preview() {
     let input = this.inputTarget;
     let preview = this.previewTarget;
-    //let deleteButton = this.deleteButtonTarget;
     let file = input.files[0];
     let reader = new FileReader();
 
     reader.onloadend = function () {
       preview.src = reader.result;
-      //deleteButton.style.display = "inline"; // プレビューがある場合、削除ボタンを表示
     };
 
     if (file) {
       reader.readAsDataURL(file);
     } else {
       preview.src = "";
-      //deleteButton.style.display = "none"; // プレビューがない場合、削除ボタンを非表示
       // プレビューがない場合、no_image.pngを再表示
       let noImage = document.querySelector("[data-comment-image-target='preview']");
-      noImage.src = "/assets/no_image.png"; // パスは実際のパスに合わせて変更してください
+      noImage.src = "/assets/no_image.png";
     }
   }
 
@@ -35,22 +32,33 @@ export default class extends Controller {
     let input = this.inputTarget;
     let preview = this.previewTarget;
     let hiddenField = this.hiddenFieldTarget;
-    //let deleteButton = this.deleteButtonTarget;
     if (hiddenField && hiddenField.value !== undefined) {
       hiddenField.value = "";
     }
     input.value = ""; // inputファイルをクリア
     preview.src = ""; // プレビューをクリア
-    //deleteButton.style.display = "none"; // 削除ボタンを非表示
     // プレビューがない場合、no_image.pngを再表示
     let noImage = document.querySelector("[data-comment-image-target='preview']");
-    noImage.src = "/assets/no_image.png"; // パスは実際のパスに合わせて変更してください
+    noImage.src = "/assets/no_image.png";
   }
 
   togglePreview() {
     // 初期表示時に画像が存在するか確認して表示を切り替える
     if (this.inputTarget.files.length > 0) {
       this.preview();
+    }
+  }
+
+  hiddenClear() {
+    // クリック時に hiddenField の値をクリアする
+    this.hiddenFieldTarget.value = "";
+  }
+
+  checkForExistingImage(event) {
+    // 画像が既に添付されている場合はアラートを表示し、ファイルの選択をキャンセルする
+    if (this.hiddenFieldTarget.value !== "") {
+      alert("画像を先に削除してください。");
+      event.preventDefault(); // ファイルの選択をキャンセル
     }
   }
 }

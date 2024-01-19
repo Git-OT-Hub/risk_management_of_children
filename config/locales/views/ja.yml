@@ -204,6 +204,7 @@ ja:
       delete_confirm: "削除しますか？"
       new_comment: "コメントする"
       cancel: "キャンセル"
+      need_delete_image: "※ 画像を変更する場合、先に画像を削除する必要があります。"
   users:
     new:
       title: "ユーザー登録"

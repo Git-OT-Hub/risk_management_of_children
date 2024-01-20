@@ -56,12 +56,12 @@ RSpec.describe Post, type: :model do
       end
     end
 
-    context "投稿画像が 10MB を超える場合" do
+    context "投稿画像が 5MB を超える場合" do
       it "無効であること" do
         post = build(:post)
-        post.images.attach(io: File.open("spec/fixtures/100MB.png"), filename: "100MB.png", content_type: "image/png")
+        post.images.attach(io: File.open("spec/fixtures/10MB.png"), filename: "10MB.png", content_type: "image/png")
         expect(post).to be_invalid
-        expect(post.errors[:images]).to include(": 1枚あたり、10MB以下にしてください。")
+        expect(post.errors[:images]).to include(": 1枚あたり、5MB以下にしてください。")
       end
     end
 

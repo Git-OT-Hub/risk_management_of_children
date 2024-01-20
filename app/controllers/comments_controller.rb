@@ -104,6 +104,11 @@ class CommentsController < ApplicationController
     end
   end
 
+  def not_loggedin_comment
+    @post = Post.find(params[:post_id])
+    redirect_to post_path(@post)
+  end
+
   private
 
   def set_comment

@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     resources :comments, only: %i[index new create show edit update destroy], shallow: true do
       collection do
         get "cancel_new_comment", action: :cancel_new_comment
+        get "not_loggedin_comment", action: :not_loggedin_comment
       end
       member do
         get "cancel_edit", action: :cancel_edit

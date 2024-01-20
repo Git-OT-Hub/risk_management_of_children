@@ -1,0 +1,5 @@
+<%= turbo_stream.prepend dom_id(@post, :comments), partial: "comment", locals: { comment: @comment } %>
+
+<%= turbo_stream.update dom_id(Comment.new), partial: "new_comment_link", locals: { post: @post } %>
+
+<%= turbo_stream_flash %>

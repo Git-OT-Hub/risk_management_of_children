@@ -8,6 +8,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comments = @post.comments.includes(:user).order(created_at: :desc)
   end
 
   def new
@@ -53,6 +54,7 @@ class PostsController < ApplicationController
     image.purge
     respond_to do |format|
       format.turbo_stream { render turbo_stream: turbo_stream.remove("attachment_#{image.id}") }
+      format.html { redirect_to edit_post_path(@post) }
     end
   end
 

@@ -1,0 +1,12 @@
+<ul class="crud-menu-btn list-inline float-end mb-0">
+  <li class="list-inline-item me-5 mb-3">
+    <%= link_to edit_comment_path(comment), data: { turbo_stream: true }, class: "link-success link-offset-2 link-underline link-underline-opacity-0 link-opacity-100-hover", id: "button-edit-#{comment.id}" do %>
+      <i class="fa-regular fa-pen-to-square fa-xl"></i>
+    <% end %>
+  </li>
+  <li class="list-inline-item">
+    <%= link_to comment_path(comment), data: { turbo_method: :delete, turbo_confirm: t("defaults.message.delete_confirm") }, class: "link-success link-offset-2 link-underline link-underline-opacity-0 link-opacity-100-hover", id: "button-delete-#{comment.id}" do %>
+      <i class="fa-regular fa-trash-can fa-xl"></i>
+    <% end %>
+  </li>
+</ul>

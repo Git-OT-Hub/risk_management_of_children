@@ -21,19 +21,17 @@
     </div>
     <div data-file-upload-target="validationImages">
       <% if post.images.attached? %>
-        <% post.images.each_with_index do |image, index| %>
-          <%= turbo_frame_tag dom_id(image), data: { index: index } do %>
-            <div class="mb-5">
-              <%= f.hidden_field :images, multiple: true, value: image.signed_id %>
-              <%= image_tag image.variant(:medium).processed.url, class: "img-fluid rounded-4 mb-2" %>
-              <p><%= image.blob.filename %></p>
-              <% if image.persisted? %>
-                <%= link_to t("defaults.message.delete"), delete_image_post_path(post, image_id: image.id), data: { turbo_method: :delete }, class: "btn btn-danger rounded-pill mb-4", id: "rspec-image-#{image.id}" %>
-              <% else %>
-                <%= link_to t("defaults.message.delete"), "", class: "btn btn-danger rounded-pill mb-4", data: { action: "click->file-upload#deleteImage", index: "#{index}" } %>
-              <% end %>
-            </div>
-          <% end %>
+        <% post.images.each_with_index do |image, index| %> 
+          <div class="mb-5" id="<%= dom_id(image) %>" data-index="<%= index %>">
+            <%= f.hidden_field :images, multiple: true, value: image.signed_id %>
+            <%= image_tag image.variant(:medium).processed.url, class: "img-fluid rounded-4 mb-2" %>
+            <p><%= image.blob.filename %></p>
+            <% if image.persisted? %>
+              <%= link_to t("defaults.message.delete"), delete_image_post_path(post, image_id: image.id), data: { turbo_method: :delete }, class: "btn btn-danger rounded-pill mb-4", id: "rspec-image-#{image.id}" %>
+            <% else %>
+              <%= link_to t("defaults.message.delete"), "", class: "btn btn-danger rounded-pill mb-4", data: { action: "click->file-upload#deleteImage", index: "#{index}" } %>
+            <% end %>
+          </div>
         <% end %>
       <% end %>
     </div>

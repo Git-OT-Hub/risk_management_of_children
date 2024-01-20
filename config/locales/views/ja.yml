@@ -194,13 +194,17 @@ ja:
       not_created: "%{item}を作成できませんでした"
       input_required: "※ 入力必須"
       quantity_limit: "※ 4枚まで 投稿可能です。"
-      byte_size_limit: "※ 1枚あたり、10MB以下 にしてください。"
+      byte_size_limit: "※ 1枚あたり、5MB以下 にしてください。"
       content_type_limit: "※ 投稿可能なファイル形式は、JPEG, JPG, PNG, GIF となります。"
+      comment_image_quantity_limit: "※ 一度に添付できる枚数は 1枚まで です。"
       delete: "削除"
       updated: "%{item}を更新しました"
       not_updated: "%{item}を更新できませんでした"
       deleted: "%{item}を削除しました"
       delete_confirm: "削除しますか？"
+      new_comment: "コメントする"
+      cancel: "キャンセル"
+      need_delete_image: "※ 画像を変更する場合、先に画像を削除する必要があります。"
   users:
     new:
       title: "ユーザー登録"

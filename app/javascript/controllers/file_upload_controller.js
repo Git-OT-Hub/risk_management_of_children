@@ -11,6 +11,33 @@ export default class extends Controller {
   handleFileChange(event) {
     const files = event.target.files;
 
+    // 枚数制限を超える場合はアラートを表示して中止
+    const currentPreviewsCount = this.previewsTarget.children.length;
+    const currentValidationImagesCount = this.validationImagesTarget.children.length;
+    const newFileCount = files.length;
+    const totalCount = currentPreviewsCount + currentValidationImagesCount + newFileCount
+    if (totalCount > 4) {
+      alert("画像は 4枚以下 にしてください。");
+      this.fileInputTarget.value = '';
+      return;
+    }
+
+    const allowExtensions = /\.(jpeg|jpg|png|gif)$/;
+    // 5MBを超える画像が添付されている場合または、許可さえていない拡張子が含まれる場合、アラートを表示して中止
+    for (let i = 0; i < files.length; i++) {
+      if (files[i].size > 5 * 1024 * 1024) {
+        alert("5MBを超える画像が添付されています。");
+        this.fileInputTarget.value = '';
+        return;
+      }
+
+      if (!files[i].name.match(allowExtensions)) {
+        alert("ファイル形式が jpeg, jpg, png, gif 以外のファイルは、添付できません。");
+        this.fileInputTarget.value = '';
+        return;
+      }
+    }
+
     Array.from(files).forEach(file => {
       const uploader = new DirectUpload(file, '/rails/active_storage/direct_uploads');
 

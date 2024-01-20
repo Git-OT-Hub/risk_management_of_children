@@ -21,7 +21,7 @@
     </div>
     <div data-file-upload-target="validationImages">
       <% if post.images.attached? %>
-        <% post.images.each_with_index do |image, index| %> 
+        <% post.images.each_with_index do |image, index| %>
           <div class="mb-5" id="<%= dom_id(image) %>" data-index="<%= index %>">
             <%= f.hidden_field :images, multiple: true, value: image.signed_id %>
             <%= image_tag image.variant(:medium).processed.url, class: "img-fluid rounded-4 mb-2" %>

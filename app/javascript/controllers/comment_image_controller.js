@@ -35,8 +35,8 @@ export default class extends Controller {
     if (hiddenField && hiddenField.value !== undefined) {
       hiddenField.value = "";
     }
-    input.value = ""; // inputファイルをクリア
-    preview.src = ""; // プレビューをクリア
+    input.value = "";
+    preview.src = "";
     // プレビューがない場合、no_image.pngを再表示
     let noImage = document.querySelector("[data-comment-image-target='preview']");
     noImage.src = "/assets/no_image.png";
@@ -58,7 +58,7 @@ export default class extends Controller {
     // 画像が既に添付されている場合はアラートを表示し、ファイルの選択をキャンセルする
     if (this.hiddenFieldTarget.value !== "") {
       alert("画像を先に削除してください。");
-      event.preventDefault(); // ファイルの選択をキャンセル
+      event.preventDefault();
     }
   }
 }

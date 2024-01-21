@@ -34,6 +34,7 @@ Rails.application.routes.draw do
       end
     end
   end
+  resources :bookmarks, only: %i[create destroy]
   resource :my_page, only: %i[show edit update] do
     collection do
       get "bookmarks", action: :bookmarks

@@ -34,4 +34,6 @@ Rails.application.routes.draw do
       end
     end
   end
+  resource :my_page, only: %i[show edit update] do
+  end
 end

@@ -1,0 +1,42 @@
+<% content_for(:title, t(".title")) %>
+<div class="container mt-5">
+  <!-- プロフィール -->
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      <h1><%= t(".title") %></h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <nav class="navbar navbar-expand-md bg-body">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerMyPage" aria-controls="navbarTogglerMyPage" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="dropdown-toggle"><%= t(".item_list") %></span>
+          </button>
+          <div class="collapse navbar-collapse mt-2 mt-md-0" id="navbarTogglerMyPage">
+            <ul class="navbar-nav">
+              <li class="nav-item me-5">
+                <%= link_to t(".diagnosis"), "", data: { turbo_stream: true }, class: "nav-link" %>
+              </li>
+              <li class="nav-item me-5">
+                <%= link_to t(".user_posts"), "", data: { turbo_stream: true }, class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to t(".favorite_posts"), "", data: { turbo_stream: true }, class: "nav-link" %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <!-- 診断結果 / 自分の投稿 / お気に入り登録した投稿 -->
+  <div class="row mt-4">
+    <div class="col-12" id="my_page_item_list">
+      <!-- デフォルトで診断結果を表示 -->
+      <h1>診断結果</h1>
+    </div>
+  </div>
+</div>

@@ -18,4 +18,16 @@ class User < ApplicationRecord
   def own?(object)
     object.user_id == id
   end
+
+  def bookmark?(post)
+    post.bookmarks.pluck(:user_id).include?(id)
+  end
+
+  def bookmark(post)
+    bookmark_posts << post
+  end
+
+  def unbookmark(post)
+    bookmark_posts.destroy(post)
+  end
 end

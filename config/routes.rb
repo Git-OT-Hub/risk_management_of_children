@@ -35,5 +35,8 @@ Rails.application.routes.draw do
     end
   end
   resource :my_page, only: %i[show edit update] do
+    collection do
+      get "bookmarks", action: :bookmarks
+    end
   end
 end

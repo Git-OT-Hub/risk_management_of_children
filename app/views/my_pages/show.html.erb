@@ -23,7 +23,7 @@
                 <%= link_to t(".user_posts"), "", data: { turbo_stream: true }, class: "nav-link" %>
               </li>
               <li class="nav-item">
-                <%= link_to t(".favorite_posts"), "", data: { turbo_stream: true }, class: "nav-link" %>
+                <%= link_to t(".favorite_posts"), bookmarks_my_page_path, data: { turbo_stream: true }, class: "nav-link" %>
               </li>
             </ul>
           </div>

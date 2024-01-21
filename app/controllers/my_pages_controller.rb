@@ -7,4 +7,7 @@ class MyPagesController < ApplicationController
 
   def update
   end
+
+  def bookmarks
+  end
 end

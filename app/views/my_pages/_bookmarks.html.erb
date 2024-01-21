@@ -1,6 +1,6 @@
 <div class="row">
   <% if @posts.present? %>
-    <%= render partial: "post", collection: @posts %>
+    <%= render partial: "posts/post", collection: @posts %>
   <% else %>
     <p><%= t("defaults.message.no_bookmarks") %></p>
   <% end %>

@@ -206,7 +206,7 @@ ja:
       new_comment: "コメントする"
       cancel: "キャンセル"
       need_delete_image: "※ 画像を変更する場合、先に画像を削除する必要があります。"
-      no_bookmarks: "お気に入り登録した投稿はありません。"
+      no_bookmarks: "お気に入り登録している投稿はありません。"
   users:
     new:
       title: "ユーザー登録"
@@ -249,6 +249,11 @@ ja:
     edit:
       title: "投稿編集"
       to_posts_page: "投稿一覧に戻る"
+  bookmarks:
+    create:
+      success: "お気に入り登録しました"
+    destroy:
+      success: "お気に入り登録を解除しました"
   my_pages:
     show:
       title: "マイページ"

@@ -1,0 +1,7 @@
+<div id="<%= dom_id(post, "bookmark") %>">
+  <% if current_user.bookmark?(post) %>
+    <%= render "posts/unbookmark", { post: post } %>
+  <% else %>
+    <%= render "posts/bookmark", { post: post } %>
+  <% end %>
+</div>

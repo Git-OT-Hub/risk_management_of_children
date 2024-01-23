@@ -45,7 +45,11 @@
           <%= l post.created_at, format: :long %>
         </li>
       </ul>
-      <%= render "crud_menus", post: post if logged_in? && current_user.own?(post) %>
+      <% if logged_in? && current_user.own?(post) %>
+        <%= render "crud_menus", post: post  %>
+      <% else %>
+        <%= render "bookmark_button", post: post if logged_in? %>
+      <% end %>
     </div>
   </div>
 </div>

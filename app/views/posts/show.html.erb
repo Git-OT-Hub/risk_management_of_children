@@ -74,6 +74,8 @@
                 <% end %>
               </li>
             </ul>
+          <% else %>
+            <%= render "bookmark_button", post: @post if logged_in? %>
           <% end %>
         </div>
       </article>

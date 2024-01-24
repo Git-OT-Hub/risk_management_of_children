@@ -46,9 +46,9 @@
         </li>
       </ul>
       <% if logged_in? && current_user.own?(post) %>
-        <%= render "crud_menus", post: post  %>
+        <%= render "posts/crud_menus", post: post  %>
       <% else %>
-        <%= render "bookmark_button", post: post if logged_in? %>
+        <%= render "posts/bookmark_button", post: post if logged_in? %>
       <% end %>
     </div>
   </div>

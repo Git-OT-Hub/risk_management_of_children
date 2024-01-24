@@ -9,31 +9,33 @@
 
   <div class="row">
     <div class="col-12">
-      <nav class="navbar navbar-expand-md bg-body">
-        <div class="container-fluid">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerMyPage" aria-controls="navbarTogglerMyPage" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="dropdown-toggle"><%= t(".item_list") %></span>
-          </button>
-          <div class="collapse navbar-collapse mt-2 mt-md-0" id="navbarTogglerMyPage">
-            <ul class="navbar-nav">
-              <li class="nav-item me-5">
-                <%= link_to t(".diagnosis"), "", data: { turbo_stream: true }, class: "nav-link" %>
-              </li>
-              <li class="nav-item me-5">
-                <%= link_to t(".user_posts"), "", data: { turbo_stream: true }, class: "nav-link" %>
-              </li>
-              <li class="nav-item">
-                <%= link_to t(".favorite_posts"), bookmarks_my_page_path, data: { turbo_stream: true }, class: "nav-link" %>
-              </li>
-            </ul>
+      <div class="border-top border-success border-start-0 border-end-0 border-3 border-opacity-75">
+        <nav class="navbar navbar-expand-md">
+          <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerMyPage" aria-controls="navbarTogglerMyPage" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="dropdown-toggle"><%= t(".item_list") %></span>
+            </button>
+            <div class="collapse navbar-collapse mt-2 mt-md-0" id="navbarTogglerMyPage">
+              <ul class="navbar-nav me-auto fs-5">
+                <li class="nav-item me-5">
+                  <%= link_to t(".diagnosis"), "", data: { turbo_stream: true }, class: "nav-link" %>
+                </li>
+                <li class="nav-item me-5">
+                  <%= link_to "#{current_user.name} #{t(".user_posts")}", "", data: { turbo_stream: true }, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to t(".favorite_posts"), bookmarks_my_page_path, data: { turbo_stream: true }, class: "nav-link" %>
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </div> 
     </div>
   </div>
 
   <!-- 診断結果 / 自分の投稿 / お気に入り登録した投稿 -->
-  <div class="row mt-4">
+  <div class="row mt-5">
     <div class="col-12" id="my_page_item_list">
       <!-- デフォルトで診断結果を表示 -->
       <h1>診断結果</h1>

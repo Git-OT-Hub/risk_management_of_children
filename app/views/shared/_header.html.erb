@@ -2,35 +2,35 @@
   <nav class="navbar navbar-expand-lg bg-success p-2 text-black bg-opacity-75">
     <div class="container-fluid">
       <%= link_to root_path, class: "navbar-brand" do %>
-        <%= image_tag "sample2.png", size: "60x50", class: "d-inline-block align-middle" %>
+        <%= image_tag "sample2.png", size: "60x50", class: "d-inline-block align-middle me-2" %>
         タイトル
       <% end %>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerHeader" aria-controls="navbarTogglerHeader" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerHeader">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex align-items-center">
-          <li class="nav-item ms-3">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item ms-3 pt-lg-3">
             <%= link_to t("defaults.diagnosis"), "#", class: "nav-link" %>
           </li>
-          <li class="nav-item ms-3">
+          <li class="nav-item ms-3 pt-lg-3">
             <%= link_to t("defaults.post"), posts_path, class: "nav-link" %>
           </li>
-          <li class="nav-item ms-3">
+          <li class="nav-item ms-3 pt-lg-3">
             <%= link_to t("defaults.logout"), logout_path, data: { turbo_method: :delete, turbo_confirm: t("defaults.message.logout_confirmation") }, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown ms-3">
             <%= link_to "#", class: "nav-link dropdown-toggle", role: "button", "data-bs-toggle" => "dropdown", "aria-expanded" => "false" do %>
               <%= image_tag "sample1.png", class: "rounded-circle", size: "60x60" %>
             <% end %>
-            <ul class="dropdown-menu dropdown-menu-end">
+            <ul class="dropdown-menu dropdown-menu-end mb-2">
               <li class="dropdown-item"><%= current_user.name %></li>
               <li><hr class="dropdown-divider"></li>
               <li><%= link_to t("defaults.my_page"), my_page_path, class: "dropdown-item" %></li>
             </ul>
           </li>
           <!-- if文で分岐 -->
-          <li class="nav-item ms-3">
+          <li class="nav-item ms-3 pt-lg-3">
             <%= link_to "#", class: "nav-link" do %>
               <i class="fa-regular fa-bell fa-2xl"></i>
             <% end %>

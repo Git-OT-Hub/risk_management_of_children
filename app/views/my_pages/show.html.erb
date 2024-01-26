@@ -1,0 +1,30 @@
+<% content_for(:title, t(".title")) %>
+<div class="container mt-5">
+  <!-- プロフィール -->
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      <h1><%= t(".title") %></h1>
+    </div>
+  </div>
+
+  <!-- 表示切り替えリンク -->
+  <div class="row">
+    <div class="col-12">
+      <div class="border-top border-success border-start-0 border-end-0 border-3 border-opacity-75">      
+        <nav class="nav nav-underline flex-column flex-md-row grid gap-3 row-gap-2 mt-3 mt-md-2 fs-5">
+          <%= link_to t(".diagnosis"), "", data: { turbo_stream: true }, class: "flex-md-fill text-md-center nav-link link-dark link-opacity-75 link-opacity-100-hover py-0 py-md-2" %>
+          <%= link_to "#{current_user.name} #{t(".user_posts")}", "", data: { turbo_stream: true }, class: "flex-md-fill text-md-center nav-link link-dark link-opacity-75 link-opacity-100-hover py-0 py-md-2" %>
+          <%= link_to t(".favorite_posts"), bookmarks_my_page_path, data: { turbo_stream: true }, class: "flex-md-fill text-md-center nav-link link-dark link-opacity-75 link-opacity-100-hover py-0 py-md-2" %>
+        </nav>
+      </div> 
+    </div>
+  </div>
+
+  <!-- 診断結果 / 自分の投稿 / お気に入り登録した投稿 -->
+  <div class="row mt-5">
+    <div class="col-12" id="my_page_item_list">
+      <!-- デフォルトで診断結果を表示 -->
+      <h1>診断結果</h1>
+    </div>
+  </div>
+</div>

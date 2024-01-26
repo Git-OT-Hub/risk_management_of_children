@@ -206,6 +206,8 @@ ja:
       new_comment: "コメントする"
       cancel: "キャンセル"
       need_delete_image: "※ 画像を変更する場合、先に画像を削除する必要があります。"
+      no_bookmarks: "お気に入り登録している投稿はありません。"
+      delete_bookmark: "お気に入り登録を解除しますか？"
   users:
     new:
       title: "ユーザー登録"
@@ -244,7 +246,19 @@ ja:
       to_posts_page: "投稿一覧に戻る"
     show:
       title: "投稿詳細"
-      to_posts_page: "投稿一覧に戻る"
+      back_to_previous_page: "戻る"
     edit:
       title: "投稿編集"
       to_posts_page: "投稿一覧に戻る"
+  bookmarks:
+    create:
+      success: "お気に入り登録しました"
+    destroy:
+      success: "お気に入り登録を解除しました"
+  my_pages:
+    show:
+      title: "マイページ"
+      item_list: "項目一覧"
+      diagnosis: "診断結果一覧"
+      user_posts: "さんの投稿一覧"
+      favorite_posts: "お気に入りの投稿一覧"

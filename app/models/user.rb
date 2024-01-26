@@ -5,6 +5,8 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
+  has_many :bookmark_posts, through: :bookmarks, source: :post
 
   validates :password, length: { minimum: 8 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
@@ -15,5 +17,17 @@ class User < ApplicationRecord
 
   def own?(object)
     object.user_id == id
+  end
+
+  def bookmark?(post)
+    post.bookmarks.pluck(:user_id).include?(id)
+  end
+
+  def bookmark(post)
+    bookmark_posts << post
+  end
+
+  def unbookmark(post)
+    bookmark_posts.destroy(post)
   end
 end

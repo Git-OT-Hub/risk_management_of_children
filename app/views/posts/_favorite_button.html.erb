@@ -1,0 +1,7 @@
+<div class="me-5" id="<%= dom_id(post, "favorite") %>">
+  <% if current_user.favorite?(post) %>
+    <%= render "posts/remove_favorite", { post: post } %>
+  <% else %>
+    <%= render "posts/favorite", { post: post } %>
+  <% end %>
+</div>

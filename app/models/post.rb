@@ -2,6 +2,7 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   has_many_attached :images do |attachable|
     attachable.variant :medium, resize_to_limit: [900, 900]

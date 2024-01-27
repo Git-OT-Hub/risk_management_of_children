@@ -9,8 +9,9 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    @post = current_user.favorites.find(params[:id]).post
-    current_user.remove_favorite(@post)
+    post = current_user.favorites.find(params[:id]).post
+    current_user.remove_favorite(post)
+    @current_post = Post.find(post.id)
     respond_to do |format|
       format.turbo_stream { flash.now[:success] = t(".success") }
       format.html { redirect_back fallback_location: posts_path, success: t(".success") }

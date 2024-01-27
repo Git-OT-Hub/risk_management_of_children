@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_posts, through: :bookmarks, source: :post
   has_many :favorites, dependent: :destroy
+  has_many :favorite_posts, through: :favorites, source: :post
 
   validates :password, length: { minimum: 8 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
@@ -30,5 +31,17 @@ class User < ApplicationRecord
 
   def unbookmark(post)
     bookmark_posts.destroy(post)
+  end
+
+  def favorite?(post)
+    post.favorites.pluck(:user_id).include?(id)
+  end
+
+  def favorite(post)
+    favorite_posts << post
+  end
+
+  def remove_favorite(post)
+    favorite_posts.destroy(post)
   end
 end

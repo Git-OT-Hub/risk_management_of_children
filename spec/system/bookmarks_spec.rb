@@ -6,7 +6,7 @@ RSpec.describe "Bookmarks", type: :system do
   let(:post_by_others) { create(:post) }
   let(:my_bookmark) { create(:bookmark, user: me, post: post_by_others) }
 
-  describe "bookmarkのアイコン表示" do
+  describe "bookmarkのcreate,destroy機能" do
     before do
       my_post
       post_by_others

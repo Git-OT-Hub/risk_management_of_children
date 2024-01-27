@@ -1,0 +1,3 @@
+<%= turbo_stream.replace dom_id(@post, "favorite"), partial: "posts/favorite_button", locals: { post: @post } %>
+
+<%= turbo_stream_flash %>

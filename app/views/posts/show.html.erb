@@ -75,7 +75,10 @@
               </li>
             </ul>
           <% else %>
-            <%= render "bookmark_button", post: @post if logged_in? %>
+            <div class="d-flex justify-content-end">
+              <%= render "posts/favorite_button", post: @post if logged_in? %>
+              <%= render "posts/bookmark_button", post: @post if logged_in? %>
+            </div>
           <% end %>
         </div>
       </article>

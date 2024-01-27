@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[edit update destroy]
 
   def index
-    @posts = Post.all.includes([:user, :bookmarks]).with_attached_images.order(created_at: :desc)
+    @posts = Post.all.includes([:user, :bookmarks, :favorites]).with_attached_images.order(created_at: :desc)
   end
 
   def show

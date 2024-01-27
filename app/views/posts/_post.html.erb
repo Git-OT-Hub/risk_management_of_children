@@ -48,7 +48,10 @@
       <% if logged_in? && current_user.own?(post) %>
         <%= render "posts/crud_menus", post: post  %>
       <% else %>
-        <%= render "posts/bookmark_button", post: post if logged_in? %>
+        <div class="d-flex justify-content-end">
+          <%= render "posts/favorite_button", post: post if logged_in? %>
+          <%= render "posts/bookmark_button", post: post if logged_in? %>
+        </div>
       <% end %>
     </div>
   </div>

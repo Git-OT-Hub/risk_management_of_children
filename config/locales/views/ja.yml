@@ -255,6 +255,11 @@ ja:
       success: "お気に入り登録しました"
     destroy:
       success: "お気に入り登録を解除しました"
+  favorites:
+    create:
+      success: "いいねしました"
+    destroy:
+      success: "いいねを解除しました"
   my_pages:
     show:
       title: "マイページ"

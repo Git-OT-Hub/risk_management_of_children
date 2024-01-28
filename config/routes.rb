@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   resource :my_page, only: %i[show edit update] do
     collection do
       get "bookmarks", action: :bookmarks
+      get "my_posts", action: :my_posts
     end
   end
 end

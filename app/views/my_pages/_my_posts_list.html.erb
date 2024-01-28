@@ -1,0 +1,7 @@
+<div class="row">
+  <% if my_posts.present? %>
+    <%= render partial: "posts/post", collection: my_posts %>
+  <% else %>
+    <p><%= t("defaults.message.no_my_posts") %></p>
+  <% end %>
+</div>

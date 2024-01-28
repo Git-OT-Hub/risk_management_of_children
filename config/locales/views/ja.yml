@@ -268,3 +268,10 @@ ja:
       diagnosis: "診断結果一覧"
       user_posts: "さんの投稿一覧"
       favorite_posts: "お気に入りの投稿一覧"
+  views:
+    pagination:
+      first: "最初"
+      last: "最後"
+      previous: <i class="fa-solid fa-angle-left"></i> 前
+      next: 次 <i class="fa-solid fa-angle-right"></i>
+      truncate: "..."

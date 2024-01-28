@@ -208,6 +208,7 @@ ja:
       need_delete_image: "※ 画像を変更する場合、先に画像を削除する必要があります。"
       no_bookmarks: "お気に入り登録している投稿はありません。"
       delete_bookmark: "お気に入り登録を解除しますか？"
+      no_my_posts: "投稿がありません。"
   users:
     new:
       title: "ユーザー登録"

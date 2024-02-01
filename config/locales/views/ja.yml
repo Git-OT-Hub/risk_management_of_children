@@ -244,13 +244,14 @@ ja:
       new_post: "投稿する"
     new:
       title: "投稿作成"
-      to_posts_page: "投稿一覧に戻る"
+      back_to_previous_page: "戻る"
     show:
       title: "投稿詳細"
       back_to_previous_page: "戻る"
+      to_posts_page: "投稿一覧へ"
     edit:
       title: "投稿編集"
-      to_posts_page: "投稿一覧に戻る"
+      back_to_previous_page: "戻る"
   bookmarks:
     create:
       success: "お気に入り登録しました"
@@ -268,6 +269,16 @@ ja:
       diagnosis: "診断結果一覧"
       user_posts: "さんの投稿一覧"
       favorite_posts: "お気に入りの投稿一覧"
+    bookmarks:
+      diagnosis: "診断結果一覧"
+      user_posts: "さんの投稿一覧"
+      favorite_posts: "お気に入りの投稿一覧"
+      to_my_page: "マイページへ"
+    my_posts:
+      diagnosis: "診断結果一覧"
+      user_posts: "さんの投稿一覧"
+      favorite_posts: "お気に入りの投稿一覧"
+      to_my_page: "マイページへ"
   views:
     pagination:
       first: "最初"

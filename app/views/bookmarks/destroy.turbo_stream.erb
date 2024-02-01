@@ -1,5 +1,3 @@
 <%= turbo_stream.replace dom_id(@post, "bookmark"), partial: "posts/bookmark_button", locals: { post: @post } %>
 
-<%= turbo_stream.update("my_page_item_list", partial: "my_pages/bookmarks_list", locals: { bookmark_posts: @bookmark_posts }) %>
-
 <%= turbo_stream_flash %>

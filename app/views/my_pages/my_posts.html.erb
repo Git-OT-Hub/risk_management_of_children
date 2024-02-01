@@ -1,1 +1,42 @@
-<%= render "my_posts_list", my_posts: @my_posts %>
+<% content_for(:title, "#{current_user.name} #{t(".user_posts")}") %>
+<div class="container mt-5">
+  <!-- 表示切り替えリンク -->
+  <div class="row">
+    <div class="col-12">
+      <div class="border-top border-success border-start-0 border-end-0 border-3 border-opacity-75">      
+        <nav class="nav nav-underline flex-column flex-md-row grid gap-3 row-gap-2 mt-3 mt-md-2 fs-5">
+          <%= link_to t(".diagnosis"), "", class: "flex-md-fill text-md-center nav-link link-dark link-opacity-75 link-opacity-100-hover py-0 py-md-2" %>
+          <%= link_to "#{current_user.name} #{t(".user_posts")}", my_posts_my_page_path, class: "flex-md-fill text-md-center nav-link link-dark link-opacity-75 link-opacity-100-hover py-0 py-md-2" %>
+          <%= link_to bookmarks_my_page_path, class: "flex-md-fill text-md-center nav-link link-dark link-opacity-75 link-opacity-100-hover py-0 py-md-2" do %>
+            <i class="fa-solid fa-bookmark fa-xl text-primary"></i>
+            <%= t(".favorite_posts") %>
+          <% end %>
+        </nav>
+      </div> 
+    </div>
+  </div>
+
+  <!-- ユーザーの投稿一覧 -->
+  <div class="row mt-5">
+    <div class="col-12">
+      <h1 class="text-center mb-5"><%= "#{current_user.name} #{t(".user_posts")}" %></h1>
+      <div class="row mb-4">
+        <% if @my_posts.present? %>
+          <%= render partial: "posts/post", collection: @my_posts %>
+        <% else %>
+          <p><%= t("defaults.message.no_my_posts") %></p>
+        <% end %>
+      </div>
+      <%= render "shared/pagination", objects: @my_posts %>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-12">
+      <ul class="nav nav-underline justify-content-center fs-4">
+        <li class="nav-item">
+          <%= link_to t(".to_my_page"), my_page_path, class: "nav-link text-black p-0" %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

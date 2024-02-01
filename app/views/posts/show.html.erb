@@ -7,7 +7,7 @@
       <article class="card mb-5">
         <div class="card-body">
           <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-6">
               <!-- スライド形式の画像 -->
               <% if @post.images.attached? %>
                 <div id="carouselExampleIndicators" class="carousel carousel-dark slide">
@@ -36,7 +36,7 @@
                 <%= image_tag "no_image.png", class: "card-img-top img-fluid" %>
               <% end %>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-6">
               <h3 class="card-title my-4 fs-2"><%= @post.title %></h3>
               <ul class="list-inline mb-4">
                 <li class="list-inline-item me-3 mb-2">
@@ -90,12 +90,24 @@
       <%= render "comments/new_comment_link", post: @post %>
     </div>
   </div>
-  <%= render "comments/comments", comments: @comments %>
+  <%= turbo_frame_tag "comments_list_pagination", autoscroll: true, data: { autoscroll_block: "start" } do %>
+    <%= render "comments/comments", comments: @comments %>
+    <div class="row mb-4">
+      <div class="col-lg-10 offset-lg-1">
+        <%= render "shared/pagination", objects: @comments %>
+      </div>
+    </div>
+  <% end %>
   <div class="row mb-3">
     <div class="col-lg-10 offset-lg-1">
-      <div class="text-center fs-3">
-        <%= link_to t(".back_to_previous_page"), "javascript:history.back()", class: "text-black link-offset-2 link-offset-3-hover link-underline-dark link-underline-opacity-0 link-underline-opacity-75-hover" %>
-      </div>
+      <ul class="nav nav-underline grid gap-2 column-gap-5 justify-content-center fs-4">
+        <li class="nav-item">
+          <%= link_to t(".back_to_previous_page"), "javascript:history.back()", class: "nav-link text-black p-0" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to t(".to_posts_page"), posts_path, class: "nav-link text-black p-0" %>
+        </li>
+      </ul>
     </div>
   </div>
 </div>

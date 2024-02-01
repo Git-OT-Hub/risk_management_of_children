@@ -15,13 +15,14 @@
   <!-- 投稿一覧 -->
   <div class="row">
     <div class="col-12">
-      <div class="row">
+      <div class="row mb-4">
         <% if @posts.present? %>
           <%= render partial: "post", collection: @posts %>
         <% else %>
           <p><%= t(".no_result") %></p>
         <% end %>
       </div>
+      <%= render "shared/pagination", objects: @posts %>
     </div>
   </div>
 </div>

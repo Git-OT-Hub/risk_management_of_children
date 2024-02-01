@@ -3,12 +3,12 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[edit update destroy]
 
   def index
-    @posts = Post.all.includes([:user, :bookmarks, :favorites]).with_attached_images.order(created_at: :desc)
+    @posts = Post.all.includes([:user, :bookmarks, :favorites]).with_attached_images.order(created_at: :desc).page(params[:page])
   end
 
   def show
     @post = Post.find(params[:id])
-    @comments = @post.comments.includes(:user).with_attached_comment_image.order(created_at: :desc)
+    @comments = @post.comments.includes(:user).with_attached_comment_image.order(created_at: :desc).page(params[:page]).per(6)
   end
 
   def new

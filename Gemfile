@@ -50,6 +50,9 @@ gem "aws-sdk-s3", "1.142.0", require: false
 
 gem "config", "5.0.0"
 
+gem "kaminari", "1.2.2"
+gem "bootstrap5-kaminari-views", "0.0.1"
+
 gem "pry-byebug", "3.10.1"
 
 gem "rails-i18n", "7.0.8"

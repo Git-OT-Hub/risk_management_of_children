@@ -35,4 +35,12 @@ class Post < ApplicationRecord
       errors.add(:images, ": 4枚以下にしてください。")
     end
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w[title body comments.body]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    %w[comments]
+  end
 end

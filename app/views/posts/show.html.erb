@@ -90,7 +90,13 @@
       <%= render "comments/new_comment_link", post: @post %>
     </div>
   </div>
-  <%= turbo_frame_tag "comments_list_pagination", autoscroll: true, data: { autoscroll_block: "start" } do %>
+  <div class="row mb-4">
+    <div class="col-lg-10 offset-lg-1">
+      <!-- 検索フォーム -->
+      <%= render "shared/comments_search_form", q: @q, url: post_path(@post) %>
+    </div>
+  </div>
+  <%= turbo_frame_tag "comments_list", autoscroll: true, data: { autoscroll_block: "start" } do %>
     <%= render "comments/comments", comments: @comments %>
     <div class="row mb-4">
       <div class="col-lg-10 offset-lg-1">

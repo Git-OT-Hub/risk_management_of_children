@@ -209,6 +209,11 @@ ja:
       no_bookmarks: "お気に入り登録している投稿はありません。"
       delete_bookmark: "お気に入り登録を解除しますか？"
       no_my_posts: "投稿がありません。"
+      search_title: "タイトル"
+      search_body: "投稿内容"
+      search_comment: "投稿内のコメント"
+      search: "検索"
+      no_comments: "コメントはありません"
   users:
     new:
       title: "ユーザー登録"
@@ -240,7 +245,7 @@ ja:
   posts:
     index:
       title: "投稿一覧"
-      no_result: "投稿がありません"
+      no_result: "投稿はありません"
       new_post: "投稿する"
     new:
       title: "投稿作成"

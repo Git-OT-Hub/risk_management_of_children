@@ -22,4 +22,12 @@ class Comment < ApplicationRecord
       errors.add(:comment_image, ": 1枚あたり、5MB以下にしてください。")
     end
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w[body]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    %w[post]
+  end
 end

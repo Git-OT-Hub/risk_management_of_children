@@ -9,10 +9,12 @@ class MyPagesController < ApplicationController
   end
 
   def my_posts
-    @my_posts = current_user.posts.includes([:user, :bookmarks, :favorites]).with_attached_images.order(created_at: :desc).page(params[:page]).per(6)
+    @q = current_user.posts.ransack(params[:q])
+    @my_posts = @q.result(distinct: true).includes([:user, :bookmarks, :favorites]).with_attached_images.order(created_at: :desc).page(params[:page]).per(6)
   end
 
   def bookmarks
-    @bookmark_posts = current_user.bookmark_posts.includes([:user, :bookmarks, :favorites]).with_attached_images.order(created_at: :desc).page(params[:page]).per(6)
+    @q = current_user.bookmark_posts.ransack(params[:q])
+    @bookmark_posts = @q.result(distinct: true).includes([:user, :bookmarks, :favorites]).with_attached_images.order(created_at: :desc).page(params[:page]).per(6)
   end
 end

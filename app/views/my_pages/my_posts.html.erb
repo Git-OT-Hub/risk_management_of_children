@@ -19,7 +19,11 @@
   <!-- ユーザーの投稿一覧 -->
   <div class="row mt-5">
     <div class="col-12">
-      <h1 class="text-center mb-5"><%= "#{current_user.name} #{t(".user_posts")}" %></h1>
+      <h1 class="text-center mb-4"><%= "#{current_user.name} #{t(".user_posts")}" %></h1>
+      <!-- 検索フォーム -->
+      <div class="mb-4">
+        <%= render "shared/posts_search_form", q: @q, url: my_posts_my_page_path %>
+      </div>
       <div class="row mb-4">
         <% if @my_posts.present? %>
           <%= render partial: "posts/post", collection: @my_posts %>

@@ -12,3 +12,6 @@ application.register("file-upload", FileUploadController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import UserAvatarController from "./user_avatar_controller"
+application.register("user-avatar", UserAvatarController)

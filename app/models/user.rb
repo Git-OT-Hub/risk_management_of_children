@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_many :favorite_posts, through: :favorites, source: :post
 
   has_one_attached :avatar do |attachable|
-    attachable.variant :small, resize_to_limit: [200, 200]
+    attachable.variant :small, resize_to_limit: [400, 400]
   end
 
   validates :password, length: { minimum: 8 }, if: -> { new_record? || changes[:crypted_password] }

@@ -1,9 +1,47 @@
 <% content_for(:title, t(".title")) %>
 <div class="container mt-5">
   <!-- プロフィール -->
-  <div class="row">
+  <div class="row mb-3">
     <div class="col-md-10 offset-md-1">
-      <h1><%= t(".title") %></h1>
+      <ul class="list-inline float-start">
+        <li class="list-inline-item me-4 mb-2">
+          <h1 class="mb-0"><%= t(".title") %></h1>
+        </li>
+        <li class="list-inline-item align-top">
+          <%= link_to edit_my_page_path, class: "link-success", id: "button-edit-user" do %>
+            <i class="fa-solid fa-user-pen fa-2xl"></i>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row mb-4">
+    <div class="col-md-10 offset-md-1 mb-4 my-page-avatar">
+      <% if current_user.avatar.attached? %>
+        <%= image_tag current_user.avatar.variant(:small).processed.url, class: "img-thumbnail rounded-circle" %>
+      <% else %>
+        <%= image_tag "no_image.png", class: "img-thumbnail rounded-circle" %>
+      <% end %>
+    </div>
+    <div class="col-md-10 offset-md-1">
+      <ul class="list-inline float-start">
+        <li class="list-inline-item me-4 mb-2">
+          <h4 class="mb-0"><%= t(User.human_attribute_name(:name)) %></h4>
+        </li>
+        <li class="list-inline-item">
+          <h3 class="mb-0"><%= current_user.name %></h3>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-10 offset-md-1">
+      <ul class="list-inline float-start">
+        <li class="list-inline-item me-4 mb-2">
+          <h4 class="mb-0"><%= t(User.human_attribute_name(:email)) %></h4>
+        </li>
+        <li class="list-inline-item">
+          <h3 class="mb-0"><%= current_user.email %></h3>
+        </li>
+      </ul>
     </div>
   </div>
 

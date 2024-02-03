@@ -1,3 +1,4 @@
+// ページネーション
 .pagination {
   .page-item {
     .page-link {
@@ -15,5 +16,12 @@
     color: #000; 
     border-color: #000;
     border-width: 1px;
+  }
+}
+
+// マイページ/avatar
+.my-page-avatar {
+  .img-thumbnail {
+    max-width: 40%;
   }
 }

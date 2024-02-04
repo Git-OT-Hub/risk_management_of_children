@@ -10,18 +10,22 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerHeader">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item ms-3 pt-lg-3">
+          <li class="nav-item ms-3 d-flex align-items-center">
             <%= link_to t("defaults.diagnosis"), "#", class: "nav-link" %>
           </li>
-          <li class="nav-item ms-3 pt-lg-3">
+          <li class="nav-item ms-3 d-flex align-items-center">
             <%= link_to t("defaults.post"), posts_path, class: "nav-link" %>
           </li>
-          <li class="nav-item ms-3 pt-lg-3">
+          <li class="nav-item ms-3 d-flex align-items-center">
             <%= link_to t("defaults.logout"), logout_path, data: { turbo_method: :delete, turbo_confirm: t("defaults.message.logout_confirmation") }, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown ms-3">
             <%= link_to "#", class: "nav-link dropdown-toggle", role: "button", "data-bs-toggle" => "dropdown", "aria-expanded" => "false" do %>
-              <%= image_tag "sample1.png", class: "rounded-circle", size: "60x60" %>
+              <% if logged_in? && current_user.avatar.attached? %>
+                <%= image_tag current_user.avatar.variant(:small).processed.url, class: "img-thumbnail rounded-circle border-0", size: "80x80" %>
+              <% else %>
+                <%= image_tag "no_image.png", class: "img-thumbnail rounded-circle border-0", size: "80x80" %>
+              <% end %>
             <% end %>
             <ul class="dropdown-menu dropdown-menu-end mb-2">
               <li class="dropdown-item"><%= current_user.name %></li>
@@ -30,7 +34,7 @@
             </ul>
           </li>
           <!-- if文で分岐 -->
-          <li class="nav-item ms-3 pt-lg-3">
+          <li class="nav-item ms-3 d-flex align-items-center">
             <%= link_to "#", class: "nav-link" do %>
               <i class="fa-regular fa-bell fa-2xl"></i>
             <% end %>

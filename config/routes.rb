@@ -40,6 +40,7 @@ Rails.application.routes.draw do
     collection do
       get "bookmarks", action: :bookmarks
       get "my_posts", action: :my_posts
+      delete "delete_avatar", action: :delete_avatar
     end
   end
 end

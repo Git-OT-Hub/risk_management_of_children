@@ -10,12 +10,16 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorite_posts, through: :favorites, source: :post
 
+  has_one_attached :avatar do |attachable|
+    attachable.variant :small, resize_to_limit: [400, 400]
+  end
+
   validates :password, length: { minimum: 8 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
-
   validates :name, presence: true, length: { maximum: 255 }
   validates :email, uniqueness: true, presence: true
+  validate :avatar_content_type, :avatar_size
 
   def own?(object)
     object.user_id == id
@@ -43,5 +47,19 @@ class User < ApplicationRecord
 
   def remove_favorite(post)
     favorite_posts.destroy(post)
+  end
+
+  private
+
+  def avatar_content_type
+    if avatar.attached? && !avatar.blob.content_type.in?(%w[image/jpeg image/jpg image/png image/gif])
+      errors.add(:avatar, ": ファイル形式が、JPEG, JPG, PNG, GIF 以外になっています。ファイル形式をご確認ください。")
+    end
+  end
+
+  def avatar_size
+    if avatar.attached? && avatar.blob.byte_size > 5.megabytes
+      errors.add(:avatar, ": 1枚あたり、5MB以下にしてください。")
+    end
   end
 end

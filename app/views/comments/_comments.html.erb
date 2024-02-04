@@ -2,8 +2,6 @@
   <div class="col-lg-10 offset-lg-1" id="<%= dom_id(@post, :comments) %>">
     <% if comments.present? %> 
       <%= render partial: "comments/comment", collection: comments %>
-    <% else %>
-      <p><%= t("defaults.message.no_comments") %></p>
     <% end %>
   </div>
 </div>

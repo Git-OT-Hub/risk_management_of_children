@@ -39,5 +39,23 @@ RSpec.describe User, type: :model do
       expect(user_insufficient_word_count).to be_invalid
       expect(user_insufficient_word_count.errors[:password]).to eq ["は8文字以上で入力してください"]
     end
+
+    context "avatarが JPEG, JPG, PNG, GIF 以外の場合" do
+      it "無効であること" do
+        user = build(:user)
+        user.avatar.attach(io: File.open("spec/fixtures/test.pdf"), filename: "test.pdf", content_type: "application/pdf")
+        expect(user).to be_invalid
+        expect(user.errors[:avatar]).to include(": ファイル形式が、JPEG, JPG, PNG, GIF 以外になっています。ファイル形式をご確認ください。")
+      end
+    end
+
+    context "avatarが 5MB を超える場合" do
+      it "無効であること" do
+        user = build(:user)
+        user.avatar.attach(io: File.open("spec/fixtures/10MB.png"), filename: "10MB.png", content_type: "image/png")
+        expect(user).to be_invalid
+        expect(user.errors[:avatar]).to include(": 1枚あたり、5MB以下にしてください。")
+      end
+    end
   end
 end

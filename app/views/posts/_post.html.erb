@@ -30,8 +30,12 @@
     <div class="card-body">
       <h3 class="card-title mb-3 fs-2"><%= link_to post.title, post_path(post), class: "link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover lh-base" %></h4>
       <ul class="list-inline">
-        <li class="list-inline-item me-3 mb-2">
-          <%= image_tag "sample1.png", class: "rounded-circle", size: "40x40" %>
+        <li class="list-inline-item me-2 mb-2">
+          <% if post.user.avatar.attached? %>
+            <%= image_tag post.user.avatar.variant(:small).processed.url, class: "img-thumbnail rounded-circle", size: "80x80" %>
+          <% else %>
+            <%= image_tag "no_image.png", class: "img-thumbnail rounded-circle", size: "80x80" %>
+          <% end %>
         </li>
         <li class="list-inline-item fs-5">
           <%= post.user.name %>

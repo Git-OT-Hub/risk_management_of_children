@@ -14,6 +14,9 @@ class MyPagesController < ApplicationController
     end
   end
 
+  def delete_avatar
+  end
+
   def my_posts
     @q = current_user.posts.ransack(params[:q])
     @my_posts = @q.result(distinct: true).includes([:user, :bookmarks, :favorites]).with_attached_images.order(created_at: :desc).page(params[:page]).per(6)

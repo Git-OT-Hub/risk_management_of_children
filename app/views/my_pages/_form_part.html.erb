@@ -1,0 +1,21 @@
+<div class="card-body p-1">
+  <% if user.avatar.attached? %>
+    <%= image_tag user.avatar.variant(:small).processed.url, class: "img-fluid rounded mb-1", data: { user_avatar_target: "preview" } %>
+    <div class="d-flex justify-content-end">
+      <% if user.avatar.persisted? %>
+        <%= link_to t("defaults.message.delete"), delete_avatar_my_page_path, data: { turbo_method: :delete, action: "click->user-avatar#hiddenClear" }, class: "btn btn-danger rounded-pill" %>
+      <% else %>
+        <button type="button" class="btn btn-danger rounded-pill" data-action="click->user-avatar#delete">
+          <%= t("defaults.message.delete") %>
+        </button>
+      <% end %>
+    </div>
+  <% else %>
+    <%= image_tag "no_image.png", class: "img-fluid rounded mb-1", data: { user_avatar_target: "preview" } %>
+    <div class="d-flex justify-content-end">
+      <button type="button" class="btn btn-danger rounded-pill" data-action="click->user-avatar#delete">
+        <%= t("defaults.message.delete") %>
+      </button>
+    </div>
+  <% end %>
+</div>

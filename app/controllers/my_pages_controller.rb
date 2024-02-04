@@ -15,6 +15,12 @@ class MyPagesController < ApplicationController
   end
 
   def delete_avatar
+    current_user.avatar.purge
+    @user = User.find(current_user.id)
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.update("update_user_avatar", partial: "form_part", locals: { user: @user }) }
+      format.html { redirect_to edit_my_page_path }
+    end
   end
 
   def my_posts

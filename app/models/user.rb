@@ -18,7 +18,7 @@ class User < ApplicationRecord
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
   validates :name, presence: true, length: { maximum: 255 }
-  validates :email, uniqueness: true, presence: true
+  validates :email, uniqueness: { message: ": %{value} は登録できません" }, presence: true
   validate :avatar_content_type, :avatar_size
 
   def own?(object)

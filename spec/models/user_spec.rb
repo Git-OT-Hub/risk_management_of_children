@@ -24,7 +24,7 @@ RSpec.describe User, type: :model do
       user = create(:user)
       user_with_duplicated_email = build(:user, email: user.email)
       expect(user_with_duplicated_email).to be_invalid
-      expect(user_with_duplicated_email.errors[:email]).to eq ["はすでに存在します"]
+      expect(user_with_duplicated_email.errors[:email]).to eq [": #{user.email} は登録できません"]
     end
 
     it "別メールアドレスは有効" do

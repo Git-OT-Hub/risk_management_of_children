@@ -43,4 +43,5 @@ Rails.application.routes.draw do
       delete "delete_avatar", action: :delete_avatar
     end
   end
+  resources :password_resets, only: %i[new create edit update]
 end

@@ -184,6 +184,7 @@ ja:
     enquiry: "問い合わせ"
     privacy: "プライバシー"
     terms_of_service: "利用規約"
+    password_reset: "パスワードリセット"
     message:
       test: "テストです"
       mixed_alphanumeric: "は半角英数を両方含む必要があります"

@@ -291,9 +291,12 @@ ja:
   password_resets:
     new:
       title: "パスワードリセット申請"
+      explanation: "以下のメールアドレスにパスワードリセット用のURLをお送りします"
       submit: "送信"
+      to_login_page: "ログイン画面に戻る"
     edit:
       title: "パスワードリセット"
+      explanation: "新しいパスワードを入力してください"
     create:
       success: "パスワードリセット手順を送信しました"
     update:

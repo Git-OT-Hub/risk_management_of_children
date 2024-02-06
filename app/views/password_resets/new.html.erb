@@ -1,0 +1,21 @@
+<% content_for(:title, t(".title")) %>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+      <h1 class="text-center mb-5"><%= t(".title") %></h1>
+      <h4 class="text-center mb-5"><%= t(".explanation") %></h4>
+      <%= form_with url: password_resets_path do |f| %>
+        <div class="mb-5">
+          <%= f.label :email, t(User.human_attribute_name(:email)), class: "form-label" %>
+          <%= f.email_field :email, class: "form-control rounded-pill" %>
+        </div>
+        <div class="mb-5 text-center d-grid gap-2 col-3 mx-auto">
+          <%= f.submit t("password_resets.new.submit"), class: "btn btn-success rounded-pill" %>
+        </div>
+      <% end %>
+      <div class="text-center">
+        <%= link_to t(".to_login_page"), login_path, class: "text-black link-offset-2 link-offset-3-hover link-underline-dark link-underline-opacity-0 link-underline-opacity-75-hover" %>
+      </div>
+    </div>
+  </div>
+</div>

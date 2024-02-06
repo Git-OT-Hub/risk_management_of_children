@@ -6,11 +6,11 @@
       <h4 class="text-center mb-5"><%= t(".explanation") %></h4>
       <%= form_with model: @user, url: password_reset_path(@token) do |f| %>
         <%= render "shared/error_messages", object: f.object %>
-        <div class="mb-4">
-          <%= f.label :email, class: "form-label" %>
-          <%= @user.email %>
+        <div class="mb-5">
+          <%= f.label :email, class: "form-label" %><br />
+          <div class="fs-5"><%= @user.email %></div>
         </div>
-        <div class="mb-3">
+        <div class="mb-4">
           <%= f.label :password, class: "form-label" %>
           <div class="form-text mb-1"><%= t("users.new.password_explanation") %></div>
           <%= f.password_field :password, class: "form-control rounded-pill" %>

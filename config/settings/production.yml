@@ -1,2 +1,6 @@
 sorcery:
   google_callback_url: "https://www.indoor-baby-guardian.com/oauth/callback?provider=google"
+
+default_url_options:
+  protcol: "https"
+  host: "www.indoor-baby-guardian.com"

@@ -97,7 +97,7 @@ RSpec.describe "MyPages", type: :system do
             fill_in "メールアドレス", with: others.email
             click_on "更新する"
             expect(page).to have_content "ユーザーを更新できませんでした"
-            expect(page).to have_content "メールアドレスはすでに存在します"
+            expect(page).to have_content "メールアドレス: #{others.email} は登録できません"
             expect(current_path).to eq edit_my_page_path
           end
         end
@@ -133,6 +133,7 @@ RSpec.describe "MyPages", type: :system do
             fill_in "名前", with: "change_name"
             fill_in "メールアドレス", with: "change_email@example.com"
             click_on "削除"
+            sleep(2)
             click_on "更新する"
             expect(page).to have_content "ユーザーを更新しました"
             expect(current_path).to eq my_page_path

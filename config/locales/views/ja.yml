@@ -184,6 +184,7 @@ ja:
     enquiry: "問い合わせ"
     privacy: "プライバシー"
     terms_of_service: "利用規約"
+    password_reset: "パスワードリセット"
     message:
       test: "テストです"
       mixed_alphanumeric: "は半角英数を両方含む必要があります"
@@ -287,6 +288,20 @@ ja:
       user_posts: "さんの投稿一覧"
       favorite_posts: "お気に入りの投稿一覧"
       to_my_page: "マイページへ"
+  password_resets:
+    new:
+      title: "パスワードリセット申請"
+      explanation: "以下のメールアドレスにパスワードリセット用のURLをお送りします"
+      submit: "送信"
+      to_login_page: "ログイン画面に戻る"
+    edit:
+      title: "パスワードリセット"
+      explanation: "新しいパスワードを入力してください"
+    create:
+      success: "パスワードリセット手順を送信しました"
+    update:
+      success: "パスワードを変更しました"
+      fail: "パスワードの変更に失敗しました"
   views:
     pagination:
       first: "最初"

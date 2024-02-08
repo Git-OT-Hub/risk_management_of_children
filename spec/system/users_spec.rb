@@ -55,7 +55,7 @@ RSpec.describe "Users", type: :system do
           fill_in "パスワード確認", with: "P@ssw0rd"
           click_button "登録"
           expect(page).to have_content "ユーザー登録に失敗しました"
-          expect(page).to have_content "メールアドレスはすでに存在します"
+          expect(page).to have_content "メールアドレス: #{existed_user.email} は登録できません"
           expect(current_path).to eq new_user_path
           expect(page).to have_field "メールアドレス", with: existed_user.email
         end

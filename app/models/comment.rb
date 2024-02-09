@@ -2,12 +2,14 @@ class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :post
 
-  has_one_attached :comment_image do |attachable|
-    attachable.variant :thumb, resize_to_limit: [600, 600]
-  end
+  has_one_attached :comment_image
 
   validates :body, presence: true, length: { maximum: 65_535 }
   validate :comment_image_content_type, :comment_image_size
+
+  def comment_image_as_medium
+    comment_image.variant(resize_to_limit: [500, 500]).processed.url
+  end
 
   private
 

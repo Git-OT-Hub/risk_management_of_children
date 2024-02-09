@@ -20,7 +20,7 @@
         <div class="card-body p-1">
           <% if comment.comment_image.attached? %>
             <div>
-              <%= image_tag comment.comment_image.variant(:thumb).processed.url, class: "img-fluid rounded mb-1", data: { comment_image_target: "preview" } %>
+              <%= image_tag comment.comment_image_as_medium, class: "img-fluid rounded mb-1", data: { comment_image_target: "preview" } %>
               <div class="d-flex justify-content-end">
                 <% if comment.comment_image.persisted? %>
                   <%= link_to t("defaults.message.delete"), delete_comment_image_comment_path(comment), data: { turbo_method: :delete, action: "click->comment-image#hiddenClear" }, class: "btn btn-danger rounded-pill" %>

@@ -28,7 +28,7 @@
             <div class="col-sm-5 align-self-center ms-0" id="update_user_avatar">
               <div class="card-body p-1">
                 <% if @user.avatar.attached? %>
-                  <%= image_tag @user.avatar.variant(:small).processed.url, class: "img-fluid rounded-circle mb-1", data: { user_avatar_target: "preview" } %>
+                  <%= image_tag @user.avatar_as_small, class: "img-fluid rounded-circle mb-1", data: { user_avatar_target: "preview" } %>
                   <div class="d-flex justify-content-end">
                     <% if @user.avatar.persisted? %>
                       <%= link_to t("defaults.message.delete"), delete_avatar_my_page_path, data: { turbo_method: :delete, action: "click->user-avatar#hiddenClear" }, class: "btn btn-danger rounded-pill" %>

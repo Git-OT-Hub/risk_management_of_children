@@ -10,9 +10,7 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorite_posts, through: :favorites, source: :post
 
-  has_one_attached :avatar do |attachable|
-    attachable.variant :small, resize_to_limit: [400, 400]
-  end
+  has_one_attached :avatar
 
   validates :password, length: { minimum: 8 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
@@ -21,6 +19,10 @@ class User < ApplicationRecord
   validates :email, uniqueness: { message: ": %{value} は登録できません" }, presence: true
   validates :reset_password_token, uniqueness: true, allow_nil: true
   validate :avatar_content_type, :avatar_size
+
+  def avatar_as_small
+    avatar.variant(resize_to_limit: [250, 250]).processed.url
+  end
 
   def own?(object)
     object.user_id == id

@@ -19,7 +19,7 @@
                   <div class="carousel-inner">
                     <% @post.images.with_all_variant_records.each_with_index do |image, index| %>
                       <div class="carousel-item <%= index == 0 ? "active" : "" %>">
-                        <%= image_tag image.variant(:medium).processed.url, class: "d-block w-100" %>
+                        <%= image_tag images_as_medium(image), class: "d-block w-100" %>
                       </div>
                     <% end %>
                   </div>
@@ -41,7 +41,7 @@
               <ul class="list-inline mb-4">
                 <li class="list-inline-item me-2 mb-2">
                   <% if @post.user.avatar.attached? %>
-                    <%= image_tag @post.user.avatar.variant(:small).processed.url, class: "img-thumbnail rounded-circle", size: "80x80" %>
+                    <%= image_tag @post.user.avatar_as_small, class: "img-thumbnail rounded-circle", size: "80x80" %>
                   <% else %>
                     <%= image_tag "no_image.png", class: "img-thumbnail rounded-circle", size: "80x80" %>
                   <% end %>

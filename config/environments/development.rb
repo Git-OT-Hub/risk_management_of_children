@@ -37,7 +37,7 @@ Rails.application.configure do
   #config.active_storage.service = :local
   config.active_storage.service = :amazon
 
-  config.active_storage.variant_processor = :mini_magick
+  config.active_storage.variant_processor = :vips
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false

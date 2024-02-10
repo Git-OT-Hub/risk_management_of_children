@@ -72,6 +72,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_10_022921) do
     t.integer "number", null: false
     t.string "title", null: false
     t.text "danger"
+    t.string "item_name"
     t.text "recommend"
     t.string "rakuten_item_url"
     t.string "rakuten_item_image_url"

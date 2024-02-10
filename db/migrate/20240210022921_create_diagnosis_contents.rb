@@ -8,7 +8,7 @@ class CreateDiagnosisContents < ActiveRecord::Migration[7.1]
       t.string :item_name
       t.text :recommend
       t.text :rakuten_item_image_url
-      t.text :rakuten_item_text_url
+      t.text :rakuten_item_url
 
       t.timestamps
     end

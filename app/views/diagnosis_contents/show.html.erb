@@ -1,0 +1,66 @@
+<% content_for(:title, @diagnosis_content.title) %>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-10 offset-lg-1">
+      <div class="row grid gap-3 mb-5">
+        <div class="col-sm">
+          <h2 class="text-center mb-4"><%= @diagnosis_content.title %></h2>
+          <div class="text-center">
+            <%= image_tag @diagnosis_content.image, class: "img-fluid" %>
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="card border border-0">
+            <div class="card-header border border-0 bg-danger-subtle">
+              <h4 class="text-center mb-0"><%= t(".dangerous_point") %></h4>
+            </div>
+            <div class="card-body">
+              <p class="card-text"><%= @diagnosis_content.danger %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row grid gap-3 mb-5">
+        <div class="col-sm">
+          <div class="card border border-0">
+            <div class="card-header border border-0 bg-info-subtle">
+              <h4 class="text-center mb-0"><%= t(".recommended_goods") %></h4>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title text-center"><%= @diagnosis_content.item_name %></h5>
+              <p class="card-text"><%= @diagnosis_content.recommend %></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="card border border-0">
+            <div class="text-center">
+              <%= link_to @diagnosis_content.rakuten_item_url do %>
+                <%= image_tag @diagnosis_content.rakuten_item_image_url, class: "m-2" %>
+              <% end %>
+            </div>
+            <div class="card-footer border border-0 bg-success-subtle">
+              <p class="text-center mb-0"><%= t(".to_rakuten_page") %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row grid gap-3">
+        <div class="col-sm">
+        </div>
+        <div class="col-sm d-flex align-items-center justify-content-center">
+          <div class="fs-3">
+            <%= link_to t(".back_to_previous_page"), "javascript:history.back()", class: "text-black link-offset-2 link-offset-3-hover link-underline-dark link-underline-opacity-0 link-underline-opacity-75-hover" %>
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="text-center">
+            <%= image_tag "inspiration_hedgehog.png", class: "img-fluid" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

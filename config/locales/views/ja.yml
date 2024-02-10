@@ -302,6 +302,12 @@ ja:
     update:
       success: "パスワードを変更しました"
       fail: "パスワードの変更に失敗しました"
+  diagnosis_contents:
+    show:
+      dangerous_point: "危険なポイント"
+      recommended_goods: "おすすめのグッズ"
+      to_rakuten_page: "楽天市場で確認する（画像をクリック）"
+      back_to_previous_page: "戻る"
   views:
     pagination:
       first: "最初"

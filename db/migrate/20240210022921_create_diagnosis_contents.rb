@@ -3,11 +3,12 @@ class CreateDiagnosisContents < ActiveRecord::Migration[7.1]
     create_table :diagnosis_contents do |t|
       t.integer :number,               null: false
       t.string :title,                 null: false
+      t.string :image
       t.text :danger
       t.string :item_name
       t.text :recommend
-      t.string :rakuten_item_url
-      t.string :rakuten_item_image_url
+      t.text :rakuten_item_image_url
+      t.text :rakuten_item_text_url
 
       t.timestamps
     end

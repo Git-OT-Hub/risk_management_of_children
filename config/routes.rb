@@ -39,4 +39,5 @@ Rails.application.routes.draw do
     end
   end
   resources :password_resets, only: %i[new create edit update]
+  resources :diagnosis_contents, only: %i[index new create show edit update destroy]
 end

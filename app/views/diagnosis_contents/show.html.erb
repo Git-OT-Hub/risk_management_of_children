@@ -15,7 +15,7 @@
               <h4 class="text-center mb-0"><%= t(".dangerous_point") %></h4>
             </div>
             <div class="card-body">
-              <p class="card-text"><%= @diagnosis_content.danger %></p>
+              <p class="card-text"><%= simple_format(@diagnosis_content.danger) %></p>
             </div>
           </div>
         </div>
@@ -28,8 +28,8 @@
               <h4 class="text-center mb-0"><%= t(".recommended_goods") %></h4>
             </div>
             <div class="card-body">
-              <h5 class="card-title text-center"><%= @diagnosis_content.item_name %></h5>
-              <p class="card-text"><%= @diagnosis_content.item_description %></p>
+              <h5 class="card-title text-center"><%= simple_format("#{t(".recommended_goods_name")} #{@diagnosis_content.item_name}") %></h5>
+              <p class="card-text"><%= simple_format(@diagnosis_content.item_description) %></p>
             </div>
             <div class="card-body">
               <h5 class="card-title text-center"><%= t(".goods_point") %></h5>
@@ -45,7 +45,8 @@
               <% end %>
             </div>
             <div class="card-footer border border-0 bg-success-subtle">
-              <p class="text-center mb-0"><%= t(".to_rakuten_page") %></p>
+              <p class="text-center mb-1"><%= t(".to_rakuten_page") %></p>
+              <p class="text-center text-danger mb-0"><%= t(".for_reference_only") %></p>
             </div>
           </div>
         </div>

@@ -6,7 +6,8 @@ class CreateDiagnosisContents < ActiveRecord::Migration[7.1]
       t.string :image
       t.text :danger
       t.string :item_name
-      t.text :recommend
+      t.text :item_description
+      t.text :item_point
       t.text :rakuten_item_image_url
       t.text :rakuten_item_url
 

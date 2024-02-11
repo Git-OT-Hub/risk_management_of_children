@@ -1,16 +1,11 @@
-10.times do
-  User.create!(
-    name: Faker::Name.unique.name,
-    email: Faker::Internet.unique.email,
-    password: "P@ssw0rd",
-    password_confirmation: "P@ssw0rd"
-  )
-end
-
-20.times do |n|
-  Post.create!(
-    user: User.offset(rand(User.count)).first, 
-    title: "タイトル#{n}", 
-    body: "本文#{n}"
-  )
-end
+DiagnosisContent.create!(
+  number: 1,
+  title: "角や縁がむき出しの家具",
+  image: "diagnosis_content_image_1.png",
+  danger: ""
+  item_name:
+  item_description:
+  item_point:
+  rakuten_item_image_url:
+  rakuten_item_url:
+)

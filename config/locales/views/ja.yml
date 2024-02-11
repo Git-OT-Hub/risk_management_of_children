@@ -306,6 +306,7 @@ ja:
     show:
       dangerous_point: "危険なポイント"
       recommended_goods: "おすすめのグッズ"
+      goods_point: "ポイント"
       to_rakuten_page: "楽天市場で確認する（画像をクリック）"
       back_to_previous_page: "戻る"
   views:

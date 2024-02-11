@@ -29,7 +29,11 @@
             </div>
             <div class="card-body">
               <h5 class="card-title text-center"><%= @diagnosis_content.item_name %></h5>
-              <p class="card-text"><%= @diagnosis_content.recommend %></p>
+              <p class="card-text"><%= @diagnosis_content.item_description %></p>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title text-center"><%= t(".goods_point") %></h5>
+              <p class="card-text"><%= simple_format(@diagnosis_content.item_point) %></p>
             </div>
           </div>
         </div>

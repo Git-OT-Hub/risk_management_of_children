@@ -74,7 +74,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_10_022921) do
     t.string "image"
     t.text "danger"
     t.string "item_name"
-    t.text "recommend"
+    t.text "item_description"
+    t.text "item_point"
     t.text "rakuten_item_image_url"
     t.text "rakuten_item_url"
     t.datetime "created_at", null: false

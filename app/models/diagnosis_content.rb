@@ -25,3 +25,5 @@ class DiagnosisContent < ApplicationRecord
     end
   end
 end
+
+rakuten_item_names

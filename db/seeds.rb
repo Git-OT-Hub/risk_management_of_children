@@ -70,7 +70,7 @@ DiagnosisContent.create!(
 
 DiagnosisContent.create!(
   number: 6,
-  title: "子どもの行動範囲内に設置されている網戸",
+  title: "子どもの行動範囲内に設置されている網戸、窓",
   image: "diagnosis_content_image_6.png",
   danger: "窓を網戸にして換気をする場合、網戸は軽いため子どもの力だけで開け閉めができてしまいます。そのため、子どもが網戸を開けた際に、外へ転落してしまう恐れがあります。\r\n\r\nまた、網戸を開かなくしただけでは、窓は動いてしまうため、窓で指をはさむ危険性があります。",
   item_name: "網戸ストッパー、網戸ロック（網戸で使用） / 窓ストッパー（窓で使用）",
@@ -164,4 +164,17 @@ DiagnosisContent.create!(
   rakuten_item_image_urls: ["https://hbb.afl.rakuten.co.jp/hgb/3975f8cc.a9413732.3975f8cd.893d5420/?me_id=1400649&item_id=10003074&pc=https%3A%2F%2Fimage.rakuten.co.jp%2Fyamasoro%2Fcabinet%2Fyj6%2F3605-a210_1.jpg%3F_ex%3D300x300&s=300x300&t=pict", "https://hbb.afl.rakuten.co.jp/hgb/397040b9.92af150c.397040ba.e3f5f262/?me_id=1297949&item_id=10030710&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fra-must%2Fcabinet%2Fh3%2F1024975.jpg%3F_ex%3D300x300&s=300x300&t=pict", "https://hbb.afl.rakuten.co.jp/hgb/3976055c.c863852d.3976055d.d5938551/?me_id=1410020&item_id=10000001&pc=https%3A%2F%2Fimage.rakuten.co.jp%2Fkzon-mart%2Fcabinet%2Fplugcap%2Fcompass1655374609.jpg%3F_ex%3D300x300&s=300x300&t=pict"],
   rakuten_item_urls: ["https://hb.afl.rakuten.co.jp/ichiba/3975f8cc.a9413732.3975f8cd.893d5420/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyamasoro%2F3605-a210%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjMwMHgzMDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9", "https://hb.afl.rakuten.co.jp/ichiba/397040b9.92af150c.397040ba.e3f5f262/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fra-must%2F1024975%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjMwMHgzMDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9", "https://hb.afl.rakuten.co.jp/ichiba/3976055c.c863852d.3976055d.d5938551/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkzon-mart%2Fcompass1655375136%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjMwMHgzMDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9"],
   rakuten_item_names: ["山崎実業 コンセントガード スマート smart コンセントカバー 赤ちゃん 隠す コンセント収納 ベビーガード フルカバー お子様 ほこり いたずら 防災 感電防止 安心 リビング ホワイト ブラック 4156 4157", "リッチェル コンセントカバー コンセントフルカバー2連R ｜ 赤ちゃん いたずら防止 コンセントガード ロック 対策 塞ぐ 子供 電源", "コンセントカバー コンセントキャップ コンセントガード ベビーガード 白 24個 赤ちゃん 2口 感電防止 漏電 火災防止 大掃除 トラッキング防止 防災用品 ペット いたずら ほこり 防止"]
+)
+
+DiagnosisContent.create!(
+  number: 13,
+  title: "",
+  image: "",
+  danger: "",
+  item_name: "",
+  item_description: "",
+  item_point: "",
+  rakuten_item_image_urls: [],
+  rakuten_item_urls: [],
+  rakuten_item_names: []
 )

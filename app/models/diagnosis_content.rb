@@ -11,7 +11,7 @@ class DiagnosisContent < ApplicationRecord
   validates :item_name, length: { maximum: 255 }
   validates :item_description, length: { maximum: 65_535 }
   validates :item_point, length: { maximum: 65_535 }
-  validate :validate_rakuten_item_image_urls, :validate_rakuten_item_urls, :validate_rakuten_item_names
+  validate :validate_rakuten_item_image_urls, :validate_rakuten_item_urls, :validate_rakuten_item_names, :validate_rakuten_item_tags
 
   private
 

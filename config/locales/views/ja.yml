@@ -306,7 +306,8 @@ ja:
     show:
       dangerous_point: "危険なポイント"
       recommended_goods: "おすすめのグッズ"
-      recommended_goods_name: "商品名:"
+      recommended_goods_name: "商品名"
+      recommended_goods_overview: "どんな商品？"
       goods_point: "ポイント"
       to_rakuten_page: "楽天市場で確認する（画像をクリック）"
       for_reference_only: "※こちらの商品は参考程度に掲載しているため、ご自宅の環境に合ったものをお探しください。"

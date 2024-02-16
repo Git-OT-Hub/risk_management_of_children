@@ -76,6 +76,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_10_022921) do
     t.string "item_name"
     t.text "item_description"
     t.text "item_point"
+    t.text "rakuten_item_tags"
     t.text "rakuten_item_image_urls"
     t.text "rakuten_item_urls"
     t.text "rakuten_item_names"

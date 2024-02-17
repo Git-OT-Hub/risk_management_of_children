@@ -29,7 +29,7 @@ DiagnosisContent.create!(
 DiagnosisContent.create!(
   number: 3,
   title: "衝撃を吸収するものが敷かれていない床",
-  image: "diagnosis_content_image_3.jpg",
+  image: "diagnosis_content_image_3.png",
   danger: "転んだ拍子に、頭や体を硬い床にぶつけて怪我をする恐れがあります。",
   item_name: "ジョイントマット",
   item_description: "子どもが転んだ時の衝撃を和らげてくれるグッズ。",

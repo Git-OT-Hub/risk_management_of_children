@@ -159,7 +159,7 @@ DiagnosisContent.create!(
   danger: "一見するとコンセントの穴は小さく指が入らないため、安全に見えるかもしれません。\r\nしかし、よだれで濡れた手でさわったり、ヘアピンや硬貨を穴に入れたりした場合、感電する恐れがあります。",
   item_name: "コンセントカバー / コンセントキャップ",
   item_description: "【コンセントカバー】\r\nコンセント全体を覆い、プラグの引き抜きやコンセントへの接触を防ぐグッズ。\r\n\r\n【コンセントキャップ】\r\nキャップタイプの物を、差込口に1つずつはめ込むことで、コンセントへの接触を防ぐグッズ。",
-  item_point: "【コンセントカバー】\r\n子どもの手が届く箇所には、コンセント全体を保護できるコンセントカバーでの対策がおすすめです（コンセントキャップだと、子どもでも取り外せてしまう物もあるため）。\r\nコンセントカバーを検討する際は、購入予定の商品が、「ご自宅のコンセントの形状や口数に対応できるかどうか」、「コンセントに大きいアダプタを接続する場合、カバー内に入りきるかどうか」、「子どもにとって取り外しにくい構造になっているか」などをご確認ください。\r\nまた、壁紙の色に近い無地のデザインを選ぶなど、子どもの注意を集めにくい物を選択するのがおすすめです。\r\n\r\n【コンセントキャップ】\r\n子どもの手が届きにくい箇所やコンセントカバーの設置が困難な箇所、延長コードなどにおすすめです。\r\nしかし、商品によっては、子どもでも取り外せてしまう物もあるため注意が必要です（取り外して誤飲してしまう可能性もあります）。\r\nそのため、子どもでは取り外しが難しいロック機構付きで、子どもの注意を集めにくいデザインの物を検討するとよいでしょう。",
+  item_point: "【コンセントカバー】\r\n子どもの手が届く箇所には、コンセント全体を保護できるコンセントカバーでの対策がおすすめです（コンセントキャップだと、子どもでも取り外せてしまう物もあるため）。\r\nコンセントカバーを検討する際は、購入予定の商品が、「自宅のコンセントの形状や口数に対応できるかどうか」、「コンセントに大きいアダプタを接続する場合、カバー内に入りきるかどうか」、「子どもにとって取り外しにくい構造になっているか」などをご確認ください。\r\nまた、壁紙の色に近い無地のデザインを選ぶなど、子どもの注意を集めにくい物を選択するのがおすすめです。\r\n\r\n【コンセントキャップ】\r\n子どもの手が届きにくい箇所やコンセントカバーの設置が困難な箇所、延長コードなどにおすすめです。\r\nしかし、商品によっては、子どもでも取り外せてしまう物もあるため注意が必要です（取り外して誤飲してしまう可能性もあります）。\r\nそのため、子どもでは取り外しが難しいロック機構付きで、子どもの注意を集めにくいデザインの物を検討するとよいでしょう。",
   rakuten_item_tags: ["コンセントカバー（1連）", "コンセントカバー（2連）", "コンセントキャップ（ロック機構付き）"],
   rakuten_item_image_urls: ["https://hbb.afl.rakuten.co.jp/hgb/3975f8cc.a9413732.3975f8cd.893d5420/?me_id=1400649&item_id=10003074&pc=https%3A%2F%2Fimage.rakuten.co.jp%2Fyamasoro%2Fcabinet%2Fyj6%2F3605-a210_1.jpg%3F_ex%3D300x300&s=300x300&t=pict", "https://hbb.afl.rakuten.co.jp/hgb/397040b9.92af150c.397040ba.e3f5f262/?me_id=1297949&item_id=10030710&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fra-must%2Fcabinet%2Fh3%2F1024975.jpg%3F_ex%3D300x300&s=300x300&t=pict", "https://hbb.afl.rakuten.co.jp/hgb/3976055c.c863852d.3976055d.d5938551/?me_id=1410020&item_id=10000001&pc=https%3A%2F%2Fimage.rakuten.co.jp%2Fkzon-mart%2Fcabinet%2Fplugcap%2Fcompass1655374609.jpg%3F_ex%3D300x300&s=300x300&t=pict"],
   rakuten_item_urls: ["https://hb.afl.rakuten.co.jp/ichiba/3975f8cc.a9413732.3975f8cd.893d5420/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyamasoro%2F3605-a210%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjMwMHgzMDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9", "https://hb.afl.rakuten.co.jp/ichiba/397040b9.92af150c.397040ba.e3f5f262/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fra-must%2F1024975%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjMwMHgzMDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9", "https://hb.afl.rakuten.co.jp/ichiba/3976055c.c863852d.3976055d.d5938551/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkzon-mart%2Fcompass1655375136%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjMwMHgzMDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9"],
@@ -168,13 +168,42 @@ DiagnosisContent.create!(
 
 DiagnosisContent.create!(
   number: 13,
-  title: "",
-  image: "",
-  danger: "",
-  item_name: "",
-  item_description: "",
-  item_point: "",
-  rakuten_item_image_urls: [],
-  rakuten_item_urls: [],
-  rakuten_item_names: []
+  title: "ケーブルが露出している環境",
+  image: "diagnosis_content_image_13.png",
+  danger: "ケーブルが露出している場合、足にひかかって転倒したり、触っている間に首に巻きつくといった危険性があります。\r\n\r\nまた、破損により銅線などが露出したケーブルに接触して、感電する恐れもあります。",
+  item_name: "ケーブルボックス / ケーブルモール",
+  item_description: "【ケーブルボックス】\r\n箱型の容器内にケーブルや機器類を収納でき、ケーブルの露出を少なくできるグッズ。\r\n\r\n【ケーブルモール】\r\n床や壁に這わせているケーブルをカバーで覆い、床や壁などにケーブルを固定できるグッズ。",
+  item_point: "【ケーブルボックス】\r\nケーブルを床や壁に這わす必要がない場合やWi-Fiルーターのような大きな機器類がある場合は、箱型の容器内にケーブルや機器類を収納できるケーブルボックスがおすすめです。\r\n\r\nケーブルボックスには、「延長コードなどを収納できるコンパクトなタイプ」と、「Wi-Fiルーターのような大きな機器類を収納できるタイプ」などがあるため、状況に応じて使い分けるとよいでしょう。\r\nまた、それぞれのタイプごとで様々なサイズがあるため、何を収納させるのかを事前にご確認いただき、サイズを選ぶようにするとよいでしょう。\r\n\r\n【ケーブルモール】\r\nケーブルを床や壁に這わす必要がある場合は、ケーブルをカバーで覆い、床や壁に固定できるケーブルモールがおすすめです。\r\n\r\nケーブルモールを購入する際は、「必要なケーブルモールの長さはどのくらいか」、「ケーブルの太さに対応したケーブルモールか」、「ケーブルを複数本まとめてカバーする場合は、複数本まとめてカバーできる幅のケーブルモールか」などを事前にご確認いただくとよいでしょう。",
+  rakuten_item_tags: ["ケーブルボックス（コンパクトなタイプ）", "ケーブルボックス（大きな機器類を収納できるタイプ）", "ケーブルモール", "ケーブルモール（幅が広いタイプ）"],
+  rakuten_item_image_urls: ["https://hbb.afl.rakuten.co.jp/hgb/397a225b.5b800b44.397a225c.43045592/?me_id=1254245&item_id=10018589&pc=https%3A%2F%2Fimage.rakuten.co.jp%2Flife-inc%2Fcabinet%2F12_syuno_kagu%2F83076_pr2.jpg%3F_ex%3D300x300&s=300x300&t=pict", "https://hbb.afl.rakuten.co.jp/hgb/397a29d0.9f386df7.397a29d1.b6f5e617/?me_id=1230815&item_id=10092147&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fkagudoki%2Fcabinet%2Fkihon9%2Faku1010844sku.jpg%3F_ex%3D300x300&s=300x300&t=pict", "https://hbb.afl.rakuten.co.jp/hgb/397a3bb5.d20d0e52.397a3bb6.69302fb9/?me_id=1364802&item_id=10579724&pc=https%3A%2F%2Fimage.rakuten.co.jp%2Fohstore%2Fcabinet%2F1075%2F2b2546kx1f_1.jpg%3F_ex%3D300x300&s=300x300&t=pict", "https://hbb.afl.rakuten.co.jp/hgb/39755310.4fdb6aed.39755311.17004d31/?me_id=1195715&item_id=10021978&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fsanwadirect%2Fcabinet%2Fc%2Fca-kk26.jpg%3F_ex%3D300x300&s=300x300&t=pict"],
+  rakuten_item_urls: ["https://hb.afl.rakuten.co.jp/ichiba/397a225b.5b800b44.397a225c.43045592/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flife-inc%2F160304-1640-0003%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjMwMHgzMDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9", "https://hb.afl.rakuten.co.jp/ichiba/397a29d0.9f386df7.397a29d1.b6f5e617/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkagudoki%2Faku1010844%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjMwMHgzMDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9", "https://hb.afl.rakuten.co.jp/ichiba/397a3bb5.d20d0e52.397a3bb6.69302fb9/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fohstore%2F2b2546kx1f%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjMwMHgzMDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9", "https://hb.afl.rakuten.co.jp/ichiba/39755310.4fdb6aed.39755311.17004d31/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fsanwadirect%2Fca-kk26%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjMwMHgzMDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9"],
+  rakuten_item_names: ["テーブルタップボックス【 コンセント ボックス コンセント 収納 コンセントカバー 赤ちゃん タップボックス ケーブルボックス コード収納　ケーブル収納 】LF552B12b000", "コンセント 隠す コンセントカバー コンセントボックス コンセントガード いたずら防止 配線 ケーブル隠し コンセント隠し ケーブルボックス コンセント収納 ペット かじる コード 噛む 隙間 感電防止 充電ステーション 充電スタンド コンパクト 薄型 スリム コンセントBOX", "配線カバー 配線隠しカバー コードカバー 電線ケーブルカバー 400x10x15mmx15本パック( White, 400x10x15mmx15本)", "ケーブルモール 配線カバー 角型 1m ホワイト 配線の整理に最適なケーブルカバー おしゃれ CA-KK26 サンワサプライ"]
+)
+
+DiagnosisContent.create!(
+  number: 14,
+  title: "ファンヒーターやストーブに触れられる環境",
+  image: "diagnosis_content_image_14.png",
+  danger: "ファンヒーターやストーブの吹き出し口を触って火傷したり、ファンヒーターやストーブでつかまり立ちをした場合などに、ファンヒーターやストーブを転倒させてしまう危険性があります。",
+  item_name: "ファンヒーターガード / ストーブガード",
+  item_description: "ファンヒーターやストーブの全体や吹き出し口を柵状の物でガードすることで、子どもの手が届かないようにするグッズ。",
+  item_point: "ガードの種類には、「前面をガードするタイプ」、「吹き出し口をガードするタイプ」などがあります。\r\n\r\n吹き出し口での火傷に加え、子どものつかまり立ちによるファンヒーターやストーブの転倒、いたずらのリスクを考慮すると、「前面をガードするタイプ」がおすすめです。\r\n設置スペース的に「前面をガードするタイプ」の設置が困難な場合は、設置スペースがあまり必要のない「吹き出し口をガードするタイプ」もあるため、吹き出し口での火傷対策を行うことをおすすめします。\r\n\r\nガードを購入する際は、「自宅のファンヒーターやストーブに設置可能か」、「ガードには温風が当たり続けるため、熱くなりにくい物か」、「ファンヒーターやストーブとガードの距離が近すぎないか（子どもが指を入れた際に、吹き出し口に触れられない距離か）」、「子どもがガードにつかまった場合でも、倒れにくい構造になっているか」、「子どもがガードの上から手を伸ばしても、ファンヒーターやストーブに触れられない高さかどうか」などをご確認いただくとよいでしょう。",
+  rakuten_item_tags: ["ファンヒーターガード", "ストーブガード", "ファンヒーターガード（吹き出し口ガード）"],
+  rakuten_item_image_urls: ["https://hbb.afl.rakuten.co.jp/hgb/395a1c5d.96c56ce0.395a1c5e.3de15788/?me_id=1402408&item_id=10000492&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbabykids-hrt%2Fcabinet%2Fh251-300%2Fh277_00.jpg%3F_ex%3D300x300&s=300x300&t=pict", "https://hbb.afl.rakuten.co.jp/hgb/397ad0b4.a88c8e61.397ad0b5.862bd5bb/?me_id=1202126&item_id=10036480&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fenetroom%2Fcabinet%2Franking%2F249660.jpg%3F_ex%3D300x300&s=300x300&t=pict", "https://hbb.afl.rakuten.co.jp/hgb/397ad77d.9365814b.397ad77e.4b7607cd/?me_id=1270689&item_id=11026698&pc=https%3A%2F%2Fimage.rakuten.co.jp%2Fpremoa%2Fcabinet%2Fpics%2F561%2F2-4971715322618.jpg%3F_ex%3D300x300&s=300x300&t=pict"],
+  rakuten_item_urls: ["https://hb.afl.rakuten.co.jp/ichiba/395a1c5d.96c56ce0.395a1c5e.3de15788/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbabykids-hrt%2Fh277%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjMwMHgzMDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9", "https://hb.afl.rakuten.co.jp/ichiba/397ad0b4.a88c8e61.397ad0b5.862bd5bb/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fenetroom%2F249660%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjMwMHgzMDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9", "https://hb.afl.rakuten.co.jp/ichiba/397ad77d.9365814b.397ad77e.4b7607cd/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpremoa%2F4971715322618%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjMwMHgzMDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9"],
+  rakuten_item_names: ["ファンヒーターガード 4面 四方式 ストーブガード ストーブ ガード フェンス ヒーター ガスヒーター ガスファンヒーター 石油ヒーター ファンヒーター 柵 火傷 やけど 子供 こども 子ども キッズ 赤ちゃん ベビー 火傷防止 事故防止 暖房 熱くない", "ストーブガード 赤ちゃん SS-650NFF式 ストーブ 柵　石油ストーブ ペット アイリスオーヤマ ストーブガード 安全 ベビー用品 キッズ 三方式 やけど ガード ベビーサークル ペットサークル", "ファンヒーター ガード 吹き出し口ガード ストーブガード 石油ファンヒーター用 コンパクト グリーンライフ FG-49SN"]
+)
+
+DiagnosisContent.create!(
+  number: 15,
+  title: "子どもの指が入ってしまう扇風機（羽が回転するタイプ）",
+  image: "diagnosis_content_image_15.png",
+  danger: "子どもが指を入れた際に、怪我をする恐れがあります。",
+  item_name: "扇風機カバー",
+  item_description: "扇風機の羽部分をカバーすることで、子どもの指が入らないようにするグッズ。",
+  item_point: "扇風機カバーを購入する際は、「自宅の扇風機のサイズと合った物か」、「紐で固定するタイプか（ゴムで固定するタイプは、子どもでも外せてしまうリスクが大きいため）」、「網目は子どもの指が入らない大きさか」、「丈夫な素材が使用されているか（伸びやすい素材は、網目が大きくなってしまう可能性があるため）」、「シンプルなデザインか（子どもの注意を引かないようにするため）」などをご確認いただくとよいでしょう。",
+  rakuten_item_tags: ["扇風機カバー"],
+  rakuten_item_image_urls: ["https://hbb.afl.rakuten.co.jp/hgb/397b5ee2.6df04497.397b5ee3.b2db14c1/?me_id=1377312&item_id=10001291&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fkoinoyokan%2Fcabinet%2F06815183%2F09872777%2Fimgrc0118245335.jpg%3F_ex%3D300x300&s=300x300&t=pict"],
+  rakuten_item_urls: ["https://hb.afl.rakuten.co.jp/ichiba/397b5ee2.6df04497.397b5ee3.b2db14c1/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkoinoyokan%2Fza-300061%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjMwMHgzMDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9"],
+  rakuten_item_names: ["扇風機カバー セーフティーネット カバー ベビー 赤ちゃん 子供 指はさみ防止 カバーネット 33cm～55cm対応 丈夫 メッシュ タイプ ホワイト 危険防止 ペット ネット 調節自由 夏 扇風機 安全"]
 )

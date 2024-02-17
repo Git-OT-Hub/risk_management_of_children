@@ -12,9 +12,11 @@
   <!-- テスト領域 -->
   <div class="row">
     <div class="col-12">
-      <% @diagnosis_contents.each do |content| %>
-        <%= link_to content.title, diagnosis_content_path(content) %>
-      <% end %>
+      <ul class="list-group">
+        <% @diagnosis_contents.each do |content| %>
+          <li class="list-group-item"><%= link_to content.title, diagnosis_content_path(content) %></li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>

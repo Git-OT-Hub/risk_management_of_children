@@ -316,6 +316,11 @@ ja:
     index:
       title: "子どものための環境調整診断"
       start_diagnosis: "診断を始める"
+      please_select: "いずれかを選択してください"
+      q: "Q"
+      agree: "はい"
+      deny: "いいえ"
+      neither: "どちらでもない"
       next_question: "次へ"
       previous_question: "戻る"
     calculate:

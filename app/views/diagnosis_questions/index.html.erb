@@ -1,7 +1,41 @@
-<% content_for(:title, @diagnosis_content.title) %>
+<% content_for(:title, t(".title")) %>
 <div class="container mt-5">
   <div class="row">
     <div class="col-lg-10 offset-lg-1">
+      <h1 class="text-center mb-5"><%= t(".title") %></h1>
+      <p class="fs-4 mb-4">
+        この診断では、自宅内において、子どもにとっての危険な場所や物及びグッズを用いた環境調整方法を知ることができます。
+      </p>
+      <p class="text-center fs-4 mb-5">質問は合計15問です。</p>
+      <div class="mb-5 text-center d-grid gap-2 col-3 mx-auto">
+        <%= link_to t(".start_diagnosis"), "", class: "btn btn-success rounded-pill" %>
+      </div>
+      <div class="container">
+        <%= form_with url: calculate_diagnosis_questions_path, scope: :calculate, method: :post do |f| %>
+          <div class="">選択してください</div>
+          <% @diagnosis_questions.each_with_index do |question, index| %>
+            <div class="" id="question_<%= index + 1 %>">
+             <h2 class="">Q <%= index + 1 %></h2>
+             <div class="">
+              <p class=""><%= question.body %></p>
+              <div class="d-flex flex-row">
+                <%= f.radio_button "answer_#{question.diagnosis_content_number}", question.diagnosis_content_number, class: "" %>
+                <%= f.label "answer_#{question.diagnosis_content_number}", "はい", value: question.diagnosis_content_number, class: "me-4" %>
+                <%= f.radio_button "answer_#{question.diagnosis_content_number}", "no", class: "" %>
+                <%= f.label "answer_#{question.diagnosis_content_number}", "いいえ", value: "no", class: "me-4" %>
+                <%= f.radio_button "answer_#{question.diagnosis_content_number}", "neither", class: "" %>
+                <%= f.label "answer_#{question.diagnosis_content_number}", "どちらでもない", value: "neither", class: "" %>
+              </div>
+             </div>
+            </div>
+          <% end %>
+          <%= link_to t(".previous_question"), "", class: "btn btn-success rounded-pill me-5" %>
+          <%= link_to t(".next_question"), "", class: "btn btn-success rounded-pill" %>
+          <div class="text-center d-grid gap-2 col-3 mx-auto">
+            <%= f.submit "結果へ", class: "btn btn-success rounded-pill" %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

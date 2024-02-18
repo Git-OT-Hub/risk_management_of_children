@@ -312,6 +312,17 @@ ja:
       to_rakuten_page: "楽天市場で確認する（画像をクリック）"
       for_reference_only: "※こちらの商品は参考程度に掲載しているため、ご自宅の環境に合ったものをお探しください。"
       back_to_previous_page: "戻る"
+  diagnosis_questions:
+    index:
+      title: "子どものための環境調整診断"
+      start_diagnosis: "診断を始める"
+      next_question: "次へ"
+      previous_question: "戻る"
+    calculate:
+      fail: "診断に失敗しました"
+    result:
+      fail: "診断をやり直してください"
+      title: "診断結果"
   views:
     pagination:
       first: "最初"

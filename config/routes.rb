@@ -40,5 +40,10 @@ Rails.application.routes.draw do
   end
   resources :password_resets, only: %i[new create edit update]
   resources :diagnosis_contents, only: %i[index new create show edit update destroy]
-  resources :diagnosis_questions, only: %i[index new create show edit update destroy]
+  resources :diagnosis_questions, only: %i[index new create show edit update destroy] do
+    collection do
+      post "calculate", action: :calculate
+      get "result", action: :result
+    end
+  end
 end

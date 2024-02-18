@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_10_022921) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_18_040705) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -83,6 +83,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_10_022921) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["number"], name: "index_diagnosis_contents_on_number", unique: true
+  end
+
+  create_table "diagnosis_questions", force: :cascade do |t|
+    t.integer "diagnosis_content_number", null: false
+    t.text "body", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["diagnosis_content_number"], name: "index_diagnosis_questions_on_diagnosis_content_number", unique: true
   end
 
   create_table "favorites", force: :cascade do |t|

@@ -207,3 +207,78 @@ DiagnosisContent.create!(
   rakuten_item_urls: ["https://hb.afl.rakuten.co.jp/ichiba/397b5ee2.6df04497.397b5ee3.b2db14c1/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkoinoyokan%2Fza-300061%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjMwMHgzMDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9"],
   rakuten_item_names: ["扇風機カバー セーフティーネット カバー ベビー 赤ちゃん 子供 指はさみ防止 カバーネット 33cm～55cm対応 丈夫 メッシュ タイプ ホワイト 危険防止 ペット ネット 調節自由 夏 扇風機 安全"]
 )
+
+DiagnosisQuestion.create!(
+  diagnosis_content_number: 1,
+  body: "角や縁がむき出しの家具",
+)
+
+DiagnosisQuestion.create!(
+  diagnosis_content_number: 2,
+  body: "危険な場所（キッチン、階段、玄関など）に行けてしまう環境",
+)
+
+DiagnosisQuestion.create!(
+  diagnosis_content_number: 3,
+  body: "衝撃を吸収するものが敷かれていない床",
+)
+
+DiagnosisQuestion.create!(
+  diagnosis_content_number: 4,
+  body: "子どもの手が届く施錠のない引き出しや開き戸収納など",
+)
+
+DiagnosisQuestion.create!(
+  diagnosis_content_number: 5,
+  body: "子どもの行動範囲内に設置されているドア（開き戸・引き戸）",
+)
+
+DiagnosisQuestion.create!(
+  diagnosis_content_number: 6,
+  body: "子どもの行動範囲内に設置されている網戸",
+)
+
+DiagnosisQuestion.create!(
+  diagnosis_content_number: 7,
+  body: "子どもが水場に（トイレ・風呂場・洗濯機）自由に入れてしまう環境",
+)
+
+DiagnosisQuestion.create!(
+  diagnosis_content_number: 8,
+  body: "滑り止めのない浴室",
+)
+
+DiagnosisQuestion.create!(
+  diagnosis_content_number: 9,
+  body: "転落防止の対策がされていない大人用ベッド",
+)
+
+DiagnosisQuestion.create!(
+  diagnosis_content_number: 10,
+  body: "子どもの行動範囲内にある段差",
+)
+
+DiagnosisQuestion.create!(
+  diagnosis_content_number: 11,
+  body: "固定されていない家具やテレビなど",
+)
+
+DiagnosisQuestion.create!(
+  diagnosis_content_number: 12,
+  body: "カバーのされていないコンセントや延長コード",
+)
+
+DiagnosisQuestion.create!(
+  diagnosis_content_number: 13,
+  body: "ケーブルが露出している環境",
+)
+
+DiagnosisQuestion.create!(
+  diagnosis_content_number: 14,
+  body: "ファンヒーターやストーブに触れられる環境",
+)
+
+DiagnosisQuestion.create!(
+  diagnosis_content_number: 15,
+  body: "子どもの指が入ってしまう扇風機（羽が回転するタイプ）",
+)

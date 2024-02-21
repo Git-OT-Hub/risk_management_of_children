@@ -8,35 +8,33 @@
       </p>
       <p class="text-center fs-4 mb-5">質問は合計15問です。</p>
       <div class="mb-5 text-center d-grid gap-2 col-3 mx-auto" data-diagnosis-questions-target="start_diagnosis">
-        <%= link_to t(".start_diagnosis"), "javascript:void(0)", class: "btn btn-success rounded-pill", data: { action: "click->diagnosis-questions#startDiagnosis" } %>
+        <%= link_to t(".start_diagnosis"), "javascript:void(0)", class: "btn btn-success rounded-pill fs-4", data: { action: "click->diagnosis-questions#startDiagnosis" } %>
       </div>
       <div class="container">
         <%= form_with url: calculate_diagnosis_questions_path, scope: :calculate, method: :post do |f| %>
-          <div class="text-center bg-danger-subtle text-danger-emphasis fs-5 mb-3 visually-hidden"><%= t("diagnosis_questions.index.please_select") %></div>
-          <div class=""  data-diagnosis-questions-target="all_questions">
-            <% @diagnosis_questions.each_with_index do |question, index| %>
-              <div class="bg-body rounded-4 p-4 mb-4 visually-hidden" data-diagnosis-questions-target="question_<%= index + 1 %>">
-                <span class="btn btn-success rounded-5 fs-4 mb-4"><%= "#{t("diagnosis_questions.index.q")} #{index + 1}" %></span>
-                <div class="">
-                  <h5 class="mb-5"><%= simple_format(question.body) %></h5>
-                  <div class="d-flex flex-row justify-content-around">
-                    <%= f.radio_button "answer_#{question.diagnosis_content_number}", question.diagnosis_content_number, class: "" %>
-                    <%= f.label "answer_#{question.diagnosis_content_number}", t("diagnosis_questions.index.agree"), value: question.diagnosis_content_number, class: "btn btn-outline-success rounded-pill fs-5" %>
-                    <%= f.radio_button "answer_#{question.diagnosis_content_number}", "no", class: "" %>
-                    <%= f.label "answer_#{question.diagnosis_content_number}", t("diagnosis_questions.index.deny"), value: "no", class: "btn btn-outline-success rounded-pill fs-5" %>
-                    <%= f.radio_button "answer_#{question.diagnosis_content_number}", "neither", class: "" %>
-                    <%= f.label "answer_#{question.diagnosis_content_number}", t("diagnosis_questions.index.neither"), value: "neither", class: "btn btn-outline-success rounded-pill fs-5" %>
-                  </div>
+          <div class="text-center bg-danger-subtle text-danger-emphasis fs-5 mb-3 visually-hidden" data-diagnosis-questions-target="error_message"><%= t("diagnosis_questions.index.please_select") %></div>
+          <% @diagnosis_questions.each_with_index do |question, index| %>
+            <div class="bg-body rounded-4 p-4 mb-4 visually-hidden" data-diagnosis-questions-target="question_<%= index + 1 %>">
+              <span class="btn btn-success rounded-5 fs-4 mb-4"><%= "#{t("diagnosis_questions.index.q")} #{index + 1}" %></span>
+              <div class="">
+                <h5 class="mb-5"><%= simple_format(question.body) %></h5>
+                <div class="d-flex flex-row justify-content-around">
+                  <%= f.radio_button "answer_#{question.diagnosis_content_number}", question.diagnosis_content_number, class: "visually-hidden", data: { action: "change->diagnosis-questions#updateActiveLabels" } %>
+                  <%= f.label "answer_#{question.diagnosis_content_number}", t("diagnosis_questions.index.agree"), value: question.diagnosis_content_number, class: "btn btn-outline-success rounded-pill fs-4" %>
+                  <%= f.radio_button "answer_#{question.diagnosis_content_number}", "no", class: "visually-hidden", data: { action: "change->diagnosis-questions#updateActiveLabels" } %>
+                  <%= f.label "answer_#{question.diagnosis_content_number}", t("diagnosis_questions.index.deny"), value: "no", class: "btn btn-outline-success rounded-pill fs-4" %>
+                  <%= f.radio_button "answer_#{question.diagnosis_content_number}", "neither", class: "visually-hidden", data: { action: "change->diagnosis-questions#updateActiveLabels" } %>
+                  <%= f.label "answer_#{question.diagnosis_content_number}", t("diagnosis_questions.index.neither"), value: "neither", class: "btn btn-outline-success rounded-pill fs-4" %>
                 </div>
               </div>
-            <% end %>
-          </div>
-          <div class="d-flex flex-row justify-content-evenly mb-4">
-            <%= link_to t(".previous_question"), "", class: "btn btn-success rounded-pill me-5 visually-hidden", data: { diagnosis_questions_target: "previous_button" } %>
-            <%= link_to t(".next_question"), "", class: "btn btn-success rounded-pill visually-hidden", data: { diagnosis_questions_target: "next_button" } %>
+            </div>
+          <% end %>
+          <div class="d-flex flex-row justify-content-evenly mb-5">
+            <%= link_to t(".previous_question"), "javascript:void(0)", class: "btn btn-success rounded-pill fs-4 visually-hidden", data: { diagnosis_questions_target: "previous_button", action: "click->diagnosis-questions#previousQuestion" } %>
+            <%= link_to t(".next_question"), "javascript:void(0)", class: "btn btn-success rounded-pill fs-4 visually-hidden", data: { diagnosis_questions_target: "next_button", action: "click->diagnosis-questions#nextQuestion" } %>
           </div>
           <div class="text-center d-grid gap-2 col-3 mx-auto visually-hidden" data-diagnosis-questions-target="submit_button">
-            <%= f.submit "結果へ", class: "btn btn-success rounded-pill" %>
+            <%= f.submit "結果へ", class: "btn btn-success rounded-pill fs-4", data: { action: "click->diagnosis-questions#submitQuestions" } %>
           </div>
         <% end %>
       </div>

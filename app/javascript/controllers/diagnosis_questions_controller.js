@@ -2,12 +2,11 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   
-  static targets = ["start_diagnosis", "previous_button", "next_button", "submit_button", "all_questions", ...Array.from({length: 15}, (_, i) => `question_${i + 1}`)];
+  static targets = ["start_diagnosis", "previous_button", "next_button", "submit_button", "error_message", ...Array.from({length: 15}, (_, i) => `question_${i + 1}`)];
     
   currentQuestion = 1;
 
   connect() {
-    this.addRadioListeners();
   }
 
   startDiagnosis() {
@@ -22,25 +21,75 @@ export default class extends Controller {
     this.submit_buttonTarget.classList.toggle("visually-hidden", this.currentQuestion !== 15);
   }
 
-  addRadioListeners() {
-    this.all_questionsTargets.forEach((question) => {
-      const radioButtons = question.querySelectorAll('input[type="radio"]');
-      radioButtons.forEach((radio) => {
-        radio.addEventListener('change', () => {
-          this.updateActiveLabels(question, radio);
-        });
-      });
-    });
-  }
+  updateActiveLabels() {
+    const labels = this[`question_${this.currentQuestion}Target`].querySelectorAll('label');
+    const currentQuestionRadioButtons = this[`question_${this.currentQuestion}Target`].querySelectorAll('input[type="radio"]');
+    let selectedRadioButton = null;
 
-  updateActiveLabels(question, selectedRadio) {
-    const labels = question.querySelectorAll('label');
+    currentQuestionRadioButtons.forEach((radio) => {
+      if (radio.checked) {
+        selectedRadioButton = radio;
+      }
+    });
+
     labels.forEach((label) => {
-      if (label.getAttribute('for') === selectedRadio.getAttribute('id')) {
+      if (label.getAttribute('for') === selectedRadioButton.getAttribute('id')) {
         label.classList.add('active');
       } else {
         label.classList.remove('active');
       }
     });
+  }
+
+  nextQuestion() {
+    const currentQuestionRadioButtons = this[`question_${this.currentQuestion}Target`].querySelectorAll('input[type="radio"]');
+    let hasSelectedRadioButton = false;
+
+    currentQuestionRadioButtons.forEach((radio) => {
+      if (radio.checked) {
+        hasSelectedRadioButton = true;
+      }
+    });
+
+    if (!hasSelectedRadioButton) {
+      this.error_messageTarget.classList.remove("visually-hidden");
+      return;
+    } else {
+      this.error_messageTarget.classList.add("visually-hidden");
+    }
+
+    this[`question_${this.currentQuestion}Target`].classList.add("visually-hidden");
+    this.currentQuestion++;
+    this[`question_${this.currentQuestion}Target`].classList.remove("visually-hidden");
+
+    this.updateButtonVisibility();
+  }
+
+  previousQuestion() {
+    this[`question_${this.currentQuestion}Target`].classList.add("visually-hidden");
+    this.currentQuestion--;
+    this[`question_${this.currentQuestion}Target`].classList.remove("visually-hidden");
+
+    this.error_messageTarget.classList.add("visually-hidden");
+    this.updateButtonVisibility();
+  }
+
+  submitQuestions(event) {
+    const currentQuestionRadioButtons = this[`question_${this.currentQuestion}Target`].querySelectorAll('input[type="radio"]');
+    let hasSelectedRadioButton = false;
+
+    currentQuestionRadioButtons.forEach((radio) => {
+      if (radio.checked) {
+        hasSelectedRadioButton = true;
+      }
+    });
+
+    if (!hasSelectedRadioButton) {
+      this.error_messageTarget.classList.remove("visually-hidden");
+      event.preventDefault();
+      return;
+    } else {
+      this.error_messageTarget.classList.add("visually-hidden");
+    }
   }
 }

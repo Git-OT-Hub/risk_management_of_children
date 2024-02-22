@@ -3,16 +3,25 @@
   <div class="row">
     <div class="col-lg-10 offset-lg-1" data-controller="diagnosis-questions">
       <h1 class="text-center mb-5"><%= t(".title") %></h1>
-      <p class="fs-4 mb-4">
-        この診断では、自宅内において、子どもにとっての危険な場所や物及びグッズを用いた環境調整方法を知ることができます。
-      </p>
-      <p class="text-center fs-4 mb-5">質問は合計15問です。</p>
-      <div class="mb-5 text-center d-grid gap-2 col-3 mx-auto" data-diagnosis-questions-target="start_diagnosis">
-        <%= link_to t(".start_diagnosis"), "javascript:void(0)", class: "btn btn-success rounded-pill fs-4", data: { action: "click->diagnosis-questions#startDiagnosis" } %>
+      <p class="fs-4 mb-4"><%= t(".diagnosis_overview") %></p>
+      <p class="text-center fs-4 mb-5"><%= t(".number_of_questiions") %></p>
+      <div class="row grid gap-3" data-diagnosis-questions-target="start_diagnosis">
+        <div class="col-sm">
+        </div>
+        <div class="col-sm d-flex align-items-center justify-content-center mb-4 mb-sm-0">
+          <div class="">
+            <%= link_to t(".start_diagnosis"), "javascript:void(0)", class: "btn btn-success rounded-pill fs-4", data: { action: "click->diagnosis-questions#startDiagnosis" } %>
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="text-center">
+            <%= image_tag "greeting_hedgehog.png", class: "img-fluid" %>
+          </div>
+        </div>
       </div>
       <div class="container">
         <%= form_with url: calculate_diagnosis_questions_path, scope: :calculate, method: :post do |f| %>
-          <div class="text-center bg-danger-subtle text-danger-emphasis fs-5 mb-3 visually-hidden" data-diagnosis-questions-target="error_message"><%= t("diagnosis_questions.index.please_select") %></div>
+          <div class="text-center bg-danger-subtle text-danger-emphasis rounded-3 fs-5 mb-3 visually-hidden" data-diagnosis-questions-target="error_message"><%= t("diagnosis_questions.index.please_select") %></div>
           <% @diagnosis_questions.each_with_index do |question, index| %>
             <div class="bg-body rounded-4 p-4 mb-4 visually-hidden" data-diagnosis-questions-target="question_<%= index + 1 %>">
               <span class="btn btn-success rounded-5 fs-4 mb-4"><%= "#{t("diagnosis_questions.index.q")} #{index + 1}" %></span>
@@ -30,11 +39,11 @@
             </div>
           <% end %>
           <div class="d-flex flex-row justify-content-evenly mb-5">
-            <%= link_to t(".previous_question"), "javascript:void(0)", class: "btn btn-success rounded-pill fs-4 visually-hidden", data: { diagnosis_questions_target: "previous_button", action: "click->diagnosis-questions#previousQuestion" } %>
-            <%= link_to t(".next_question"), "javascript:void(0)", class: "btn btn-success rounded-pill fs-4 visually-hidden", data: { diagnosis_questions_target: "next_button", action: "click->diagnosis-questions#nextQuestion" } %>
+            <%= link_to t(".previous_question"), "javascript:void(0)", class: "btn btn-success rounded-4 fs-4 visually-hidden", data: { diagnosis_questions_target: "previous_button", action: "click->diagnosis-questions#previousQuestion" } %>
+            <%= link_to t(".next_question"), "javascript:void(0)", class: "btn btn-success rounded-4 fs-4 visually-hidden", data: { diagnosis_questions_target: "next_button", action: "click->diagnosis-questions#nextQuestion" } %>
           </div>
           <div class="text-center d-grid gap-2 col-3 mx-auto visually-hidden" data-diagnosis-questions-target="submit_button">
-            <%= f.submit "結果へ", class: "btn btn-success rounded-pill fs-4", data: { action: "click->diagnosis-questions#submitQuestions" } %>
+            <%= f.submit t(".to_results"), class: "btn btn-success rounded-pill fs-4", data: { action: "click->diagnosis-questions#submitQuestions" } %>
           </div>
         <% end %>
       </div>

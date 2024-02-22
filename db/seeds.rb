@@ -210,75 +210,75 @@ DiagnosisContent.create!(
 
 DiagnosisQuestion.create!(
   diagnosis_content_number: 1,
-  body: "角や縁がむき出しの家具",
+  body: "子どもの行動範囲内に、角や縁のある家具（例えば、テーブルや棚、ローボードなど）が設置されていますか？"
 )
 
 DiagnosisQuestion.create!(
   diagnosis_content_number: 2,
-  body: "危険な場所（キッチン、階段、玄関など）に行けてしまう環境",
+  body: "子どもが自由にキッチンや階段、玄関などへ行けてしまう環境ですか？"
 )
 
 DiagnosisQuestion.create!(
   diagnosis_content_number: 3,
-  body: "衝撃を吸収するものが敷かれていない床",
+  body: "子どもが主に過ごす場所の床には、衝撃を吸収するような物が何も敷かれていない状態ですか？"
 )
 
 DiagnosisQuestion.create!(
   diagnosis_content_number: 4,
-  body: "子どもの手が届く施錠のない引き出しや開き戸収納など",
+  body: "子どもの手が届く範囲に、施錠のない引き出しや開き戸収納などが設置されていますか？"
 )
 
 DiagnosisQuestion.create!(
   diagnosis_content_number: 5,
-  body: "子どもの行動範囲内に設置されているドア（開き戸・引き戸）",
+  body: "子どもの行動範囲内に、ドア（開き戸・引き戸）が設置されていますか？"
 )
 
 DiagnosisQuestion.create!(
   diagnosis_content_number: 6,
-  body: "子どもの行動範囲内に設置されている網戸",
+  body: "子どもの行動範囲内に、網戸や窓が設置されていますか？"
 )
 
 DiagnosisQuestion.create!(
   diagnosis_content_number: 7,
-  body: "子どもが水場に（トイレ・風呂場・洗濯機）自由に入れてしまう環境",
+  body: "子どもが自由に水場（トイレ・風呂場・洗濯機など）へ行けてしまう環境ですか？"
 )
 
 DiagnosisQuestion.create!(
   diagnosis_content_number: 8,
-  body: "滑り止めのない浴室",
+  body: "お風呂場において、洗い場や浴槽内などに滑りにくくするような対策を、何も実施されていない状態ですか？"
 )
 
 DiagnosisQuestion.create!(
   diagnosis_content_number: 9,
-  body: "転落防止の対策がされていない大人用ベッド",
+  body: "転落防止の対策がされていない大人用ベッド"
 )
 
 DiagnosisQuestion.create!(
   diagnosis_content_number: 10,
-  body: "子どもの行動範囲内にある段差",
+  body: "子どもの行動範囲内にある段差"
 )
 
 DiagnosisQuestion.create!(
   diagnosis_content_number: 11,
-  body: "固定されていない家具やテレビなど",
+  body: "固定されていない家具やテレビなど"
 )
 
 DiagnosisQuestion.create!(
   diagnosis_content_number: 12,
-  body: "カバーのされていないコンセントや延長コード",
+  body: "カバーのされていないコンセントや延長コード"
 )
 
 DiagnosisQuestion.create!(
   diagnosis_content_number: 13,
-  body: "ケーブルが露出している環境",
+  body: "ケーブルが露出している環境"
 )
 
 DiagnosisQuestion.create!(
   diagnosis_content_number: 14,
-  body: "ファンヒーターやストーブに触れられる環境",
+  body: "ファンヒーターやストーブに触れられる環境"
 )
 
 DiagnosisQuestion.create!(
   diagnosis_content_number: 15,
-  body: "子どもの指が入ってしまう扇風機（羽が回転するタイプ）",
+  body: "子どもの指が入ってしまう扇風機（羽が回転するタイプ）"
 )

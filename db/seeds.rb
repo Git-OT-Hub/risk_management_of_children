@@ -2,7 +2,7 @@ DiagnosisContent.create!(
   number: 1,
   title: "角や縁がむき出しの家具",
   image: "diagnosis_content_image_1.png",
-  danger: "走り回ったり転んだりした拍子に、家具の角や縁にぶつかって、思わぬ怪我につながる恐れがあります。",
+  danger: "走り回ったり転んだりした拍子に、家具の角や縁にぶつかって、怪我をする恐れがあります。",
   item_name: "コーナーガード（コーナークッション）",
   item_description: "家具やテーブルの角や縁に設置することで、とがった部分をカバーするグッズ。",
   item_point: "コーナーガードは、L型・U型・波型などの形状があります。それぞれ適した使用箇所があるため、家具に合わせて使い分けるとよいでしょう。\r\n\r\nまた、インテリアと合わない色を使用すると、コーナーガード部分が目立ってしまい、子どもの興味を惹いてしまう可能性があるため、インテリアの色に合ったものを選ぶのがおすすめです。",
@@ -208,6 +208,7 @@ DiagnosisContent.create!(
   rakuten_item_names: ["扇風機カバー セーフティーネット カバー ベビー 赤ちゃん 子供 指はさみ防止 カバーネット 33cm～55cm対応 丈夫 メッシュ タイプ ホワイト 危険防止 ペット ネット 調節自由 夏 扇風機 安全"]
 )
 
+
 DiagnosisQuestion.create!(
   diagnosis_content_number: 1,
   body: "子どもの行動範囲内に、角や縁のある家具（例えば、テーブルや棚、ローボードなど）が設置されていますか？"
@@ -215,12 +216,12 @@ DiagnosisQuestion.create!(
 
 DiagnosisQuestion.create!(
   diagnosis_content_number: 2,
-  body: "子どもが自由にキッチンや階段、玄関などへ行けてしまう環境ですか？"
+  body: "子どもが自由にキッチンや階段、玄関など（子どもにとって危険な場所）へ行けてしまう環境ですか？"
 )
 
 DiagnosisQuestion.create!(
   diagnosis_content_number: 3,
-  body: "子どもが主に過ごす場所の床には、衝撃を吸収するような物が何も敷かれていない状態ですか？"
+  body: "子どもが主に過ごす場所の床には、衝撃を吸収するような物が敷かれていない状態ですか？"
 )
 
 DiagnosisQuestion.create!(
@@ -240,45 +241,45 @@ DiagnosisQuestion.create!(
 
 DiagnosisQuestion.create!(
   diagnosis_content_number: 7,
-  body: "子どもが自由に水場（トイレ・風呂場・洗濯機など）へ行けてしまう環境ですか？"
+  body: "子どもが自由に水場（トイレ・風呂場・洗濯機など）へ行けてしまう状態ですか？"
 )
 
 DiagnosisQuestion.create!(
   diagnosis_content_number: 8,
-  body: "お風呂場において、洗い場や浴槽内などに滑りにくくするような対策を、何も実施されていない状態ですか？"
+  body: "お風呂場において、洗い場や浴槽内などに、滑りにくくするような対策が実施されていない状態ですか？"
 )
 
 DiagnosisQuestion.create!(
   diagnosis_content_number: 9,
-  body: "転落防止の対策がされていない大人用ベッド"
+  body: "大人用のベッドに子どもを寝かせる場合、ベッドからの転落防止対策が実施されていない状態ですか？"
 )
 
 DiagnosisQuestion.create!(
   diagnosis_content_number: 10,
-  body: "子どもの行動範囲内にある段差"
+  body: "子どもの行動範囲内に、つまずきやすい段差がありますか？"
 )
 
 DiagnosisQuestion.create!(
   diagnosis_content_number: 11,
-  body: "固定されていない家具やテレビなど"
+  body: "固定されていない家具やテレビなどがありますか？"
 )
 
 DiagnosisQuestion.create!(
   diagnosis_content_number: 12,
-  body: "カバーのされていないコンセントや延長コード"
+  body: "子どもの手が届く範囲に、コンセントや延長コードなどがあり、差込口を子どもが自由に触れられる状態ですか？"
 )
 
 DiagnosisQuestion.create!(
   diagnosis_content_number: 13,
-  body: "ケーブルが露出している環境"
+  body: "子どもの手が届く範囲に、露出しているケーブルなど（延長コード、LANケーブル、電話線など）がありますか？"
 )
 
 DiagnosisQuestion.create!(
   diagnosis_content_number: 14,
-  body: "ファンヒーターやストーブに触れられる環境"
+  body: "冬の時期等でファンヒーターやストーブを使用する場合、子どもが自由にファンヒーターやストーブに触れられる状態ですか？"
 )
 
 DiagnosisQuestion.create!(
   diagnosis_content_number: 15,
-  body: "子どもの指が入ってしまう扇風機（羽が回転するタイプ）"
+  body: "夏の時期等で扇風機を使用する場合、子どもの指が、扇風機の回転する羽根に触れられる状態ですか？"
 )

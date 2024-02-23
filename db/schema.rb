@@ -72,10 +72,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_18_040705) do
     t.integer "number", null: false
     t.string "title", null: false
     t.string "image"
-    t.text "danger"
-    t.string "item_name"
-    t.text "item_description"
-    t.text "item_point"
+    t.text "dangers"
+    t.string "item_names"
+    t.text "item_descriptions"
+    t.text "item_points"
     t.text "rakuten_item_tags"
     t.text "rakuten_item_image_urls"
     t.text "rakuten_item_urls"

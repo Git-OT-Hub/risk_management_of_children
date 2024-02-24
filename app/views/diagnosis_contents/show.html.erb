@@ -32,8 +32,8 @@
             <div class="card-body">
               <div class="d-flex flex-row align-items-center grid gap-2 mb-3">
                 <h3 class="mb-0"><span class="badge bg-info-subtle text-dark me-3"><%= t(".recommended_goods_name") %></span></h3>
-                <p class="mb-0"><%= t(".recommended_goods_click") %></p>
                 <span class="text-secondary"><i class="fa-solid fa-circle-down fa-xl"></i></span>
+                <p class="mb-0"><%= t(".recommended_goods_check") %></p>
               </div>
               <div class="list-group list-group-horizontal-md">
                 <% @diagnosis_content.item_names.each_with_index do |name, index| %>
@@ -80,22 +80,22 @@
               </div>
               <div class="modal-footer justify-content-center border border-0 bg-success-subtle">
                 <p class=""><%= t(".to_rakuten_page") %></p>
-                <p class="text-danger"><%= t(".for_reference_only") %></p>
+                <p class="text-danger fs-5"><%= t(".for_reference_only") %></p>
               </div>
             </div>
           </div>
         </div>
       <% end %>
 
-      <div class="row grid gap-3">
-        <div class="col-sm">
+      <div class="row">
+        <div class="col">
         </div>
-        <div class="col-sm d-flex align-items-center justify-content-center">
+        <div class="col d-flex align-items-center justify-content-center">
           <div class="fs-3">
             <%= link_to t(".back_to_previous_page"), "javascript:history.back()", class: "text-black link-offset-2 link-offset-3-hover link-underline-dark link-underline-opacity-0 link-underline-opacity-75-hover" %>
           </div>
         </div>
-        <div class="col-sm">
+        <div class="col">
           <div class="text-center">
             <%= image_tag "inspiration_hedgehog.png", class: "img-fluid" %>
           </div>

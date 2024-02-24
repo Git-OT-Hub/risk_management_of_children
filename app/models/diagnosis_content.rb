@@ -5,13 +5,12 @@ class DiagnosisContent < ApplicationRecord
   serialize :item_points, type: Array, coder: YAML
   serialize :rakuten_item_image_urls, type: Array, coder: YAML
   serialize :rakuten_item_urls, type: Array, coder: YAML
-  serialize :rakuten_item_names, type: Array, coder: YAML
-  serialize :rakuten_item_tags, type: Array, coder: YAML
+  serialize :rakuten_item_texts, type: Array, coder: YAML
 
   validates :number, presence: true, uniqueness: true
   validates :title, presence: true, length: { maximum: 255 }
   validates :image, length: { maximum: 255 }
-  validate :validate_dangers, :validate_item_names, :validate_item_descriptions, :validate_item_points, :validate_rakuten_item_image_urls, :validate_rakuten_item_urls, :validate_rakuten_item_names, :validate_rakuten_item_tags
+  validate :validate_dangers, :validate_item_names, :validate_item_descriptions, :validate_item_points, :validate_rakuten_item_image_urls, :validate_rakuten_item_urls, :validate_rakuten_item_texts
 
   private
 
@@ -51,15 +50,9 @@ class DiagnosisContent < ApplicationRecord
     end
   end
 
-  def validate_rakuten_item_names
-    rakuten_item_names.each do |name|
-      errors.add(:rakuten_item_names, ": 65_535文字以内にしてください。") if name.length > 65_535
-    end
-  end
-
-  def validate_rakuten_item_tags
-    rakuten_item_tags.each do |tag|
-      errors.add(:rakuten_item_tags, ": 65_535文字以内にしてください。") if tag.length > 65_535
+  def validate_rakuten_item_texts
+    rakuten_item_texts.each do |text|
+      errors.add(:rakuten_item_texts, ": 65_535文字以内にしてください。") if text.length > 65_535
     end
   end
 end

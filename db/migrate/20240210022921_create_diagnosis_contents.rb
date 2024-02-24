@@ -8,10 +8,9 @@ class CreateDiagnosisContents < ActiveRecord::Migration[7.1]
       t.string :item_names
       t.text :item_descriptions
       t.text :item_points
-      t.text :rakuten_item_tags
       t.text :rakuten_item_image_urls
       t.text :rakuten_item_urls
-      t.text :rakuten_item_names
+      t.text :rakuten_item_texts
 
       t.timestamps
     end

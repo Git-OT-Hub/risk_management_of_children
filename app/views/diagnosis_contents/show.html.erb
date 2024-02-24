@@ -30,10 +30,14 @@
               <h4 class="text-center mb-0"><%= t(".recommended_goods") %></h4>
             </div>
             <div class="card-body">
-              <h3><span class="badge bg-info-subtle text-dark"><%= t(".recommended_goods_name") %></span></h3>
+              <div class="d-flex flex-row align-items-center grid gap-2 mb-3">
+                <h3 class="mb-0"><span class="badge bg-info-subtle text-dark me-3"><%= t(".recommended_goods_name") %></span></h3>
+                <p class="mb-0"><%= t(".recommended_goods_click") %></p>
+                <span class="text-secondary"><i class="fa-solid fa-circle-down fa-xl"></i></span>
+              </div>
               <div class="list-group list-group-horizontal-md">
                 <% @diagnosis_content.item_names.each_with_index do |name, index| %>
-                  <%= link_to name, "javascript:void(0)", class: "list-group-item list-group-item-action", "data-bs-toggle" => "modal", "data-bs-target" => "#rakuten_item_#{index}" %>
+                  <%= link_to name, "javascript:void(0)", class: "list-group-item list-group-item-action list-group-item-secondary", "data-bs-toggle" => "modal", "data-bs-target" => "#rakuten_item_#{index}" %>
                 <% end %>
               </div>
             </div>
@@ -71,7 +75,7 @@
               </div>
               <div class="modal-body bg-body-tertiary">
                 <%= link_to url, target: "_blank", rel: "nofollow sponsored noopener noreferrer", style: "word-wrap: break-word;", class: "link-success link-offset-2 link-offset-3-hover link-underline link-underline-opacity-25 link-underline-opacity-100-hover" do %>
-                  <p class="mb-0"><%= @diagnosis_content.rakuten_item_names[index] %></p>
+                  <p class="mb-0"><%= @diagnosis_content.rakuten_item_texts[index] %></p>
                 <% end %>
               </div>
               <div class="modal-footer justify-content-center border border-0 bg-success-subtle">

@@ -76,10 +76,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_18_040705) do
     t.string "item_names"
     t.text "item_descriptions"
     t.text "item_points"
-    t.text "rakuten_item_tags"
     t.text "rakuten_item_image_urls"
     t.text "rakuten_item_urls"
-    t.text "rakuten_item_names"
+    t.text "rakuten_item_texts"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["number"], name: "index_diagnosis_contents_on_number", unique: true

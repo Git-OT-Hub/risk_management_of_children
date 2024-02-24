@@ -325,8 +325,6 @@ ja:
       agree: "はい"
       deny: "いいえ"
       neither: "どちらでもない"
-      next_question: "次へ"
-      previous_question: "戻る"
       to_results: "結果へ"
     calculate:
       fail: "診断に失敗しました"

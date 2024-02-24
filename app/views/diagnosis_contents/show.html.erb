@@ -66,14 +66,14 @@
                 <h1 class="modal-title fs-5" id="rakuten_item_label_<%= index %>"><%= @diagnosis_content.item_names[index] %></h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <div class="modal-body">
+              <div class="modal-body bg-body-tertiary">
                 <div class="text-center">
                   <%= link_to url, target: "_blank", rel: "nofollow sponsored noopener noreferrer", style: "word-wrap: break-word;" do %>
                     <%= image_tag @diagnosis_content.rakuten_item_image_urls[index], class: "" %>
                   <% end %>
                 </div>
               </div>
-              <div class="modal-body bg-body-tertiary">
+              <div class="modal-body">
                 <%= link_to url, target: "_blank", rel: "nofollow sponsored noopener noreferrer", style: "word-wrap: break-word;", class: "link-success link-offset-2 link-offset-3-hover link-underline link-underline-opacity-25 link-underline-opacity-100-hover" do %>
                   <p class="mb-0"><%= @diagnosis_content.rakuten_item_texts[index] %></p>
                 <% end %>

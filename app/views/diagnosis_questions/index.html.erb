@@ -4,7 +4,7 @@
     <div class="col-lg-10 offset-lg-1" data-controller="diagnosis-questions">
       <h1 class="text-center mb-5"><%= t(".title") %></h1>
       <p class="fs-4 mb-4"><%= t(".diagnosis_overview") %></p>
-      <p class="fs-4 mb-4"><%= t(".diagnosis_supplementary") %></p>
+      <p class="text-secondary fs-4 mb-4"><%= t(".diagnosis_supplementary") %></p>
       <p class="text-center fs-4 mb-5"><%= t(".number_of_questiions") %></p>
       <div class="row grid gap-3" data-diagnosis-questions-target="start_diagnosis">
         <div class="col-sm">
@@ -40,8 +40,12 @@
             </div>
           <% end %>
           <div class="d-flex flex-row justify-content-evenly mb-5">
-            <%= link_to t(".previous_question"), "javascript:void(0)", class: "btn btn-success rounded-4 fs-4 visually-hidden", data: { diagnosis_questions_target: "previous_button", action: "click->diagnosis-questions#previousQuestion" } %>
-            <%= link_to t(".next_question"), "javascript:void(0)", class: "btn btn-success rounded-4 fs-4 visually-hidden", data: { diagnosis_questions_target: "next_button", action: "click->diagnosis-questions#nextQuestion" } %>
+            <%= link_to "javascript:void(0)", class: "btn btn-success rounded-4 visually-hidden", data: { diagnosis_questions_target: "previous_button", action: "click->diagnosis-questions#previousQuestion" } do %>
+              <span><i class="fa-solid fa-angles-left fa-2x"></i></span>
+            <% end %>
+            <%= link_to "javascript:void(0)", class: "btn btn-success rounded-4 visually-hidden", data: { diagnosis_questions_target: "next_button", action: "click->diagnosis-questions#nextQuestion" } do %>
+              <span><i class="fa-solid fa-angles-right fa-2x"></i></span>
+            <% end %>
           </div>
           <div class="text-center d-grid gap-2 col-3 mx-auto visually-hidden" data-diagnosis-questions-target="submit_button">
             <%= f.submit t(".to_results"), class: "btn btn-success rounded-pill fs-4", data: { action: "click->diagnosis-questions#submitQuestions" } %>

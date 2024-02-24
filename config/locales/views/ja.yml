@@ -309,7 +309,7 @@ ja:
       recommended_goods_name: "商品"
       recommended_goods_overview: "どんな商品？"
       goods_point: "ポイント"
-      to_rakuten_page: "楽天市場で確認する（画像をクリック）"
+      to_rakuten_page: "楽天市場で確認する（画像 または テキスト をクリック）"
       for_reference_only: "※こちらの商品は参考程度に掲載しているため、ご自宅の環境に合ったものをお探しください。"
       back_to_previous_page: "戻る"
   diagnosis_questions:

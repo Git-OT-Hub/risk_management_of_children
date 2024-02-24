@@ -15,7 +15,9 @@
               <h4 class="text-center mb-0"><%= t(".dangerous_point") %></h4>
             </div>
             <div class="card-body">
-              <p class="card-text"><%= simple_format(@diagnosis_content.danger) %></p>
+              <% @diagnosis_content.dangers.each do |danger| %>
+                <p class="card-text"><%= simple_format(danger) %></p>
+              <% end %>
             </div>
           </div>
         </div>
@@ -29,43 +31,57 @@
             </div>
             <div class="card-body">
               <h3><span class="badge bg-info-subtle text-dark"><%= t(".recommended_goods_name") %></span></h3>
-              <p class="card-text"><%= simple_format(@diagnosis_content.item_name) %></p>
+              <div class="list-group list-group-horizontal-md">
+                <% @diagnosis_content.item_names.each_with_index do |name, index| %>
+                  <%= link_to name, "javascript:void(0)", class: "list-group-item list-group-item-action", "data-bs-toggle" => "modal", "data-bs-target" => "#rakuten_item_#{index}" %>
+                <% end %>
+              </div>
             </div>
             <div class="card-body">
               <h3><span class="badge bg-info-subtle text-dark"><%= t(".recommended_goods_overview") %></span></h3>
-              <p class="card-text"><%= simple_format(@diagnosis_content.item_description) %></p>
+              <% @diagnosis_content.item_descriptions.each do |description| %>
+                <p class="card-text"><%= simple_format(description) %></p>
+              <% end %>
             </div>
             <div class="card-body">
               <h3><span class="badge bg-info-subtle text-dark"><%= t(".goods_point") %></span></h3>
-              <p class="card-text"><%= simple_format(@diagnosis_content.item_point) %></p>
+              <% @diagnosis_content.item_points.each do |point| %>
+                <p class="card-text"><%= simple_format(point) %></p>
+              <% end %>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="row mb-5">
-        <% @diagnosis_content.rakuten_item_urls.each_with_index do |url, index| %>
-          <div class="col-12 col-md-6 col-xxl-4 mb-4">
-            <div class="card border border-0">
-              <div class="card-header border border-0 bg-success-subtle">
-                <p class="text-center mb-0"><%= @diagnosis_content.rakuten_item_tags[index] %></p>
+      <!-- Modal -->
+      <% @diagnosis_content.rakuten_item_urls.each_with_index do |url, index| %>
+        <div class="modal fade" id="rakuten_item_<%= index %>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="rakuten_item_label_<%= index %>" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header border border-0 bg-success-subtle">
+                <h1 class="modal-title fs-5" id="rakuten_item_label_<%= index %>"><%= @diagnosis_content.item_names[index] %></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <div class="text-center">
-                <%= link_to url, target: "_blank", rel: "nofollow sponsored noopener noreferrer", style: "word-wrap: break-word;" do %>
-                  <%= image_tag @diagnosis_content.rakuten_item_image_urls[index], class: "m-2" %>
+              <div class="modal-body">
+                <div class="text-center">
+                  <%= link_to url, target: "_blank", rel: "nofollow sponsored noopener noreferrer", style: "word-wrap: break-word;" do %>
+                    <%= image_tag @diagnosis_content.rakuten_item_image_urls[index], class: "" %>
+                  <% end %>
+                </div>
+              </div>
+              <div class="modal-body bg-body-tertiary">
+                <%= link_to url, target: "_blank", rel: "nofollow sponsored noopener noreferrer", style: "word-wrap: break-word;", class: "link-success link-offset-2 link-offset-3-hover link-underline link-underline-opacity-25 link-underline-opacity-100-hover" do %>
+                  <p class="mb-0"><%= @diagnosis_content.rakuten_item_names[index] %></p>
                 <% end %>
               </div>
-              <div class="card-body bg-body-tertiary">
-                <p class="card-text"><%= @diagnosis_content.rakuten_item_names[index] %></p>
-              </div>
-              <div class="card-footer border border-0 bg-success-subtle">
-                <p class="text-center mb-1"><%= t(".to_rakuten_page") %></p>
-                <p class="text-center text-danger mb-0"><%= t(".for_reference_only") %></p>
+              <div class="modal-footer justify-content-center border border-0 bg-success-subtle">
+                <p class=""><%= t(".to_rakuten_page") %></p>
+                <p class="text-danger"><%= t(".for_reference_only") %></p>
               </div>
             </div>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
 
       <div class="row grid gap-3">
         <div class="col-sm">

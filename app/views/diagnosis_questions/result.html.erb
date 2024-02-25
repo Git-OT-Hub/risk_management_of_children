@@ -2,8 +2,7 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col-lg-10 offset-lg-1">
-
-      <div class="row mb-4">
+      <div class="row mb-3">
         <div class="col">
         </div>
         <div class="col d-flex align-items-center justify-content-center">
@@ -16,46 +15,48 @@
         </div>
       </div>
 
-      <div class="row mb-4">
+      <div class="row mb-5">
         <div class="col">
-
           <div class="bg-body rounded-4 p-3 mb-3">
-            <p class="fs-4"><%= t(".results_explanation") %></p>
-            <div class="d-flex flex-row align-items-center grid gap-2 mb-3">
-              <span class="text-secondary"><i class="fa-solid fa-circle-down fa-2x"></i></span>
-              <p class="fs-5 mb-0"><%= t(".results_click") %></p>
+
+            <% if @results.present? %>
+              <p class="fs-4"><%= t(".results_explanation") %></p>
+              <div class="d-flex flex-row align-items-center grid gap-2 mb-3">
+                <span class="text-secondary"><i class="fa-solid fa-circle-down fa-2x"></i></span>
+                <p class="fs-5 mb-0"><%= t(".results_click") %></p>
+              </div>
+              <p class="text-danger fs-5 mb-0"><%= t(".results_caution") %></p>
+            <% else %>
+              <p class="fs-4"><%= t(".no_results") %></p>
+            <% end %>
+
+          </div>
+
+          <% if @results.present? %>
+            <div class="overflow-y-scroll bg-body rounded-4 p-3" style="max-height: 500px;">
+              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+                <%= render partial: "card", collection: @results %>
+              </div>
             </div>
-            <p class="text-danger fs-5 mb-0"><%= t(".results_caution") %></p>
-          </div>
-          <div class="overflow-y-scroll bg-body rounded-4 p-3" style="max-height: 400px;">
-            <p>test</p>
-            <p>test</p>
-            <p>test</p>
-            <p>test</p>
-            <p>test</p>
-            <p>test</p>
-            <p>test</p>
-            <p>test</p>
-            <p>test</p>
-            <p>test</p>
-            <p>test</p>
-            <p>test</p>
-            <p>test</p>
-            <p>test</p>
-            <p>test</p>
-          </div>
+          <% else %>
+
+            <div class="row">
+              <div class="col">
+              </div>
+              <div class="col">
+                <div class="text-center">
+                  <%= image_tag "nice_hedgehog.png", class: "img-fluid" %>
+                </div>
+              </div>
+              <div class="col">
+              </div>
+            </div>
+
+          <% end %>
 
         </div>
       </div>
-
       
-      <ul class="list-group">
-        <% @results.each do |result| %>
-          <li class="list-group-item"><%= link_to result.title, diagnosis_content_path(result) %></li>
-        <% end %>
-      </ul>
-
-
     </div>
   </div>
 </div>

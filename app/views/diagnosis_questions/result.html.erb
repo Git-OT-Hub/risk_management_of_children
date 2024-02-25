@@ -18,7 +18,6 @@
       <div class="row mb-5">
         <div class="col">
           <div class="bg-body rounded-4 p-3 mb-3">
-
             <% if @results.present? %>
               <p class="fs-4"><%= t(".results_explanation") %></p>
               <div class="d-flex flex-row align-items-center grid gap-2 mb-3">
@@ -27,11 +26,9 @@
               </div>
               <p class="text-danger fs-5 mb-0"><%= t(".results_caution") %></p>
             <% else %>
-              <p class="fs-4"><%= t(".no_results") %></p>
+              <%= simple_format(t(".no_results"), class: "fs-4 mb-0") %>
             <% end %>
-
           </div>
-
           <% if @results.present? %>
             <div class="overflow-y-scroll bg-body rounded-4 p-3" style="max-height: 500px;">
               <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
@@ -39,8 +36,7 @@
               </div>
             </div>
           <% else %>
-
-            <div class="row">
+            <div class="row mt-5">
               <div class="col">
               </div>
               <div class="col">
@@ -51,9 +47,7 @@
               <div class="col">
               </div>
             </div>
-
           <% end %>
-
         </div>
       </div>
       

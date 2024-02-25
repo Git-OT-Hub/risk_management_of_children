@@ -8,8 +8,7 @@ class DiagnosisQuestionsController < ApplicationController
   def calculate
     answers = calculate_params.values
     if answers
-      filtered_answers = answers.reject { |answer| answer == "no" || answer == "neither" }
-      session[:filtered_answers] = filtered_answers
+      session[:answers] = answers
       redirect_to result_diagnosis_questions_path
     else
       redirect_to root_path, danger: t(".fail")
@@ -17,11 +16,12 @@ class DiagnosisQuestionsController < ApplicationController
   end
 
   def result
-    filtered_answers = session[:filtered_answers]
-    matched_contents = DiagnosisContent.where(number: filtered_answers)
-    if filtered_answers && matched_contents
+    answers = session[:answers]
+    if answers
+      @filtered_answers = answers.reject { |answer| answer == "no" || answer == "neither" }
+      matched_contents = DiagnosisContent.where(number: @filtered_answers)
       @results = matched_contents
-      session.delete(:filtered_answers)
+      session.delete(:answers)
     else
       redirect_to root_path, danger: t(".fail")
     end

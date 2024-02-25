@@ -24,7 +24,7 @@
         <%= form_with url: calculate_diagnosis_questions_path, scope: :calculate, method: :post do |f| %>
           <div class="text-center bg-danger-subtle text-danger-emphasis rounded-3 fs-5 mb-3 visually-hidden" data-diagnosis-questions-target="error_message"><%= t("diagnosis_questions.index.please_select") %></div>
           <% @diagnosis_questions.each_with_index do |question, index| %>
-            <div class="bg-body rounded-4 p-4 mb-4 " data-diagnosis-questions-target="question_<%= index + 1 %>">
+            <div class="bg-body rounded-4 p-4 mb-4 visually-hidden" data-diagnosis-questions-target="question_<%= index + 1 %>">
               <span class="btn btn-success rounded-5 fs-4 mb-4"><%= "#{t("diagnosis_questions.index.q")} #{index + 1}" %></span>
               <div class="">
                 <h5 class="mb-5"><%= simple_format(question.body) %></h5>
@@ -47,7 +47,7 @@
               <span><i class="fa-solid fa-angles-right fa-2x"></i></span>
             <% end %>
           </div>
-          <div class="text-center d-grid gap-2 col-3 mx-auto " data-diagnosis-questions-target="submit_button">
+          <div class="text-center d-grid gap-2 col-3 mx-auto visually-hidden" data-diagnosis-questions-target="submit_button">
             <%= f.submit t(".to_results"), class: "btn btn-success rounded-pill fs-4", data: { action: "click->diagnosis-questions#submitQuestions" } %>
           </div>
         <% end %>

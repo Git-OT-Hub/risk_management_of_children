@@ -12,13 +12,22 @@
         <div class="col-sm">
           <div class="card border border-0">
             <div class="card-header border border-0 bg-danger-subtle">
-              <h4 class="text-center mb-0"><%= t(".dangerous_point") %></h4>
+              <h4 class="text-center mb-0"><%= t(".dangerous_title") %></h4>
             </div>
             <div class="card-body">
+              <h3 class=""><span class="badge bg-danger-subtle text-dark"><%= t(".dangerous_point") %></span></h3>
               <% @diagnosis_content.dangers.each do |danger| %>
-                <p class="card-text"><%= simple_format(danger) %></p>
+                <%= simple_format(danger, class: "card-text") %>
               <% end %>
             </div>
+
+            <div class="card-body pt-0">
+              <h3 class=""><span class="badge bg-danger-subtle text-dark"><%= t(".risk_countermeasures") %></span></h3>
+              <% @diagnosis_content.countermeasures.each do |countermeasure| %>
+                <%= simple_format(countermeasure, class: "card-text") %>
+              <% end %>
+            </div>
+
           </div>
         </div>
       </div>
@@ -44,13 +53,13 @@
             <div class="card-body">
               <h3><span class="badge bg-info-subtle text-dark"><%= t(".recommended_goods_overview") %></span></h3>
               <% @diagnosis_content.item_descriptions.each do |description| %>
-                <p class="card-text"><%= simple_format(description) %></p>
+                <%= simple_format(description, class: "card-text") %>
               <% end %>
             </div>
             <div class="card-body">
               <h3><span class="badge bg-info-subtle text-dark"><%= t(".goods_point") %></span></h3>
               <% @diagnosis_content.item_points.each do |point| %>
-                <p class="card-text"><%= simple_format(point) %></p>
+                <%= simple_format(point, class: "card-text") %>
               <% end %>
             </div>
           </div>

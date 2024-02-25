@@ -5,6 +5,7 @@ class CreateDiagnosisContents < ActiveRecord::Migration[7.1]
       t.string :title,                 null: false
       t.string :image
       t.text :dangers
+      t.text :countermeasures
       t.string :item_names
       t.text :item_descriptions
       t.text :item_points

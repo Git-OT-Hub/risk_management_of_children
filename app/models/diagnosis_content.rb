@@ -1,5 +1,6 @@
 class DiagnosisContent < ApplicationRecord
   serialize :dangers, type: Array, coder: YAML
+  serialize :countermeasures, type: Array, coder: YAML
   serialize :item_names, type: Array, coder: YAML
   serialize :item_descriptions, type: Array, coder: YAML
   serialize :item_points, type: Array, coder: YAML
@@ -10,13 +11,19 @@ class DiagnosisContent < ApplicationRecord
   validates :number, presence: true, uniqueness: true
   validates :title, presence: true, length: { maximum: 255 }
   validates :image, length: { maximum: 255 }
-  validate :validate_dangers, :validate_item_names, :validate_item_descriptions, :validate_item_points, :validate_rakuten_item_image_urls, :validate_rakuten_item_urls, :validate_rakuten_item_texts
+  validate :validate_dangers, :validate_countermeasures, :validate_item_names, :validate_item_descriptions, :validate_item_points, :validate_rakuten_item_image_urls, :validate_rakuten_item_urls, :validate_rakuten_item_texts
 
   private
 
   def validate_dangers
     dangers.each do |danger|
       errors.add(:dangers, ": 65_535文字以内にしてください。") if danger.length > 65_535
+    end
+  end
+
+  def validate_countermeasures
+    countermeasures.each do |countermeasure|
+      errors.add(:countermeasures, ": 65_535文字以内にしてください。") if countermeasure.length > 65_535
     end
   end
 

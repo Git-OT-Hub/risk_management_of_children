@@ -304,7 +304,9 @@ ja:
       fail: "パスワードの変更に失敗しました"
   diagnosis_contents:
     show:
-      dangerous_point: "危険なポイント"
+      dangerous_title: "危険ポイント & 対策"
+      dangerous_point: "危険ポイント"
+      risk_countermeasures: "対策"
       recommended_goods: "おすすめのグッズ"
       recommended_goods_name: "商品"
       recommended_goods_check: "確認してみよう！"

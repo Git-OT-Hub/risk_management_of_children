@@ -1,4 +1,7 @@
 class DiagnosisResult < ApplicationRecord
+  serialize :results, type: Array, coder: YAML
+  serialize :statuses, type: Array, coder: YAML
+
   belongs_to :user
 
   validates :title, length: { maximum: 255 }

@@ -15,7 +15,7 @@
         </div>
       </div>
 
-      <div class="row mb-5">
+      <div class="row mb-4">
         <div class="col">
           <div class="bg-body rounded-4 p-3 mb-3">
             <% if @results.present? %>
@@ -50,24 +50,22 @@
           <% end %>
         </div>
       </div>
-
       <div class="row">
-        <div class="col"> 
 
-          <%= form_with url: _path, scope: :アクション名, method: :post, html: { class: "row g-3" } do |f| %>
-            <div class="col-sm mb-4 mb-sm-0">
+        <div class="col-sm-8 offset-sm-2">
+          <%= form_with url: save_results_my_page_path, scope: :save_results, method: :post do |f| %>
+            <div class="mb-3">
               <%= f.hidden_field :results, multiple: true, value: @filtered_answers %>
               <%= f.label :title, class: "form-label visually-hidden" %>
               <%= f.text_field :title, class: "form-control rounded-pill", placeholder: "#{t(".input_title")}" %>
             </div>
-            <div class="col-sm">
-              <%= f.submit t(".results_save"), class: "btn btn-success rounded-pill fs-4" %>
+            <div class="float-end">
+              <%= f.submit t(".results_save"), class: "btn btn-success rounded-pill fs-5" %>
             </div>
           <% end %>
-
         </div>
+
       </div>
-      
     </div>
   </div>
 </div>

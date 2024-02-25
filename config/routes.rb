@@ -36,6 +36,7 @@ Rails.application.routes.draw do
       get "bookmarks", action: :bookmarks
       get "my_posts", action: :my_posts
       delete "delete_avatar", action: :delete_avatar
+      post "save_results", action: :save_results
     end
   end
   resources :password_resets, only: %i[new create edit update]

@@ -50,6 +50,23 @@
           <% end %>
         </div>
       </div>
+
+      <div class="row">
+        <div class="col"> 
+
+          <%= form_with url: _path, scope: :アクション名, method: :post, html: { class: "row g-3" } do |f| %>
+            <div class="col-sm mb-4 mb-sm-0">
+              <%= f.hidden_field :results, multiple: true, value: @filtered_answers %>
+              <%= f.label :title, class: "form-label visually-hidden" %>
+              <%= f.text_field :title, class: "form-control rounded-pill", placeholder: "#{t(".input_title")}" %>
+            </div>
+            <div class="col-sm">
+              <%= f.submit t(".results_save"), class: "btn btn-success rounded-pill fs-4" %>
+            </div>
+          <% end %>
+
+        </div>
+      </div>
       
     </div>
   </div>

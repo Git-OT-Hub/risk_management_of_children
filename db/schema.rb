@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_18_040705) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_25_120907) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -93,6 +93,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_18_040705) do
     t.index ["diagnosis_content_number"], name: "index_diagnosis_questions_on_diagnosis_content_number", unique: true
   end
 
+  create_table "diagnosis_results", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "title"
+    t.text "results"
+    t.text "statuses"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_diagnosis_results_on_user_id"
+  end
+
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "post_id", null: false
@@ -135,6 +145,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_18_040705) do
   add_foreign_key "bookmarks", "users"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "diagnosis_results", "users"
   add_foreign_key "favorites", "posts"
   add_foreign_key "favorites", "users"
   add_foreign_key "posts", "users"

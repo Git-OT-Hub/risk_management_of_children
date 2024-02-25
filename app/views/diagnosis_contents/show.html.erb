@@ -20,14 +20,12 @@
                 <%= simple_format(danger, class: "card-text") %>
               <% end %>
             </div>
-
             <div class="card-body pt-0">
               <h3 class=""><span class="badge bg-danger-subtle text-dark"><%= t(".risk_countermeasures") %></span></h3>
               <% @diagnosis_content.countermeasures.each do |countermeasure| %>
                 <%= simple_format(countermeasure, class: "card-text") %>
               <% end %>
             </div>
-
           </div>
         </div>
       </div>

@@ -304,14 +304,39 @@ ja:
       fail: "パスワードの変更に失敗しました"
   diagnosis_contents:
     show:
-      dangerous_point: "危険なポイント"
+      dangerous_title: "危険ポイント & 対策"
+      dangerous_point: "危険ポイント"
+      risk_countermeasures: "対策"
       recommended_goods: "おすすめのグッズ"
-      recommended_goods_name: "商品名"
+      recommended_goods_name: "商品"
+      recommended_goods_check: "確認してみよう！"
       recommended_goods_overview: "どんな商品？"
       goods_point: "ポイント"
-      to_rakuten_page: "楽天市場で確認する（画像をクリック）"
-      for_reference_only: "※こちらの商品は参考程度に掲載しているため、ご自宅の環境に合ったものをお探しください。"
+      to_rakuten_page: "楽天市場で確認する（画像 または テキスト をクリック）"
+      for_reference_only: "※ 商品によって 子どもの対象年齢 や 適用できる物・場所 などが異なるため、必ず商品サイトの説明文をご確認ください。"
       back_to_previous_page: "戻る"
+  diagnosis_questions:
+    index:
+      title: "子どものためのお家環境診断"
+      diagnosis_overview: "この診断では、自宅内における、子どもにとっての危険な物や場所、状態を見つけ出し、グッズを活用した対策方法を知ることができます。"
+      diagnosis_supplementary: "※ このアプリ内での「子ども」は、状況判断や危険を認知する力が未熟な段階である乳児（満1歳未満）や幼児（満1歳〜小学校就学の始期）を想定しています。"
+      number_of_questiions: "質問は合計で 15問 あります。"
+      start_diagnosis: "診断を始める"
+      please_select: "いずれかを選択してください"
+      q: "Q"
+      agree: "はい"
+      deny: "いいえ"
+      neither: "どちらでもない"
+      to_results: "結果へ"
+    calculate:
+      fail: "診断に失敗しました"
+    result:
+      fail: "診断をやり直してください"
+      title: "診断結果"
+      results_explanation: "下記に表示されている物や場所、状態を見直してみてはいかがでしょうか？"
+      results_click: "グッズを活用した対策方法などをご確認できます！"
+      results_caution: "※ 商品によって 子どもの対象年齢 や 適用できる物・場所 などが異なるため、必ず商品サイトの説明文をご確認ください。"
+      no_results: "診断の結果、こちらがアドバイスできるものはありませんでした。\r\n子どもの安全を考えた環境作りに、力を入れられているようですね！"
   views:
     pagination:
       first: "最初"

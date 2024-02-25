@@ -6,16 +6,25 @@
         <div class="col-sm">
           <h2 class="text-center mb-4"><%= @diagnosis_content.title %></h2>
           <div class="text-center">
-            <%= image_tag @diagnosis_content.image, class: "img-fluid" %>
+            <%= image_tag @diagnosis_content.image, class: "img-fluid rounded-4" %>
           </div>
         </div>
         <div class="col-sm">
           <div class="card border border-0">
             <div class="card-header border border-0 bg-danger-subtle">
-              <h4 class="text-center mb-0"><%= t(".dangerous_point") %></h4>
+              <h4 class="text-center mb-0"><%= t(".dangerous_title") %></h4>
             </div>
             <div class="card-body">
-              <p class="card-text"><%= simple_format(@diagnosis_content.danger) %></p>
+              <h3 class=""><span class="badge bg-danger-subtle text-dark"><%= t(".dangerous_point") %></span></h3>
+              <% @diagnosis_content.dangers.each do |danger| %>
+                <%= simple_format(danger, class: "card-text") %>
+              <% end %>
+            </div>
+            <div class="card-body pt-0">
+              <h3 class=""><span class="badge bg-danger-subtle text-dark"><%= t(".risk_countermeasures") %></span></h3>
+              <% @diagnosis_content.countermeasures.each do |countermeasure| %>
+                <%= simple_format(countermeasure, class: "card-text") %>
+              <% end %>
             </div>
           </div>
         </div>
@@ -28,54 +37,72 @@
               <h4 class="text-center mb-0"><%= t(".recommended_goods") %></h4>
             </div>
             <div class="card-body">
-              <h3><span class="badge bg-info-subtle text-dark"><%= t(".recommended_goods_name") %></span></h3>
-              <p class="card-text"><%= simple_format(@diagnosis_content.item_name) %></p>
+              <div class="d-flex flex-row align-items-center grid gap-2 mb-3">
+                <h3 class="mb-0"><span class="badge bg-info-subtle text-dark me-3"><%= t(".recommended_goods_name") %></span></h3>
+                <span class="text-secondary"><i class="fa-solid fa-circle-down fa-xl"></i></span>
+                <p class="mb-0"><%= t(".recommended_goods_check") %></p>
+              </div>
+              <div class="list-group list-group-horizontal-md">
+                <% @diagnosis_content.item_names.each_with_index do |name, index| %>
+                  <%= link_to name, "javascript:void(0)", class: "list-group-item list-group-item-action list-group-item-secondary", "data-bs-toggle" => "modal", "data-bs-target" => "#rakuten_item_#{index}" %>
+                <% end %>
+              </div>
             </div>
             <div class="card-body">
               <h3><span class="badge bg-info-subtle text-dark"><%= t(".recommended_goods_overview") %></span></h3>
-              <p class="card-text"><%= simple_format(@diagnosis_content.item_description) %></p>
+              <% @diagnosis_content.item_descriptions.each do |description| %>
+                <%= simple_format(description, class: "card-text") %>
+              <% end %>
             </div>
             <div class="card-body">
               <h3><span class="badge bg-info-subtle text-dark"><%= t(".goods_point") %></span></h3>
-              <p class="card-text"><%= simple_format(@diagnosis_content.item_point) %></p>
+              <% @diagnosis_content.item_points.each do |point| %>
+                <%= simple_format(point, class: "card-text") %>
+              <% end %>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="row mb-5">
-        <% @diagnosis_content.rakuten_item_urls.each_with_index do |url, index| %>
-          <div class="col-12 col-md-6 col-xxl-4 mb-4">
-            <div class="card border border-0">
-              <div class="card-header border border-0 bg-success-subtle">
-                <p class="text-center mb-0"><%= @diagnosis_content.rakuten_item_tags[index] %></p>
+      <!-- Modal -->
+      <% @diagnosis_content.rakuten_item_urls.each_with_index do |url, index| %>
+        <div class="modal fade" id="rakuten_item_<%= index %>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="rakuten_item_label_<%= index %>" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header border border-0 bg-success-subtle">
+                <h1 class="modal-title fs-5" id="rakuten_item_label_<%= index %>"><%= @diagnosis_content.item_names[index] %></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <div class="text-center">
-                <%= link_to url, target: "_blank", rel: "nofollow sponsored noopener noreferrer", style: "word-wrap: break-word;" do %>
-                  <%= image_tag @diagnosis_content.rakuten_item_image_urls[index], class: "m-2" %>
+              <div class="modal-body bg-body-tertiary">
+                <div class="text-center">
+                  <%= link_to url, target: "_blank", rel: "nofollow sponsored noopener noreferrer", style: "word-wrap: break-word;" do %>
+                    <%= image_tag @diagnosis_content.rakuten_item_image_urls[index], class: "" %>
+                  <% end %>
+                </div>
+              </div>
+              <div class="modal-body">
+                <%= link_to url, target: "_blank", rel: "nofollow sponsored noopener noreferrer", style: "word-wrap: break-word;", class: "link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" do %>
+                  <p class="lh-base mb-0"><%= @diagnosis_content.rakuten_item_texts[index] %></p>
                 <% end %>
               </div>
-              <div class="card-body bg-body-tertiary">
-                <p class="card-text"><%= @diagnosis_content.rakuten_item_names[index] %></p>
-              </div>
-              <div class="card-footer border border-0 bg-success-subtle">
-                <p class="text-center mb-1"><%= t(".to_rakuten_page") %></p>
-                <p class="text-center text-danger mb-0"><%= t(".for_reference_only") %></p>
+              <div class="modal-footer justify-content-center border border-0 bg-success-subtle">
+                <p class=""><%= t(".to_rakuten_page") %></p>
+                <p class="text-danger fs-5"><%= t(".for_reference_only") %></p>
               </div>
             </div>
           </div>
-        <% end %>
-      </div>
-
-      <div class="row grid gap-3">
-        <div class="col-sm">
         </div>
-        <div class="col-sm d-flex align-items-center justify-content-center">
+      <% end %>
+
+      <div class="row">
+        <div class="col">
+        </div>
+        <div class="col d-flex align-items-center justify-content-center">
           <div class="fs-3">
             <%= link_to t(".back_to_previous_page"), "javascript:history.back()", class: "text-black link-offset-2 link-offset-3-hover link-underline-dark link-underline-opacity-0 link-underline-opacity-75-hover" %>
           </div>
         </div>
-        <div class="col-sm">
+        <div class="col">
           <div class="text-center">
             <%= image_tag "inspiration_hedgehog.png", class: "img-fluid" %>
           </div>

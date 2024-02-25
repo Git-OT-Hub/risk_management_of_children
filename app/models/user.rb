@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :bookmark_posts, through: :bookmarks, source: :post
   has_many :favorites, dependent: :destroy
   has_many :favorite_posts, through: :favorites, source: :post
+  has_many :diagnosis_results, dependent: :destroy
 
   has_one_attached :avatar
 

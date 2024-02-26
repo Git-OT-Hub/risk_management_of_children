@@ -277,6 +277,8 @@ ja:
       diagnosis: "診断結果一覧"
       user_posts: "さんの投稿一覧"
       favorite_posts: "お気に入りの投稿一覧"
+      results_of: "の診断結果"
+      no_results: "保存された診断結果はありません"
     edit:
       title: "ユーザー登録情報の編集"
       back_to_previous_page: "戻る"

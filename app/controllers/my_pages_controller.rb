@@ -1,7 +1,9 @@
 class MyPagesController < ApplicationController
   before_action :set_user, only: %i[edit update]
 
-  def show; end
+  def show
+    @results = current_user.diagnosis_results.all
+  end
 
   def edit; end
 

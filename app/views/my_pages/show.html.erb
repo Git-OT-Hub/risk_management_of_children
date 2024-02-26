@@ -48,7 +48,7 @@
   <!-- 表示切り替えリンク -->
   <div class="row">
     <div class="col-12">
-      <div class="border-top border-success border-start-0 border-end-0 border-3 border-opacity-75">      
+      <div class="border-top border-success border-start-0 border-end-0 border-3 border-opacity-75 mb-4">      
         <nav class="nav nav-underline flex-column flex-md-row grid gap-3 row-gap-2 mt-3 mt-md-2 fs-5">
           <%= link_to t(".diagnosis"), "", class: "flex-md-fill text-md-center nav-link link-dark link-opacity-75 link-opacity-100-hover py-0 py-md-2" %>
           <%= link_to "#{current_user.name} #{t(".user_posts")}", my_posts_my_page_path, class: "flex-md-fill text-md-center nav-link link-dark link-opacity-75 link-opacity-100-hover py-0 py-md-2" %>
@@ -58,6 +58,20 @@
           <% end %>
         </nav>
       </div> 
+
+      <div class="">
+        <% if @results.present? %>
+          <% @results.each do |result| %>
+            <% if result.title.present? %>
+              <%= link_to result.title, "", class: "" %>
+            <% else %>
+              <%= link_to "#{result.created_at} #{t(".results_of")}", "", class: "" %>
+            <% end %>
+          <% end %>
+        <% else %>
+          <p class="fs-5"><%= t(".no_results") %></p>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

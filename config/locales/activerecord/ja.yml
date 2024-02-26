@@ -10,6 +10,7 @@ ja:
       user: "ユーザー"
       post: "投稿"
       comment: "コメント"
+      diagnosis_result: "診断結果"
     attributes:
       user:
         name: "名前"

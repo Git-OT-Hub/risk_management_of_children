@@ -24,6 +24,13 @@ class MyPagesController < ApplicationController
   end
 
   def save_results
+    results = current_user.diagnosis_results.build(user_results_params)
+
+    if results.save
+      redirect_to my_page_path, success: t("defaults.message.saved", item: DiagnosisResult.model_name.human)
+    else
+      redirect_to root_path, danger: t("defaults.message.not_saved", item: DiagnosisResult.model_name.human)
+    end
   end
 
   def my_posts
@@ -44,5 +51,9 @@ class MyPagesController < ApplicationController
 
   def user_update_params
     params.require(:user).permit(:name, :email, :avatar)
+  end
+
+  def user_results_params
+    params.require(:save_results).permit(:title, results: [], statuses: [])
   end
 end

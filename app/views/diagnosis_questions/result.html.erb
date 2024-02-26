@@ -57,6 +57,7 @@
             <%= form_with url: save_results_my_page_path, scope: :save_results, method: :post do |f| %>
               <div class="mb-3">
                 <%= f.hidden_field :results, multiple: true, value: @filtered_answers %>
+                <%= f.hidden_field :statuses, multiple: true, value: @filtered_answers %>
                 <%= f.label :title, class: "form-label visually-hidden" %>
                 <%= f.text_field :title, class: "form-control rounded-pill bg-warning bg-opacity-10 border border-0", placeholder: "#{t(".input_title")}" %>
               </div>

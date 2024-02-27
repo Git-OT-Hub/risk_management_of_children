@@ -8,9 +8,11 @@
       <p class="text-center fs-4 mb-5"><%= t(".number_of_questiions") %></p>
       <div class="row grid gap-3" data-diagnosis-questions-target="start_diagnosis">
         <div class="col-sm d-flex flex-column justify-content-center mb-5 mb-sm-0">
-          <p class="fs-5"><%= t(".to_login") %></p>
-          <%= link_to login_path, class: "link-success text-center" do %>
-            <i class="fa-solid fa-right-to-bracket fa-4x"></i>
+          <% if !logged_in? %>
+            <p class="fs-5"><%= t(".to_login") %></p>
+            <%= link_to login_path, class: "link-success text-center" do %>
+              <i class="fa-solid fa-right-to-bracket fa-4x"></i>
+            <% end %>
           <% end %>
         </div>
         <div class="col-sm d-flex align-items-center justify-content-center mb-4 mb-sm-0">

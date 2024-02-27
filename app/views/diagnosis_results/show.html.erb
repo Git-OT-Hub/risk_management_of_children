@@ -1,0 +1,13 @@
+<% content_for(:title, t(".title")) %>
+<div class="container mt-5">
+  <div class="row mb-3">
+    <div class="col-md-10 offset-md-1">
+      <h1><%= t(".title") %></h1>
+      <% if @result.title.present? %>
+        <%= @result.title %>
+      <% else %>
+        <%= "#{@result.created_at} #{t("my_pages.show.results_of")}" %>
+      <% end %>
+    </div>
+  </div>
+</div>

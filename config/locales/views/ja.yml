@@ -344,6 +344,9 @@ ja:
       no_results: "診断の結果、こちらがアドバイスできるものはありませんでした。\r\n子どもの安全を考えた環境作りに、力を入れられているようですね！"
       input_title: "タイトルを付けて保存できます。"
       results_save: "診断結果を保存"
+  diagnosis_results:
+    show:
+      title: "診断結果の管理"
   views:
     pagination:
       first: "最初"

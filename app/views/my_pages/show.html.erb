@@ -60,8 +60,8 @@
       </div>
 
       <div class="shadow-lg rounded-4">
-        <% if @results.present? %>
-          <ul class="list-group list-group-flush rounded-4">
+        <ul class="list-group list-group-flush rounded-4">
+          <% if @results.present? %>
             <% @results.each do |result| %>
               <li class="list-group-item">
                 <% if result.title.present? %>
@@ -71,10 +71,12 @@
                 <% end %>
               </li>
             <% end %>
-          </ul>
-        <% else %>
-          <p class="fs-5"><%= t(".no_results") %></p>
-        <% end %>
+          <% else %>
+            <li class="list-group-item">
+              <p class="fs-5"><%= t(".no_results") %></p>
+            </li>
+          <% end %>
+        </ul>
       </div>
     </div>
   </div>

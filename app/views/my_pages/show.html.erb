@@ -65,9 +65,9 @@
             <% @results.each do |result| %>
               <li class="list-group-item">
                 <% if result.title.present? %>
-                  <%= link_to result.title, diagnosis_result_path(result), class: "" %>
+                  <%= link_to result.title, diagnosis_result_path(result), class: "link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %>
                 <% else %>
-                  <%= link_to "#{result.created_at} #{t(".results_of")}", diagnosis_result_path(result), class: "" %>
+                  <%= link_to "#{l(result.created_at, format: :long)} #{t(".results_of")}", diagnosis_result_path(result), class: "link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %>
                 <% end %>
               </li>
             <% end %>

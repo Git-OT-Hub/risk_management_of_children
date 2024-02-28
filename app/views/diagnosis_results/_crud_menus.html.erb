@@ -1,0 +1,12 @@
+<ul class="list-inline mb-0">
+  <li class="list-inline-item me-4">
+    <%= link_to "", data: { turbo_stream: true }, class: "" do %>
+      <i class="fa-regular fa-pen-to-square fa-xl"></i>
+    <% end %>
+  </li>
+  <li class="list-inline-item">
+    <%= link_to "", data: { turbo_method: :delete, turbo_confirm: t("defaults.message.delete_confirm") }, class: "" do %>
+      <i class="fa-regular fa-trash-can fa-xl"></i>
+    <% end %>
+  </li>
+</ul>

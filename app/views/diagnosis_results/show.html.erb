@@ -5,14 +5,14 @@
       <h1 class="text-center mb-5"><%= t(".title") %></h1>
       <div class="d-flex flex-column flex-sm-row justify-content-center grid gap-3 column-gap-5 mb-5">
         <h3 class="text-center mb-0">
-          <% if @result.title.present? %>
-            <%= @result.title %>
+          <% if @diagnosis.title.present? %>
+            <%= @diagnosis.title %>
           <% else %>
-            <%= "#{l(@result.created_at, format: :long)} #{t("my_pages.show.results_of")}" %>
+            <%= "#{l(@diagnosis.created_at, format: :long)} #{t("my_pages.show.results_of")}" %>
           <% end %>
         </h3>
         <div class="text-center">
-          <%= render "diagnosis_results/crud_menus", result: @result %>
+          <%= render "diagnosis_results/crud_menus", diagnosis: @diagnosis %>
         </div>
       </div>
 
@@ -24,8 +24,14 @@
         </div>
         <div class="col-sm">
           <div class="text-center">
-            <%= image_tag "smart_hedgehog.png", class: "img-fluid" %>
+            <%= image_tag "hedgehog_progress0.png", class: "img-fluid" %>
           </div>
+        </div>
+      </div>
+
+      <div class="shadow-lg overflow-y-scroll bg-body rounded-4 p-3" style="max-height: 500px;">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+          <%= render partial: "diagnosis_results/card", collection: @results %>
         </div>
       </div>
       

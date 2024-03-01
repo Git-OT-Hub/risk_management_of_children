@@ -12,7 +12,7 @@
           <% end %>
         </div>
       </div> 
-      <div class="d-flex flex-row justify-content-center align-items-center grid gap-0 column-gap-5 mb-5">
+      <div class="d-flex flex-row justify-content-center align-items-center grid gap-0 column-gap-5 mb-5" id="<%= dom_id(@diagnosis) %>">
         <h3 class="mb-0">
           <% if @diagnosis.title.present? %>
             <%= @diagnosis.title %>
@@ -21,7 +21,7 @@
           <% end %>
         </h3>
         <div class="">
-          <%= link_to "", data: { turbo_stream: true }, class: "link-success link-underline link-underline-opacity-0" do %>
+          <%= link_to edit_diagnosis_result_path, data: { turbo_stream: true }, class: "link-success link-underline link-underline-opacity-0" do %>
             <i class="fa-regular fa-pen-to-square fa-2xl"></i>
           <% end %>
         </div>

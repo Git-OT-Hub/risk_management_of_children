@@ -2,17 +2,28 @@
 <div class="container mt-5">
   <div class="row mb-3">
     <div class="col-md-10 offset-md-1">
-      <h1 class="text-center mb-5"><%= t(".title") %></h1>
-      <div class="d-flex flex-column flex-sm-row justify-content-center grid gap-3 column-gap-5 mb-5">
-        <h3 class="text-center mb-0">
+      <div class="row align-items-center mb-5">
+        <div class="col-11">
+          <h1 class="text-center mb-0"><%= t(".title") %></h1>
+        </div>
+        <div class="col-1">
+          <%= link_to "", data: { turbo_method: :delete, turbo_confirm: t("defaults.message.delete_confirm") }, class: "link-success link-underline link-underline-opacity-0 float-end" do %>
+            <i class="fa-regular fa-trash-can fa-2xl"></i>
+          <% end %>
+        </div>
+      </div> 
+      <div class="d-flex flex-row justify-content-center align-items-center grid gap-0 column-gap-5 mb-5">
+        <h3 class="mb-0">
           <% if @diagnosis.title.present? %>
             <%= @diagnosis.title %>
           <% else %>
             <%= "#{l(@diagnosis.created_at, format: :long)} #{t("my_pages.show.results_of")}" %>
           <% end %>
         </h3>
-        <div class="text-center">
-          <%= render "diagnosis_results/crud_menus", diagnosis: @diagnosis %>
+        <div class="">
+          <%= link_to "", data: { turbo_stream: true }, class: "link-success link-underline link-underline-opacity-0" do %>
+            <i class="fa-regular fa-pen-to-square fa-2xl"></i>
+          <% end %>
         </div>
       </div>
 
@@ -29,12 +40,22 @@
         </div>
       </div>
 
-      <div class="shadow-lg overflow-y-scroll bg-body rounded-4 p-3" style="max-height: 500px;">
+      
+      <div class="d-flex flex-row">
+        <%= link_to t(".not_compatible"), "", data: { turbo_stream: true }, class: "fs-4 rounded-0 border-bottom-0 btn btn-outline-secondary active" %>
+        <%= link_to t(".compatible"), "", data: { turbo_stream: true }, class: "fs-4 rounded-0 border-bottom-0 btn btn-outline-secondary" %>
+      </div>        
+      <div class="shadow-lg overflow-y-scroll bg-body rounded-bottom border-top p-3 mb-5" style="max-height: 600px;">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
           <%= render partial: "diagnosis_results/card", collection: @results %>
         </div>
       </div>
-      
+
+      <ul class="nav nav-underline justify-content-center fs-4">
+        <li class="nav-item">
+          <%= link_to t("my_pages.bookmarks.to_my_page"), my_page_path, class: "nav-link text-black p-0" %>
+        </li>
+      </ul>
     </div>
   </div>
 </div>

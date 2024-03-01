@@ -7,7 +7,7 @@
           <h1 class="text-center mb-0"><%= t(".title") %></h1>
         </div>
         <div class="col-1">
-          <%= link_to "", data: { turbo_method: :delete, turbo_confirm: t("defaults.message.delete_confirm") }, class: "link-success link-underline link-underline-opacity-0 float-end" do %>
+          <%= link_to diagnosis_result_path(@diagnosis, redirect_after_delete: "true"), data: { turbo_method: :delete, turbo_confirm: t("defaults.message.delete_diagnosis") }, class: "link-success link-underline link-underline-opacity-0 float-end" do %>
             <i class="fa-regular fa-trash-can fa-2xl"></i>
           <% end %>
         </div>

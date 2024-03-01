@@ -206,6 +206,7 @@ ja:
       not_updated: "%{item}を更新できませんでした"
       deleted: "%{item}を削除しました"
       delete_confirm: "削除しますか？"
+      delete_diagnosis: "診断結果を削除しますか？"
       new_comment: "コメントする"
       cancel: "キャンセル"
       need_delete_image: "※ 画像を変更する場合、先に画像を削除する必要があります。"

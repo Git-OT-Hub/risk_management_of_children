@@ -47,6 +47,6 @@ Rails.application.routes.draw do
       get "result", action: :result
     end
   end
-  resources :diagnosis_results, only: %i[show] do
+  resources :diagnosis_results, only: %i[show destroy] do
   end
 end

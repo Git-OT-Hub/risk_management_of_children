@@ -7,31 +7,33 @@ class DiagnosisResultsController < ApplicationController
 
   def edit
     respond_to do |format|
-      format.turbo_stream { render turbo_stream: turbo_stream.replace("diagnosis_result_#{@diagnosis.id}", partial: "form", locals: { diagnosis: @diagnosis }) }
+      format.turbo_stream { render turbo_stream: turbo_stream.replace("diagnosis_result_#{@diagnosis.id}", partial: "form", locals: { diagnosis_result: @diagnosis }) }
       format.html {  }
     end
   end
 
   def update
-    @post = @comment.post
-    if @comment.update(comment_update_params)
+    if @diagnosis.update(diagnosis_result_params)
       respond_to do |format|
-        format.turbo_stream { flash.now[:success] = t("defaults.message.updated", item: Comment.model_name.human) }
-        format.html { redirect_to post_path(@post), success: t("defaults.message.updated", item: Comment.model_name.human) }
+        format.turbo_stream do
+          flash.now[:success] = t("defaults.message.updated", item: DiagnosisResult.human_attribute_name(:title))
+          render turbo_stream: [
+            turbo_stream.replace("diagnosis_result_#{@diagnosis.id}", partial: "title", locals: { diagnosis: @diagnosis }),
+            turbo_stream.update("flash_message", partial: "shared/flash_message")
+          ]
+        end
+        format.html {  }
       end
     else
       respond_to do |format|
         format.turbo_stream do
-          flash.now[:danger] = t("defaults.message.not_updated", item: Comment.model_name.human)
+          flash.now[:danger] = t("defaults.message.not_updated", item: DiagnosisResult.human_attribute_name(:title))
           render turbo_stream: [
-            turbo_stream.update("comment_#{@comment.id}", partial: "form", locals: { post: @post, comment: @comment }),
+            turbo_stream.replace("diagnosis_result_#{@diagnosis.id}", partial: "form", locals: { diagnosis_result: @diagnosis }),
             turbo_stream.update("flash_message", partial: "shared/flash_message")
           ]
         end
-        format.html do
-          flash.now[:danger] = t("defaults.message.not_updated", item: Comment.model_name.human)
-          render :edit, status: :unprocessable_entity
-        end
+        format.html {  }
       end
     end
   end
@@ -58,5 +60,9 @@ class DiagnosisResultsController < ApplicationController
 
   def set_diagnosis
     @diagnosis = current_user.diagnosis_results.find(params[:id])
+  end
+
+  def diagnosis_result_params
+    params.require(:diagnosis_result).permit(:title)
   end
 end

@@ -25,3 +25,5 @@ ja:
       comment:
         body: "コメント"
         comment_image: "画像"
+      diagnosis_result:
+        title: "タイトル"

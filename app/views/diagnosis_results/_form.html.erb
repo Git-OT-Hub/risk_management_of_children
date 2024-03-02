@@ -1,14 +1,15 @@
-<div class="container shadow-lg bg-body rounded-4 p-4 mb-5" id="<%= dom_id(@diagnosis) %>">
+<div class="container shadow-lg bg-body rounded-4 p-4 mb-5" id="<%= dom_id(diagnosis_result) %>">
   <div class="row">
     <div class="col-sm-8 offset-sm-2">
-      <%= form_with model: diagnosis do |f| %>
+      <%= form_with model: diagnosis_result do |f| %>
+        <%= render "shared/error_messages", object: f.object %>
         <div class="mb-3">
           <%= f.label :title, class: "form-label visually-hidden" %>
           <%= f.text_field :title, class: "form-control rounded-pill bg-warning bg-opacity-10", placeholder: "#{t("diagnosis_questions.result.input_title")}" %>
         </div>
         <div class="float-end">
           <%= f.submit class: "btn btn-success rounded-pill fs-5 me-2" %>
-          <%= link_to t("defaults.message.cancel"), cancel_edit_diagnosis_result_path(diagnosis), data: { turbo_stream: true }, class: "btn btn-outline-secondary rounded-pill fs-5" %>
+          <%= link_to t("defaults.message.cancel"), cancel_edit_diagnosis_result_path(diagnosis_result), data: { turbo_stream: true }, class: "btn btn-outline-secondary rounded-pill fs-5" %>
         </div>
       <% end %>
     </div>

@@ -48,5 +48,8 @@ Rails.application.routes.draw do
     end
   end
   resources :diagnosis_results, only: %i[show edit update destroy] do
+    member do
+      get "cancel_edit", action: :cancel_edit
+    end
   end
 end

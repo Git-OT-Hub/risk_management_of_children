@@ -26,7 +26,7 @@
             </h3>
           </div>
           <div class="col-2 offset-1 shadow-lg bg-body rounded-4 p-3">
-            <%= link_to edit_diagnosis_result_path, data: { turbo_stream: true }, class: "link-success link-underline link-underline-opacity-0" do %>
+            <%= link_to edit_diagnosis_result_path(@diagnosis), data: { turbo_stream: true }, class: "link-success link-underline link-underline-opacity-0" do %>
               <i class="fa-regular fa-pen-to-square fa-2xl"></i>
             <% end %>
           </div>

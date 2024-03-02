@@ -1,5 +1,5 @@
 class DiagnosisResultsController < ApplicationController
-  before_action :set_diagnosis, only: %i[show edit update destroy]
+  before_action :set_diagnosis, only: %i[show edit update destroy cancel_edit]
 
   def show
     @results = DiagnosisContent.where(number: @diagnosis.results)
@@ -44,6 +44,13 @@ class DiagnosisResultsController < ApplicationController
       else
         #format.turbo_stream { flash.now[:success] = t("defaults.message.deleted", item: DiagnosisResult.model_name.human) }
       end
+    end
+  end
+
+  def cancel_edit
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.replace("diagnosis_result_#{@diagnosis.id}", partial: "title", locals: { diagnosis: @diagnosis }) }
+      format.html {  }
     end
   end
 

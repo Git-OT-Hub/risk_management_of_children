@@ -59,7 +59,6 @@
                 <div class="mb-3">
                   <% @filtered_answers.each do |answer| %>
                     <%= f.hidden_field :results, multiple: true, value: answer %>
-                    <%= f.hidden_field :statuses, multiple: true, value: answer %>
                   <% end %>
                   <%= f.label :title, class: "form-label visually-hidden" %>
                   <%= f.text_field :title, class: "form-control rounded-pill bg-warning bg-opacity-10 border border-0", placeholder: "#{t(".input_title")}" %>

@@ -349,7 +349,9 @@ ja:
     show:
       title: "診断結果の管理"
       not_compatible: "未対応"
-      compatible: "対応済"
+      compatible: "完了"
+      can_compatible: "完了 にする"
+      can_not_compatible: "未対応 にする"
   views:
     pagination:
       first: "最初"

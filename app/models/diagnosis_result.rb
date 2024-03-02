@@ -7,6 +7,10 @@ class DiagnosisResult < ApplicationRecord
   validates :title, length: { maximum: 255 }
   validate :validate_results, :validate_statuses
 
+  def calculate
+    ((statuses.count.to_f / results.count.to_f) * 100).to_i
+  end
+
   private
 
   def validate_results

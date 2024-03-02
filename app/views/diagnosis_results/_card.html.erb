@@ -1,4 +1,4 @@
-<div class="col" id="<%= dom_id(card) %>">
+<div class="col" id="diagnosis_content_<%= card.number %>">
   <div class="card h-100 shadow-lg">
     <%= image_tag card.image, class: "card-img-top" %>
     <div class="card-body bg-body-tertiary">
@@ -7,7 +7,7 @@
       </h5>
     </div>
     <div class="card-footer">
-      <%= render "diagnosis_results/completion_button", card: card %>
+      <%= render "diagnosis_results/completion_button", diagnosis: diagnosis, card: card %>
     </div>
   </div>
 </div>

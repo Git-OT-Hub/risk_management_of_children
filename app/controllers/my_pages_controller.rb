@@ -56,6 +56,6 @@ class MyPagesController < ApplicationController
   end
 
   def user_results_params
-    params.require(:save_results).permit(:title, results: [], statuses: [])
+    params.require(:save_results).permit(:title, results: [])
   end
 end

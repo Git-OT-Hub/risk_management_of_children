@@ -1,6 +1,9 @@
-<%= link_to "", data: { turbo_method: :patch }, class: "link-success link-underline link-underline-opacity-0" do %>
-  <i class="fa-solid fa-toggle-off fa-3x"></i>
-<% end %>
-<%= link_to "", data: { turbo_method: :patch }, class: "link-success link-underline link-underline-opacity-0" do %>
-  <i class="fa-solid fa-toggle-on fa-3x"></i>
+<% if diagnosis.statuses.include?(card.number.to_s) %>
+  <%= link_to "", data: { turbo_method: :patch }, class: "link-success link-underline link-underline-opacity-0", "data-bs-toggle"=>"tooltip", "data-bs-placement"=>"right", "data-bs-title"=>"#{t("diagnosis_results.show.can_not_compatible")}", "data-bs-custom-class"=>"custom-tooltip" do %>
+    <i class="fa-solid fa-toggle-on fa-3x"></i>
+  <% end %>
+<% else %>
+  <%= link_to "", data: { turbo_method: :patch }, class: "link-success link-underline link-underline-opacity-0", "data-bs-toggle"=>"tooltip", "data-bs-placement"=>"right", "data-bs-title"=>"#{t("diagnosis_results.show.can_compatible")}", "data-bs-custom-class"=>"custom-tooltip" do %>
+    <i class="fa-solid fa-toggle-off fa-3x"></i>
+  <% end %>
 <% end %>

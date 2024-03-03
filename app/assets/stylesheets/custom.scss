@@ -35,3 +35,12 @@ body {
 main {
   flex: 1;
 }
+
+// トグルボタンの影
+span.progress-toggle-on {
+  filter:drop-shadow(4px 4px 1px #bbb);
+}
+
+span.progress-toggle-off {
+  filter:drop-shadow(4px 4px 1px #bbb);
+}

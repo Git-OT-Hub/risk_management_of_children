@@ -50,6 +50,8 @@ Rails.application.routes.draw do
   resources :diagnosis_results, only: %i[show edit update destroy] do
     member do
       get "cancel_edit", action: :cancel_edit
+      get "compatible", action: :compatible
+      get "not_compatible", action: :not_compatible
     end
   end
 end

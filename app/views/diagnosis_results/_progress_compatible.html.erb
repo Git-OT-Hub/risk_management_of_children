@@ -1,0 +1,15 @@
+<div class="container px-0">
+  <div class="d-flex flex-row">
+    <%= link_to t("diagnosis_results.show.not_compatible"), not_compatible_diagnosis_result_path(diagnosis), data: { turbo_stream: true }, class: "fs-4 rounded-0 border-bottom-0 btn btn-outline-secondary" %>
+    <%= link_to t("diagnosis_results.show.compatible"), compatible_diagnosis_result_path(diagnosis), data: { turbo_stream: true }, class: "fs-4 rounded-0 border-bottom-0 btn btn-outline-secondary active" %>
+  </div>
+</div>        
+<div class="shadow-lg overflow-y-scroll bg-body rounded-bottom border-top p-3 mb-5" style="max-height: 600px;">
+  <% if statuses.present? %>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+      <%= render partial: "diagnosis_results/card", collection: statuses, locals: { diagnosis: diagnosis } %>
+    </div>
+  <% else %>
+    <p class="fs-4"><%= t("diagnosis_results.show.no_statuses") %></p>
+  <% end %>
+</div>

@@ -352,6 +352,8 @@ ja:
       compatible: "完了"
       can_compatible: "完了 にする"
       can_not_compatible: "未対応 にする"
+      no_statuses: "完了しているものはありません"
+      no_results: "未対応のものはありません"
   views:
     pagination:
       first: "最初"

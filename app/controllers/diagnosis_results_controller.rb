@@ -1,5 +1,5 @@
 class DiagnosisResultsController < ApplicationController
-  before_action :set_diagnosis, only: %i[show edit update destroy cancel_edit]
+  before_action :set_diagnosis, only: %i[show edit update destroy cancel_edit compatible not_compatible]
 
   def show
     @results = DiagnosisContent.where(number: @diagnosis.results)
@@ -52,6 +52,22 @@ class DiagnosisResultsController < ApplicationController
   def cancel_edit
     respond_to do |format|
       format.turbo_stream { render turbo_stream: turbo_stream.replace("diagnosis_result_#{@diagnosis.id}", partial: "title", locals: { diagnosis: @diagnosis }) }
+      format.html {  }
+    end
+  end
+
+  def compatible
+    @statuses = DiagnosisContent.where(number: @diagnosis.statuses)
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.update("progress_cards", partial: "progress_compatible", locals: { diagnosis: @diagnosis, statuses: @statuses }) }
+      format.html {  }
+    end
+  end
+
+  def not_compatible
+    @results = DiagnosisContent.where(number: @diagnosis.results)
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.update("progress_cards", partial: "progress_not_compatible", locals: { diagnosis: @diagnosis, results: @results }) }
       format.html {  }
     end
   end

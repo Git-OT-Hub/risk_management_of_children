@@ -34,21 +34,13 @@
       </div>
 
       <div class="container mb-5">
-        <div class="row shadow-lg bg-body rounded-4 p-3" id="progress_<%= @diagnosis.id %>">
-          <%= render "diagnosis_results/progress", diagnosis: @diagnosis %>
+        <div class="row shadow-lg bg-body rounded-4 p-3" id="progress_images">
+          <%= render "diagnosis_results/progress_images", diagnosis: @diagnosis %>
         </div>
       </div>
       
-      <div class="container px-0">
-        <div class="d-flex flex-row">
-          <%= link_to t(".not_compatible"), "", data: { turbo_stream: true }, class: "fs-4 rounded-0 border-bottom-0 btn btn-outline-secondary active" %>
-          <%= link_to t(".compatible"), "", data: { turbo_stream: true }, class: "fs-4 rounded-0 border-bottom-0 btn btn-outline-secondary" %>
-        </div>
-      </div>        
-      <div class="shadow-lg overflow-y-scroll bg-body rounded-bottom border-top p-3 mb-5" style="max-height: 600px;">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-          <%= render partial: "diagnosis_results/card", collection: @results, locals: { diagnosis: @diagnosis } %>
-        </div>
+      <div id="progress_cards">
+        <%= render "diagnosis_results/progress_not_compatible", results: @results, diagnosis: @diagnosis %>
       </div>
 
       <ul class="nav nav-underline justify-content-center shadow-lg bg-body rounded-4 p-3 fs-4">

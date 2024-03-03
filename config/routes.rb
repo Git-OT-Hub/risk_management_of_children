@@ -52,6 +52,8 @@ Rails.application.routes.draw do
       get "cancel_edit", action: :cancel_edit
       get "compatible", action: :compatible
       get "not_compatible", action: :not_compatible
+      patch "change_compatible", action: :change_compatible
+      patch "change_not_compatible", action: :change_not_compatible
     end
   end
 end

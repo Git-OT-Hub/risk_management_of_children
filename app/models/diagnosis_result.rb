@@ -8,7 +8,7 @@ class DiagnosisResult < ApplicationRecord
   validate :validate_results, :validate_statuses
 
   def calculate
-    ((statuses.count.to_f / results.count.to_f) * 100).to_i
+    ((statuses.count.to_f / (statuses.count.to_f + results.count.to_f)) * 100).to_i
   end
 
   private

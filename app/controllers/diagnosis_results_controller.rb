@@ -1,5 +1,5 @@
 class DiagnosisResultsController < ApplicationController
-  before_action :set_diagnosis, only: %i[show edit update destroy cancel_edit compatible not_compatible]
+  before_action :set_diagnosis, only: %i[show edit update destroy cancel_edit compatible not_compatible change_compatible change_not_compatible]
 
   def show
     @results = DiagnosisContent.where(number: @diagnosis.results)
@@ -70,6 +70,31 @@ class DiagnosisResultsController < ApplicationController
       format.turbo_stream { render turbo_stream: turbo_stream.update("progress_cards", partial: "progress_not_compatible", locals: { diagnosis: @diagnosis, results: @results }) }
       format.html {  }
     end
+  end
+
+  def change_compatible
+    number = params[:number].to_s
+    calculated_results = @diagnosis.results.reject { |saved_number| saved_number == number } if @diagnosis.results.include?(number)
+    calculated_statuses = @diagnosis.statuses.push(number) if !@diagnosis.statuses.include?(number)
+    
+    if @diagnosis.update(results: calculated_results, statuses: calculated_statuses)
+      respond_to do |format|
+        format.turbo_stream do
+          flash.now[:success] = t("diagnosis_results.show.changed_compatible")
+          render turbo_stream: [
+            turbo_stream.remove("diagnosis_content_#{number.to_i}"),
+            turbo_stream.update("progress_images", partial: "progress_images", locals: { diagnosis: @diagnosis }),
+            turbo_stream.update("flash_message", partial: "shared/flash_message")
+          ]
+        end
+        format.html {  }
+      end
+    else
+      redirect_to diagnosis_result_path(@diagnosis), danger: t("diagnosis_results.show.not_changed_compatible")
+    end
+  end
+
+  def change_not_compatible
   end
 
   private

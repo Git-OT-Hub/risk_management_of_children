@@ -19,7 +19,19 @@
   }
 }
 
+// ツールチップ
 .custom-tooltip {
   --bs-tooltip-bg: var(--bs-gray);
   --bs-tooltip-color: var(--bs-white);
+}
+
+// フッターの高さ調整
+body {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
 }

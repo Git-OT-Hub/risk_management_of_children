@@ -1,7 +1,7 @@
 <div class="container px-0">
   <div class="d-flex flex-row">
     <%= link_to t("diagnosis_results.show.not_compatible"), not_compatible_diagnosis_result_path(diagnosis), data: { turbo_stream: true }, class: "fs-4 rounded-0 border-bottom-0 btn btn-outline-secondary active" %>
-    <%= link_to t("diagnosis_results.show.compatible"), compatible_diagnosis_result_path(diagnosis), data: { turbo_stream: true }, class: "fs-4 rounded-0 border-bottom-0 btn btn-outline-secondary" %>
+    <%= link_to t("diagnosis_results.show.compatible"), compatible_diagnosis_result_path(diagnosis), data: { turbo_stream: true }, class: "progress-not-compatible-compatible-btn fs-4 rounded-0 border-bottom-0 btn btn-outline-secondary" %>
   </div>
 </div>        
 <div class="shadow-lg overflow-y-scroll bg-body rounded-bottom border-top p-3 mb-5" style="max-height: 600px; min-height: 300px;">

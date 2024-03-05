@@ -1,7 +1,7 @@
 <% if diagnosis.calculate >= 0 && diagnosis.calculate < 25 %>
   <div class="col-sm align-self-end mb-3 mb-sm-0">
     <div class="progress shadow-lg" role="progressbar" aria-label="result-progress" aria-valuenow="<%= diagnosis.calculate %>" aria-valuemin="0" aria-valuemax="100" style="height: 40px">
-      <div class="progress-bar bg-warning" style="width: <%= diagnosis.calculate %>%"><span class="fs-4"><%= "#{diagnosis.calculate} #{t("diagnosis_results.show.percent")}" %></span></div>
+      <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" style="width: <%= diagnosis.calculate %>%"><span class="fs-4"><%= "#{diagnosis.calculate} #{t("diagnosis_results.show.percent")}" %></span></div>
     </div>
   </div>
   <div class="col-sm">
@@ -12,7 +12,7 @@
 <% elsif diagnosis.calculate >= 25 && diagnosis.calculate < 50 %>
   <div class="col-sm align-self-end mb-3 mb-sm-0">
     <div class="progress shadow-lg" role="progressbar" aria-label="result-progress" aria-valuenow="<%= diagnosis.calculate %>" aria-valuemin="0" aria-valuemax="100" style="height: 40px">
-      <div class="progress-bar bg-warning" style="width: <%= diagnosis.calculate %>%"><span class="fs-4"><%= "#{diagnosis.calculate} #{t("diagnosis_results.show.percent")}" %></span></div>
+      <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" style="width: <%= diagnosis.calculate %>%"><span class="fs-4"><%= "#{diagnosis.calculate} #{t("diagnosis_results.show.percent")}" %></span></div>
     </div>
   </div>
   <div class="col-sm">
@@ -23,7 +23,7 @@
 <% elsif diagnosis.calculate >= 50 && diagnosis.calculate < 75 %>
   <div class="col-sm align-self-end mb-3 mb-sm-0">
     <div class="progress shadow-lg" role="progressbar" aria-label="result-progress" aria-valuenow="<%= diagnosis.calculate %>" aria-valuemin="0" aria-valuemax="100" style="height: 40px">
-      <div class="progress-bar bg-warning" style="width: <%= diagnosis.calculate %>%"><span class="fs-4"><%= "#{diagnosis.calculate} #{t("diagnosis_results.show.percent")}" %></span></div>
+      <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" style="width: <%= diagnosis.calculate %>%"><span class="fs-4"><%= "#{diagnosis.calculate} #{t("diagnosis_results.show.percent")}" %></span></div>
     </div>
   </div>
   <div class="col-sm">
@@ -34,7 +34,7 @@
 <% elsif diagnosis.calculate >= 75 && diagnosis.calculate < 100 %>
   <div class="col-sm align-self-end mb-3 mb-sm-0">
     <div class="progress shadow-lg" role="progressbar" aria-label="result-progress" aria-valuenow="<%= diagnosis.calculate %>" aria-valuemin="0" aria-valuemax="100" style="height: 40px">
-      <div class="progress-bar bg-warning" style="width: <%= diagnosis.calculate %>%"><span class="fs-4"><%= "#{diagnosis.calculate} #{t("diagnosis_results.show.percent")}" %></span></div>
+      <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" style="width: <%= diagnosis.calculate %>%"><span class="fs-4"><%= "#{diagnosis.calculate} #{t("diagnosis_results.show.percent")}" %></span></div>
     </div>
   </div>
   <div class="col-sm">

@@ -1,6 +1,6 @@
 <div class="container px-0">
   <div class="d-flex flex-row">
-    <%= link_to t("diagnosis_results.show.not_compatible"), not_compatible_diagnosis_result_path(diagnosis), data: { turbo_stream: true }, class: "fs-4 rounded-0 border-bottom-0 btn btn-outline-secondary" %>
+    <%= link_to t("diagnosis_results.show.not_compatible"), not_compatible_diagnosis_result_path(diagnosis), data: { turbo_stream: true }, class: "progress-compatible-not-compatible-btn fs-4 rounded-0 border-bottom-0 btn btn-outline-secondary" %>
     <%= link_to t("diagnosis_results.show.compatible"), compatible_diagnosis_result_path(diagnosis), data: { turbo_stream: true }, class: "fs-4 rounded-0 border-bottom-0 btn btn-outline-secondary active" %>
   </div>
 </div>        

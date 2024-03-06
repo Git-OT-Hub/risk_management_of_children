@@ -44,7 +44,13 @@ class DiagnosisResultsController < ApplicationController
       if params[:redirect_after_delete] == "true"
         format.html { redirect_to my_page_path, success: t("defaults.message.deleted", item: DiagnosisResult.model_name.human), status: :see_other }
       else
-        #format.turbo_stream { flash.now[:success] = t("defaults.message.deleted", item: DiagnosisResult.model_name.human) }
+        format.turbo_stream do
+          flash.now[:success] = t("defaults.message.deleted", item: DiagnosisResult.model_name.human)
+          render turbo_stream: [
+            turbo_stream.remove("diagnosis_result_item_#{@diagnosis.id}"),
+            turbo_stream.update("flash_message", partial: "shared/flash_message")
+          ]
+        end
       end
     end
   end

@@ -36,6 +36,7 @@ Rails.application.routes.draw do
       get "bookmarks", action: :bookmarks
       get "my_posts", action: :my_posts
       delete "delete_avatar", action: :delete_avatar
+      post "save_results", action: :save_results
     end
   end
   resources :password_resets, only: %i[new create edit update]
@@ -44,6 +45,15 @@ Rails.application.routes.draw do
     collection do
       post "calculate", action: :calculate
       get "result", action: :result
+    end
+  end
+  resources :diagnosis_results, only: %i[show edit update destroy] do
+    member do
+      get "cancel_edit", action: :cancel_edit
+      get "compatible", action: :compatible
+      get "not_compatible", action: :not_compatible
+      patch "change_compatible", action: :change_compatible
+      patch "change_not_compatible", action: :change_not_compatible
     end
   end
 end

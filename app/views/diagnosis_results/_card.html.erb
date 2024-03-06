@@ -1,0 +1,13 @@
+<div class="col" id="progress_diagnosis_content_<%= card.number %>">
+  <div class="card h-100 shadow-lg">
+    <%= image_tag card.image, class: "card-img-top" %>
+    <div class="card-body bg-body-tertiary">
+      <h5 class="card-title lh-base mb-0">
+        <%= link_to card.title, diagnosis_content_path(card), class: "link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %>
+      </h5>
+    </div>
+    <div class="card-footer">
+      <%= render "diagnosis_results/completion_button", diagnosis: diagnosis, card: card %>
+    </div>
+  </div>
+</div>

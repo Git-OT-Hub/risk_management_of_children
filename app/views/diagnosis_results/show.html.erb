@@ -1,0 +1,53 @@
+<% content_for(:title, t(".title")) %>
+<div class="container mt-5">
+  <div class="row mb-3">
+    <div class="col-md-10 offset-md-1 px-0">
+      <div class="container text-center mb-5">
+        <div class="row">
+          <div class="col-10">
+            <h1 class="mb-0"><%= t(".title") %></h1>
+          </div>
+          <div class="col-2 shadow-lg bg-body rounded-4 p-3">  
+            <%= link_to diagnosis_result_path(@diagnosis, redirect_after_delete: "true"), data: { turbo_method: :delete, turbo_confirm: t("defaults.message.delete_diagnosis") }, class: "link-success link-underline link-underline-opacity-0" do %>
+              <i class="fa-regular fa-trash-can fa-2xl"></i>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="container text-center mb-5" id="diagnosis_result_title_<%= @diagnosis.id %>">
+        <div class="row">
+          <div class="col-9 shadow-lg bg-body rounded-4 p-3">
+            <h3 class="mb-0">
+              <% if @diagnosis.title.present? %>
+                <%= @diagnosis.title %>
+              <% else %>
+                <%= "#{l(@diagnosis.created_at, format: :long)} #{t("my_pages.show.results_of")}" %>
+              <% end %>
+            </h3>
+          </div>
+          <div class="col-2 offset-1 shadow-lg bg-body rounded-4 p-3">
+            <%= link_to edit_diagnosis_result_path(@diagnosis), data: { turbo_stream: true }, class: "link-success link-underline link-underline-opacity-0" do %>
+              <i class="fa-regular fa-pen-to-square fa-2xl"></i>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="container mb-5">
+        <div class="row shadow-lg rounded-4 p-3 progress-bg-image" id="progress_images">
+          <%= render "diagnosis_results/progress_images", diagnosis: @diagnosis %>
+        </div>
+      </div>
+      
+      <div id="progress_cards">
+        <%= render "diagnosis_results/progress_not_compatible", results: @results, diagnosis: @diagnosis %>
+      </div>
+
+      <ul class="nav nav-underline justify-content-center shadow-lg bg-body rounded-4 p-3 fs-4">
+        <li class="nav-item">
+          <%= link_to t("my_pages.bookmarks.to_my_page"), my_page_path, class: "nav-link text-black p-0" %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

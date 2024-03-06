@@ -16,5 +16,8 @@ application.register("file-upload", FileUploadController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import TooltipController from "./tooltip_controller"
+application.register("tooltip", TooltipController)
+
 import UserAvatarController from "./user_avatar_controller"
 application.register("user-avatar", UserAvatarController)

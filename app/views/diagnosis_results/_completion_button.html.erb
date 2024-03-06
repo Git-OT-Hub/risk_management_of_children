@@ -1,0 +1,9 @@
+<% if diagnosis.statuses.include?(card.number.to_s) %>
+  <%= link_to change_not_compatible_diagnosis_result_path(diagnosis, number: card.number), data: { turbo_method: :patch }, class: "link-success link-underline link-underline-opacity-0", "data-bs-toggle"=>"tooltip", "data-bs-placement"=>"right", "data-bs-title"=>"#{t("diagnosis_results.show.can_not_compatible")}", "data-bs-custom-class"=>"custom-tooltip" do %>
+    <span class="progress-toggle-on"><i class="fa-solid fa-toggle-on fa-3x"></i></span>
+  <% end %>
+<% else %>
+  <%= link_to change_compatible_diagnosis_result_path(diagnosis, number: card.number), data: { turbo_method: :patch }, class: "link-success link-underline link-underline-opacity-0", "data-bs-toggle"=>"tooltip", "data-bs-placement"=>"right", "data-bs-title"=>"#{t("diagnosis_results.show.can_compatible")}", "data-bs-custom-class"=>"custom-tooltip" do %>
+    <span class="progress-toggle-off"><i class="fa-solid fa-toggle-off fa-3x"></i></span>
+  <% end %>
+<% end %>

@@ -18,3 +18,50 @@
     border-width: 1px;
   }
 }
+
+// ツールチップ
+.custom-tooltip {
+  --bs-tooltip-bg: var(--bs-gray);
+  --bs-tooltip-color: var(--bs-white);
+}
+
+// フッターの高さ調整
+body {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+// トグルボタンの影
+span.progress-toggle-on {
+  filter:drop-shadow(4px 4px 1px #bbb);
+}
+
+span.progress-toggle-off {
+  filter:drop-shadow(4px 4px 1px #bbb);
+}
+
+// 進捗管理画面　「未対応」、「対応」タブ
+a.progress-not-compatible-compatible-btn {
+  --bs-btn-bg: var(--bs-white);
+  --bs-btn-color: var(--bs-gray-600);
+  --bs-btn-border-color: var(--bs-border-color);
+}
+
+a.progress-compatible-not-compatible-btn {
+  --bs-btn-bg: var(--bs-white);
+  --bs-btn-color: var(--bs-gray-600);
+  --bs-btn-border-color: var(--bs-border-color);
+}
+
+// 進捗管理画面　進捗画像
+.progress-bg-image {
+  background-image: url('progress-bg-image.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+}

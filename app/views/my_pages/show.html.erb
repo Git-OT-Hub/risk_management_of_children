@@ -71,11 +71,6 @@
                 <% end %>
                 <div class="float-end">
                   <ul class="list-inline mb-0">
-                    <li class="list-inline-item me-4">
-                      <%= link_to edit_diagnosis_result_path(result), data: { turbo_stream: true }, class: "link-success link-underline link-underline-opacity-0" do %>
-                        <i class="fa-regular fa-pen-to-square fa-2xl"></i>
-                      <% end %>
-                    </li>
                     <li class="list-inline-item">
                       <%= link_to diagnosis_result_path(result), data: { turbo_method: :delete, turbo_confirm: t("defaults.message.delete_diagnosis") }, class: "link-success link-underline link-underline-opacity-0" do %>
                         <i class="fa-regular fa-trash-can fa-2xl"></i>

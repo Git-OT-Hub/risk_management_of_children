@@ -4,7 +4,9 @@ class Post < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
-  has_many_attached :images
+  has_many_attached :images do |attachable|
+    attachable.variant :medium, resize_to_limit: [500, 500], preprocessed: true
+  end
 
   validates :title, presence: true, length: { maximum: 255 }
   validates :body, length: { maximum: 65_535 }

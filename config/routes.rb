@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :posts, only: %i[index new create show edit update destroy] do
     member do
       delete "delete_image/:image_id", action: :delete_image, as: :delete_image
+      get "reload_images", action: :reload_images
     end
     resources :comments, only: %i[index new create show edit update destroy], shallow: true do
       collection do

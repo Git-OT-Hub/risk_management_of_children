@@ -24,7 +24,7 @@
         <% post.images.with_all_variant_records.each_with_index do |image, index| %>
           <div class="mb-5" id="<%= dom_id(image) %>" data-index="<%= index %>">
             <%= f.hidden_field :images, multiple: true, value: image.signed_id %>
-            <%= image_tag images_as_medium(image), class: "img-fluid rounded-4 mb-2" %>
+            <%= image_tag image.variant(:medium), class: "img-fluid rounded-4 mb-2" %>
             <p><%= image.blob.filename %></p>
             <% if image.persisted? %>
               <%= link_to t("defaults.message.delete"), delete_image_post_path(post, image_id: image.id), data: { turbo_method: :delete }, class: "btn btn-danger rounded-pill mb-4", id: "rspec-image-#{image.id}" %>

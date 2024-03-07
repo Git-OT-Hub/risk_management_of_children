@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   skip_before_action :require_login, only: %i[index show]
-  before_action :set_post, only: %i[edit update destroy]
+  before_action :set_post, only: %i[edit update destroy reload_images]
 
   def index
     @q = Post.ransack(params[:q])
@@ -57,6 +57,19 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.turbo_stream { render turbo_stream: turbo_stream.remove("attachment_#{image.id}") }
       format.html { redirect_to edit_post_path(@post) }
+    end
+  end
+
+  def reload_images
+    respond_to do |format|
+      format.turbo_stream do
+        flash.now[:success] = t("defaults.message.updated", item: Post.human_attribute_name(:images))
+        render turbo_stream: [
+          turbo_stream.update("reload_images_#{@post.id}", partial: "reload_images", locals: { post: @post }),
+          turbo_stream.update("flash_message", partial: "shared/flash_message")
+        ]
+      end
+      format.html {  }
     end
   end
 

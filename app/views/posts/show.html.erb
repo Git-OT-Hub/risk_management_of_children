@@ -32,7 +32,6 @@
                   <%= l @post.created_at, format: :long %>
                 </li>
               </ul>
-
               <ul class="list-inline mb-0">
                 <li class="list-inline-item bg-secondary-subtle rounded-3 shadow-lg p-2 me-2">
                   <%= link_to reload_images_post_path(@post), data: { turbo_stream: true }, class: "link-success link-underline link-underline-opacity-0" do %>
@@ -43,7 +42,6 @@
                   <p class="mb-0"><%= t(".images_reload") %></p>
                 </li>
               </ul>
-
             </div>
           </div>
           <hr size="10", class="bg-success border border-0 mb-3">

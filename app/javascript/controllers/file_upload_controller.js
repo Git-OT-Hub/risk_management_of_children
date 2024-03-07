@@ -22,7 +22,7 @@ export default class extends Controller {
       return;
     }
 
-    const allowExtensions = /\.(jpeg|jpg|png|gif)$/;
+    const allowExtensions = /\.(jpeg|jpg|png|gif)$/i;
     // 5MBを超える画像が添付されている場合または、許可さえていない拡張子が含まれる場合、アラートを表示して中止
     for (let i = 0; i < files.length; i++) {
       if (files[i].size > 5 * 1024 * 1024) {

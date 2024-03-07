@@ -1,5 +1,5 @@
 <div class="col-12 col-sm-6 col-lg-4 mb-4" id="<%= dom_id(post) %>">
-  <div class="card">
+  <div class="card h-100">
     <!-- スライド形式の画像 -->
     <% if post.images.attached? %>
       <div id="carousel-id-<%= post.id %>" class="carousel carousel-dark slide">
@@ -11,7 +11,7 @@
         <div class="carousel-inner">
           <% post.images.with_all_variant_records.each_with_index do |image, index| %>
             <div class="carousel-item <%= index == 0 ? "active" : "" %>">
-              <%= image_tag images_as_medium(image), class: "d-block w-100" %>
+              <%= image_tag image.variant(:medium), class: "d-block w-100" %>
             </div>
           <% end %>
         </div>

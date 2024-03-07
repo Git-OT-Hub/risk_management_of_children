@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_25_120907) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_07_132007) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -56,6 +56,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_25_120907) do
     t.index ["post_id"], name: "index_bookmarks_on_post_id"
     t.index ["user_id", "post_id"], name: "index_bookmarks_on_user_id_and_post_id", unique: true
     t.index ["user_id"], name: "index_bookmarks_on_user_id"
+  end
+
+  create_table "comment_replies", force: :cascade do |t|
+    t.text "body", null: false
+    t.integer "user_id", null: false
+    t.integer "comment_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_comment_replies_on_comment_id"
+    t.index ["user_id"], name: "index_comment_replies_on_user_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -143,6 +153,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_25_120907) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookmarks", "posts"
   add_foreign_key "bookmarks", "users"
+  add_foreign_key "comment_replies", "comments"
+  add_foreign_key "comment_replies", "users"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "diagnosis_results", "users"

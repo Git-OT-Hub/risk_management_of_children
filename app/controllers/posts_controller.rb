@@ -61,7 +61,7 @@ class PostsController < ApplicationController
   end
 
   def reload_images
-    redirect_to post_path(@post)#, success: t("defaults.message.updated", item: Post.human_attribute_name(:images))
+    redirect_to post_path(@post), success: t("defaults.message.updated", item: Post.human_attribute_name(:images))
   end
 
   private

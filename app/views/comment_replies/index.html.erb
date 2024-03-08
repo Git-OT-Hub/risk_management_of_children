@@ -1,8 +1,18 @@
 <% content_for(:title, t(".title")) %>
 <div class="container mt-5">
   <div class="row mb-3">
-    <div class="col-md-10 offset-md-1 px-0">
+    <div class="col px-0">
       <h1 class="text-center mb-5"><%= t(".title") %></h1>
+      <div class="shadow-lg overflow-y-scroll bg-body rounded border p-4 mb-5" style="max-height: 600px; min-height: 300px;">
+        <%= render "comment_replies/parent_comment", comment: @comment %>
+        
+
+      </div>
+      <ul class="nav nav-underline justify-content-center shadow-lg bg-body rounded-4 p-3 fs-4">
+        <li class="nav-item">
+          <%= link_to t("posts.new.back_to_previous_page"), "javascript:history.back()", class: "nav-link text-black p-0" %>
+        </li>
+      </ul>
     </div>
   </div>
 </div>

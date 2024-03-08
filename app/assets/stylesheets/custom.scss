@@ -65,3 +65,41 @@ a.progress-compatible-not-compatible-btn {
   background-position: center;
   height: 100%;
 }
+
+// コメント返信(current-user)
+.comment-balloon-right {
+  position: relative;
+  display: block;
+  margin: 0 0 0 3rem;
+  padding: 1px;
+  background: #dee2e6;
+}
+
+.comment-balloon-right:before {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 100%;
+  margin-top: -15px;
+  border: 25px solid transparent;
+  border-left: 20px solid #dee2e6;
+}
+
+//　コメント返信(others)
+.comment-balloon-left {
+  position: relative;
+  display: block;
+  margin: 0 3rem 0 0;
+  padding: 1px;
+  background: #dee2e6;
+}
+
+.comment-balloon-left:before {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: -45px;
+  margin-top: -15px;
+  border: 25px solid transparent;
+  border-right: 20px solid #dee2e6;
+}

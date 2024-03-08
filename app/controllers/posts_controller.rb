@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @q = @post.comments.ransack(params[:q])
-    @comments = @q.result(distinct: true).includes(:user).with_attached_comment_image.order(created_at: :desc).page(params[:page]).per(6)
+    @comments = @q.result(distinct: true).includes(:user).with_attached_comment_image.order(created_at: :desc)
   end
 
   def new

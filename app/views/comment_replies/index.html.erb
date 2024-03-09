@@ -1,5 +1,5 @@
 <% content_for(:title, t(".title")) %>
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
   <div class="row">
     <div class="col col-lg-10 offset-lg-1 px-0">
       <h1 class="text-center mb-5"><%= t(".title") %></h1>
@@ -12,6 +12,4 @@
     </div>
   </div>
 </div>
-<div class="sticky-bottom bg-success-subtle" id="<%= dom_id(CommentReply.new) %>">
-  <%= render "comment_replies/comment_reply_button", comment: @comment %>
-</div>
+<%= render "comment_replies/comment_reply_button", comment: @comment %>

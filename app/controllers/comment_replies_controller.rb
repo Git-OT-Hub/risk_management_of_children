@@ -8,6 +8,11 @@ class CommentRepliesController < ApplicationController
   end
 
   def new
+    @comment_reply = CommentReply.new
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.replace("new_comment_reply", partial: "form", locals: { comment: @comment, comment_reply: @comment_reply }) }
+      format.html {  }
+    end
     #binding.pry
   end
 

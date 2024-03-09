@@ -7,6 +7,9 @@ import { application } from "./application"
 import CommentImageController from "./comment_image_controller"
 application.register("comment-image", CommentImageController)
 
+import CommentReplyImageController from "./comment_reply_image_controller"
+application.register("comment-reply-image", CommentReplyImageController)
+
 import DiagnosisQuestionsController from "./diagnosis_questions_controller"
 application.register("diagnosis-questions", DiagnosisQuestionsController)
 

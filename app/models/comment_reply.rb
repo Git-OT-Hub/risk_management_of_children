@@ -2,14 +2,12 @@ class CommentReply < ApplicationRecord
   belongs_to :user
   belongs_to :comment
 
-  has_one_attached :comment_reply_image
+  has_one_attached :comment_reply_image do |attachable|
+    attachable.variant :medium, resize_to_limit: [500, 500]
+  end
 
   validates :body, presence: true, length: { maximum: 65_535 }
   validate :comment_reply_image_content_type, :comment_reply_image_size
-
-  def comment_reply_image_as_medium
-    comment_reply_image.variant(resize_to_limit: [500, 500]).processed.url
-  end
 
   private
 

@@ -1,60 +1,64 @@
-<%= form_with model: comment, url: (comment.persisted? ? comment_path(comment) : post_comments_path(post, comment)), class: "my-4" do |f| %>
-  <%= render "shared/error_messages", object: f.object %>
-  <div class="mb-3">
-    <%= f.label :body, class: "form-label" %>
-    <%= f.text_area :body, class: "form-control rounded-4 mb-3", rows: 4, placeholder: Comment.human_attribute_name(:body) %>
-  </div>
-  <div class="card mb-3" data-controller="comment-image">
-    <div class="row g-0 justify-content-center">
-      <div class="col-sm-7">
-        <div class="card-body p-2">
-          <%= f.label :comment_image, class: "form-label" %>
-          <div class="form-text mb-1"><%= t("defaults.message.comment_image_quantity_limit") %></div>
-          <div class="form-text mb-1"><%= t("defaults.message.comment_image_byte_size_limit") %></div>
-          <div class="form-text mb-3"><%= t("defaults.message.content_type_limit") %></div>
-          <%= f.hidden_field :comment_image, value: comment.comment_image.signed_id, data: { comment_image_target: "hiddenField" } %>
-          <%= f.file_field :comment_image, direct_upload: true, accept: "image/*", class: "form-control rounded-pill", data: { comment_image_target: "input", action: "click->comment-image#checkForExistingImage change->comment-image#preview" } %>
-        </div>
+<div class="sticky-bottom bg-secondary-subtle" id="<%= dom_id(CommentReply.new) %>">
+  <div class="container pt-3">
+    <%= form_with model: comment_reply, url: (comment_reply.persisted? ? comment_reply_path(comment_reply) : comment_comment_replies_path(comment)) do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
+      <div class="mb-2">
+        <%= f.label :body, class: "form-label visually-hidden" %>
+        <%= f.text_area :body, class: "form-control rounded", rows: 2, placeholder: CommentReply.human_attribute_name(:body) %>
       </div>
-      <div class="col-sm-4 align-self-center ms-0" id="<%= dom_id(comment, "form") %>">
-        <div class="card-body p-1">
-          <% if comment.comment_image.attached? %>
-            <div>
-              <%= image_tag comment.comment_image_as_medium, class: "img-fluid rounded mb-1", data: { comment_image_target: "preview" } %>
-              <div class="d-flex justify-content-end">
-                <% if comment.comment_image.persisted? %>
-                  <%= link_to t("defaults.message.delete"), delete_comment_image_comment_path(comment), data: { turbo_method: :delete, action: "click->comment-image#hiddenClear" }, class: "btn btn-danger rounded-pill" %>
-                <% else %>
-                  <button type="button" class="btn btn-danger rounded-pill" data-action="click->comment-image#delete">
+      <div class="card mb-2" data-controller="comment-reply-image">
+        <div class="row g-0 justify-content-center">
+          <div class="col-sm-7">
+            <div class="card-body p-2">
+              <%= f.label :comment_reply_image, class: "form-label visually-hidden" %>
+              <div class="form-text my-0"><%= t("defaults.message.comment_image_quantity_limit") %></div>
+              <div class="form-text my-0"><%= t("defaults.message.comment_image_byte_size_limit") %></div>
+              <div class="form-text mt-0 mb-2"><%= t("defaults.message.content_type_limit") %></div>
+              <%= f.hidden_field :comment_reply_image, value: comment_reply.comment_reply_image.signed_id, data: { comment_reply_image_target: "hiddenField" } %>
+              <%= f.file_field :comment_reply_image, direct_upload: true, accept: "image/*", class: "form-control rounded-pill", data: { comment_reply_image_target: "input", action: "click->comment-reply-image#checkForExistingImage change->comment-reply-image#preview" } %>
+            </div>
+          </div>
+          <div class="col-sm-4 align-self-center ms-0" id="<%= dom_id(comment_reply, "form") %>">
+            <div class="card-body text-center p-1">
+              <% if comment_reply.comment_reply_image.attached? %>
+                <div>
+                  <%= image_tag comment_reply.comment_reply_image.variant(:medium), class: "img-fluid rounded mb-1", data: { comment_reply_image_target: "preview" } %>
+                  <div class="d-flex justify-content-end">
+                    <% if comment_reply.comment_reply_image.persisted? %>
+                      <%= link_to t("defaults.message.delete"), "", data: { turbo_method: :delete, action: "click->comment-reply-image#hiddenClear" }, class: "btn btn-danger rounded-pill" %>
+                    <% else %>
+                      <button type="button" class="btn btn-danger rounded-pill" data-action="click->comment-reply-image#delete">
+                        <%= t("defaults.message.delete") %>
+                      </button>
+                    <% end %>
+                  </div>
+                </div>
+              <% else %>
+                <%= image_tag "no_image.png", class: "img-fluid rounded mb-1", style: "max-height: 150px;", data: { comment_reply_image_target: "preview" } %>
+                <div class="d-flex justify-content-end">
+                  <button type="button" class="btn btn-danger rounded-pill" data-action="click->comment-reply-image#delete">
                     <%= t("defaults.message.delete") %>
                   </button>
-                <% end %>
-              </div>
+                </div>
+              <% end %>
             </div>
-          <% else %>
-            <%= image_tag "no_image.png", class: "img-fluid rounded mb-1", data: { comment_image_target: "preview" } %>
-            <div class="d-flex justify-content-end">
-              <button type="button" class="btn btn-danger rounded-pill" data-action="click->comment-image#delete">
-                <%= t("defaults.message.delete") %>
-              </button>
-            </div>
-          <% end %>
+          </div>
         </div>
       </div>
-    </div>
+      <div class="clearfix">
+        <ul class="list-inline float-end">
+          <li class="list-inline-item me-4 mb-2">
+            <%= f.submit class: "btn btn-success rounded-pill" %>
+          </li>
+          <li class="list-inline-item">
+            <% if comment_reply.new_record? %>
+              <%= link_to t("defaults.message.cancel"), "", data: { turbo_stream: true }, class: "btn btn-outline-secondary rounded-pill" %>
+            <% else %>
+              <%= link_to t("defaults.message.cancel"), "", data: { turbo_stream: true }, class: "btn btn-outline-secondary rounded-pill" %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    <% end %>
   </div>
-  <div class="clearfix mb-3">
-    <ul class="list-inline float-end">
-      <li class="list-inline-item me-4 mb-2">
-        <%= f.submit class: "btn btn-success rounded-pill" %>
-      </li>
-      <li class="list-inline-item">
-        <% if comment.new_record? %>
-          <%= link_to t("defaults.message.cancel"), cancel_new_comment_post_comments_path(post), data: { turbo_stream: true }, class: "btn btn-outline-secondary rounded-pill" %>
-        <% else %>
-          <%= link_to t("defaults.message.cancel"), cancel_edit_comment_path(comment), data: { turbo_stream: true }, class: "btn btn-outline-secondary rounded-pill" %>
-        <% end %>
-      </li>
-    </ul>
-  </div>
-<% end %>
+</div>

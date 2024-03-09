@@ -1,6 +1,5 @@
 class CommentRepliesController < ApplicationController
-  skip_before_action :require_login, only: %i[index]
-  before_action :set_comment, only: %i[index new]
+  before_action :set_comment, only: %i[index new cancel_new]
   #before_action :set_comment_reply, only: %i[edit update destroy]
 
   def index
@@ -14,6 +13,13 @@ class CommentRepliesController < ApplicationController
       format.html {  }
     end
     #binding.pry
+  end
+
+  def cancel_new
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.replace("new_comment_reply", partial: "comment_reply_button", locals: { comment: @comment }) }
+      format.html {  }
+    end
   end
 
   private

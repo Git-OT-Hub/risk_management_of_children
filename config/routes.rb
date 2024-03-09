@@ -29,6 +29,9 @@ Rails.application.routes.draw do
         delete "delete_comment_image", action: :delete_comment_image
       end
       resources :comment_replies, only: %i[index new create show edit update destroy], shallow: true do
+        collection do
+          get "cancel_new", action: :cancel_new
+        end
       end
     end
   end

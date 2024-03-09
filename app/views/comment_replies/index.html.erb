@@ -1,12 +1,16 @@
 <% content_for(:title, t(".title")) %>
 <div class="container mt-5">
   <div class="row mb-3">
-    <div class="col px-0">
+    <div class="col col-lg-10 offset-lg-1 px-0">
       <h1 class="text-center mb-5"><%= t(".title") %></h1>
       <div class="shadow-lg overflow-y-scroll bg-body rounded border p-4 mb-5" style="max-height: 600px; min-height: 300px;">
         <%= render "comment_replies/parent_comment", comment: @comment %>
-        
-
+        <% if @comment_replies.present? %>
+          <%= render "comment_replies/comment_replies", comment_replies: @comment_replies %>
+        <% end %>
+        <div class="sticky-bottom bg-success-subtle" id="<%= dom_id(CommentReply.new) %>">
+          <%= render "comment_replies/comment_reply_button", comment: @comment %>
+        </div>
       </div>
       <ul class="nav nav-underline justify-content-center shadow-lg bg-body rounded-4 p-3 fs-4">
         <li class="nav-item">

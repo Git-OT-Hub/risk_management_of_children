@@ -9,6 +9,8 @@ class CommentReply < ApplicationRecord
   validates :body, presence: true, length: { maximum: 65_535 }
   validate :comment_reply_image_content_type, :comment_reply_image_size
 
+  #after_create_commit -> { broadcast_append_to("comment_replies_list", target: "comment_replies_comment_#{@comment.id}", partial: "comment_reply", locals: { comment_reply: @comment_reply }) }
+
   private
 
   def comment_reply_image_content_type

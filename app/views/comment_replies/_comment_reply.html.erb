@@ -1,70 +1,72 @@
-<div id="<%= dom_id(comment_reply) %>">
-  <% if logged_in? && current_user.own?(comment_reply) %>
-    <div class="rounded shadow-lg mb-4 comment-balloon-right">
-  <% else %>
-    <div class="rounded shadow-lg mb-4 comment-balloon-left">
-  <% end %>
-    <div class="card">
-      <% if comment_reply.comment_reply_image.attached? %>
-        <div class="row g-0 justify-content-center">
-          <div class="col-md-4 align-self-center me-0">
-            <div class="card-body text-center p-1">
-              <%= image_tag comment_reply.comment_reply_image.variant(:medium), class: "img-fluid rounded", style: "max-height: 200px;" %>
-            </div>
-          </div>
-          <div class="col-md-7 align-self-center p-1">
-            <div class="card">
-              <div class="card-header p-1">
-                <ul class="list-inline mb-0">
-                  <li class="list-inline-item me-2">
-                    <% if comment_reply.user.avatar.attached? %>
-                      <%= image_tag comment_reply.user.avatar_as_small, class: "img-thumbnail rounded-circle", size: "60x60" %>
-                    <% else %>
-                      <%= image_tag "no_image.png", class: "img-thumbnail rounded-circle", size: "60x60" %>
-                    <% end %>
-                  </li>
-                  <li class="list-inline-item fs-5">
-                    <%= comment_reply.user.name %>
-                  </li>
-                </ul>
-              </div>
-              <div class="card-body p-2">
-                <%= simple_format(comment_reply.body, class: "card-text mb-1") %>
-                <p class="card-text text-end"><small class="text-body-secondary"><%= l comment_reply.created_at, format: :long %></small></p>
-              </div>
-              <div class="card-footer">
+<%= turbo_frame_tag comment_reply do %>
+  <div id="<%= dom_id(comment_reply) %>">
+    <% if logged_in? && current_user.own?(comment_reply) %>
+      <div class="rounded shadow-lg mb-4 comment-balloon-right">
+    <% else %>
+      <div class="rounded shadow-lg mb-4 comment-balloon-left">
+    <% end %>
+      <div class="card">
+        <% if comment_reply.comment_reply_image.attached? %>
+          <div class="row g-0 justify-content-center">
+            <div class="col-md-4 align-self-center me-0">
+              <div class="card-body text-center p-1">
+                <%= image_tag comment_reply.comment_reply_image.variant(:medium), class: "img-fluid rounded", style: "max-height: 200px;" %>
               </div>
             </div>
-          </div>
-        </div>
-      <% else %>
-        <div class="row g-0">
-          <div class="col-12 p-1">
-            <div class="card">
-              <div class="card-header p-1">
-                <ul class="list-inline mb-0">
-                  <li class="list-inline-item me-2">
-                    <% if comment_reply.user.avatar.attached? %>
-                      <%= image_tag comment_reply.user.avatar_as_small, class: "img-thumbnail rounded-circle", size: "60x60" %>
-                    <% else %>
-                      <%= image_tag "no_image.png", class: "img-thumbnail rounded-circle", size: "60x60" %>
-                    <% end %>
-                  </li>
-                  <li class="list-inline-item fs-5">
-                    <%= comment_reply.user.name %>
-                  </li>
-                </ul>
-              </div>
-              <div class="card-body p-2">
-                <%= simple_format(comment_reply.body, class: "card-text mb-1") %>
-                <p class="card-text text-end"><small class="text-body-secondary"><%= l comment_reply.created_at, format: :long %></small></p>
-              </div>
-              <div class="card-footer">
+            <div class="col-md-7 align-self-center p-1">
+              <div class="card">
+                <div class="card-header p-1">
+                  <ul class="list-inline mb-0">
+                    <li class="list-inline-item me-2">
+                      <% if comment_reply.user.avatar.attached? %>
+                        <%= image_tag comment_reply.user.avatar_as_small, class: "img-thumbnail rounded-circle", size: "60x60" %>
+                      <% else %>
+                        <%= image_tag "no_image.png", class: "img-thumbnail rounded-circle", size: "60x60" %>
+                      <% end %>
+                    </li>
+                    <li class="list-inline-item fs-5">
+                      <%= comment_reply.user.name %>
+                    </li>
+                  </ul>
+                </div>
+                <div class="card-body p-2">
+                  <%= simple_format(comment_reply.body, class: "card-text mb-1") %>
+                  <p class="card-text text-end"><small class="text-body-secondary"><%= l comment_reply.created_at, format: :long %></small></p>
+                </div>
+                <div class="card-footer">
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      <% end %>
+        <% else %>
+          <div class="row g-0">
+            <div class="col-12 p-1">
+              <div class="card">
+                <div class="card-header p-1">
+                  <ul class="list-inline mb-0">
+                    <li class="list-inline-item me-2">
+                      <% if comment_reply.user.avatar.attached? %>
+                        <%= image_tag comment_reply.user.avatar_as_small, class: "img-thumbnail rounded-circle", size: "60x60" %>
+                      <% else %>
+                        <%= image_tag "no_image.png", class: "img-thumbnail rounded-circle", size: "60x60" %>
+                      <% end %>
+                    </li>
+                    <li class="list-inline-item fs-5">
+                      <%= comment_reply.user.name %>
+                    </li>
+                  </ul>
+                </div>
+                <div class="card-body p-2">
+                  <%= simple_format(comment_reply.body, class: "card-text mb-1") %>
+                  <p class="card-text text-end"><small class="text-body-secondary"><%= l comment_reply.created_at, format: :long %></small></p>
+                </div>
+                <div class="card-footer">
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
+<% end %>

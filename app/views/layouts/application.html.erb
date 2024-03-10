@@ -10,7 +10,7 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body class="bg-warning bg-opacity-10">
+  <body class="bg-warning bg-opacity-10" data-controller="scroll-page">
     <% if logged_in? %>
       <%= render "shared/header" %>
     <% else %>

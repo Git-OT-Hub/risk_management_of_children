@@ -19,7 +19,7 @@ class CommentReply < ApplicationRecord
 
   def comment_reply_image_size
     if comment_reply_image.attached? && comment_reply_image.blob.byte_size > 5.megabytes
-      errors.add(:comment_reply_image, ": 1枚あたり、5MB以下にしてください。")
+      errors.add(:comment_reply_image, ": 5MB以下にしてください。")
     end
   end
 end

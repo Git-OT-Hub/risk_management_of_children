@@ -19,6 +19,9 @@ application.register("file-upload", FileUploadController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import ScrollPageController from "./scroll_page_controller"
+application.register("scroll-page", ScrollPageController)
+
 import TooltipController from "./tooltip_controller"
 application.register("tooltip", TooltipController)
 

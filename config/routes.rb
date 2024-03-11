@@ -32,6 +32,9 @@ Rails.application.routes.draw do
         collection do
           get "cancel_new", action: :cancel_new
         end
+        member do
+          get "cancel_edit", action: :cancel_edit
+        end
       end
     end
   end

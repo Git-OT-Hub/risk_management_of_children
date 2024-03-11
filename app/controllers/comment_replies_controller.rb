@@ -1,6 +1,6 @@
 class CommentRepliesController < ApplicationController
   before_action :set_comment, only: %i[index new cancel_new create]
-  before_action :set_comment_reply, only: %i[edit update destroy]
+  before_action :set_comment_reply, only: %i[edit update destroy cancel_edit]
 
   def index
     @q = @comment.comment_replies.ransack(params[:q])
@@ -71,7 +71,19 @@ class CommentRepliesController < ApplicationController
       end
       format.html {  }
     end
-    #binding.pry
+  end
+
+  def cancel_edit
+    @comment = @comment_reply.comment
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: [
+          turbo_stream.replace("new_comment_reply", partial: "comment_reply_button", locals: { comment: @comment }),
+          turbo_stream.replace("comment_reply_#{@comment_reply.id}", partial: "comment_reply", locals: { comment_reply: @comment_reply })
+        ]
+      end
+      format.html {  }
+    end
   end
 
   def update

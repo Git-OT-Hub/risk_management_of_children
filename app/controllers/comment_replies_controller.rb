@@ -96,6 +96,31 @@ class CommentRepliesController < ApplicationController
   end
 
   def update
+    @comment = @comment_reply.comment
+    if @comment_reply.update(comment_reply_update_params)
+      respond_to do |format|
+        format.turbo_stream do
+          flash.now[:success] = t("defaults.message.updated", item: CommentReply.model_name.human)
+          render turbo_stream: [
+            turbo_stream.replace("new_comment_reply", partial: "comment_reply_button", locals: { comment: @comment }),
+            turbo_stream.replace("comment_reply_#{@comment_reply.id}", partial: "comment_reply", locals: { comment_reply: @comment_reply }),
+            turbo_stream.update("flash_message", partial: "shared/flash_message")
+          ]
+        end
+        format.html {  }
+      end
+    else
+      respond_to do |format|
+        format.turbo_stream do
+          flash.now[:danger] = t("defaults.message.not_updated", item: CommentReply.model_name.human)
+          render turbo_stream: [
+            turbo_stream.replace("new_comment_reply", partial: "form", locals: { comment: @comment, comment_reply: @comment_reply }),
+            turbo_stream.update("flash_message", partial: "shared/flash_message")
+          ]
+        end
+        format.html {  }
+      end
+    end
   end
 
   def destroy
@@ -113,5 +138,9 @@ class CommentRepliesController < ApplicationController
 
   def comment_reply_params
     params.require(:comment_reply).permit(:body, :comment_reply_image).merge(comment_id: params[:comment_id])
+  end
+
+  def comment_reply_update_params
+    params.require(:comment_reply).permit(:body, :comment_reply_image)
   end
 end

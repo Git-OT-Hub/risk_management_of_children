@@ -1,6 +1,6 @@
 class CommentRepliesController < ApplicationController
   before_action :set_comment, only: %i[index new cancel_new create]
-  before_action :set_comment_reply, only: %i[edit update destroy cancel_edit]
+  before_action :set_comment_reply, only: %i[edit update destroy cancel_edit delete_comment_reply_image]
 
   def index
     @q = @comment.comment_replies.ransack(params[:q])
@@ -86,6 +86,15 @@ class CommentRepliesController < ApplicationController
     end
   end
 
+  def delete_comment_reply_image
+    @comment_reply.comment_reply_image.purge
+    @comment = @comment_reply.comment
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.update("form_comment_reply_#{@comment_reply.id}", partial: "form_part", locals: { comment: @comment, comment_reply: @comment_reply }) }
+      format.html {  }
+    end
+  end
+
   def update
   end
 
@@ -99,7 +108,7 @@ class CommentRepliesController < ApplicationController
   end
 
   def set_comment_reply
-    @comment_reply = CommentReply.find(params[:id])
+    @comment_reply = current_user.comment_replies.find(params[:id])
   end
 
   def comment_reply_params

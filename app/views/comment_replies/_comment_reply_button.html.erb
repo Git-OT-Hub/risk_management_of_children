@@ -1,29 +1,37 @@
-<div class="sticky-bottom bg-body bg-opacity-50" id="<%= dom_id(CommentReply.new) %>">
-  <div class="container px-4 mb-5 pt-2">
-    <div class="row">
-      <div class="col-12 px-0 text-end mb-4">
-        <%= link_to "javascript:void(0)", class: "link-success link-underline link-underline-opacity-0", data: { action: "click->scroll-page#topPage" } do %>
-          <i class="fa-regular fa-circle-up fa-3x"></i>
-        <% end %>
-      </div>
-      <div class="col-12 px-0 text-end">
-        <%= link_to "javascript:void(0)", class: "link-success link-underline link-underline-opacity-0", data: { action: "click->scroll-page#endPage" } do %>
-          <i class="fa-regular fa-circle-down fa-3x"></i>
-        <% end %>
-      </div>
-    </div>
-  </div>
-  <div class="container px-4" style="min-height: 100px;">
-    <div class="row justify-content-between">
-      <div class="col-2 px-0 text-start">
-        <%= link_to "javascript:history.back()", class: "link-success link-underline link-underline-opacity-0" do %>
-          <i class="fa-solid fa-reply fa-3x"></i>
-        <% end %>
-      </div>
-      <div class="col-2 px-0 text-end">  
-        <%= link_to new_comment_comment_reply_path(comment), data: { turbo_stream: true }, class: "link-success link-underline link-underline-opacity-0" do %>
-          <i class="fa-solid fa-circle-plus fa-3x"></i>
-        <% end %>
+<div class="sticky-bottom accordion" id="<%= dom_id(CommentReply.new) %>" id="accordionPanelsStayOpenCommentReply">
+  <div class="accordion-item">
+    <h1 class="accordion-header">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+      </button>
+    </h1>
+    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+      <div class="accordion-body">
+        <div class="container px-4 mb-4">
+          <div class="row">
+            <div class="col-12 px-0 text-end">
+              <%= link_to "javascript:void(0)", class: "link-success link-underline link-underline-opacity-0 me-2", data: { action: "click->scroll-page#topPage" } do %>
+                <i class="fa-regular fa-circle-up fa-3x"></i>
+              <% end %>
+              <%= link_to "javascript:void(0)", class: "link-success link-underline link-underline-opacity-0", data: { action: "click->scroll-page#endPage" } do %>
+                <i class="fa-regular fa-circle-down fa-3x"></i>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="container px-4" style="min-height: 80px;">
+          <div class="row justify-content-between">
+            <div class="col-2 px-0 text-start">
+              <%= link_to "javascript:history.back()", class: "link-success link-underline link-underline-opacity-0" do %>
+                <i class="fa-solid fa-reply fa-3x"></i>
+              <% end %>
+            </div>
+            <div class="col-2 px-0 text-end">  
+              <%= link_to new_comment_comment_reply_path(comment), data: { turbo_stream: true }, class: "link-success link-underline link-underline-opacity-0" do %>
+                <i class="fa-solid fa-circle-plus fa-3x"></i>
+              <% end %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

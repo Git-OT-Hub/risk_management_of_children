@@ -98,12 +98,12 @@ class CommentRepliesController < ApplicationController
   def update
     @comment = @comment_reply.comment
     if @comment_reply.update(comment_reply_update_params)
+      @comment_reply.broadcast_replace_to("comment_replies_list", target: "comment_reply_#{@comment_reply.id}", partial: "comment_replies/comment_reply_frame", locals: { comment_reply: @comment_reply })
       respond_to do |format|
         format.turbo_stream do
           flash.now[:success] = t("defaults.message.updated", item: CommentReply.model_name.human)
           render turbo_stream: [
             turbo_stream.replace("new_comment_reply", partial: "comment_reply_button", locals: { comment: @comment }),
-            turbo_stream.replace("comment_reply_#{@comment_reply.id}", partial: "comment_reply", locals: { comment_reply: @comment_reply }),
             turbo_stream.update("flash_message", partial: "shared/flash_message")
           ]
         end

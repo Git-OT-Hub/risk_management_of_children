@@ -124,6 +124,17 @@ class CommentRepliesController < ApplicationController
   end
 
   def destroy
+    @comment_reply.destroy!
+    @comment_reply.broadcast_remove_to("comment_replies_list", target: "comment_reply_#{@comment_reply.id}")
+    respond_to do |format|
+      format.turbo_stream do
+        flash.now[:success] = t("defaults.message.deleted", item: CommentReply.model_name.human)
+        render turbo_stream: [
+          turbo_stream.update("flash_message", partial: "shared/flash_message")
+        ]
+      end
+      format.html {  }
+    end
   end
 
   private

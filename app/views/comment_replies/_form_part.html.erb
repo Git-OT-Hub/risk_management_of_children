@@ -4,9 +4,9 @@
       <%= image_tag comment_reply.comment_reply_image, class: "img-fluid rounded mb-1", style: "max-height: 200px;", data: { comment_reply_image_target: "preview" } %>
       <div class="d-flex justify-content-end">
         <% if comment_reply.comment_reply_image.persisted? %>
-          <%= link_to t("defaults.message.delete"), delete_comment_reply_image_comment_reply_path(comment_reply), data: { turbo_method: :delete, action: "click->comment-reply-image#hiddenClear" }, class: "btn btn-danger rounded-pill" %>
+          <%= link_to t("defaults.message.delete"), delete_comment_reply_image_comment_reply_path(comment_reply), data: { turbo_method: :delete, action: "click->comment-reply-image#hiddenClear" }, class: "btn btn-danger rounded-pill shadow-lg" %>
         <% else %>
-          <button type="button" class="btn btn-danger rounded-pill" data-action="click->comment-reply-image#delete">
+          <button type="button" class="btn btn-danger rounded-pill shadow-lg" data-action="click->comment-reply-image#delete">
             <%= t("defaults.message.delete") %>
           </button>
         <% end %>
@@ -15,7 +15,7 @@
   <% else %>
     <%= image_tag "no_image.png", class: "img-fluid rounded mb-1", style: "max-height: 200px;", data: { comment_reply_image_target: "preview" } %>
     <div class="d-flex justify-content-end">
-      <button type="button" class="btn btn-danger rounded-pill" data-action="click->comment-reply-image#delete">
+      <button type="button" class="btn btn-danger rounded-pill shadow-lg" data-action="click->comment-reply-image#delete">
         <%= t("defaults.message.delete") %>
       </button>
     </div>

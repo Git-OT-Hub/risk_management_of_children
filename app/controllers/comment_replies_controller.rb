@@ -10,14 +10,14 @@ class CommentRepliesController < ApplicationController
   def new
     @comment_reply = CommentReply.new
     respond_to do |format|
-      format.turbo_stream { render turbo_stream: turbo_stream.replace("new_comment_reply", partial: "form", locals: { comment: @comment, comment_reply: @comment_reply }) }
+      format.turbo_stream { render turbo_stream: turbo_stream.update("comment_reply_change_form", partial: "form", locals: { comment: @comment, comment_reply: @comment_reply }) }
       format.html {  }
     end
   end
 
   def cancel_new
     respond_to do |format|
-      format.turbo_stream { render turbo_stream: turbo_stream.replace("new_comment_reply", partial: "comment_reply_button", locals: { comment: @comment }) }
+      format.turbo_stream { render turbo_stream: turbo_stream.update("comment_reply_change_form", partial: "comment_replies/comment_reply_button_part", locals: { comment: @comment }) }
       format.html {  }
     end
   end
@@ -30,7 +30,7 @@ class CommentRepliesController < ApplicationController
         format.turbo_stream do
           flash.now[:success] = t("defaults.message.created", item: CommentReply.model_name.human)
           render turbo_stream: [
-            turbo_stream.replace("new_comment_reply", partial: "comment_reply_button", locals: { comment: @comment }),
+            turbo_stream.update("comment_reply_change_form", partial: "comment_replies/comment_reply_button_part", locals: { comment: @comment }),
             turbo_stream.update("flash_message", partial: "shared/flash_message")
           ]
         end
@@ -41,7 +41,7 @@ class CommentRepliesController < ApplicationController
         format.turbo_stream do
           flash.now[:danger] = t("defaults.message.not_created", item: CommentReply.model_name.human)
           render turbo_stream: [
-            turbo_stream.replace("new_comment_reply", partial: "form", locals: { comment: @comment, comment_reply: @comment_reply }),
+            turbo_stream.update("comment_reply_change_form", partial: "form", locals: { comment: @comment, comment_reply: @comment_reply }),
             turbo_stream.update("flash_message", partial: "shared/flash_message")
           ]
         end
@@ -65,7 +65,7 @@ class CommentRepliesController < ApplicationController
     respond_to do |format|
       format.turbo_stream do
         render turbo_stream: [
-          turbo_stream.replace("new_comment_reply", partial: "form", locals: { comment: @comment, comment_reply: @comment_reply }),
+          turbo_stream.update("comment_reply_change_form", partial: "form", locals: { comment: @comment, comment_reply: @comment_reply }),
           turbo_stream.replace("comment_reply_#{@comment_reply.id}", partial: "while_editing", locals: { comment_reply: @comment_reply })
         ]
       end
@@ -78,7 +78,7 @@ class CommentRepliesController < ApplicationController
     respond_to do |format|
       format.turbo_stream do
         render turbo_stream: [
-          turbo_stream.replace("new_comment_reply", partial: "comment_reply_button", locals: { comment: @comment }),
+          turbo_stream.update("comment_reply_change_form", partial: "comment_replies/comment_reply_button_part", locals: { comment: @comment }),
           turbo_stream.replace("comment_reply_#{@comment_reply.id}", partial: "comment_reply", locals: { comment_reply: @comment_reply })
         ]
       end
@@ -103,7 +103,7 @@ class CommentRepliesController < ApplicationController
         format.turbo_stream do
           flash.now[:success] = t("defaults.message.updated", item: CommentReply.model_name.human)
           render turbo_stream: [
-            turbo_stream.replace("new_comment_reply", partial: "comment_reply_button", locals: { comment: @comment }),
+            turbo_stream.update("comment_reply_change_form", partial: "comment_replies/comment_reply_button_part", locals: { comment: @comment }),
             turbo_stream.update("flash_message", partial: "shared/flash_message")
           ]
         end
@@ -114,7 +114,7 @@ class CommentRepliesController < ApplicationController
         format.turbo_stream do
           flash.now[:danger] = t("defaults.message.not_updated", item: CommentReply.model_name.human)
           render turbo_stream: [
-            turbo_stream.replace("new_comment_reply", partial: "form", locals: { comment: @comment, comment_reply: @comment_reply }),
+            turbo_stream.update("comment_reply_change_form", partial: "form", locals: { comment: @comment, comment_reply: @comment_reply }),
             turbo_stream.update("flash_message", partial: "shared/flash_message")
           ]
         end

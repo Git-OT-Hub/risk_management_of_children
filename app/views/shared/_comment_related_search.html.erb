@@ -2,13 +2,13 @@
   <%= search_form_for q, url: url, html: { data: { turbo_frame: "comment_related_list" } } do |f| %>
     <div class="d-flex flex-column flex-md-row grid gap-2">
       <%= f.search_field :user_name_cont, class: "form-control shadow-lg", placeholder: t("defaults.message.search_user_name") %>
-      <div class="input-group shadow-lg">
-        <%= f.search_field :body_cont, class: "form-control", placeholder: t("defaults.message.search_comment") %>
-        <%= f.submit t("defaults.message.search"), class: "btn btn-outline-success" %>
+      <div class="input-group">
+        <%= f.search_field :body_cont, class: "form-control shadow-lg", placeholder: t("defaults.message.search_comment") %>
+        <%= f.submit t("defaults.message.search"), class: "btn btn-outline-success shadow-lg" %>
       </div>
     </div>
   <% end %>
   <div class="text-end mt-3">
-    <%= link_to t("defaults.message.cancel"), cancel_search_comment_comment_replies_path(comment), data: { turbo_stream: true }, class: "btn btn-outline-secondary rounded-pill" %>
+    <%= link_to t("defaults.message.cancel"), cancel_search_comment_comment_replies_path(comment), data: { turbo_stream: true }, class: "btn btn-outline-secondary rounded-pill shadow-lg" %>
   </div>
 </div>

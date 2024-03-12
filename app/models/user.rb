@@ -67,4 +67,12 @@ class User < ApplicationRecord
       errors.add(:avatar, ": 1枚あたり、5MB以下にしてください。")
     end
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w[name]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    %w[comment_replies]
+  end
 end

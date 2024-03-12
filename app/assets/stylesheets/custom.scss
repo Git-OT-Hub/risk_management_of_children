@@ -109,6 +109,6 @@ a.progress-compatible-not-compatible-btn {
   .accordion-item {
     --bs-accordion-btn-bg: var(--bs-gray-200);
     --bs-accordion-active-bg: var(--bs-gray-200);
-    --bs-accordion-bg: rgba(255, 255, 255, 0.25);
+    --bs-accordion-bg: var(--bs-white);
   }
 }

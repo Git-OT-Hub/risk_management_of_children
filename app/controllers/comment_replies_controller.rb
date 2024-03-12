@@ -1,5 +1,5 @@
 class CommentRepliesController < ApplicationController
-  before_action :set_comment, only: %i[index new cancel_new create]
+  before_action :set_comment, only: %i[index new cancel_new create search cancel_search]
   before_action :set_comment_reply, only: %i[edit update destroy cancel_edit delete_comment_reply_image]
 
   def index
@@ -133,6 +133,21 @@ class CommentRepliesController < ApplicationController
           turbo_stream.update("flash_message", partial: "shared/flash_message")
         ]
       end
+      format.html {  }
+    end
+  end
+
+  def search
+    @q = @comment.comment_replies.ransack(params[:q])
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.update("comment_reply_change_form", partial: "shared/comment_related_search", locals: { q: @q, url: comment_comment_replies_path(@comment), comment: @comment }) }
+      format.html {  }
+    end
+  end
+
+  def cancel_search
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.update("comment_reply_change_form", partial: "comment_replies/comment_reply_button_part", locals: { comment: @comment }) }
       format.html {  }
     end
   end

@@ -215,7 +215,8 @@ ja:
       no_my_posts: "投稿がありません。"
       search_title: "タイトル"
       search_body: "投稿内容"
-      search_comment: "投稿内のコメント"
+      search_comment: "コメント"
+      search_user_name: "ユーザー名"
       search: "検索"
   users:
     new:

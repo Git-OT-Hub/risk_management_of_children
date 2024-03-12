@@ -31,6 +31,8 @@ Rails.application.routes.draw do
       resources :comment_replies, only: %i[index new create show edit update destroy], shallow: true do
         collection do
           get "cancel_new", action: :cancel_new
+          get "search", action: :search
+          get "cancel_search", action: :cancel_search
         end
         member do
           get "cancel_edit", action: :cancel_edit

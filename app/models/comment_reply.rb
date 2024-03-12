@@ -24,4 +24,12 @@ class CommentReply < ApplicationRecord
       errors.add(:comment_reply_image, ": 5MB以下にしてください。")
     end
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w[body]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    %w[user]
+  end
 end

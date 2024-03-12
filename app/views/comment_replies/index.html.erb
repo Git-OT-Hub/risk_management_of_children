@@ -5,9 +5,11 @@
     <div class="col col-lg-10 offset-lg-1 px-0">
       <h1 class="text-center mb-5"><%= t(".title") %></h1>
       <div class="container px-4">
-        <%= render "comment_replies/parent_comment", comment: @comment %>
-        <% if @comment_replies.present? %>
-          <%= render "comment_replies/comment_replies", comment_replies: @comment_replies %>
+        <%= turbo_frame_tag "comment_related_list" do %>
+          <%= render "comment_replies/parent_comment", comment: @comment %>
+          <% if @comment_replies.present? %>
+            <%= render "comment_replies/comment_replies", comment_replies: @comment_replies %>
+          <% end %>
         <% end %>
       </div>
     </div>

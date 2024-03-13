@@ -7,6 +7,12 @@ import { application } from "./application"
 import CommentImageController from "./comment_image_controller"
 application.register("comment-image", CommentImageController)
 
+import CommentRelatedSearchController from "./comment_related_search_controller"
+application.register("comment-related-search", CommentRelatedSearchController)
+
+import CommentReplyImageController from "./comment_reply_image_controller"
+application.register("comment-reply-image", CommentReplyImageController)
+
 import DiagnosisQuestionsController from "./diagnosis_questions_controller"
 application.register("diagnosis-questions", DiagnosisQuestionsController)
 
@@ -15,6 +21,9 @@ application.register("file-upload", FileUploadController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import ScrollPageController from "./scroll_page_controller"
+application.register("scroll-page", ScrollPageController)
 
 import TooltipController from "./tooltip_controller"
 application.register("tooltip", TooltipController)

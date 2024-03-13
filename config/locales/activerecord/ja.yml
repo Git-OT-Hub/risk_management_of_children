@@ -10,6 +10,7 @@ ja:
       user: "ユーザー"
       post: "投稿"
       comment: "コメント"
+      comment_reply: "コメント返信"
       diagnosis_result: "診断結果"
     attributes:
       user:
@@ -25,5 +26,8 @@ ja:
       comment:
         body: "コメント"
         comment_image: "画像"
+      comment_reply:
+        body: "コメント返信"
+        comment_reply_image: "画像"
       diagnosis_result:
         title: "タイトル"

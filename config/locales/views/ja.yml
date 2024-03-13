@@ -198,9 +198,9 @@ ja:
       input_required: "※ 入力必須"
       quantity_limit: "※ 4枚まで 投稿可能です。"
       byte_size_limit: "※ 1枚あたり、5MB以下 であれば投稿可能です。"
-      content_type_limit: "※ JPEG, JPG, PNG, GIF が投稿可能なファイル形式となります。"
-      comment_image_quantity_limit: "※ 1枚まで 投稿可能です。"
-      comment_image_byte_size_limit: "※ 5MB以下 であれば投稿可能です。"
+      content_type_limit: "※ 投稿可能なファイル形式: JPEG, JPG, PNG, GIF"
+      comment_image_quantity_limit: "※ 一度に添付できる枚数: 1枚"
+      comment_image_byte_size_limit: "※ 画像容量: 5MB以下"
       delete: "削除"
       updated: "%{item}を更新しました"
       not_updated: "%{item}を更新できませんでした"
@@ -215,9 +215,10 @@ ja:
       no_my_posts: "投稿がありません。"
       search_title: "タイトル"
       search_body: "投稿内容"
-      search_comment: "投稿内のコメント"
+      search_comment: "コメント"
+      search_user_name: "ユーザー名"
       search: "検索"
-      no_comments: "コメントはありません"
+      full_search: "全検索"
   users:
     new:
       title: "ユーザー登録"
@@ -257,6 +258,7 @@ ja:
     show:
       title: "投稿詳細"
       images_reload: "※ 画像再読み込み"
+      no_comments: "投稿されたコメントはありません"
       back_to_previous_page: "戻る"
       to_posts_page: "投稿一覧へ"
     edit:
@@ -360,6 +362,10 @@ ja:
       not_changed_compatible: "完了 の状態にできませんでした"
       not_changed_not_compatible: "未対応 の状態にできませんでした"
       percent: "%"
+  comment_replies:
+    index:
+      title: "コメント返信"
+      start_replies: "コメント返信エリア"
   views:
     pagination:
       first: "最初"

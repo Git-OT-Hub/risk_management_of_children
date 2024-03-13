@@ -5,6 +5,7 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :comment_replies, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_posts, through: :bookmarks, source: :post
   has_many :favorites, dependent: :destroy
@@ -65,5 +66,13 @@ class User < ApplicationRecord
     if avatar.attached? && avatar.blob.byte_size > 5.megabytes
       errors.add(:avatar, ": 1枚あたり、5MB以下にしてください。")
     end
+  end
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w[name]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    %w[comment_replies]
   end
 end

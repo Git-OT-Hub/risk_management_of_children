@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @q = @post.comments.ransack(params[:q])
-    @comments = @q.result(distinct: true).includes(:user).with_attached_comment_image.order(created_at: :desc).page(params[:page]).per(6)
+    @comments = @q.result(distinct: true).includes(:user).with_attached_comment_image.order(created_at: :desc)
   end
 
   def new
@@ -61,16 +61,7 @@ class PostsController < ApplicationController
   end
 
   def reload_images
-    respond_to do |format|
-      format.turbo_stream do
-        flash.now[:success] = t("defaults.message.updated", item: Post.human_attribute_name(:images))
-        render turbo_stream: [
-          turbo_stream.update("reload_images_#{@post.id}", partial: "reload_images", locals: { post: @post }),
-          turbo_stream.update("flash_message", partial: "shared/flash_message")
-        ]
-      end
-      format.html {  }
-    end
+    redirect_to post_path(@post), success: t("defaults.message.updated", item: Post.human_attribute_name(:images))
   end
 
   private

@@ -28,6 +28,17 @@ Rails.application.routes.draw do
         get "cancel_edit", action: :cancel_edit
         delete "delete_comment_image", action: :delete_comment_image
       end
+      resources :comment_replies, only: %i[index new create show edit update destroy], shallow: true do
+        collection do
+          get "cancel_new", action: :cancel_new
+          get "search", action: :search
+          get "cancel_search", action: :cancel_search
+        end
+        member do
+          get "cancel_edit", action: :cancel_edit
+          delete "delete_comment_reply_image", action: :delete_comment_reply_image
+        end
+      end
     end
   end
   resources :bookmarks, only: %i[create destroy]

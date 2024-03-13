@@ -1,17 +1,21 @@
-<div class="mb-3" id="<%= dom_id(comment) %>">
-  <div class="card shadow-lg">
+<% if logged_in? && current_user.own?(comment) %>
+  <div class="rounded shadow-lg mb-4 comment-balloon-right">
+<% else %>
+  <div class="rounded shadow-lg mb-4 comment-balloon-left">
+<% end %>
+  <div class="card">
     <% if comment.comment_image.attached? %>
       <div class="row g-0 justify-content-center">
         <div class="col-md-4 align-self-center me-0">
           <div class="card-body text-center p-1">
-            <%= image_tag comment.comment_image_as_medium, class: "img-fluid rounded" %>
+            <%= image_tag comment.comment_image_as_medium, class: "img-fluid rounded", style: "max-height: 200px;" %>
           </div>
         </div>
-        <div class="col-md-7 p-1">
+        <div class="col-md-7 align-self-center p-1">
           <div class="card">
             <div class="card-header p-1">
               <ul class="list-inline mb-0">
-                <li class="list-inline-item me-2 mb-2">
+                <li class="list-inline-item me-2">
                   <% if comment.user.avatar.attached? %>
                     <%= image_tag comment.user.avatar_as_small, class: "img-thumbnail rounded-circle", size: "60x60" %>
                   <% else %>
@@ -24,17 +28,10 @@
               </ul>
             </div>
             <div class="card-body p-2">
-              <p class="card-text mb-0"><%= simple_format(comment.body) %></p>
+              <%= simple_format(comment.body, class: "card-text mb-1") %>
               <p class="card-text text-end"><small class="text-body-secondary"><%= l comment.created_at, format: :long %></small></p>
             </div>
             <div class="card-footer">
-              <%= link_to comment_comment_replies_path(comment), class: "link-success link-underline link-underline-opacity-0" do %>
-                <i class="fa-regular fa-comment-dots fa-2xl"></i>
-                <%= comment.comment_replies_count %>
-              <% end %>
-              <% if logged_in? && current_user.own?(comment) %>
-                <%= render "comments/crud_menus", comment: comment %>
-              <% end %>
             </div>
           </div>
         </div>
@@ -45,7 +42,7 @@
           <div class="card">
             <div class="card-header p-1">
               <ul class="list-inline mb-0">
-                <li class="list-inline-item me-2 mb-2">
+                <li class="list-inline-item me-2">
                   <% if comment.user.avatar.attached? %>
                     <%= image_tag comment.user.avatar_as_small, class: "img-thumbnail rounded-circle", size: "60x60" %>
                   <% else %>
@@ -58,17 +55,10 @@
               </ul>
             </div>
             <div class="card-body p-2">
-              <p class="card-text mb-0"><%= simple_format(comment.body) %></p>
+              <%= simple_format(comment.body, class: "card-text mb-1") %>
               <p class="card-text text-end"><small class="text-body-secondary"><%= l comment.created_at, format: :long %></small></p>
             </div>
             <div class="card-footer">
-              <%= link_to comment_comment_replies_path(comment), class: "link-success link-underline link-underline-opacity-0" do %>
-                <i class="fa-regular fa-comment-dots fa-2xl"></i>
-                <%= comment.comment_replies_count %>
-              <% end %>
-              <% if logged_in? && current_user.own?(comment) %>
-                <%= render "comments/crud_menus", comment: comment %>
-              <% end %>
             </div>
           </div>
         </div>

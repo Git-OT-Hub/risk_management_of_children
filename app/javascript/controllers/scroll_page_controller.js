@@ -8,10 +8,10 @@ export default class extends Controller {
   }
 
   topPage() {
-    
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   endPage() {
-
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
   }
 }

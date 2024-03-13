@@ -1,3 +1,5 @@
-<div class="" id="<%= dom_id(@comment, :comment_replies) %>">
-  <%= render partial: "comment_replies/comment_reply", collection: comment_replies %>   
+<div class="" id="<%= dom_id(comment, :comment_replies) %>">
+  <% if comment_replies.present? %>
+    <%= render partial: "comment_replies/comment_reply", collection: comment_replies %>
+  <% end %>   
 </div>

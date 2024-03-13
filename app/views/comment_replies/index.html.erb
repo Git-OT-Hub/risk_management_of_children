@@ -8,9 +8,7 @@
         <div class="container px-4">
           <%= turbo_frame_tag "comment_related_list" do %>
             <%= render "comment_replies/parent_comment", comment: @comment %>
-            <% if @comment_replies.present? %>
-              <%= render "comment_replies/comment_replies", comment_replies: @comment_replies %>
-            <% end %>
+            <%= render "comment_replies/comment_replies", comment_replies: @comment_replies, comment: @comment %>
           <% end %>
         </div>
       </div>

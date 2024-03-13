@@ -1,6 +1,6 @@
 class CommentReply < ApplicationRecord
   belongs_to :user
-  belongs_to :comment
+  belongs_to :comment, counter_cache: true
 
   has_one_attached :comment_reply_image do |attachable|
     attachable.variant :medium, resize_to_limit: [500, 500]

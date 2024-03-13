@@ -30,6 +30,7 @@
             <div class="card-footer">
               <%= link_to comment_comment_replies_path(comment), class: "link-success link-underline link-underline-opacity-0" do %>
                 <i class="fa-regular fa-comment-dots fa-2xl"></i>
+                <%= comment.comment_replies_count %>
               <% end %>
               <% if logged_in? && current_user.own?(comment) %>
                 <%= render "comments/crud_menus", comment: comment %>
@@ -63,6 +64,7 @@
             <div class="card-footer">
               <%= link_to comment_comment_replies_path(comment), class: "link-success link-underline link-underline-opacity-0" do %>
                 <i class="fa-regular fa-comment-dots fa-2xl"></i>
+                <%= comment.comment_replies_count %>
               <% end %>
               <% if logged_in? && current_user.own?(comment) %>
                 <%= render "comments/crud_menus", comment: comment %>

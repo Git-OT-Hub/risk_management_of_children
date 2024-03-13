@@ -1,18 +1,20 @@
 <%= turbo_stream_from "comment_replies_list" %>
 <% content_for(:title, t(".title")) %>
-<div class="container mt-5 mb-5">
-  <div class="row">
-    <div class="col col-lg-10 offset-lg-1 px-0">
-      <h1 class="text-center mb-5"><%= t(".title") %></h1>
-      <div class="container px-4">
-        <%= turbo_frame_tag "comment_related_list" do %>
-          <%= render "comment_replies/parent_comment", comment: @comment %>
-          <% if @comment_replies.present? %>
-            <%= render "comment_replies/comment_replies", comment_replies: @comment_replies %>
+<div data-controller="comment-related-search">
+  <div class="container mt-5 mb-5">
+    <div class="row">
+      <div class="col col-lg-10 offset-lg-1 px-0">
+        <h1 class="text-center mb-5"><%= t(".title") %></h1>
+        <div class="container px-4">
+          <%= turbo_frame_tag "comment_related_list" do %>
+            <%= render "comment_replies/parent_comment", comment: @comment %>
+            <% if @comment_replies.present? %>
+              <%= render "comment_replies/comment_replies", comment_replies: @comment_replies %>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
     </div>
   </div>
+  <%= render "comment_replies/comment_reply_button", comment: @comment %>
 </div>
-<%= render "comment_replies/comment_reply_button", comment: @comment %>

@@ -218,6 +218,7 @@ ja:
       search_comment: "コメント"
       search_user_name: "ユーザー名"
       search: "検索"
+      full_search: "全検索"
   users:
     new:
       title: "ユーザー登録"

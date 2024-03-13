@@ -3,13 +3,11 @@ class CommentReply < ApplicationRecord
   belongs_to :comment, counter_cache: true
 
   has_one_attached :comment_reply_image do |attachable|
-    attachable.variant :medium, resize_to_limit: [500, 500]
+    attachable.variant :medium, resize_to_limit: [500, 500], preprocessed: true
   end
 
   validates :body, presence: true, length: { maximum: 65_535 }
   validate :comment_reply_image_content_type, :comment_reply_image_size
-
-  #after_create_commit -> { broadcast_append_to("comment_replies_list", target: "comment_replies_comment_#{@comment.id}", partial: "comment_reply", locals: { comment_reply: @comment_reply }) }
 
   private
 

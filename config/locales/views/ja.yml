@@ -365,6 +365,7 @@ ja:
   comment_replies:
     index:
       title: "コメント返信"
+      start_replies: "コメント返信エリア"
   views:
     pagination:
       first: "最初"

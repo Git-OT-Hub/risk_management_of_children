@@ -161,10 +161,10 @@ class CommentRepliesController < ApplicationController
   end
 
   def comment_reply_params
-    params.require(:comment_reply).permit(:body, :comment_reply_image).merge(comment_id: params[:comment_id])
+    params.require(:comment_reply).permit(:body, :comment_reply_image, user_ids:[]).merge(comment_id: params[:comment_id])
   end
 
   def comment_reply_update_params
-    params.require(:comment_reply).permit(:body, :comment_reply_image)
+    params.require(:comment_reply).permit(:body, :comment_reply_image, user_ids:[])
   end
 end

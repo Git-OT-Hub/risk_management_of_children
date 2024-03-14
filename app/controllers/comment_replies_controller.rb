@@ -101,7 +101,6 @@ class CommentRepliesController < ApplicationController
         format.turbo_stream do
           flash.now[:success] = t("defaults.message.updated", item: CommentReply.model_name.human)
           render turbo_stream: [
-            #turbo_stream.update("comment_reply_change_form", partial: "comment_replies/comment_reply_button_part", locals: { comment: @comment }),
             turbo_stream.update("flash_message", partial: "shared/flash_message")
           ]
         end

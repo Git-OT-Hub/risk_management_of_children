@@ -8,7 +8,7 @@
       <% if comment.mention_users_list(current_user).present? %>
         <% comment.mention_users_list(current_user).each do |user| %>
           <li class="list-group-item p-1">
-            <%= f.check_box :user_ids, { multiple: true, class: "form-check-input me-1", id: "check_#{user.id}" }, user.id %>
+            <%= f.check_box :user_ids, { multiple: true, include_hidden: false, class: "form-check-input me-1", id: "check_#{user.id}" }, user.id %>
             <%= f.label :user_ids, "#{user.name}", class: "form-check-label", for: "check_#{user.id}" %>
           </li>
         <% end %>

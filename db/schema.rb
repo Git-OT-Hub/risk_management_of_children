@@ -62,6 +62,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_07_132007) do
     t.text "body", null: false
     t.integer "user_id", null: false
     t.integer "comment_id", null: false
+    t.text "user_ids"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["comment_id"], name: "index_comment_replies_on_comment_id"

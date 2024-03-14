@@ -4,6 +4,7 @@ class CreateCommentReplies < ActiveRecord::Migration[7.1]
       t.text :body, null: false
       t.references :user, null: false, foreign_key: true
       t.references :comment, null: false, foreign_key: true
+      t.text :user_ids
 
       t.timestamps
     end

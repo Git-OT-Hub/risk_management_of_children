@@ -219,6 +219,8 @@ ja:
       search_user_name: "ユーザー名"
       search: "検索"
       full_search: "全検索"
+      mention: "メンション"
+      mention_explanation: "選択したユーザーに、通知を送れます。"
   users:
     new:
       title: "ユーザー登録"

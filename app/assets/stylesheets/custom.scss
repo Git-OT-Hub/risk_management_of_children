@@ -79,7 +79,7 @@ a.progress-compatible-not-compatible-btn {
   content: "";
   position: absolute;
   top: 20%;
-  left: 100%;
+  right: -45px;
   margin-top: -15px;
   border: 25px solid transparent;
   border-left: 20px solid #dee2e6;
@@ -112,3 +112,4 @@ a.progress-compatible-not-compatible-btn {
     --bs-accordion-bg: var(--bs-white);
   }
 }
+

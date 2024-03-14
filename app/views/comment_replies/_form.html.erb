@@ -16,6 +16,9 @@
             <%= f.hidden_field :comment_reply_image, value: comment_reply.comment_reply_image.signed_id, data: { comment_reply_image_target: "hiddenField" } %>
             <%= f.file_field :comment_reply_image, direct_upload: true, accept: "image/*", class: "form-control rounded-pill shadow-lg", data: { comment_reply_image_target: "input", action: "click->comment-reply-image#checkForExistingImage change->comment-reply-image#preview" } %>
           </div>
+          <div class="card-body p-2">
+            <%= render "comment_replies/mention_drop", f: f, comment: comment, comment_reply: comment_reply %>
+          </div>
         </div>
         <div class="col-sm-4 align-self-center ms-0" id="<%= dom_id(comment_reply, "form") %>">
           <div class="card-body text-center p-1">

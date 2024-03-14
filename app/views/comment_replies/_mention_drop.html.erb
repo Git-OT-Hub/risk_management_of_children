@@ -1,21 +1,18 @@
 <div class="btn-group dropend">
-  <button type="button" class="btn btn-secondary dropdown-toggle shadow-lg" data-bs-toggle="dropdown" aria-expanded="false">
+  <button type="button" class="btn btn-secondary dropdown-toggle shadow-lg" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
     <%= t("defaults.message.mention") %>
   </button>
   <div class="dropdown-menu overflow-y-scroll shadow-lg p-2" style="max-height: 200px;">
     <ul class="list-group list-group-flush">
-      <li class="list-group-item"><%= t("defaults.message.mention_explanation") %></li>
-
-      <li class="list-group-item">
-        test1
-      </li>
-      <li class="list-group-item">
-        test2
-      </li>
-      <li class="list-group-item">
-        test3
-      </li>
-
+      <li class="list-group-item p-1"><%= t("defaults.message.mention_explanation") %></li>
+      <% if comment.mention_users_list(current_user).present? %>
+        <% comment.mention_users_list(current_user).each do |user| %>
+          <li class="list-group-item p-1">
+            <%= f.check_box :user_ids, { multiple: true, class: "form-check-input me-1", id: "check_#{user.id}" }, user.id %>
+            <%= f.label :user_ids, "#{user.name}", class: "form-check-label", for: "check_#{user.id}" %>
+          </li>
+        <% end %>
+      <% end %>
     </ul>
   </div>
 </div>

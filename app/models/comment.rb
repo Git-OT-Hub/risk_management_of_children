@@ -2,6 +2,7 @@ class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :post, counter_cache: true
   has_many :comment_replies, dependent: :destroy
+  has_many :comment_reply_users, through: :comment_replies, source: :user
 
   has_one_attached :comment_image
 
@@ -10,6 +11,10 @@ class Comment < ApplicationRecord
 
   def comment_image_as_medium
     comment_image.variant(resize_to_limit: [500, 500]).processed.url
+  end
+
+  def mention_users_list(current_user)
+    mention_users = comment_reply_users.distinct - [current_user]
   end
 
   private

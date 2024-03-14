@@ -1,6 +1,4 @@
 class CommentReply < ApplicationRecord
-  serialize :user_ids, type: Array, coder: YAML
-  
   belongs_to :user
   belongs_to :comment, counter_cache: true
 

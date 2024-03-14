@@ -13,10 +13,6 @@ class Comment < ApplicationRecord
     comment_image.variant(resize_to_limit: [500, 500]).processed.url
   end
 
-  def mention_users_list(current_user)
-    mention_users = comment_reply_users.distinct - [current_user]
-  end
-
   private
 
   def comment_image_content_type

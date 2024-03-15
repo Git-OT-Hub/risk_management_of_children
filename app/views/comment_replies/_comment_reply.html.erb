@@ -4,6 +4,9 @@
   <% else %>
     <div class="rounded shadow-lg mb-4 comment-balloon-left">
   <% end %>
+    <% if comment_reply.parent_id.present? %>
+      <%= render "comment_replies/parent_comment_reply", parent: comment_reply.call_parent(comment_reply.parent_id) %>
+    <% end %>
     <div class="card" id="<%= dom_id(comment_reply, :edit_form) %>">
       <% if comment_reply.comment_reply_image.attached? %>
         <div class="row g-0 justify-content-center">

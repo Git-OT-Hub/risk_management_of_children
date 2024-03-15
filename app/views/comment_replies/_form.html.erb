@@ -1,6 +1,12 @@
 <div class="container pt-2">
+  <% if parent.present? %>
+    <%= render "comment_replies/parent_comment_reply", parent: parent %>
+  <% end %>
   <%= form_with model: comment_reply, url: (comment_reply.persisted? ? comment_reply_path(comment_reply) : comment_comment_replies_path(comment)) do |f| %>
     <%= render "shared/error_messages", object: f.object %>
+    <% if parent.present? %>
+      <%= f.hidden_field :parent_id, value: parent.id %>
+    <% end %>
     <div class="mb-2">
       <%= f.label :body, class: "form-label visually-hidden" %>
       <%= f.text_area :body, class: "form-control rounded shadow-lg", rows: 2, placeholder: CommentReply.human_attribute_name(:body) %>

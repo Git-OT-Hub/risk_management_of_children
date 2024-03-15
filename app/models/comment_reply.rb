@@ -11,6 +11,10 @@ class CommentReply < ApplicationRecord
   validates :body, presence: true, length: { maximum: 65_535 }
   validate :comment_reply_image_content_type, :comment_reply_image_size
 
+  def call_parent(parent_id)
+    parent = CommentReply.find(parent_id)
+  end
+
   private
 
   def comment_reply_image_content_type

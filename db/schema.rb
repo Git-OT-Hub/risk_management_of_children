@@ -62,10 +62,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_07_132007) do
     t.text "body", null: false
     t.integer "user_id", null: false
     t.integer "comment_id", null: false
-    t.text "user_ids"
+    t.integer "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["comment_id"], name: "index_comment_replies_on_comment_id"
+    t.index ["parent_id"], name: "index_comment_replies_on_parent_id"
     t.index ["user_id"], name: "index_comment_replies_on_user_id"
   end
 
@@ -156,6 +157,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_07_132007) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookmarks", "posts"
   add_foreign_key "bookmarks", "users"
+  add_foreign_key "comment_replies", "comment_replies", column: "parent_id"
   add_foreign_key "comment_replies", "comments"
   add_foreign_key "comment_replies", "users"
   add_foreign_key "comments", "posts"

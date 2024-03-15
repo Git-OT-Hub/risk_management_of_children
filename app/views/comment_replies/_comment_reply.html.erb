@@ -37,7 +37,7 @@
                   <%= render "comment_replies/crud_menus", comment_reply: comment_reply %>
                 <% end %>
                 <% if logged_in? && !current_user.own?(comment_reply) %>
-                  <%= link_to "", data: { turbo_stream: true }, class: "link-success link-underline link-underline-opacity-0" do %>
+                  <%= link_to reply_to_parent_comment_reply_path(comment_reply), data: { turbo_stream: true }, class: "link-success link-underline link-underline-opacity-0" do %>
                     <i class="fa-solid fa-reply fa-xl"></i>
                   <% end %>
                 <% end %>
@@ -70,6 +70,11 @@
               <div class="card-footer">
                 <% if logged_in? && current_user.own?(comment_reply) %>
                   <%= render "comment_replies/crud_menus", comment_reply: comment_reply %>
+                <% end %>
+                <% if logged_in? && !current_user.own?(comment_reply) %>
+                  <%= link_to reply_to_parent_comment_reply_path(comment_reply), data: { turbo_stream: true }, class: "link-success link-underline link-underline-opacity-0" do %>
+                    <i class="fa-solid fa-reply fa-xl"></i>
+                  <% end %>
                 <% end %>
               </div>
             </div>

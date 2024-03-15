@@ -37,6 +37,7 @@ Rails.application.routes.draw do
         member do
           get "cancel_edit", action: :cancel_edit
           delete "delete_comment_reply_image", action: :delete_comment_reply_image
+          get "reply_to_parent", action: :reply_to_parent
         end
       end
     end

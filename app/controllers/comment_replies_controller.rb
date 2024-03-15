@@ -7,6 +7,14 @@ class CommentRepliesController < ApplicationController
     @comment_replies = @q.result(distinct: true).includes(:user).with_attached_comment_reply_image.order(created_at: :asc)
   end
 
+  def reply_to_parent
+    parent = CommentReply.find(params[:id])
+    comment = parent.comment
+
+    redirect_to new_comment_comment_reply_path(comment)
+    #binding.pry
+  end
+
   def new
     @comment_reply = CommentReply.new
     respond_to do |format|

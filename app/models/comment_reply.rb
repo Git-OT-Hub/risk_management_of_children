@@ -1,6 +1,8 @@
 class CommentReply < ApplicationRecord
   belongs_to :user
   belongs_to :comment, counter_cache: true
+  belongs_to :parent, class_name: "CommentReply", optional: true
+  has_many :replies, class_name: "CommentReply", foreign_key: :parent_id, dependent: :destroy
 
   has_one_attached :comment_reply_image do |attachable|
     attachable.variant :medium, resize_to_limit: [500, 500], preprocessed: true

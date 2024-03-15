@@ -10,16 +10,25 @@ class CommentRepliesController < ApplicationController
   def reply_to_parent
     parent = CommentReply.find(params[:id])
     comment = parent.comment
-
+    session[:parent] = parent
     redirect_to new_comment_comment_reply_path(comment)
     #binding.pry
   end
 
   def new
     @comment_reply = CommentReply.new
-    respond_to do |format|
-      format.turbo_stream { render turbo_stream: turbo_stream.update("comment_reply_change_form", partial: "form", locals: { comment: @comment, comment_reply: @comment_reply }) }
-      format.html {  }
+    if session[:parent]
+      @parent = session[:parent]
+      session.delete(:parent)
+      respond_to do |format|
+        format.turbo_stream { render turbo_stream: turbo_stream.update("comment_reply_change_form", partial: "form", locals: { comment: @comment, comment_reply: @comment_reply, parent: @parent }) }
+        format.html {  }
+      end
+    else
+      respond_to do |format|
+        format.turbo_stream { render turbo_stream: turbo_stream.update("comment_reply_change_form", partial: "form", locals: { comment: @comment, comment_reply: @comment_reply }) }
+        format.html {  }
+      end
     end
   end
 

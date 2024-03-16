@@ -93,15 +93,27 @@ class CommentRepliesController < ApplicationController
 
   def edit
     @comment = @comment_reply.comment
-    respond_to do |format|
-      format.turbo_stream do
-        render turbo_stream: [
-          turbo_stream.update("edit_form_comment_reply_#{@comment_reply.id}", partial: "form", locals: { comment: @comment, comment_reply: @comment_reply })
-        ]
+    if @comment_reply.parent_id.present?
+      @parent = CommentReply.find(@comment_reply.parent_id)
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: [
+            turbo_stream.update("edit_form_comment_reply_#{@comment_reply.id}", partial: "form", locals: { comment: @comment, comment_reply: @comment_reply, parent: @parent })
+          ]
+        end
+        format.html {  }
       end
-      format.html {  }
+    else
+      @parent_nil = nil
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: [
+            turbo_stream.update("edit_form_comment_reply_#{@comment_reply.id}", partial: "form", locals: { comment: @comment, comment_reply: @comment_reply, parent: @parent_nil })
+          ]
+        end
+        format.html {  }
+      end
     end
-    #binding.pry
   end
 
   def cancel_edit
@@ -150,6 +162,7 @@ class CommentRepliesController < ApplicationController
         format.html {  }
       end
     end
+    #binding.pry
   end
 
   def destroy

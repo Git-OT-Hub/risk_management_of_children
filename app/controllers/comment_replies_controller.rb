@@ -150,19 +150,31 @@ class CommentRepliesController < ApplicationController
         end
         format.html {  }
       end
-    else
+    elsif @comment_reply.parent_id.present?
+      @parent = CommentReply.find(@comment_reply.parent_id)
       respond_to do |format|
         format.turbo_stream do
           flash.now[:danger] = t("defaults.message.not_updated", item: CommentReply.model_name.human)
           render turbo_stream: [
-            turbo_stream.update("edit_form_comment_reply_#{@comment_reply.id}", partial: "form", locals: { comment: @comment, comment_reply: @comment_reply }),
+            turbo_stream.update("edit_form_comment_reply_#{@comment_reply.id}", partial: "form", locals: { comment: @comment, comment_reply: @comment_reply, parent: @parent }),
+            turbo_stream.update("flash_message", partial: "shared/flash_message")
+          ]
+        end
+        format.html {  }
+      end
+    else
+      @parent_nil = nil
+      respond_to do |format|
+        format.turbo_stream do
+          flash.now[:danger] = t("defaults.message.not_updated", item: CommentReply.model_name.human)
+          render turbo_stream: [
+            turbo_stream.update("edit_form_comment_reply_#{@comment_reply.id}", partial: "form", locals: { comment: @comment, comment_reply: @comment_reply, parent: @parent_nil }),
             turbo_stream.update("flash_message", partial: "shared/flash_message")
           ]
         end
         format.html {  }
       end
     end
-    #binding.pry
   end
 
   def destroy
@@ -209,6 +221,6 @@ class CommentRepliesController < ApplicationController
   end
 
   def comment_reply_update_params
-    params.require(:comment_reply).permit(:body, :comment_reply_image)
+    params.require(:comment_reply).permit(:body, :comment_reply_image, :parent_id)
   end
 end

@@ -11,6 +11,9 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorite_posts, through: :favorites, source: :post
   has_many :diagnosis_results, dependent: :destroy
+  has_many :sent_notifications, class_name: 'Notification', foreign_key: 'sender_id', dependent: :destroy
+  has_many :received_notifications, class_name: 'Notification', foreign_key: 'recipient_id', dependent: :destroy
+  has_many :notifications, as: :notifiable, dependent: :destroy
 
   has_one_attached :avatar
 

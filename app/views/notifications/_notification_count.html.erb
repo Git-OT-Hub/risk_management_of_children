@@ -1,0 +1,7 @@
+<%= turbo_frame_tag "notification_count" do %>
+  <% if current_user.received_notifications.unread.present? %>
+    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+      <%= current_user.received_notifications.unread.size %>
+    </span>
+  <% end %>
+<% end %>

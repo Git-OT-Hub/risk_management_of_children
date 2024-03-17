@@ -221,6 +221,7 @@ ja:
       full_search: "全検索"
       mention: "メンション"
       mention_explanation: "選択したユーザーに、通知を送れます。"
+      mark_all_notifications: "全てを既読にしますか？"
   users:
     new:
       title: "ユーザー登録"
@@ -368,6 +369,10 @@ ja:
     index:
       title: "コメント返信"
       start_replies: "コメント返信エリア"
+  notifications:
+    index:
+      notification: "通知"
+      start_mark_all_notifications: "全てを既読"
   views:
     pagination:
       first: "最初"

@@ -36,6 +36,11 @@ main {
   flex: 1;
 }
 
+// headerの z-index 調整
+.sticky-top {
+  z-index: 1030;
+}
+
 // トグルボタンの影
 span.progress-toggle-on {
   filter:drop-shadow(4px 4px 1px #bbb);
@@ -112,4 +117,3 @@ a.progress-compatible-not-compatible-btn {
     --bs-accordion-bg: var(--bs-white);
   }
 }
-

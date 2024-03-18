@@ -4,56 +4,11 @@
   <%= turbo_frame_tag "notifications" do %>
     <% if @notifications.present? %>
       <%= link_to t("notifications.index.start_mark_all_notifications"), mark_all_as_read_notifications_path, data: { turbo_method: :delete, turbo_confirm: t("defaults.message.mark_all_notifications") }, class: "btn btn-outline-secondary" %>
-      
-      kokokara
       <% @notifications.each do |notification| %>
-        <%= render 'notifications/notification', { notification: notification } %>
+        <%= render "notifications/notification", notification: notification %>
       <% end %>
     <% else %>
-        <%= render 'notifications/no_notification' %>
+      <%= render "notifications/no_notification" %>
     <% end %>
   <% end %>
-  
-  <p class="text-break p-2">testaaaaaaaaaaaaaaaaaaaafefefefefefesfefeffefeesefesfseffsfsefsefetest</p>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
-  <li class="dropdown-item">test</li>
 </ul>

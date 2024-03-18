@@ -375,6 +375,7 @@ ja:
       start_mark_all_notifications: "全てを既読"
       ago: "前"
       no_notification: "通知がありません"
+      update_fail: "選択した通知の既読処理に失敗しました"
   views:
     pagination:
       first: "最初"

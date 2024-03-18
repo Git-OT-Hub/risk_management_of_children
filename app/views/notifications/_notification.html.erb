@@ -3,7 +3,7 @@
     <%= link_to notification_path(notification), data: { turbo_method: :patch } do %>
       <i class="fa-regular fa-square-check"></i>
     <% end %>
-    <%= generate_notification_message(notification)%>
+    <%= generate_notification_message(notification) %>
     <span class="notification-time"><%= time_ago_in_words(notification.created_at) %> ago</span>
   </p>
 <% end %>

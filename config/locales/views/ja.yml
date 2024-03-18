@@ -373,6 +373,8 @@ ja:
     index:
       notification: "通知"
       start_mark_all_notifications: "全てを既読"
+      ago: "前"
+      no_notification: "通知がありません"
   views:
     pagination:
       first: "最初"

@@ -1,9 +1,9 @@
-<ul class="dropdown-menu dropdown-menu-end" style="max-width: 300px;">
+<ul class="dropdown-menu dropdown-menu-end" style="width: 300px;">
   <li class="dropdown-item"><%= t("notifications.index.notification") %></li>
   <li><hr class="dropdown-divider"></li>
   <%= turbo_frame_tag "notifications" do %>
     <% if @notifications.present? %>
-      <%= link_to t("notifications.index.start_mark_all_notifications"), mark_all_as_read_notifications_path, data: { turbo_method: :delete, turbo_confirm: t("defaults.message.mark_all_notifications") }, class: "btn btn-outline-secondary" %>
+      <%= link_to t("notifications.index.start_mark_all_notifications"), mark_all_as_read_notifications_path, data: { turbo_method: :delete, turbo_confirm: t("defaults.message.mark_all_notifications") }, class: "btn btn-outline-secondary btn-sm ms-2 mb-2" %>
       <% @notifications.each do |notification| %>
         <%= render "notifications/notification", notification: notification %>
       <% end %>

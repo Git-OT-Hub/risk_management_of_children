@@ -76,6 +76,6 @@ class User < ApplicationRecord
   end
 
   def self.ransackable_associations(auth_object = nil)
-    %w[comment_replies]
+    %w[comments comment_replies]
   end
 end

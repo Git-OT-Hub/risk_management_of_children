@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[edit update destroy]
+  before_action :set_post, only: %i[search cancel_search]
 
   def new
     @post = Post.find(params[:post_id])
@@ -109,7 +110,26 @@ class CommentsController < ApplicationController
     redirect_to post_path(@post)
   end
 
+  def search
+    @q = @post.comments.ransack(params[:q])
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.update("comment_change_form", partial: "shared/comments_search", locals: { q: @q, url: post_path(@post), post: @post }) }
+      format.html {  }
+    end
+  end
+
+  def cancel_search
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.update("comment_change_form", partial: "comments/comment_control_panel_part", locals: { post: @post }) }
+      format.html {  }
+    end
+  end
+
   private
+
+  def set_post
+    @post = Post.find(params[:post_id])
+  end
 
   def set_comment
     @comment = current_user.comments.find(params[:id])

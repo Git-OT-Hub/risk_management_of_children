@@ -33,6 +33,6 @@ class Comment < ApplicationRecord
   end
 
   def self.ransackable_associations(auth_object = nil)
-    %w[post]
+    %w[post user]
   end
 end

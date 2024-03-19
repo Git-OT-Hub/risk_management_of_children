@@ -23,6 +23,8 @@ Rails.application.routes.draw do
       collection do
         get "cancel_new_comment", action: :cancel_new_comment
         get "not_loggedin_comment", action: :not_loggedin_comment
+        get "search", action: :search
+        get "cancel_search", action: :cancel_search
       end
       member do
         get "cancel_edit", action: :cancel_edit

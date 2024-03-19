@@ -12,11 +12,23 @@ class CommentReply < ApplicationRecord
   validates :body, presence: true, length: { maximum: 65_535 }
   validate :comment_reply_image_content_type, :comment_reply_image_size
 
+  after_create_commit :create_comment_reply_notification
+
   def call_parent(parent_id)
     parent = CommentReply.find(parent_id)
   end
 
   private
+
+  def create_comment_reply_notification
+    if self.parent.present?
+      return if self.user_id == self.parent.user_id
+      Notification.create(sender_id: self.user_id, recipient_id: self.parent.user_id, notifiable: self, action: "reply_to_comment_reply")
+    else
+      return if self.user_id == self.comment.user_id
+      Notification.create(sender_id: self.user_id, recipient_id: self.comment.user_id, notifiable: self, action: "reply_to_comment")
+    end
+  end
 
   def comment_reply_image_content_type
     if comment_reply_image.attached? && !comment_reply_image.blob.content_type.in?(%w[image/jpeg image/jpg image/png image/gif])

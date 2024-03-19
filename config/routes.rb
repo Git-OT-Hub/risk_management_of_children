@@ -71,7 +71,7 @@ Rails.application.routes.draw do
   end
   resources :notifications, only: %i[update] do
     collection do
-      delete "mark_all_as_read", action: :mark_all_as_read
+      patch "mark_all_as_read", action: :mark_all_as_read
     end
   end
 end

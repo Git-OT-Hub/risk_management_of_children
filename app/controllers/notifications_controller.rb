@@ -19,6 +19,28 @@ class NotificationsController < ApplicationController
   end
 
   def mark_all_as_read
-    #kokokara update_all処理に変更
+    @notifications = current_user.received_notifications.unread
+    if @notifications.present?
+      @notifications.update_all(read: true)
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: [
+            turbo_stream.replace("notifications", partial: "notifications/notifications"),
+            turbo_stream.replace("notification_count", partial: "notifications/notification_count")
+          ]
+        end
+        format.html {  }
+      end
+    else
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: [
+            turbo_stream.replace("notifications", partial: "notifications/notifications"),
+            turbo_stream.replace("notification_count", partial: "notifications/notification_count")
+          ]
+        end
+        format.html {  }
+      end
+    end
   end
 end

@@ -1,11 +1,11 @@
 <% content_for(:title, t(".title")) %>
 <div data-controller="comment-related-search">
   <div class="container mt-5 mb-5">
-    <div class="row">
+    <div class="row mb-5">
       <div class="col-lg-10 offset-lg-1">
         <h1 class="text-center mb-5"><%= t(".title") %></h1>
         <!-- 掲示板内容 -->
-        <article class="card mb-5">
+        <article class="card">
           <div class="card-body">
             <div class="row">
               <div class="col-md-7 mb-3 mb-md-0" id="reload_images_<%= @post.id %>">
@@ -74,20 +74,13 @@
       </div>
     </div>
     <!-- コメントエリア -->
-    <div id="comments_list">
-      <div class="row">
-        <div class="col-lg-10 offset-lg-1" id="<%= dom_id(Comment.new) %>">
-          <%= render "comments/new_comment_link", post: @post %>
+    <div class="row">
+      <div class="col-lg-10 offset-lg-1">
+        <div class="mt-0 mb-5">
+          <hr size="10", class="bg-success border border-0 mt-0 mb-3">
+          <h3 class="text-center mb-0"><%= t(".start_comments") %></h3>
         </div>
-      </div>
-      <div class="row mb-5">
-        <div class="col-lg-10 offset-lg-1">
-          <% if @comments.present? %>
-            <%= render "comments/comments", comments: @comments %>
-          <% else %>
-            <p class="fs-4"><%= t(".no_comments") %></p>
-          <% end %>
-        </div>
+        <%= render "comments/comments", comments: @comments, post: @post %>
       </div>
     </div>
   </div>

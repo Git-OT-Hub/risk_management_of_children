@@ -1,14 +1,14 @@
-<div class="mb-3" id="<%= dom_id(comment) %>">
+<div class="mb-4" id="<%= dom_id(comment) %>">
   <div class="card shadow-lg">
     <% if comment.comment_image.attached? %>
       <div class="row g-0 justify-content-center">
         <div class="col-md-4 align-self-center me-0">
           <div class="card-body text-center p-1">
-            <%= image_tag comment.comment_image_as_medium, class: "img-fluid rounded" %>
+            <%= image_tag comment.comment_image.variant(:medium), class: "img-fluid rounded shadow-lg", style: "max-height: 200px;" %>
           </div>
         </div>
         <div class="col-md-7 p-1">
-          <div class="card">
+          <div class="card shadow-lg">
             <div class="card-header p-1">
               <ul class="list-inline mb-0">
                 <li class="list-inline-item me-2 mb-2">
@@ -24,7 +24,7 @@
               </ul>
             </div>
             <div class="card-body p-2">
-              <p class="card-text mb-0"><%= simple_format(comment.body) %></p>
+              <%= simple_format(comment.body, class: "card-text mb-1") %>
               <p class="card-text text-end"><small class="text-body-secondary"><%= l comment.created_at, format: :long %></small></p>
             </div>
             <div class="card-footer">
@@ -42,7 +42,7 @@
     <% else %>
       <div class="row g-0">
         <div class="col-12 p-1">
-          <div class="card">
+          <div class="card shadow-lg">
             <div class="card-header p-1">
               <ul class="list-inline mb-0">
                 <li class="list-inline-item me-2 mb-2">
@@ -58,7 +58,7 @@
               </ul>
             </div>
             <div class="card-body p-2">
-              <p class="card-text mb-0"><%= simple_format(comment.body) %></p>
+              <%= simple_format(comment.body, class: "card-text mb-1") %>
               <p class="card-text text-end"><small class="text-body-secondary"><%= l comment.created_at, format: :long %></small></p>
             </div>
             <div class="card-footer">

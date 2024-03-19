@@ -5,14 +5,12 @@ class Comment < ApplicationRecord
   has_many :comment_reply_users, through: :comment_replies, source: :user
   has_many :notifications, as: :notifiable, dependent: :destroy
 
-  has_one_attached :comment_image
+  has_one_attached :comment_image do |attachable|
+    attachable.variant :medium, resize_to_limit: [500, 500], preprocessed: true
+  end
 
   validates :body, presence: true, length: { maximum: 65_535 }
   validate :comment_image_content_type, :comment_image_size
-
-  def comment_image_as_medium
-    comment_image.variant(resize_to_limit: [500, 500]).processed.url
-  end
 
   private
 

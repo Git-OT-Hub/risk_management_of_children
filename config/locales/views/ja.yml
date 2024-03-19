@@ -262,6 +262,7 @@ ja:
       title: "投稿詳細"
       images_reload: "※ 画像再読み込み"
       no_comments: "投稿されたコメントはありません"
+      start_comments: "コメントエリア"
       back_to_previous_page: "戻る"
       to_posts_page: "投稿一覧へ"
     edit:

@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     resources :comments, only: %i[index new create show edit update destroy], shallow: true do
       collection do
         get "cancel_new_comment", action: :cancel_new_comment
-        get "not_loggedin_comment", action: :not_loggedin_comment
+        get "login_required", action: :login_required
         get "search", action: :search
         get "cancel_search", action: :cancel_search
       end

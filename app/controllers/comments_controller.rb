@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[edit update destroy]
-  before_action :set_post, only: %i[search cancel_search]
+  before_action :set_post, only: %i[search cancel_search login_required]
 
   def new
     @post = Post.find(params[:post_id])
@@ -105,8 +105,7 @@ class CommentsController < ApplicationController
     end
   end
 
-  def not_loggedin_comment
-    @post = Post.find(params[:post_id])
+  def login_required
     redirect_to post_path(@post)
   end
 

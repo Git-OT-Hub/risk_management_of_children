@@ -23,9 +23,7 @@
       <% end %>
     </div>
     <div class="col-2 px-0 text-end">  
-      <%= link_to new_post_comment_path(post), data: { turbo_stream: true }, class: "link-success link-underline link-underline-opacity-0" do %>
-        <i class="fa-solid fa-circle-plus fa-3x"></i>
-      <% end %>
+      <%= render "comments/comment_create_button", post: post %>
     </div>
   </div>
 </div>

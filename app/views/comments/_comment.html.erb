@@ -7,11 +7,11 @@
             <%= image_tag comment.comment_image.variant(:medium), class: "img-fluid rounded shadow-lg", style: "max-height: 200px;" %>
           </div>
         </div>
-        <div class="col-md-7 p-1">
+        <div class="col-md-7 align-self-center p-1">
           <div class="card shadow-lg">
             <div class="card-header p-1">
               <ul class="list-inline mb-0">
-                <li class="list-inline-item me-2 mb-2">
+                <li class="list-inline-item me-2">
                   <% if comment.user.avatar.attached? %>
                     <%= image_tag comment.user.avatar_as_small, class: "img-thumbnail rounded-circle", size: "60x60" %>
                   <% else %>
@@ -45,7 +45,7 @@
           <div class="card shadow-lg">
             <div class="card-header p-1">
               <ul class="list-inline mb-0">
-                <li class="list-inline-item me-2 mb-2">
+                <li class="list-inline-item me-2">
                   <% if comment.user.avatar.attached? %>
                     <%= image_tag comment.user.avatar_as_small, class: "img-thumbnail rounded-circle", size: "60x60" %>
                   <% else %>

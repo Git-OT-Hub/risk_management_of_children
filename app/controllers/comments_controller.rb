@@ -30,14 +30,11 @@ class CommentsController < ApplicationController
         format.turbo_stream do
           flash.now[:danger] = t("defaults.message.not_created", item: Comment.model_name.human)
           render turbo_stream: [
-            turbo_stream.update("new_comment", partial: "form", locals: { post: @post, comment: @comment }),
+            turbo_stream.update("comment_change_form", partial: "form", locals: { post: @post, comment: @comment }),
             turbo_stream.update("flash_message", partial: "shared/flash_message")
           ]
         end
-        format.html do
-          flash.now[:danger] = t("defaults.message.not_created", item: Comment.model_name.human)
-          render :new, status: :unprocessable_entity
-        end
+        format.html {  }
       end
     end
   end

@@ -26,7 +26,7 @@ class CommentReply < ApplicationRecord
       Notification.create(sender_id: self.user_id, recipient_id: self.parent.user_id, notifiable: self, action: "reply_to_comment_reply")
     else
       return if self.user_id == self.comment.user_id
-      Notification.create(sender_id: self.user_id, recipient_id: self.comment.user_id, notifiable: self, action: "reply_to_comment")
+      Notification.create(sender_id: self.user_id, recipient_id: self.comment.user_id, notifiable: self, action: "reply_to_comment") if self.comment
     end
   end
 

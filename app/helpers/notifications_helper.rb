@@ -5,11 +5,11 @@ module NotificationsHelper
     
     case notification.action
     when "comment_to_post"
-      "#{notification.sender.name} さんがあなたの <strong>投稿</strong> - <strong>#{notifiable_name(notification)}</strong> にコメントしました".html_safe
+      "#{notification.sender.name[0, 10]} さんがあなたの <strong>投稿</strong> - <strong>#{notifiable_name(notification)}</strong> にコメントしました".html_safe
     when "reply_to_comment"
-      "#{notification.sender.name} さんがあなたの <strong>コメント</strong> - <strong>#{notifiable_name(notification)}</strong> に返信しました".html_safe
+      "#{notification.sender.name[0, 10]} さんがあなたの <strong>コメント</strong> - <strong>#{notifiable_name(notification)}</strong> に返信しました".html_safe
     when "reply_to_comment_reply"
-      "#{notification.sender.name} さんがあなたの <strong>コメント返信</strong> - <strong>#{notifiable_name(notification)}</strong> に返信しました".html_safe
+      "#{notification.sender.name[0, 10]} さんがあなたの <strong>コメント返信</strong> - <strong>#{notifiable_name(notification)}</strong> に返信しました".html_safe
     else
       "新規通知がありました"
     end
@@ -22,7 +22,7 @@ module NotificationsHelper
 
     case notification.action
     when "comment_to_post"
-      "#{notification.notifiable.post.title}"
+      "#{notification.notifiable.post.title[0, 10]}"
     when "reply_to_comment"
       "#{notification.notifiable.comment.body[0, 10]}"
     when "reply_to_comment_reply"

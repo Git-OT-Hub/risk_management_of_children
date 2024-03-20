@@ -69,21 +69,18 @@ class CommentsController < ApplicationController
     if @comment.update(comment_update_params)
       respond_to do |format|
         format.turbo_stream { flash.now[:success] = t("defaults.message.updated", item: Comment.model_name.human) }
-        format.html { redirect_to post_path(@post), success: t("defaults.message.updated", item: Comment.model_name.human) }
+        format.html {  }
       end
     else
       respond_to do |format|
         format.turbo_stream do
           flash.now[:danger] = t("defaults.message.not_updated", item: Comment.model_name.human)
           render turbo_stream: [
-            turbo_stream.update("comment_#{@comment.id}", partial: "form", locals: { post: @post, comment: @comment }),
+            turbo_stream.update("edit_form_comment_#{@comment.id}", partial: "form", locals: { post: @post, comment: @comment }),
             turbo_stream.update("flash_message", partial: "shared/flash_message")
           ]
         end
-        format.html do
-          flash.now[:danger] = t("defaults.message.not_updated", item: Comment.model_name.human)
-          render :edit, status: :unprocessable_entity
-        end
+        format.html {  }
       end
     end
   end

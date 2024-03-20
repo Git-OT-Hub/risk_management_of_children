@@ -1,12 +1,11 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[edit update destroy]
-  before_action :set_post, only: %i[search cancel_search login_required]
+  before_action :set_post, only: %i[new search cancel_search login_required]
 
   def new
-    @post = Post.find(params[:post_id])
     @comment = Comment.new
     respond_to do |format|
-      format.turbo_stream { render turbo_stream: turbo_stream.update("new_comment", partial: "form", locals: { post: @post, comment: @comment }) }
+      format.turbo_stream { render turbo_stream: turbo_stream.update("comment_change_form", partial: "form", locals: { post: @post, comment: @comment }) }
       format.html {  }
     end
   end

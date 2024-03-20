@@ -1,11 +1,18 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[edit update destroy]
-  before_action :set_post, only: %i[new search cancel_search login_required]
+  before_action :set_post, only: %i[new cancel_new search cancel_search login_required]
 
   def new
     @comment = Comment.new
     respond_to do |format|
       format.turbo_stream { render turbo_stream: turbo_stream.update("comment_change_form", partial: "form", locals: { post: @post, comment: @comment }) }
+      format.html {  }
+    end
+  end
+
+  def cancel_new
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.update("comment_change_form", partial: "comment_control_panel_part", locals: { post: @post }) }
       format.html {  }
     end
   end
@@ -16,7 +23,7 @@ class CommentsController < ApplicationController
     if @comment.save
       respond_to do |format|
         format.turbo_stream { flash.now[:success] = t("defaults.message.created", item: Comment.model_name.human) }
-        format.html { redirect_to post_path(@post), success: t("defaults.message.created", item: Comment.model_name.human) }
+        format.html {  }
       end
     else
       respond_to do |format|
@@ -73,14 +80,6 @@ class CommentsController < ApplicationController
     respond_to do |format|
       format.turbo_stream { flash.now[:success] = t("defaults.message.deleted", item: Comment.model_name.human) }
       format.html { redirect_to post_path(@post), success: t("defaults.message.deleted", item: Comment.model_name.human), status: :see_other }
-    end
-  end
-
-  def cancel_new_comment
-    @post = Post.find(params[:post_id])
-    respond_to do |format|
-      format.turbo_stream { render turbo_stream: turbo_stream.update("new_comment", partial: "new_comment_link", locals: { post: @post }) }
-      format.html { redirect_to post_path(@post) }
     end
   end
 

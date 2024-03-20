@@ -51,7 +51,7 @@
         </li>
         <li class="list-inline-item">
           <% if comment.new_record? %>
-            <%= link_to t("defaults.message.cancel"), cancel_new_comment_post_comments_path(post), data: { turbo_stream: true }, class: "btn btn-outline-secondary rounded-pill shadow-lg" %>
+            <%= link_to t("defaults.message.cancel"), cancel_new_post_comments_path(post), data: { turbo_stream: true }, class: "btn btn-outline-secondary rounded-pill shadow-lg" %>
           <% else %>
             <%= link_to t("defaults.message.cancel"), cancel_edit_comment_path(comment), data: { turbo_stream: true }, class: "btn btn-outline-secondary rounded-pill shadow-lg" %>
           <% end %>

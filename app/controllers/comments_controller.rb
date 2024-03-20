@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: %i[edit cancel_edit update destroy]
+  before_action :set_comment, only: %i[edit cancel_edit delete_comment_image update destroy]
   before_action :set_post, only: %i[new cancel_new search cancel_search login_required]
 
   def new
@@ -55,6 +55,15 @@ class CommentsController < ApplicationController
     end
   end
 
+  def delete_comment_image
+    @comment.comment_image.purge
+    @post = @comment.post
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.update("form_comment_#{@comment.id}", partial: "form_part", locals: { post: @post, comment: @comment }) }
+      format.html {  }
+    end
+  end
+
   def update
     @post = @comment.post
     if @comment.update(comment_update_params)
@@ -85,17 +94,6 @@ class CommentsController < ApplicationController
     respond_to do |format|
       format.turbo_stream { flash.now[:success] = t("defaults.message.deleted", item: Comment.model_name.human) }
       format.html { redirect_to post_path(@post), success: t("defaults.message.deleted", item: Comment.model_name.human), status: :see_other }
-    end
-  end
-
-  def delete_comment_image
-    comment = current_user.comments.find(params[:id])
-    comment.comment_image.purge
-    @comment_after_purge = current_user.comments.find(params[:id])
-    @post = @comment_after_purge.post
-    respond_to do |format|
-      format.turbo_stream { render turbo_stream: turbo_stream.update("form_comment_#{@comment_after_purge.id}", partial: "form_part", locals: { post: @post, comment: @comment_after_purge }) }
-      format.html { redirect_to edit_comment_path(@comment_after_purge) }
     end
   end
 

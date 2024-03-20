@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: %i[edit update destroy]
+  before_action :set_comment, only: %i[edit cancel_edit update destroy]
   before_action :set_post, only: %i[new cancel_new search cancel_search login_required]
 
   def new
@@ -47,6 +47,14 @@ class CommentsController < ApplicationController
     end
   end
 
+  def cancel_edit
+    @post = @comment.post
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.replace("comment_#{@comment.id}", partial: "comment", locals: { comment: @comment }) }
+      format.html {  }
+    end
+  end
+
   def update
     @post = @comment.post
     if @comment.update(comment_update_params)
@@ -77,15 +85,6 @@ class CommentsController < ApplicationController
     respond_to do |format|
       format.turbo_stream { flash.now[:success] = t("defaults.message.deleted", item: Comment.model_name.human) }
       format.html { redirect_to post_path(@post), success: t("defaults.message.deleted", item: Comment.model_name.human), status: :see_other }
-    end
-  end
-
-  def cancel_edit
-    @comment = current_user.comments.find(params[:id])
-    @post = @comment.post
-    respond_to do |format|
-      format.turbo_stream { render turbo_stream: turbo_stream.replace("comment_#{@comment.id}", partial: "comment", locals: { comment: @comment }) }
-      format.html { redirect_to post_path(@post) }
     end
   end
 

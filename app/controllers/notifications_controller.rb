@@ -1,5 +1,21 @@
 class NotificationsController < ApplicationController
 
+  def index
+    if request.headers["turbo-frame"]
+      render partial: "notifications/notifications"
+    else
+      redirect_to root_path
+    end
+  end
+
+  def show
+    if request.headers["turbo-frame"]
+      render partial: "notifications/notification_count"
+    else
+      redirect_to root_path
+    end
+  end
+
   def update
     @notification = current_user.received_notifications.find(params[:id])
     @notification.update(read: true)

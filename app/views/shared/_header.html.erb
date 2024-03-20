@@ -34,6 +34,7 @@
             </ul>
           </li>
           <li class="nav-item ms-3 dropdown d-flex flex-column flex-lg-row">
+            <%= turbo_stream_from "notifications_for_user_#{current_user.id}" %>
             <%= link_to "#", class: "nav-link dropdown-toggle align-self-lg-center", role: "button", "data-bs-toggle" => "dropdown", "data-bs-auto-close" => "false", "aria-expanded" => "false" do %>
               <label class="position-relative">
                 <i class="fa-solid fa-bell fa-2xl text-secondary"></i>

@@ -71,7 +71,7 @@ Rails.application.routes.draw do
       patch "change_not_compatible", action: :change_not_compatible
     end
   end
-  resources :notifications, only: %i[update] do
+  resources :notifications, only: %i[index show update] do
     collection do
       patch "mark_all_as_read", action: :mark_all_as_read
     end

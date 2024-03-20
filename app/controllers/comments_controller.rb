@@ -86,11 +86,10 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @post = @comment.post
     @comment.destroy!
     respond_to do |format|
       format.turbo_stream { flash.now[:success] = t("defaults.message.deleted", item: Comment.model_name.human) }
-      format.html { redirect_to post_path(@post), success: t("defaults.message.deleted", item: Comment.model_name.human), status: :see_other }
+      format.html {  }
     end
   end
 

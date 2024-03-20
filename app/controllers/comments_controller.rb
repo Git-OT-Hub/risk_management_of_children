@@ -42,7 +42,7 @@ class CommentsController < ApplicationController
   def edit
     @post = @comment.post
     respond_to do |format|
-      format.turbo_stream { render turbo_stream: turbo_stream.update("comment_#{@comment.id}", partial: "form", locals: { post: @post, comment: @comment }) }
+      format.turbo_stream { render turbo_stream: turbo_stream.update("edit_form_comment_#{@comment.id}", partial: "form", locals: { post: @post, comment: @comment }) }
       format.html {  }
     end
   end

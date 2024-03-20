@@ -1,5 +1,5 @@
 <div class="mb-4" id="<%= dom_id(comment) %>">
-  <div class="card shadow-lg">
+  <div class="card shadow-lg" id="<%= dom_id(comment, :edit_form) %>">
     <% if comment.comment_image.attached? %>
       <div class="row g-0 justify-content-center">
         <div class="col-md-4 align-self-center me-0">

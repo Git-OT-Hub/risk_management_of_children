@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  skip_before_action :require_login, only: %i[index show]
-  before_action :set_post, only: %i[edit update destroy reload_images]
+  skip_before_action :require_login, only: %i[index show reload_images]
+  before_action :set_post, only: %i[edit update destroy]
 
   def index
     @q = Post.ransack(params[:q])
@@ -61,6 +61,7 @@ class PostsController < ApplicationController
   end
 
   def reload_images
+    @post = Post.find(params[:id])
     redirect_to post_path(@post), success: t("defaults.message.updated", item: Post.human_attribute_name(:images))
   end
 

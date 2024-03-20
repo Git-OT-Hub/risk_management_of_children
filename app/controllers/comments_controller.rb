@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  skip_before_action :require_login, only: %i[search cancel_search]
   before_action :set_comment, only: %i[edit cancel_edit delete_comment_image update destroy]
   before_action :set_post, only: %i[new cancel_new search cancel_search login_required]
 
@@ -93,10 +94,6 @@ class CommentsController < ApplicationController
     end
   end
 
-  def login_required
-    redirect_to post_path(@post)
-  end
-
   def search
     @q = @post.comments.ransack(params[:q])
     respond_to do |format|
@@ -110,6 +107,10 @@ class CommentsController < ApplicationController
       format.turbo_stream { render turbo_stream: turbo_stream.update("comment_change_form", partial: "comments/comment_control_panel_part", locals: { post: @post }) }
       format.html {  }
     end
+  end
+
+  def login_required
+    redirect_to post_path(@post)
   end
 
   private

@@ -57,6 +57,17 @@ class User < ApplicationRecord
     favorite_posts.destroy(post)
   end
 
+  def notified_object(comment)
+    objects = self.received_notifications.unread_comment_replies
+    results = []
+    objects.each do |object|
+      if object.notifiable.comment.id == comment.id
+        results << object
+      end
+    end
+    results
+  end
+
   private
 
   def avatar_content_type

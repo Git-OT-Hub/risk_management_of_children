@@ -35,6 +35,8 @@ Rails.application.routes.draw do
           get "cancel_new", action: :cancel_new
           get "search", action: :search
           get "cancel_search", action: :cancel_search
+          get "unread", action: :unread
+          get "cancel_unread", action: :cancel_unread
         end
         member do
           get "cancel_edit", action: :cancel_edit

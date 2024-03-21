@@ -1,0 +1,7 @@
+<div class="container overflow-y-scroll mb-4" style="max-height: 200px;">
+  <ul class="list-group list-group-flush">
+    <% if unread_objects.present? %>
+      <%= render partial: "comment_replies/unread_comment_reply", collection: unread_objects %>
+    <% end %>
+  </ul>
+</div>

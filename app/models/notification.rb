@@ -5,6 +5,7 @@ class Notification < ApplicationRecord
   
   scope :unread, -> { where(read: false) }
   scope :unread_comment_replies, -> { where(read: false, notifiable_type: "CommentReply") }
+  scope :unread_comments, -> { where(read: false, notifiable_type: "Comment") }
 
   after_create_commit :broadcast_to_recipient
 

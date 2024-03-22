@@ -58,7 +58,7 @@ class User < ApplicationRecord
   end
 
   def notified_reply_objects(comment)
-    objects = self.received_notifications.unread_comment_replies
+    objects = self.received_notifications.unread_comment_replies.order(created_at: :desc)
     results = []
     objects.each do |object|
       if object.notifiable.comment.id == comment.id

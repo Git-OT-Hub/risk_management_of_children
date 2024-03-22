@@ -1,5 +1,5 @@
 class CommentRepliesController < ApplicationController
-  before_action :set_comment, only: %i[index new cancel_new create search cancel_search unread]
+  before_action :set_comment, only: %i[index new cancel_new create search cancel_search unread cancel_unread]
   before_action :set_comment_reply, only: %i[edit update destroy cancel_edit delete_comment_reply_image]
 
   def index
@@ -209,12 +209,16 @@ class CommentRepliesController < ApplicationController
   def unread
     @unread_objects = current_user.notified_object(@comment)
     respond_to do |format|
-      format.turbo_stream { render turbo_stream: turbo_stream.update("comment_reply_change_form", partial: "comment_replies/unread_comment_replies", locals: { unread_objects: @unread_objects }) }
+      format.turbo_stream { render turbo_stream: turbo_stream.update("comment_reply_change_form", partial: "comment_replies/unread_comment_replies", locals: { unread_objects: @unread_objects, comment: @comment }) }
       format.html {  }
     end
   end
 
   def cancel_unread
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.update("comment_reply_change_form", partial: "comment_replies/comment_reply_button_part", locals: { comment: @comment }) }
+      format.html {  }
+    end
   end
 
   private

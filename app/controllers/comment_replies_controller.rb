@@ -207,7 +207,7 @@ class CommentRepliesController < ApplicationController
   end
 
   def unread
-    @unread_objects = current_user.notified_object(@comment)
+    @unread_objects = current_user.notified_reply_objects(@comment)
     respond_to do |format|
       format.turbo_stream { render turbo_stream: turbo_stream.update("comment_reply_change_form", partial: "comment_replies/unread_comment_replies", locals: { unread_objects: @unread_objects, comment: @comment }) }
       format.html {  }

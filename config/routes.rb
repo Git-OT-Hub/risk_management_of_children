@@ -25,6 +25,8 @@ Rails.application.routes.draw do
         get "login_required", action: :login_required
         get "search", action: :search
         get "cancel_search", action: :cancel_search
+        get "unread", action: :unread
+        get "cancel_unread", action: :cancel_unread
       end
       member do
         get "cancel_edit", action: :cancel_edit

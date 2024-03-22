@@ -57,7 +57,7 @@ class User < ApplicationRecord
     favorite_posts.destroy(post)
   end
 
-  def notified_object(comment)
+  def notified_reply_objects(comment)
     objects = self.received_notifications.unread_comment_replies
     results = []
     objects.each do |object|

@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   skip_before_action :require_login, only: %i[search cancel_search]
   before_action :set_comment, only: %i[edit cancel_edit delete_comment_image update destroy]
-  before_action :set_post, only: %i[new cancel_new search cancel_search login_required]
+  before_action :set_post, only: %i[new cancel_new search cancel_search login_required unread cancel_unread]
 
   def new
     @comment = Comment.new
@@ -111,6 +111,12 @@ class CommentsController < ApplicationController
 
   def login_required
     redirect_to post_path(@post)
+  end
+
+  def unread
+  end
+
+  def cancel_unread
   end
 
   private

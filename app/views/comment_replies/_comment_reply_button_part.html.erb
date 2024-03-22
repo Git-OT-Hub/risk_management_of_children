@@ -4,7 +4,7 @@
       <%= link_to search_comment_comment_replies_path(comment), data: { turbo_stream: true }, class: "link-success link-underline link-underline-opacity-0 me-4" do %>
         <i class="fa-solid fa-magnifying-glass fa-3x"></i>
       <% end %>
-      <% if current_user.notified_object(comment).present? %>
+      <% if current_user.notified_reply_objects(comment).present? %>
         <%= link_to unread_comment_comment_replies_path(comment), data: { turbo_stream: true }, class: "link-success link-underline link-underline-opacity-0" do %>
           <i class="fa-regular fa-comments fa-bounce fa-3x"></i>
         <% end %>

@@ -114,9 +114,18 @@ class CommentsController < ApplicationController
   end
 
   def unread
+    @unread_objects = current_user.notified_comment_objects(@post)
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.update("comment_change_form", partial: "comments/unread_comments", locals: { unread_objects: @unread_objects, post: @post }) }
+      format.html {  }
+    end
   end
 
   def cancel_unread
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.update("comment_change_form", partial: "comments/comment_control_panel_part", locals: { post: @post }) }
+      format.html {  }
+    end
   end
 
   private

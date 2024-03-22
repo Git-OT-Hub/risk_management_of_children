@@ -68,6 +68,17 @@ class User < ApplicationRecord
     results
   end
 
+  def notified_comment_objects(post)
+    objects = self.received_notifications.unread_comments.order(created_at: :desc)
+    results = []
+    objects.each do |object|
+      if object.notifiable.post.id == post.id
+        results << object
+      end
+    end
+    results
+  end
+
   private
 
   def avatar_content_type

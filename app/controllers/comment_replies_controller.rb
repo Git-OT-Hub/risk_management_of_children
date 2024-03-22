@@ -1,5 +1,5 @@
 class CommentRepliesController < ApplicationController
-  before_action :set_comment, only: %i[index new cancel_new create search cancel_search]
+  before_action :set_comment, only: %i[index new cancel_new create search cancel_search unread cancel_unread]
   before_action :set_comment_reply, only: %i[edit update destroy cancel_edit delete_comment_reply_image]
 
   def index
@@ -7,11 +7,29 @@ class CommentRepliesController < ApplicationController
     @comment_replies = @q.result(distinct: true).includes(:user).with_attached_comment_reply_image.order(created_at: :asc)
   end
 
+  def reply_to_parent
+    parent = CommentReply.find(params[:id])
+    comment = parent.comment
+    session[:parent] = parent
+    redirect_to new_comment_comment_reply_path(comment)
+  end
+
   def new
     @comment_reply = CommentReply.new
-    respond_to do |format|
-      format.turbo_stream { render turbo_stream: turbo_stream.update("comment_reply_change_form", partial: "form", locals: { comment: @comment, comment_reply: @comment_reply }) }
-      format.html {  }
+    if session[:parent]
+      parent_hash = session[:parent]
+      @parent = CommentReply.find(parent_hash["id"])
+      session.delete(:parent)
+      respond_to do |format|
+        format.turbo_stream { render turbo_stream: turbo_stream.update("comment_reply_change_form", partial: "form", locals: { comment: @comment, comment_reply: @comment_reply, parent: @parent }) }
+        format.html {  }
+      end
+    else
+      @parent_nil = nil
+      respond_to do |format|
+        format.turbo_stream { render turbo_stream: turbo_stream.update("comment_reply_change_form", partial: "form", locals: { comment: @comment, comment_reply: @comment_reply, parent: @parent_nil }) }
+        format.html {  }
+      end
     end
   end
 
@@ -36,12 +54,25 @@ class CommentRepliesController < ApplicationController
         end
         format.html {  }
       end
-    else
+    elsif @comment_reply.parent_id.present?
+      @parent = CommentReply.find(@comment_reply.parent_id)
       respond_to do |format|
         format.turbo_stream do
           flash.now[:danger] = t("defaults.message.not_created", item: CommentReply.model_name.human)
           render turbo_stream: [
-            turbo_stream.update("comment_reply_change_form", partial: "form", locals: { comment: @comment, comment_reply: @comment_reply }),
+            turbo_stream.update("comment_reply_change_form", partial: "form", locals: { comment: @comment, comment_reply: @comment_reply, parent: @parent }),
+            turbo_stream.update("flash_message", partial: "shared/flash_message")
+          ]
+        end
+        format.html {  }
+      end
+    else
+      @parent_nil = nil
+      respond_to do |format|
+        format.turbo_stream do
+          flash.now[:danger] = t("defaults.message.not_created", item: CommentReply.model_name.human)
+          render turbo_stream: [
+            turbo_stream.update("comment_reply_change_form", partial: "form", locals: { comment: @comment, comment_reply: @comment_reply, parent: @parent_nil }),
             turbo_stream.update("flash_message", partial: "shared/flash_message")
           ]
         end
@@ -62,13 +93,26 @@ class CommentRepliesController < ApplicationController
 
   def edit
     @comment = @comment_reply.comment
-    respond_to do |format|
-      format.turbo_stream do
-        render turbo_stream: [
-          turbo_stream.update("edit_form_comment_reply_#{@comment_reply.id}", partial: "form", locals: { comment: @comment, comment_reply: @comment_reply })
-        ]
+    if @comment_reply.parent_id.present?
+      @parent = CommentReply.find(@comment_reply.parent_id)
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: [
+            turbo_stream.update("edit_form_comment_reply_#{@comment_reply.id}", partial: "form", locals: { comment: @comment, comment_reply: @comment_reply, parent: @parent })
+          ]
+        end
+        format.html {  }
       end
-      format.html {  }
+    else
+      @parent_nil = nil
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: [
+            turbo_stream.update("edit_form_comment_reply_#{@comment_reply.id}", partial: "form", locals: { comment: @comment, comment_reply: @comment_reply, parent: @parent_nil })
+          ]
+        end
+        format.html {  }
+      end
     end
   end
 
@@ -101,18 +145,30 @@ class CommentRepliesController < ApplicationController
         format.turbo_stream do
           flash.now[:success] = t("defaults.message.updated", item: CommentReply.model_name.human)
           render turbo_stream: [
-            #turbo_stream.update("comment_reply_change_form", partial: "comment_replies/comment_reply_button_part", locals: { comment: @comment }),
+            turbo_stream.update("flash_message", partial: "shared/flash_message")
+          ]
+        end
+        format.html {  }
+      end
+    elsif @comment_reply.parent_id.present?
+      @parent = CommentReply.find(@comment_reply.parent_id)
+      respond_to do |format|
+        format.turbo_stream do
+          flash.now[:danger] = t("defaults.message.not_updated", item: CommentReply.model_name.human)
+          render turbo_stream: [
+            turbo_stream.update("edit_form_comment_reply_#{@comment_reply.id}", partial: "form", locals: { comment: @comment, comment_reply: @comment_reply, parent: @parent }),
             turbo_stream.update("flash_message", partial: "shared/flash_message")
           ]
         end
         format.html {  }
       end
     else
+      @parent_nil = nil
       respond_to do |format|
         format.turbo_stream do
           flash.now[:danger] = t("defaults.message.not_updated", item: CommentReply.model_name.human)
           render turbo_stream: [
-            turbo_stream.update("edit_form_comment_reply_#{@comment_reply.id}", partial: "form", locals: { comment: @comment, comment_reply: @comment_reply }),
+            turbo_stream.update("edit_form_comment_reply_#{@comment_reply.id}", partial: "form", locals: { comment: @comment, comment_reply: @comment_reply, parent: @parent_nil }),
             turbo_stream.update("flash_message", partial: "shared/flash_message")
           ]
         end
@@ -150,6 +206,21 @@ class CommentRepliesController < ApplicationController
     end
   end
 
+  def unread
+    @unread_objects = current_user.notified_reply_objects(@comment)
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.update("comment_reply_change_form", partial: "comment_replies/unread_comment_replies", locals: { unread_objects: @unread_objects, comment: @comment }) }
+      format.html {  }
+    end
+  end
+
+  def cancel_unread
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.update("comment_reply_change_form", partial: "comment_replies/comment_reply_button_part", locals: { comment: @comment }) }
+      format.html {  }
+    end
+  end
+
   private
 
   def set_comment
@@ -161,10 +232,10 @@ class CommentRepliesController < ApplicationController
   end
 
   def comment_reply_params
-    params.require(:comment_reply).permit(:body, :comment_reply_image).merge(comment_id: params[:comment_id])
+    params.require(:comment_reply).permit(:body, :comment_reply_image, :parent_id).merge(comment_id: params[:comment_id])
   end
 
   def comment_reply_update_params
-    params.require(:comment_reply).permit(:body, :comment_reply_image)
+    params.require(:comment_reply).permit(:body, :comment_reply_image, :parent_id)
   end
 end

@@ -2,17 +2,24 @@ class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :post, counter_cache: true
   has_many :comment_replies, dependent: :destroy
+  has_many :comment_reply_users, through: :comment_replies, source: :user
+  has_many :notifications, as: :notifiable, dependent: :destroy
 
-  has_one_attached :comment_image
+  has_one_attached :comment_image do |attachable|
+    attachable.variant :medium, resize_to_limit: [500, 500], preprocessed: true
+  end
 
   validates :body, presence: true, length: { maximum: 65_535 }
   validate :comment_image_content_type, :comment_image_size
 
-  def comment_image_as_medium
-    comment_image.variant(resize_to_limit: [500, 500]).processed.url
-  end
+  after_create_commit :create_comment_notification
 
   private
+
+  def create_comment_notification
+    return if self.user_id == self.post.user_id
+    Notification.create(sender_id: self.user_id, recipient_id: self.post.user_id, notifiable: self, action: "comment_to_post") if self.post
+  end
 
   def comment_image_content_type
     if comment_image.attached? && !comment_image.blob.content_type.in?(%w[image/jpeg image/jpg image/png image/gif])
@@ -31,6 +38,6 @@ class Comment < ApplicationRecord
   end
 
   def self.ransackable_associations(auth_object = nil)
-    %w[post]
+    %w[post user]
   end
 end

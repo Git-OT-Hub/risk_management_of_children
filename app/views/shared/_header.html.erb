@@ -33,13 +33,16 @@
               <li><%= link_to t("defaults.my_page"), my_page_path, class: "dropdown-item" %></li>
             </ul>
           </li>
-          <!-- if文で分岐 -->
-          <li class="nav-item ms-3 d-flex align-items-center">
-            <%= link_to "#", class: "nav-link" do %>
-              <i class="fa-regular fa-bell fa-2xl"></i>
+          <li class="nav-item ms-3 dropdown d-flex flex-column flex-lg-row">
+            <%= turbo_stream_from "notifications_for_user_#{current_user.id}" %>
+            <%= link_to "#", class: "nav-link dropdown-toggle align-self-lg-center", role: "button", "data-bs-toggle" => "dropdown", "data-bs-auto-close" => "false", "aria-expanded" => "false" do %>
+              <label class="position-relative">
+                <i class="fa-solid fa-bell fa-2xl text-secondary"></i>
+                <%= render "notifications/notification_count" %>
+              </label>
             <% end %>
+            <%= render "shared/notifications_dropdown" %>
           </li>
-          <!-- if文で分岐 -->
         </ul>
       </div>
     </div>

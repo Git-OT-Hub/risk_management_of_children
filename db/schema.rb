@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_07_132007) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_16_143402) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -62,9 +62,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_07_132007) do
     t.text "body", null: false
     t.integer "user_id", null: false
     t.integer "comment_id", null: false
+    t.integer "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["comment_id"], name: "index_comment_replies_on_comment_id"
+    t.index ["parent_id"], name: "index_comment_replies_on_parent_id"
     t.index ["user_id"], name: "index_comment_replies_on_user_id"
   end
 
@@ -124,6 +126,20 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_07_132007) do
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.integer "sender_id", null: false
+    t.integer "recipient_id", null: false
+    t.string "notifiable_type"
+    t.integer "notifiable_id"
+    t.string "action", default: "", null: false
+    t.boolean "read", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["notifiable_type", "notifiable_id"], name: "index_notifications_on_notifiable"
+    t.index ["recipient_id"], name: "index_notifications_on_recipient_id"
+    t.index ["sender_id"], name: "index_notifications_on_sender_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "title", null: false
     t.text "body"
@@ -155,6 +171,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_07_132007) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookmarks", "posts"
   add_foreign_key "bookmarks", "users"
+  add_foreign_key "comment_replies", "comment_replies", column: "parent_id"
   add_foreign_key "comment_replies", "comments"
   add_foreign_key "comment_replies", "users"
   add_foreign_key "comments", "posts"
@@ -162,5 +179,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_07_132007) do
   add_foreign_key "diagnosis_results", "users"
   add_foreign_key "favorites", "posts"
   add_foreign_key "favorites", "users"
+  add_foreign_key "notifications", "users", column: "recipient_id"
+  add_foreign_key "notifications", "users", column: "sender_id"
   add_foreign_key "posts", "users"
 end

@@ -4,16 +4,19 @@
   <% else %>
     <div class="rounded shadow-lg mb-4 comment-balloon-left">
   <% end %>
-    <div class="card" id="<%= dom_id(comment_reply, :edit_form) %>">
+    <div class="card" id="<%= dom_id(comment_reply, :edit_form) %>" data-focus-comment-reply-target="focusObject" data-parent-id="<%= comment_reply.id %>">
+      <% if comment_reply.parent_id.present? %>
+        <%= render "comment_replies/parent_comment_reply", parent: comment_reply.call_parent(comment_reply.parent_id) %>
+      <% end %>
       <% if comment_reply.comment_reply_image.attached? %>
         <div class="row g-0 justify-content-center">
           <div class="col-md-4 align-self-center me-0">
             <div class="card-body text-center p-1">
-              <%= image_tag comment_reply.comment_reply_image.variant(:medium), class: "img-fluid rounded", style: "max-height: 200px;" %>
+              <%= image_tag comment_reply.comment_reply_image.variant(:medium), class: "img-fluid rounded shadow-lg", style: "max-height: 200px;" %>
             </div>
           </div>
           <div class="col-md-7 align-self-center p-1">
-            <div class="card">
+            <div class="card shadow-lg">
               <div class="card-header p-1">
                 <ul class="list-inline mb-0">
                   <li class="list-inline-item me-2">
@@ -36,6 +39,11 @@
                 <% if logged_in? && current_user.own?(comment_reply) %>
                   <%= render "comment_replies/crud_menus", comment_reply: comment_reply %>
                 <% end %>
+                <% if logged_in? && !current_user.own?(comment_reply) %>
+                  <%= link_to reply_to_parent_comment_reply_path(comment_reply), data: { turbo_stream: true }, class: "link-success link-underline link-underline-opacity-0" do %>
+                    <i class="fa-solid fa-reply fa-xl"></i>
+                  <% end %>
+                <% end %>
               </div>
             </div>
           </div>
@@ -43,7 +51,7 @@
       <% else %>
         <div class="row g-0">
           <div class="col-12 p-1">
-            <div class="card">
+            <div class="card shadow-lg">
               <div class="card-header p-1">
                 <ul class="list-inline mb-0">
                   <li class="list-inline-item me-2">
@@ -65,6 +73,11 @@
               <div class="card-footer">
                 <% if logged_in? && current_user.own?(comment_reply) %>
                   <%= render "comment_replies/crud_menus", comment_reply: comment_reply %>
+                <% end %>
+                <% if logged_in? && !current_user.own?(comment_reply) %>
+                  <%= link_to reply_to_parent_comment_reply_path(comment_reply), data: { turbo_stream: true }, class: "link-success link-underline link-underline-opacity-0" do %>
+                    <i class="fa-solid fa-reply fa-xl"></i>
+                  <% end %>
                 <% end %>
               </div>
             </div>

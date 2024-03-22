@@ -1,0 +1,23 @@
+<div class="container mb-4"> 
+  <%= search_form_for q, url: url do |f| %>
+    <div class="d-flex flex-column flex-md-row grid gap-2">
+      <%= f.search_field :user_name_cont, class: "form-control shadow-lg", placeholder: t("defaults.message.search_user_name"), data: { comment_related_search_target: "userNameField" } %>
+      <div class="input-group">
+        <%= f.search_field :body_cont, class: "form-control shadow-lg", placeholder: t("defaults.message.search_comment"), data: { comment_related_search_target: "bodyField" } %>
+        <%= f.submit t("defaults.message.search"), class: "btn btn-outline-success shadow-lg", data: { comment_related_search_target: "searchBtn" } %>
+      </div>
+    </div>
+  <% end %>
+  <div class="container mt-3">
+    <div class="row justify-content-between">
+      <div class="col-2 px-0 text-start">
+        <%= link_to cancel_search_post_comments_path(post), data: { turbo_stream: true }, class: "link-secondary link-underline link-underline-opacity-0" do %>
+          <i class="fa-solid fa-angles-left fa-3x"></i>
+        <% end %>
+      </div>
+      <div class="col-4 px-0 text-end">
+        <%= link_to t("defaults.message.full_search"), "javascript:void(0)", class: "btn btn-outline-secondary rounded-pill shadow-lg", data: { action: "click->comment-related-search#startFullSearch" } %>
+      </div>
+    </div>
+  </div>
+</div>

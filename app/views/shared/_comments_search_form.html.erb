@@ -1,8 +1,0 @@
-<%= search_form_for q, url: url, html: { data: { turbo_frame: "comments_list" } } do |f| %>
-  <div class="d-flex flex-column flex-md-row grid gap-1">
-    <div class="input-group">
-      <%= f.search_field :body_cont, class: "form-control", placeholder: t("defaults.message.search_comment") %>
-      <%= f.submit t("defaults.message.search"), class: "btn btn-outline-success" %>
-    </div>
-  </div>
-<% end %>

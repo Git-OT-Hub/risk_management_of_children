@@ -19,6 +19,12 @@ application.register("diagnosis-questions", DiagnosisQuestionsController)
 import FileUploadController from "./file_upload_controller"
 application.register("file-upload", FileUploadController)
 
+import FocusCommentController from "./focus_comment_controller"
+application.register("focus-comment", FocusCommentController)
+
+import FocusCommentReplyController from "./focus_comment_reply_controller"
+application.register("focus-comment-reply", FocusCommentReplyController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 

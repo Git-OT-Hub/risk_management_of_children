@@ -11,6 +11,9 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorite_posts, through: :favorites, source: :post
   has_many :diagnosis_results, dependent: :destroy
+  has_many :sent_notifications, class_name: 'Notification', foreign_key: 'sender_id', dependent: :destroy
+  has_many :received_notifications, class_name: 'Notification', foreign_key: 'recipient_id', dependent: :destroy
+  has_many :notifications, as: :notifiable, dependent: :destroy
 
   has_one_attached :avatar
 
@@ -54,6 +57,28 @@ class User < ApplicationRecord
     favorite_posts.destroy(post)
   end
 
+  def notified_reply_objects(comment)
+    objects = self.received_notifications.unread_comment_replies.order(created_at: :desc)
+    results = []
+    objects.each do |object|
+      if object.notifiable.comment.id == comment.id
+        results << object
+      end
+    end
+    results
+  end
+
+  def notified_comment_objects(post)
+    objects = self.received_notifications.unread_comments.order(created_at: :desc)
+    results = []
+    objects.each do |object|
+      if object.notifiable.post.id == post.id
+        results << object
+      end
+    end
+    results
+  end
+
   private
 
   def avatar_content_type
@@ -73,6 +98,6 @@ class User < ApplicationRecord
   end
 
   def self.ransackable_associations(auth_object = nil)
-    %w[comment_replies]
+    %w[comments comment_replies]
   end
 end

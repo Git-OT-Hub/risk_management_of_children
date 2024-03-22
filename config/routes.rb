@@ -21,8 +21,12 @@ Rails.application.routes.draw do
     end
     resources :comments, only: %i[index new create show edit update destroy], shallow: true do
       collection do
-        get "cancel_new_comment", action: :cancel_new_comment
-        get "not_loggedin_comment", action: :not_loggedin_comment
+        get "cancel_new", action: :cancel_new
+        get "login_required", action: :login_required
+        get "search", action: :search
+        get "cancel_search", action: :cancel_search
+        get "unread", action: :unread
+        get "cancel_unread", action: :cancel_unread
       end
       member do
         get "cancel_edit", action: :cancel_edit
@@ -33,10 +37,13 @@ Rails.application.routes.draw do
           get "cancel_new", action: :cancel_new
           get "search", action: :search
           get "cancel_search", action: :cancel_search
+          get "unread", action: :unread
+          get "cancel_unread", action: :cancel_unread
         end
         member do
           get "cancel_edit", action: :cancel_edit
           delete "delete_comment_reply_image", action: :delete_comment_reply_image
+          get "reply_to_parent", action: :reply_to_parent
         end
       end
     end
@@ -66,6 +73,11 @@ Rails.application.routes.draw do
       get "not_compatible", action: :not_compatible
       patch "change_compatible", action: :change_compatible
       patch "change_not_compatible", action: :change_not_compatible
+    end
+  end
+  resources :notifications, only: %i[index show update] do
+    collection do
+      patch "mark_all_as_read", action: :mark_all_as_read
     end
   end
 end

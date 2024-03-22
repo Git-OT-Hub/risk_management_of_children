@@ -1,11 +1,19 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: %i[edit update destroy]
+  skip_before_action :require_login, only: %i[search cancel_search]
+  before_action :set_comment, only: %i[edit cancel_edit delete_comment_image update destroy]
+  before_action :set_post, only: %i[new cancel_new search cancel_search login_required unread cancel_unread]
 
   def new
-    @post = Post.find(params[:post_id])
     @comment = Comment.new
     respond_to do |format|
-      format.turbo_stream { render turbo_stream: turbo_stream.update("new_comment", partial: "form", locals: { post: @post, comment: @comment }) }
+      format.turbo_stream { render turbo_stream: turbo_stream.update("comment_change_form", partial: "form", locals: { post: @post, comment: @comment }) }
+      format.html {  }
+    end
+  end
+
+  def cancel_new
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.update("comment_change_form", partial: "comment_control_panel_part", locals: { post: @post }) }
       format.html {  }
     end
   end
@@ -16,21 +24,18 @@ class CommentsController < ApplicationController
     if @comment.save
       respond_to do |format|
         format.turbo_stream { flash.now[:success] = t("defaults.message.created", item: Comment.model_name.human) }
-        format.html { redirect_to post_path(@post), success: t("defaults.message.created", item: Comment.model_name.human) }
+        format.html {  }
       end
     else
       respond_to do |format|
         format.turbo_stream do
           flash.now[:danger] = t("defaults.message.not_created", item: Comment.model_name.human)
           render turbo_stream: [
-            turbo_stream.update("new_comment", partial: "form", locals: { post: @post, comment: @comment }),
+            turbo_stream.update("comment_change_form", partial: "form", locals: { post: @post, comment: @comment }),
             turbo_stream.update("flash_message", partial: "shared/flash_message")
           ]
         end
-        format.html do
-          flash.now[:danger] = t("defaults.message.not_created", item: Comment.model_name.human)
-          render :new, status: :unprocessable_entity
-        end
+        format.html {  }
       end
     end
   end
@@ -38,7 +43,24 @@ class CommentsController < ApplicationController
   def edit
     @post = @comment.post
     respond_to do |format|
-      format.turbo_stream { render turbo_stream: turbo_stream.update("comment_#{@comment.id}", partial: "form", locals: { post: @post, comment: @comment }) }
+      format.turbo_stream { render turbo_stream: turbo_stream.update("edit_form_comment_#{@comment.id}", partial: "form", locals: { post: @post, comment: @comment }) }
+      format.html {  }
+    end
+  end
+
+  def cancel_edit
+    @post = @comment.post
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.replace("comment_#{@comment.id}", partial: "comment", locals: { comment: @comment }) }
+      format.html {  }
+    end
+  end
+
+  def delete_comment_image
+    @comment.comment_image.purge
+    @post = @comment.post
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.update("form_comment_#{@comment.id}", partial: "form_part", locals: { post: @post, comment: @comment }) }
       format.html {  }
     end
   end
@@ -48,68 +70,69 @@ class CommentsController < ApplicationController
     if @comment.update(comment_update_params)
       respond_to do |format|
         format.turbo_stream { flash.now[:success] = t("defaults.message.updated", item: Comment.model_name.human) }
-        format.html { redirect_to post_path(@post), success: t("defaults.message.updated", item: Comment.model_name.human) }
+        format.html {  }
       end
     else
       respond_to do |format|
         format.turbo_stream do
           flash.now[:danger] = t("defaults.message.not_updated", item: Comment.model_name.human)
           render turbo_stream: [
-            turbo_stream.update("comment_#{@comment.id}", partial: "form", locals: { post: @post, comment: @comment }),
+            turbo_stream.update("edit_form_comment_#{@comment.id}", partial: "form", locals: { post: @post, comment: @comment }),
             turbo_stream.update("flash_message", partial: "shared/flash_message")
           ]
         end
-        format.html do
-          flash.now[:danger] = t("defaults.message.not_updated", item: Comment.model_name.human)
-          render :edit, status: :unprocessable_entity
-        end
+        format.html {  }
       end
     end
   end
 
   def destroy
-    @post = @comment.post
     @comment.destroy!
     respond_to do |format|
       format.turbo_stream { flash.now[:success] = t("defaults.message.deleted", item: Comment.model_name.human) }
-      format.html { redirect_to post_path(@post), success: t("defaults.message.deleted", item: Comment.model_name.human), status: :see_other }
+      format.html {  }
     end
   end
 
-  def cancel_new_comment
-    @post = Post.find(params[:post_id])
+  def search
+    @q = @post.comments.ransack(params[:q])
     respond_to do |format|
-      format.turbo_stream { render turbo_stream: turbo_stream.update("new_comment", partial: "new_comment_link", locals: { post: @post }) }
-      format.html { redirect_to post_path(@post) }
+      format.turbo_stream { render turbo_stream: turbo_stream.update("comment_change_form", partial: "shared/comments_search", locals: { q: @q, url: post_path(@post), post: @post }) }
+      format.html {  }
     end
   end
 
-  def cancel_edit
-    @comment = current_user.comments.find(params[:id])
-    @post = @comment.post
+  def cancel_search
     respond_to do |format|
-      format.turbo_stream { render turbo_stream: turbo_stream.replace("comment_#{@comment.id}", partial: "comment", locals: { comment: @comment }) }
-      format.html { redirect_to post_path(@post) }
+      format.turbo_stream { render turbo_stream: turbo_stream.update("comment_change_form", partial: "comments/comment_control_panel_part", locals: { post: @post }) }
+      format.html {  }
     end
   end
 
-  def delete_comment_image
-    comment = current_user.comments.find(params[:id])
-    comment.comment_image.purge
-    @comment_after_purge = current_user.comments.find(params[:id])
-    @post = @comment_after_purge.post
-    respond_to do |format|
-      format.turbo_stream { render turbo_stream: turbo_stream.update("form_comment_#{@comment_after_purge.id}", partial: "form_part", locals: { post: @post, comment: @comment_after_purge }) }
-      format.html { redirect_to edit_comment_path(@comment_after_purge) }
-    end
-  end
-
-  def not_loggedin_comment
-    @post = Post.find(params[:post_id])
+  def login_required
     redirect_to post_path(@post)
   end
 
+  def unread
+    @unread_objects = current_user.notified_comment_objects(@post)
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.update("comment_change_form", partial: "comments/unread_comments", locals: { unread_objects: @unread_objects, post: @post }) }
+      format.html {  }
+    end
+  end
+
+  def cancel_unread
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.update("comment_change_form", partial: "comments/comment_control_panel_part", locals: { post: @post }) }
+      format.html {  }
+    end
+  end
+
   private
+
+  def set_post
+    @post = Post.find(params[:post_id])
+  end
 
   def set_comment
     @comment = current_user.comments.find(params[:id])

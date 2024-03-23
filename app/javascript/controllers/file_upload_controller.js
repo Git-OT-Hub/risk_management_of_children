@@ -67,19 +67,20 @@ export default class extends Controller {
   addPreview(signedId, fileName) {
     const previews = this.previewsTarget;
     const previewDiv = document.createElement('div');
-    previewDiv.classList.add('image-preview', 'mb-5');
+    previewDiv.classList.add('col-12', 'col-sm-5', 'image-preview', 'rounded', 'shadow-lg', 'p-3');
     previewDiv.dataset.signedId = signedId;
     const previewImage = document.createElement('img');
     previewImage.src = `/rails/active_storage/blobs/${signedId}/download`;
-    previewImage.classList.add('img-fluid', 'rounded-4', 'mb-2');
+    previewImage.classList.add('img-fluid', 'rounded', 'shadow-lg', 'mb-2');
 
     const fileNameParagraph = document.createElement('p');
+    fileNameParagraph.classList.add('text-break', 'fs-6', 'mb-1');
     fileNameParagraph.textContent = fileName;
 
     const cancelButton = document.createElement('button');
     cancelButton.textContent = '削除';
     cancelButton.type = 'button';
-    cancelButton.classList.add("btn", "btn-danger", "rounded-pill", "mb-4");
+    cancelButton.classList.add("btn", "btn-danger", "rounded-pill", "float-end", 'shadow-lg');
     cancelButton.addEventListener('click', () => this.removePreview(signedId));
 
     previewDiv.appendChild(previewImage);

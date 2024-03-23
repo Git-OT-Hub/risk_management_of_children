@@ -8,8 +8,11 @@ class Post < ApplicationRecord
     attachable.variant :medium, resize_to_limit: [500, 500], preprocessed: true
   end
 
-  validates :title, presence: true, length: { maximum: 255 }
-  validates :body, length: { maximum: 65_535 }
+  validates :title, presence: true, length: { maximum: 50 }
+  validates :body, length: { maximum: 1000 }
+  validates :item_info, length: { maximum: 1000 }
+  validates :item_merit, length: { maximum: 1000 }
+  validates :item_demerit, length: { maximum: 1000 }
   validate :image_content_type, :image_size, :image_length
 
   private

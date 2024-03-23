@@ -15,6 +15,8 @@ class Post < ApplicationRecord
   validates :item_demerit, length: { maximum: 1000 }
   validate :image_content_type, :image_size, :image_length
 
+  enum item_category: { others: 0, stopper: 1, gate: 2, cushion: 3, key: 4, cover: 5, mat: 6, fence: 7, slope: 8, fall_prevention: 9, storage: 10 }
+
   private
 
   def image_content_type

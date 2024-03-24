@@ -19,6 +19,10 @@ Rails.application.routes.draw do
       delete "delete_image/:image_id", action: :delete_image, as: :delete_image
       get "reload_images", action: :reload_images
     end
+    collection do
+      get "search", action: :search
+      get "cancel_search", action: :cancel_search
+    end
     resources :comments, only: %i[index new create show edit update destroy], shallow: true do
       collection do
         get "cancel_new", action: :cancel_new

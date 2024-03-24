@@ -28,6 +28,9 @@ application.register("focus-comment-reply", FocusCommentReplyController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import PostSearchController from "./post_search_controller"
+application.register("post-search", PostSearchController)
+
 import ScrollPageController from "./scroll_page_controller"
 application.register("scroll-page", ScrollPageController)
 

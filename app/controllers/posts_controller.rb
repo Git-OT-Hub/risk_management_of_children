@@ -64,6 +64,21 @@ class PostsController < ApplicationController
     redirect_to post_path(@post), success: t("defaults.message.updated", item: Post.human_attribute_name(:images))
   end
 
+  def search
+    @q = Post.ransack(params[:q])
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.update("post_change_form", partial: "shared/posts_search", locals: { q: @q, url: posts_path }) }
+      format.html {  }
+    end
+  end
+
+  def cancel_search
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.update("post_change_form", partial: "posts/post_control_panel_part") }
+      format.html {  }
+    end
+  end
+
   private
 
   def set_post

@@ -4,7 +4,7 @@
       <button class="accordion-button py-1 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
       </button>
     </h1>
-    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show overflow-y-scroll" style="max-height: 250px;">
       <div class="accordion-body" id="post_change_form">
         <%= render "posts/post_control_panel_part" %>
       </div>

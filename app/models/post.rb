@@ -42,10 +42,10 @@ class Post < ApplicationRecord
   end
 
   def self.ransackable_attributes(auth_object = nil)
-    %w[title body comments.body]
+    %w[title body item_info item_category item_merit item_demerit comments.body]
   end
 
   def self.ransackable_associations(auth_object = nil)
-    %w[comments]
+    %w[comments user]
   end
 end

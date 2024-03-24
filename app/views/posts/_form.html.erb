@@ -16,7 +16,7 @@
     </div>
     <div class="mb-3">
       <%= f.label :item_category, class: "form-label" %>
-      <%= f.select :item_category, Post.item_categories.keys.map { |k| [t("enums.post.item_category.#{k}"), k] }, { selected: "others" }, class: "form-select rounded shadow-lg" %>
+      <%= f.select :item_category, Post.item_categories.keys.map { |k| [t("enums.post.item_category.#{k}"), k] }, {}, class: "form-select rounded shadow-lg" %>
     </div>
     <div class="mb-3">
       <%= f.label :item_merit, class: "form-label" %>

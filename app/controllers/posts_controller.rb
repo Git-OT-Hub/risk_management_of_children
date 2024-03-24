@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   skip_before_action :require_login, only: %i[index show reload_images]
-  before_action :set_post, only: %i[edit update destroy]
+  before_action :set_post, only: %i[edit update destroy delete_image]
 
   def index
     @q = Post.ransack(params[:q])
@@ -51,7 +51,6 @@ class PostsController < ApplicationController
   end
 
   def delete_image
-    @post = Post.find(params[:id])
     image = @post.images.find(params[:image_id])
     image.purge
     respond_to do |format|

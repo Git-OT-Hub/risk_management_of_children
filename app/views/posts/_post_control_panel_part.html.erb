@@ -1,13 +1,8 @@
 <div class="container px-4 mb-3">
   <div class="row justify-content-between">
     <div class="col-7 px-0 text-start">
-      <%= link_to search_post_comments_path(post), data: { turbo_stream: true }, class: "link-success link-underline link-underline-opacity-0 me-4" do %>
+      <%= link_to "", data: { turbo_stream: true }, class: "link-success link-underline link-underline-opacity-0" do %>
         <i class="fa-solid fa-magnifying-glass fa-3x"></i>
-      <% end %>
-      <% if logged_in? && current_user.notified_comment_objects(post).present? %>
-        <%= link_to unread_post_comments_path(post), data: { turbo_stream: true }, class: "link-success link-underline link-underline-opacity-0" do %>
-          <i class="fa-regular fa-comments fa-bounce fa-3x"></i>
-        <% end %>
       <% end %>
     </div>
     <div class="col-5 px-0 text-end">
@@ -28,7 +23,9 @@
       <% end %>
     </div>
     <div class="col-2 px-0 text-end">  
-      <%= render "comments/comment_create_button", post: post %>
+      <%= link_to new_post_path, class: "link-success link-underline link-underline-opacity-0" do %>
+        <i class="fa-solid fa-circle-plus fa-3x"></i>
+      <% end %>
     </div>
   </div>
 </div>

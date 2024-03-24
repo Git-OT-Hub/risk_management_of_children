@@ -1,29 +1,30 @@
 <% content_for(:title, t(".title")) %>
-<div class="container mt-5">
-  <div class="row mb-3">
-    <div class="col-lg-10 offset-lg-1">
-      <h1 class="text-center mb-5"><%= t(".title") %></h1>
-      <div class="mb-5 text-center d-grid gap-2 col-3 mx-auto">
-        <%= link_to t(".new_post"), new_post_path, class: "btn btn-success rounded-pill" %>
+<div data-controller="">
+  <div class="container mt-5 mb-5">
+    <div class="row mb-3">
+      <div class="col-lg-10 offset-lg-1">
+        <h1 class="text-center mb-5"><%= t(".title") %></h1>
+        
+        <!-- 検索フォーム -->
+        <%= render "shared/posts_search_form", q: @q, url: posts_path %>
       </div>
-      <!-- 検索フォーム -->
-      <%= render "shared/posts_search_form", q: @q, url: posts_path %>
+    </div>
+
+    <hr size="10", class="bg-success border border-0 mt-0 mb-4">
+
+    <!-- 投稿一覧 -->
+    <div class="row">
+      <div class="col-12">
+        <div class="row mb-4">
+          <% if @posts.present? %>
+            <%= render partial: "post", collection: @posts %>
+          <% else %>
+            <p><%= t(".no_result") %></p>
+          <% end %>
+        </div>
+        <%= render "shared/pagination", objects: @posts %>
+      </div>
     </div>
   </div>
-
-  <hr size="10", class="bg-success border border-0 mt-0 mb-4">
-
-  <!-- 投稿一覧 -->
-  <div class="row">
-    <div class="col-12">
-      <div class="row mb-4">
-        <% if @posts.present? %>
-          <%= render partial: "post", collection: @posts %>
-        <% else %>
-          <p><%= t(".no_result") %></p>
-        <% end %>
-      </div>
-      <%= render "shared/pagination", objects: @posts %>
-    </div>
-  </div>
+  <%= render "posts/post_control_panel" %>
 </div>

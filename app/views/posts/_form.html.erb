@@ -32,31 +32,33 @@
       <div class="form-text mt-0"><%= t("defaults.message.byte_size_limit") %></div>
       <div class="form-text mt-0 mb-1"><%= t("defaults.message.content_type_limit") %></div>
       <%= f.file_field :images, multiple: true, direct_upload: true, accept: "image/*", class: "form-control rounded-pill shadow-lg mb-3", data: { "file-upload-target": "fileInput" } %>
+      <div class="container mb-3">
+        <div class="row justify-content-around grid gap-3" data-file-upload-target="validationImages">
+          <% if post.images.attached? %>
+            <% post.images.each_with_index do |image, index| %>
+              <div class="col-12 col-sm-5 rounded shadow-lg p-3" id="<%= dom_id(image) %>" data-index="<%= index %>">
+                <%= f.hidden_field :images, multiple: true, value: image.signed_id %>
+                <%= image_tag image, class: "img-fluid rounded shadow-lg mb-2" %>
+                <p class="text-break fs-6 mb-1"><%= image.blob.filename %></p>
+                <% if image.persisted? %>
+                  <%= link_to t("defaults.message.delete"), delete_image_post_path(post, image_id: image.id), data: { turbo_method: :delete }, class: "btn btn-danger rounded-pill float-end shadow-lg", id: "rspec-image-#{image.id}" %>
+                <% else %>
+                  <%= link_to t("defaults.message.delete"), "javascript:void(0)", class: "btn btn-danger rounded-pill float-end shadow-lg", data: { action: "click->file-upload#deleteImage", index: "#{index}" } %>
+                <% end %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
       <div data-file-upload-target="hiddenFields">
       </div>
       <div class="container">
         <div class="row justify-content-around grid gap-3" data-file-upload-target="previews">
         </div>
       </div>
-      <div data-file-upload-target="validationImages">
-        <% if post.images.attached? %>
-          <% post.images.with_all_variant_records.each_with_index do |image, index| %>
-            <div class="mb-5" id="<%= dom_id(image) %>" data-index="<%= index %>">
-              <%= f.hidden_field :images, multiple: true, value: image.signed_id %>
-              <%= image_tag image.variant(:medium), class: "img-fluid rounded-4 mb-2" %>
-              <p><%= image.blob.filename %></p>
-              <% if image.persisted? %>
-                <%= link_to t("defaults.message.delete"), delete_image_post_path(post, image_id: image.id), data: { turbo_method: :delete }, class: "btn btn-danger rounded-pill mb-4", id: "rspec-image-#{image.id}" %>
-              <% else %>
-                <%= link_to t("defaults.message.delete"), "", class: "btn btn-danger rounded-pill mb-4", data: { action: "click->file-upload#deleteImage", index: "#{index}" } %>
-              <% end %>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
     </div>
-    <div class="my-5 text-center d-grid gap-2 col-3 mx-auto">
-      <%= f.submit class: "btn btn-success rounded-pill" %>
+    <div class="my-4 text-center d-grid gap-2 col-3 mx-auto">
+      <%= f.submit class: "btn btn-success rounded-pill shadow-lg" %>
     </div>
   <% end %>
 </div>

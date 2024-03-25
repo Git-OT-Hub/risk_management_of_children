@@ -1,4 +1,4 @@
-<%= link_to favorite_path(post.favorites.find { |b| b.user_id == current_user.id }), data: { turbo_method: :delete }, class: "text-danger link-offset-2 link-underline link-underline-opacity-0", id: "button-remove-favorite-#{post.id}" do %>
+<%= link_to favorite_path(post.favorites.find { |b| b.user_id == current_user.id }), data: { turbo_method: :delete }, class: "text-danger link-underline link-underline-opacity-0", id: "button-remove-favorite-#{post.id}" do %>
   <i class="fa-solid fa-heart fa-xl"></i>
   <%= post.favorites_count %>
 <% end %>

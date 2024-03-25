@@ -1,4 +1,4 @@
-<%= link_to favorites_path(post_id: post.id), data: { turbo_method: :post }, class: "text-danger link-offset-2 link-underline link-underline-opacity-0", id: "button-favorite-#{post.id}" do %>
+<%= link_to favorites_path(post_id: post.id), data: { turbo_method: :post }, class: "text-danger link-underline link-underline-opacity-0", id: "button-favorite-#{post.id}" do %>
   <i class="fa-regular fa-heart fa-xl"></i>
   <%= post.favorites_count %>
 <% end %>

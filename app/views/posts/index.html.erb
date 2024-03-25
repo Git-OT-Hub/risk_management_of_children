@@ -1,20 +1,18 @@
 <% content_for(:title, t(".title")) %>
 <div data-controller="post-search">
   <div class="container mt-5 mb-5 min-vh-100">
-    <div class="row mb-3">
+    <div class="row">
       <div class="col-lg-10 offset-lg-1">
-        <h1 class="text-center mb-5"><%= t(".title") %></h1>        
+        <h1 class="text-center"><%= t(".title") %></h1>        
       </div>
     </div>
-
     <hr size="10", class="bg-success border border-0 mt-0 mb-4">
-
     <!-- 投稿一覧 -->
     <div class="row">
       <div class="col-12">
-        <div class="row mb-4">
+        <div class="row">
           <% if @posts.present? %>
-            <%= render partial: "post", collection: @posts %>
+            <%= render partial: "posts/post", collection: @posts %>
           <% else %>
             <p><%= t(".no_result") %></p>
           <% end %>

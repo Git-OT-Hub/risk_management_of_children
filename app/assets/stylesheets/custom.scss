@@ -50,6 +50,11 @@ span.progress-toggle-off {
   filter:drop-shadow(4px 4px 1px #bbb);
 }
 
+//　アイコンの影（共通）
+span.icon-shadow-common {
+  filter:drop-shadow(4px 4px 1px #bbb);
+}
+
 // 進捗管理画面　「未対応」、「対応」タブ
 a.progress-not-compatible-compatible-btn {
   --bs-btn-bg: var(--bs-white);

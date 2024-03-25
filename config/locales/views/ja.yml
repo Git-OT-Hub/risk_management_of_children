@@ -271,6 +271,10 @@ ja:
       start_comments: "コメントエリア"
       back_to_previous_page: "戻る"
       to_posts_page: "投稿一覧へ"
+      item_info: "グッズ情報"
+      item_category: "グッズの分類"
+      item_merit: "グッズのメリット"
+      item_demerit: "グッズのデメリット"
     edit:
       title: "投稿編集"
       back_to_previous_page: "戻る"

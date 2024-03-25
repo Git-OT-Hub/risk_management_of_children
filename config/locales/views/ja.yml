@@ -262,7 +262,7 @@ ja:
     new:
       title: "投稿作成"
       how_to_risk_management: "「私の家では、〜の安全対策として、〜しています。」など自由に記載"
-      item_information: "安全対策でグッズを使用している場合"
+      item_information: "安全対策でグッズを使用している場合(商品名・購入場所・値段など)"
       back_to_previous_page: "戻る"
     show:
       title: "投稿詳細"

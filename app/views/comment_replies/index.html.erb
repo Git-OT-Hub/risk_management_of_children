@@ -1,7 +1,7 @@
 <%= turbo_stream_from "comment_replies_list" %>
 <% content_for(:title, t(".title")) %>
 <div data-controller="comment-related-search focus-comment-reply">
-  <div class="container mt-5 mb-5">
+  <div class="container mt-5 mb-5 min-vh-100">
     <div class="row">
       <div class="col col-lg-10 offset-lg-1 px-0">
         <h1 class="text-center mb-5"><%= t(".title") %></h1>

@@ -1,5 +1,5 @@
-<header class="sticky-top">
-  <nav class="navbar navbar-expand-lg bg-success p-2 text-black bg-opacity-75">
+<header class="sticky-top bg-main-color">
+  <nav class="navbar navbar-expand-lg p-2 text-black">
     <div class="container-fluid">
       <%= link_to root_path, class: "navbar-brand" do %>
         <%= image_tag "sample2.png", size: "60x50", class: "d-inline-block align-middle me-2" %>
@@ -10,8 +10,11 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerHeader">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item ms-3 d-flex align-items-center">
-            <%= link_to t("defaults.diagnosis"), diagnosis_questions_path, class: "nav-link" %>
+          <li class="nav-item d-flex align-items-center text-center ps-2 ps-lg-0">
+            <%= link_to diagnosis_questions_path, class: "nav-link" do %>
+              <i class="fa-solid fa-clipboard-list fa-xl"></i><br>
+              <small><%= t("defaults.diagnosis") %></small>
+            <% end %>
           </li>
           <li class="nav-item ms-3 d-flex align-items-center">
             <%= link_to t("defaults.post"), posts_path, class: "nav-link" %>

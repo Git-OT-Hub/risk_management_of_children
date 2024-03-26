@@ -3,16 +3,16 @@
   <!-- プロフィール -->
   <div class="row mb-3">
     <div class="col-md-10 offset-md-1">
-      <ul class="list-inline float-start">
-        <li class="list-inline-item me-4 mb-2">
+      <div class="row align-items-center">
+        <div class="col">
           <h1 class="mb-0"><%= t(".title") %></h1>
-        </li>
-        <li class="list-inline-item align-top">
-          <%= link_to edit_my_page_path, class: "link-success", id: "button-edit-user" do %>
+        </div>
+        <div class="col">
+          <%= link_to edit_my_page_path, class: "link-success link-underline link-underline-opacity-0", id: "button-edit-user" do %>
             <i class="fa-solid fa-user-pen fa-2xl"></i>
           <% end %>
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
   </div>
   <div class="row mb-4">
@@ -23,35 +23,34 @@
         <%= image_tag "no_image.png", class: "img-thumbnail rounded-circle d-block w-25" %>
       <% end %>
     </div>
-    <div class="col-md-10 offset-md-1">
-      <ul class="list-inline float-start">
-        <li class="list-inline-item me-4 mb-2">
+    <div class="col-md-10 offset-md-1 mb-2">
+      <div class="row align-items-center">
+        <div class="col-4">
           <h4 class="mb-0"><%= t(User.human_attribute_name(:name)) %></h4>
-        </li>
-        <li class="list-inline-item">
-          <h3 class="mb-0"><%= current_user.name %></h3>
-        </li>
-      </ul>
+        </div>
+        <div class="col-8">
+          <h3 class="mb-0 text-break"><%= current_user.name %></h3>
+        </div>
+      </div>
     </div>
     <div class="col-md-10 offset-md-1">
-      <ul class="list-inline float-start">
-        <li class="list-inline-item me-4 mb-2">
+      <div class="row align-items-center">
+        <div class="col-4">
           <h4 class="mb-0"><%= t(User.human_attribute_name(:email)) %></h4>
-        </li>
-        <li class="list-inline-item">
-          <h3 class="mb-0"><%= current_user.email %></h3>
-        </li>
-      </ul>
+        </div>
+        <div class="col-8">
+          <h3 class="mb-0 text-break"><%= current_user.email %></h3>
+        </div>
+      </div>
     </div>
   </div>
-
   <!-- 表示切り替えリンク -->
   <div class="row">
     <div class="col-12">
       <div class="border-top border-success border-start-0 border-end-0 border-3 border-opacity-75 mb-4">      
         <div class="d-flex justify-content-between flex-column flex-md-row grid gap-3 row-gap-2 mt-2 fs-5">
           <%= link_to t(".diagnosis"), "javascript:void(0)", class: "btn btn-outline-secondary active" %>
-          <%= link_to "#{current_user.name} #{t(".user_posts")}", my_posts_my_page_path, class: "btn btn-outline-secondary" %>
+          <%= link_to t(".user_posts"), my_posts_my_page_path, class: "btn btn-outline-secondary" %>
           <%= link_to bookmarks_my_page_path, class: "btn btn-outline-secondary" do %>
             <i class="fa-solid fa-bookmark fa-xl text-primary"></i>
             <%= t(".favorite_posts") %>

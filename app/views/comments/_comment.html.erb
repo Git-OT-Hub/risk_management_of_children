@@ -10,18 +10,20 @@
         <div class="col-md-7 align-self-center p-1">
           <div class="card shadow-lg">
             <div class="card-header p-1">
-              <ul class="list-inline mb-0">
-                <li class="list-inline-item me-2">
-                  <% if comment.user.avatar.attached? %>
-                    <%= image_tag comment.user.avatar_as_small, class: "img-thumbnail rounded-circle", size: "60x60" %>
-                  <% else %>
-                    <%= image_tag "no_image.png", class: "img-thumbnail rounded-circle", size: "60x60" %>
-                  <% end %>
-                </li>
-                <li class="list-inline-item fs-5">
-                  <%= comment.user.name %>
-                </li>
-              </ul>
+              <div class="container">
+                <div class="row align-items-center">
+                  <div class="col-4 px-0 text-center">
+                    <% if comment.user.avatar.attached? %>
+                      <%= image_tag comment.user.avatar_as_small, class: "img-thumbnail rounded-circle", size: "60x60" %>
+                    <% else %>
+                      <%= image_tag "no_image.png", class: "img-thumbnail rounded-circle", size: "60x60" %>
+                    <% end %>
+                  </div>
+                  <div class="col-8 px-0 text-break">
+                    <%= comment.user.name %>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="card-body p-2">
               <%= simple_format(comment.body, class: "card-text mb-1") %>
@@ -44,18 +46,20 @@
         <div class="col-12 p-1">
           <div class="card shadow-lg">
             <div class="card-header p-1">
-              <ul class="list-inline mb-0">
-                <li class="list-inline-item me-2">
-                  <% if comment.user.avatar.attached? %>
-                    <%= image_tag comment.user.avatar_as_small, class: "img-thumbnail rounded-circle", size: "60x60" %>
-                  <% else %>
-                    <%= image_tag "no_image.png", class: "img-thumbnail rounded-circle", size: "60x60" %>
-                  <% end %>
-                </li>
-                <li class="list-inline-item fs-5">
-                  <%= comment.user.name %>
-                </li>
-              </ul>
+              <div class="container">
+                <div class="row align-items-center">
+                  <div class="col-4 px-0 text-center">
+                    <% if comment.user.avatar.attached? %>
+                      <%= image_tag comment.user.avatar_as_small, class: "img-thumbnail rounded-circle", size: "60x60" %>
+                    <% else %>
+                      <%= image_tag "no_image.png", class: "img-thumbnail rounded-circle", size: "60x60" %>
+                    <% end %>
+                  </div>
+                  <div class="col-8 px-0 text-break">
+                    <%= comment.user.name %>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="card-body p-2">
               <%= simple_format(comment.body, class: "card-text mb-1") %>

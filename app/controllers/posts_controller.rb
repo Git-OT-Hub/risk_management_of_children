@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  skip_before_action :require_login, only: %i[index show reload_images]
+  skip_before_action :require_login, only: %i[index show reload_images search cancel_search]
   before_action :set_post, only: %i[edit update destroy delete_image]
 
   def index

@@ -230,7 +230,9 @@ ja:
     new:
       title: "ユーザー登録"
       to_login_page: "すでにアカウントをお持ちの場合はこちら"
-      password_explanation: "パスワードは8文字以上で、入力する必要があります。"
+      password_limit: "(8文字以上)"
+      password_explanation: "上記と同じパスワードを入力"
+      name_limit: "(30文字以内)"
     create:
       success: "ユーザー登録が完了しました"
       fail: "ユーザー登録に失敗しました"
@@ -261,9 +263,11 @@ ja:
       new_post: "投稿する"
     new:
       title: "投稿作成"
-      how_to_risk_management: "「私の家では、〜の安全対策として、〜しています。」など自由に記載"
-      item_information: "安全対策でグッズを使用している場合(商品名・購入場所・値段など)"
+      how_to_risk_management: "「私の家では、〜の安全対策として、〜しています。」など自由に記載 (1000文字以内)"
+      item_information: "安全対策でグッズを使用している場合(商品名・購入場所・値段など / 1000文字以内)"
       back_to_previous_page: "戻る"
+      title_limit: "(50文字以内)"
+      character_limit: "(1000文字以内)"
     show:
       title: "投稿詳細"
       images_reload: "※ 画像再読み込み"
@@ -361,7 +365,7 @@ ja:
       results_click: "グッズを活用した対策方法などをご確認できます！"
       results_caution: "※ 商品によって 子どもの対象年齢 や 適用できる物・場所 などが異なるため、必ず商品サイトの説明文をご確認ください。"
       no_results: "診断の結果、こちらがアドバイスできるものはありませんでした。\r\n子どもの安全を考えた環境作りに、力を入れられているようですね！"
-      input_title: "タイトルを付けて保存できます。"
+      input_title: "タイトルを付けて保存できます (50文字以内)"
       results_save: "診断結果を保存"
   diagnosis_results:
     show:
@@ -381,6 +385,7 @@ ja:
     index:
       title: "コメント返信"
       start_replies: "コメント返信エリア"
+      body_limit: "(1000文字以内)"
   notifications:
     index:
       notification: "通知"

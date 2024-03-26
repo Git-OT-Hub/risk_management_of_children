@@ -4,7 +4,7 @@ class DiagnosisResult < ApplicationRecord
 
   belongs_to :user
 
-  validates :title, length: { maximum: 255 }
+  validates :title, length: { maximum: 50 }
   validate :validate_results, :validate_statuses
 
   def calculate

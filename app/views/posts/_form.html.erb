@@ -4,7 +4,7 @@
     <div class="mb-3">
       <%= f.label :title, class: "form-label" %>
       <span class="badge text-bg-danger"><%= t("defaults.message.input_required") %></span>
-      <%= f.text_field :title, class: "form-control rounded shadow-lg" %>
+      <%= f.text_field :title, class: "form-control rounded shadow-lg", placeholder: "#{t("posts.new.title_limit")}" %>
     </div>
     <div class="mb-3">
       <%= f.label :body, class: "form-label" %>
@@ -20,11 +20,11 @@
     </div>
     <div class="mb-3">
       <%= f.label :item_merit, class: "form-label" %>
-      <%= f.text_area :item_merit, class: "form-control rounded shadow-lg", rows: 2 %>
+      <%= f.text_area :item_merit, class: "form-control rounded shadow-lg", rows: 2, placeholder: "#{t("posts.new.character_limit")}" %>
     </div>
     <div class="mb-3">
       <%= f.label :item_demerit, class: "form-label" %>
-      <%= f.text_area :item_demerit, class: "form-control rounded shadow-lg", rows: 2 %>
+      <%= f.text_area :item_demerit, class: "form-control rounded shadow-lg", rows: 2, placeholder: "#{t("posts.new.character_limit")}" %>
     </div>
     <div class="" data-controller="file-upload">
       <%= f.label :images, class: "form-label mb-0" %>

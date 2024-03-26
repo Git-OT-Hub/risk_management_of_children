@@ -57,9 +57,9 @@
           <% end %>
         </div>
       </div>
-
-      <div class="shadow-lg rounded-4">
-        <ul class="list-group list-group-flush rounded-4">
+      <!-- 診断結果一覧 -->
+      <div class="container bg-body shadow-lg rounded">
+        <ul class="list-group list-group-flush">
           <% if @results.present? %>
             <% @results.each do |result| %>
               <li class="list-group-item" id="diagnosis_result_item_<%= result.id %>">

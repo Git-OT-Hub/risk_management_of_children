@@ -133,3 +133,14 @@ a.progress-compatible-not-compatible-btn {
   background-color: #6aaa54;
 }
 
+//　ボタン　メインカラー
+.btn-success {
+  --bs-btn-bg: #6aaa54;
+  --bs-btn-border-color: #6aaa54;
+  --bs-btn-hover-bg: #599446;
+  --bs-btn-hover-border-color: #599446;
+  --bs-btn-active-bg: #4c7f3b;
+  --bs-btn-active-border-color: #4c7f3b;
+  --bs-btn-disabled-bg: #8bc079;
+  --bs-btn-disabled-border-color: #8bc079;
+}

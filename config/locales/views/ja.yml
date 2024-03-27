@@ -185,6 +185,7 @@ ja:
     privacy: "プライバシー"
     terms_of_service: "利用規約"
     password_reset: "パスワードリセット"
+    account_create: "アカウント作成"
     message:
       test: "テストです"
       mixed_alphanumeric: "は半角英数を両方含む必要があります"
@@ -238,10 +239,10 @@ ja:
       fail: "ユーザー登録に失敗しました"
   user_sessions:
     new:
-      login_with_google: "Googleアカウントでログイン"
+      login_with_google: "Googleアカウント でログイン"
       or: "または"
       title: "ログイン"
-      guest_user: "ゲストユーザーとしてログイン"
+      guest_user: "ゲストユーザー としてログイン"
       to_register_page: "アカウントをお持ちでない場合はこちら"
       password_forget: "パスワードをお忘れの場合はこちら"
     create:

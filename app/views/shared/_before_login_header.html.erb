@@ -23,6 +23,12 @@
             <% end %>
           </li>
           <li class="nav-item d-flex align-items-center text-lg-center ps-2 ps-lg-0">
+            <%= link_to new_user_path, class: "nav-link" do %>
+              <i class="fa-solid fa-user-plus fa-xl"></i><br>
+              <small><%= t("defaults.account_create") %></small>
+            <% end %>
+          </li>
+          <li class="nav-item d-flex align-items-center text-lg-center ps-2 ps-lg-0">
             <%= link_to login_path, class: "nav-link" do %>
               <i class="fa-solid fa-right-to-bracket fa-xl"></i><br>
               <small><%= t("defaults.login") %></small>

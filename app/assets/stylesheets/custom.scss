@@ -30,7 +30,7 @@ body {
   display: flex;
   flex-flow: column;
   min-height: 100vh;
-  font-family: "Yomogi", cursive;
+  font-family: "Kaisei Tokumin", serif;
   font-weight: 400;
   font-style: normal;
 }
@@ -164,4 +164,9 @@ li.bold-notification {
   span {
     font-size: 1.3rem;
   }
+}
+
+//　badge クラスの font-weight の調整
+.badge {
+  --bs-badge-font-weight: 400;
 }

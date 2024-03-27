@@ -1,5 +1,5 @@
 <header class="sticky-top">
-  <nav class="navbar navbar-expand-lg p-2 text-black bg-main-color">
+  <nav class="navbar navbar-expand-lg p-2 bg-main-color">
     <div class="container-fluid">
       <%= link_to root_path, class: "navbar-brand" do %>
         <%= image_tag "sample2.png", size: "60x50", class: "d-inline-block align-middle me-2" %>
@@ -51,7 +51,7 @@
             <%= turbo_stream_from "notifications_for_user_#{current_user.id}" %>
             <%= link_to "#", class: "nav-link dropdown-toggle align-self-lg-center", role: "button", "data-bs-toggle" => "dropdown", "data-bs-auto-close" => "false", "aria-expanded" => "false" do %>
               <label class="position-relative">
-                <i class="fa-solid fa-bell fa-2xl text-secondary"></i>
+                <i class="fa-regular fa-bell fa-2xl"></i>
                 <%= render "notifications/notification_count" %>
               </label>
             <% end %>

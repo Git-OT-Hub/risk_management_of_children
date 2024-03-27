@@ -175,7 +175,7 @@ ja:
     pm: 午後
   defaults:
     diagnosis: "診断"
-    post: "投稿"
+    post: "投稿一覧"
     register: "登録"
     login: "ログイン"
     logout: "ログアウト"

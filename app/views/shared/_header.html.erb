@@ -1,5 +1,5 @@
-<header class="sticky-top bg-main-color">
-  <nav class="navbar navbar-expand-lg p-2 text-black">
+<header class="sticky-top">
+  <nav class="navbar navbar-expand-lg p-2 text-black bg-main-color">
     <div class="container-fluid">
       <%= link_to root_path, class: "navbar-brand" do %>
         <%= image_tag "sample2.png", size: "60x50", class: "d-inline-block align-middle me-2" %>
@@ -9,20 +9,26 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerHeader">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item d-flex align-items-center text-center ps-2 ps-lg-0">
+        <ul class="navbar-nav ms-auto grid gap-0 column-gap-2">
+          <li class="nav-item d-flex align-items-center text-lg-center ps-2 ps-lg-0">
             <%= link_to diagnosis_questions_path, class: "nav-link" do %>
               <i class="fa-solid fa-clipboard-list fa-xl"></i><br>
               <small><%= t("defaults.diagnosis") %></small>
             <% end %>
           </li>
-          <li class="nav-item ms-3 d-flex align-items-center">
-            <%= link_to t("defaults.post"), posts_path, class: "nav-link" %>
+          <li class="nav-item d-flex align-items-center text-lg-center ps-2 ps-lg-0">
+            <%= link_to posts_path, class: "nav-link" do %>
+              <i class="fa-solid fa-list-ul fa-xl"></i><br>
+              <small><%= t("defaults.post") %></small>
+            <% end %>
           </li>
-          <li class="nav-item ms-3 d-flex align-items-center">
-            <%= link_to t("defaults.logout"), logout_path, data: { turbo_method: :delete, turbo_confirm: t("defaults.message.logout_confirmation") }, class: "nav-link" %>
+          <li class="nav-item d-flex align-items-center text-lg-center ps-2 ps-lg-0">
+            <%= link_to logout_path, data: { turbo_method: :delete, turbo_confirm: t("defaults.message.logout_confirmation") }, class: "nav-link" do %>
+              <i class="fa-solid fa-right-from-bracket fa-xl"></i><br>
+              <small><%= t("defaults.logout") %></small>
+            <% end %>
           </li>
-          <li class="nav-item dropdown ms-3 mb-3 mb-lg-0">
+          <li class="nav-item dropdown ps-2 ps-lg-0 mb-2 mb-lg-0">
             <%= link_to "#", class: "nav-link dropdown-toggle p-0", role: "button", "data-bs-toggle" => "dropdown", "aria-expanded" => "false" do %>
               <% if logged_in? && current_user.avatar.attached? %>
                 <%= image_tag current_user.avatar_as_small, class: "img-thumbnail rounded-circle border-0", size: "60x60" %>
@@ -30,13 +36,18 @@
                 <%= image_tag "no_image.png", class: "img-thumbnail rounded-circle border-0", size: "60x60" %>
               <% end %>
             <% end %>
-            <ul class="dropdown-menu dropdown-menu-end mb-2">
+            <ul class="dropdown-menu dropdown-menu-end mt-2">
               <li class="dropdown-item"><%= current_user.name %></li>
               <li><hr class="dropdown-divider"></li>
-              <li><%= link_to t("defaults.my_page"), my_page_path, class: "dropdown-item" %></li>
+              <li>
+                <%= link_to my_page_path, class: "dropdown-item" do %>
+                  <i class="fa-solid fa-house-user fa-xl"></i>
+                  <small><%= t("defaults.my_page") %></small>
+                <% end %>
+              </li>
             </ul>
           </li>
-          <li class="nav-item ms-3 dropdown d-flex flex-column flex-lg-row">
+          <li class="nav-item ps-2 ps-lg-0 dropdown d-flex flex-column flex-lg-row">
             <%= turbo_stream_from "notifications_for_user_#{current_user.id}" %>
             <%= link_to "#", class: "nav-link dropdown-toggle align-self-lg-center", role: "button", "data-bs-toggle" => "dropdown", "data-bs-auto-close" => "false", "aria-expanded" => "false" do %>
               <label class="position-relative">

@@ -1,30 +1,34 @@
 <% content_for(:title, t(".title")) %>
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
   <div class="row">
-    <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-      <h1 class="text-center mb-5"><%= t(".title") %></h1>
-      <h4 class="text-center mb-5"><%= t(".explanation") %></h4>
-      <%= form_with model: @user, url: password_reset_path(@token) do |f| %>
-        <%= render "shared/error_messages", object: f.object %>
-        <div class="mb-5">
-          <%= f.label :email, class: "form-label" %><br />
-          <div class="fs-5"><%= @user.email %></div>
+    <div class="col-md-10 offset-md-1">
+      <h1 class="text-center mb-4 text-main-color"><%= t(".title") %></h1>
+      <div class="container bg-body shadow-lg rounded p-4">
+        <h4 class="text-center mb-4"><%= t(".explanation") %></h4>
+        <%= form_with model: @user, url: password_reset_path(@token) do |f| %>
+          <%= render "shared/error_messages", object: f.object %>
+          <div class="mb-4">
+            <%= f.label :email, class: "form-label" %><br>
+            <div class="text-break"><%= @user.email %></div>
+          </div>
+          <div class="mb-3">
+            <%= f.label :password, class: "form-label" %>
+            <%= f.password_field :password, class: "form-control rounded shadow-lg", placeholder: "#{t("users.new.password_limit")}" %>
+          </div>
+          <div class="mb-5">
+            <%= f.label :password_confirmation, class: "form-label" %>
+            <%= f.password_field :password_confirmation, class: "form-control rounded shadow-lg", placeholder: "#{t("users.new.password_explanation")}" %>
+          </div>
+          <div class="mb-5 text-center d-grid gap-2 col-3 mx-auto">
+            <%= f.submit class: "btn btn-success rounded-pill shadow-lg fs-5" %>
+          </div>
+        <% end %>
+        <div class="text-center mb-3">
+          <%= link_to login_path, class: "text-black link-offset-2 link-offset-3-hover link-underline-dark link-underline-opacity-0 link-underline-opacity-75-hover" do %>
+            <i class="fa-solid fa-right-to-bracket fa-xl"></i>
+            <%= t("password_resets.new.to_login_page") %>
+          <% end %>
         </div>
-        <div class="mb-4">
-          <%= f.label :password, class: "form-label" %>
-          <div class="form-text mb-1"><%= t("users.new.password_explanation") %></div>
-          <%= f.password_field :password, class: "form-control rounded-pill" %>
-        </div>
-        <div class="mb-5">
-          <%= f.label :password_confirmation, class: "form-label" %>
-          <%= f.password_field :password_confirmation, class: "form-control rounded-pill" %>
-        </div>
-        <div class="mb-5 text-center d-grid gap-2 col-3 mx-auto">
-          <%= f.submit class: "btn btn-success rounded-pill" %>
-        </div>
-      <% end %>
-      <div class="text-center">
-        <%= link_to t("password_resets.new.to_login_page"), login_path, class: "text-black link-offset-2 link-offset-3-hover link-underline-dark link-underline-opacity-0 link-underline-opacity-75-hover" %>
       </div>
     </div>
   </div>

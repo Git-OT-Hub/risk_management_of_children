@@ -148,6 +148,27 @@ a.progress-compatible-not-compatible-btn {
   --bs-btn-disabled-border-color: #8bc079;
 }
 
+.btn-outline-success {
+  --bs-btn-color: #6aaa54;
+  --bs-btn-border-color: #6aaa54;
+  --bs-btn-hover-bg: #6aaa54;
+  --bs-btn-hover-border-color: #6aaa54;
+  --bs-btn-active-bg: #6aaa54;
+  --bs-btn-active-border-color: #6aaa54;
+  --bs-btn-disabled-color: #8bc079;
+  --bs-btn-disabled-border-color: #8bc079;
+}
+
+//　リンク　メインカラー
+.link-success {
+  color: RGBA(var(--bs-success-rgb), var(--bs-link-opacity, 1)) !important;
+  --bs-success-rgb: 106, 170, 84;
+
+  &:hover {
+    color: rgba(76, 127, 59, 1) !important;
+  }
+}
+
 //　文字　メインカラー
 .text-main-color {
   color: #6aaa54;

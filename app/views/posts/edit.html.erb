@@ -2,11 +2,11 @@
 <div class="container mt-5 mb-5">
   <div class="row">
     <div class="col-lg-10 offset-lg-1">
-      <h1 class="text-center mb-5"><%= t(".title") %></h1>
+      <h1 class="text-center mb-4 text-main-color"><%= t(".title") %></h1>
       <%= render "posts/form", post: @post %>
       <div class="text-center">
         <%= link_to "javascript:history.back()", class: "link-success link-underline link-underline-opacity-0" do %>
-          <i class="fa-solid fa-person-walking-arrow-loop-left fa-3x"></i>
+          <span class="icon-shadow-common"><i class="fa-solid fa-person-walking-arrow-loop-left fa-3x"></i></span>
         <% end %>
       </div>
     </div>

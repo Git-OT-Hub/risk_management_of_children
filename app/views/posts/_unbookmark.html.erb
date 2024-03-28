@@ -1,3 +1,3 @@
-<%= link_to bookmark_path(post.bookmarks.find { |b| b.user_id == current_user.id }), data: { turbo_method: :delete, turbo_confirm: t("defaults.message.delete_bookmark") }, class: "text-primary link-underline link-underline-opacity-0", id: "button-unbookmark-#{post.id}" do %>
-  <i class="fa-solid fa-bookmark fa-xl"></i>
+<%= link_to bookmark_path(post.bookmarks.find { |b| b.user_id == current_user.id }), data: { turbo_method: :delete, turbo_confirm: t("defaults.message.delete_bookmark") }, class: "link-primary link-underline link-underline-opacity-0", id: "button-unbookmark-#{post.id}" do %>
+  <span class="icon-shadow-common"><i class="fa-solid fa-bookmark fa-xl"></i></span>
 <% end %>

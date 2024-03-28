@@ -5,6 +5,7 @@
       background-color: #42932a;
       border-radius: 1rem;
       color: #fff;
+      box-shadow: var(--bs-box-shadow-lg) !important;
     }
     a:hover { 
       color: #000;
@@ -166,6 +167,50 @@ a.progress-compatible-not-compatible-btn {
 
   &:hover {
     color: rgba(76, 127, 59, 1) !important;
+  }
+
+  &:active {
+    color: rgba(69, 119, 53, 1) !important;
+  }
+
+  &:focus {
+    color: rgba(69, 119, 53, 1) !important;
+  }
+}
+
+//　リンク　サブカラー（レッド）
+.link-danger {
+  color: RGBA(var(--bs-danger-rgb), var(--bs-link-opacity, 1)) !important;
+  --bs-danger-rgb: 233, 94, 107;
+
+  &:hover {
+    color: rgba(230, 69, 85, 1) !important;
+  }
+
+  &:active {
+    color: rgba(230, 69, 85, 1) !important;
+  }
+
+  &:focus {
+    color: rgba(230, 69, 85, 1) !important;
+  }
+}
+
+//　リンク　サブカラー（ブルー）
+.link-primary {
+  color: RGBA(var(--bs-primary-rgb), var(--bs-link-opacity, 1)) !important;
+  --bs-primary-rgb: 82, 136, 216;
+
+  &:hover {
+    color: rgba(43, 119, 232, 1) !important;
+  }
+
+  &:active {
+    color: rgba(43, 119, 232, 1) !important;
+  }
+
+  &:focus {
+    color: rgba(43, 119, 232, 1) !important;
   }
 }
 

@@ -43,7 +43,7 @@
                 <% end %>
                 <% if logged_in? && !current_user.own?(comment_reply) %>
                   <%= link_to reply_to_parent_comment_reply_path(comment_reply), data: { turbo_stream: true }, class: "link-success link-underline link-underline-opacity-0" do %>
-                    <i class="fa-solid fa-reply fa-xl"></i>
+                    <span class="icon-shadow-common"><i class="fa-solid fa-reply fa-xl"></i></span>
                   <% end %>
                 <% end %>
               </div>
@@ -80,7 +80,7 @@
                 <% end %>
                 <% if logged_in? && !current_user.own?(comment_reply) %>
                   <%= link_to reply_to_parent_comment_reply_path(comment_reply), data: { turbo_stream: true }, class: "link-success link-underline link-underline-opacity-0" do %>
-                    <i class="fa-solid fa-reply fa-xl"></i>
+                    <span class="icon-shadow-common"><i class="fa-solid fa-reply fa-xl"></i></span>
                   <% end %>
                 <% end %>
               </div>

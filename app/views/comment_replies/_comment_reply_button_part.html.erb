@@ -2,20 +2,20 @@
   <div class="row justify-content-between">
     <div class="col-7 px-0 text-start">
       <%= link_to search_comment_comment_replies_path(comment), data: { turbo_stream: true }, class: "link-success link-underline link-underline-opacity-0 me-4" do %>
-        <i class="fa-solid fa-magnifying-glass fa-3x"></i>
+        <span class="icon-shadow-common"><i class="fa-solid fa-magnifying-glass fa-3x"></i></span>
       <% end %>
       <% if current_user.notified_reply_objects(comment).present? %>
         <%= link_to unread_comment_comment_replies_path(comment), data: { turbo_stream: true }, class: "link-success link-underline link-underline-opacity-0" do %>
-          <i class="fa-regular fa-comments fa-bounce fa-3x"></i>
+          <span class="icon-shadow-common"><i class="fa-regular fa-comments fa-bounce fa-3x"></i></span>
         <% end %>
       <% end %>
     </div>
     <div class="col-5 px-0 text-end">
       <%= link_to "javascript:void(0)", class: "link-success link-underline link-underline-opacity-0 me-2", data: { action: "click->scroll-page#topPage" } do %>
-        <i class="fa-regular fa-circle-up fa-3x"></i>
+        <span class="icon-shadow-common"><i class="fa-regular fa-circle-up fa-3x"></i></span>
       <% end %>
       <%= link_to "javascript:void(0)", class: "link-success link-underline link-underline-opacity-0", data: { action: "click->scroll-page#endPage" } do %>
-        <i class="fa-regular fa-circle-down fa-3x"></i>
+        <span class="icon-shadow-common"><i class="fa-regular fa-circle-down fa-3x"></i></span>
       <% end %>
     </div>
   </div>
@@ -24,12 +24,12 @@
   <div class="row justify-content-between">
     <div class="col-2 px-0 text-start">
       <%= link_to "javascript:history.back()", class: "link-success link-underline link-underline-opacity-0" do %>
-        <i class="fa-solid fa-person-walking-arrow-loop-left fa-3x"></i>
+        <span class="icon-shadow-common"><i class="fa-solid fa-person-walking-arrow-loop-left fa-3x"></i></span>
       <% end %>
     </div>
     <div class="col-2 px-0 text-end">  
       <%= link_to new_comment_comment_reply_path(comment), data: { turbo_stream: true }, class: "link-success link-underline link-underline-opacity-0" do %>
-        <i class="fa-solid fa-circle-plus fa-3x"></i>
+        <span class="icon-shadow-common"><i class="fa-solid fa-circle-plus fa-3x"></i></span>
       <% end %>
     </div>
   </div>

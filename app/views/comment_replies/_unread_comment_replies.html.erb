@@ -1,12 +1,12 @@
 <div class="container">
-  <ul class="list-group list-group-flush overflow-y-scroll shadow-lg mb-2" style="max-height: 200px;">
+  <ul class="list-group list-group-flush overflow-y-scroll shadow-lg rounded mb-2" style="max-height: 200px;">
     <% if unread_objects.present? %>
       <%= render partial: "comment_replies/unread_comment_reply", collection: unread_objects %>
     <% end %>
   </ul>
   <div class="d-flex flex-row">
     <%= link_to cancel_unread_comment_comment_replies_path(comment), data: { turbo_stream: true }, class: "link-secondary link-underline link-underline-opacity-0" do %>
-      <i class="fa-solid fa-angles-left fa-3x"></i>
+      <span class="icon-shadow-common"><i class="fa-solid fa-angles-left fa-3x"></i></span>
     <% end %>
   </div>
 </div>

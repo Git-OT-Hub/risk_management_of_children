@@ -86,7 +86,7 @@ a.progress-compatible-not-compatible-btn {
   display: block;
   margin: 0 0 0 3rem;
   padding: 1px;
-  background: #dee2e6;
+  background: #c7d1da;
 }
 
 .comment-balloon-right:before {
@@ -96,7 +96,7 @@ a.progress-compatible-not-compatible-btn {
   right: -45px;
   margin-top: -15px;
   border: 25px solid transparent;
-  border-left: 20px solid #dee2e6;
+  border-left: 20px solid #c7d1da;
 }
 
 //　コメント返信(others)
@@ -105,7 +105,7 @@ a.progress-compatible-not-compatible-btn {
   display: block;
   margin: 0 3rem 0 0;
   padding: 1px;
-  background: #dee2e6;
+  background: #c7d1da;
 }
 
 .comment-balloon-left:before {
@@ -115,7 +115,7 @@ a.progress-compatible-not-compatible-btn {
   left: -45px;
   margin-top: -15px;
   border: 25px solid transparent;
-  border-right: 20px solid #dee2e6;
+  border-right: 20px solid #c7d1da;
 }
 
 // コメント返信画面　ボタンエリア
@@ -237,4 +237,9 @@ li.bold-notification {
 //　badge クラスの font-weight の調整
 .badge {
   --bs-badge-font-weight: 400;
+}
+
+//　フォーカス機能　赤枠
+.border-danger-subtle {
+  border-color: #f36f7c !important;
 }

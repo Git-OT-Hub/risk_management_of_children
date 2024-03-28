@@ -1,19 +1,19 @@
-<div class="card-body p-1">
+<div class="card-body text-center p-2">
   <% if user.avatar.attached? %>
-    <%= image_tag user.avatar_as_small, class: "img-fluid rounded-circle mb-1", data: { user_avatar_target: "preview" } %>
+    <%= image_tag user.avatar_as_small, class: "img-fluid rounded-circle mb-2 shadow-lg", style: "max-height: 200px;", data: { user_avatar_target: "preview" } %>
     <div class="d-flex justify-content-end">
       <% if user.avatar.persisted? %>
-        <%= link_to t("defaults.message.delete"), delete_avatar_my_page_path, data: { turbo_method: :delete, action: "click->user-avatar#hiddenClear" }, class: "btn btn-danger rounded-pill" %>
+        <%= link_to t("defaults.message.delete"), delete_avatar_my_page_path, data: { turbo_method: :delete, action: "click->user-avatar#hiddenClear" }, class: "btn btn-danger rounded-pill shadow-lg" %>
       <% else %>
-        <button type="button" class="btn btn-danger rounded-pill" data-action="click->user-avatar#delete">
+        <button type="button" class="btn btn-danger rounded-pill shadow-lg" data-action="click->user-avatar#delete">
           <%= t("defaults.message.delete") %>
         </button>
       <% end %>
     </div>
   <% else %>
-    <%= image_tag "no_image.png", class: "img-fluid rounded-circle mb-1", data: { user_avatar_target: "preview" } %>
+    <%= image_tag "no_image.png", class: "img-fluid rounded-circle mb-2 shadow-lg", style: "max-height: 200px;", data: { user_avatar_target: "preview" } %>
     <div class="d-flex justify-content-end">
-      <button type="button" class="btn btn-danger rounded-pill" data-action="click->user-avatar#delete">
+      <button type="button" class="btn btn-danger rounded-pill shadow-lg" data-action="click->user-avatar#delete">
         <%= t("defaults.message.delete") %>
       </button>
     </div>

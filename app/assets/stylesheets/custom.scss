@@ -219,6 +219,13 @@ a.progress-compatible-not-compatible-btn {
   color: #6aaa54;
 }
 
+//　文字　サブカラー（ブルー）
+.text-primary {
+  --bs-text-opacity: 1;
+  color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity)) !important;
+  --bs-primary-rgb: 82, 136, 216;
+}
+
 //　通知一覧の font-size 設定
 p.bold-notification {
   span {
@@ -242,4 +249,9 @@ li.bold-notification {
 //　フォーカス機能　赤枠
 .border-danger-subtle {
   border-color: #f36f7c !important;
+}
+
+//　ボーダーカラー（メインカラー）
+.border-success {
+  border-color: #6aaa54 !important;
 }

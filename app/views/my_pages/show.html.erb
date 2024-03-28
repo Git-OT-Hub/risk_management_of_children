@@ -1,15 +1,13 @@
 <% content_for(:title, t(".title")) %>
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
   <!-- プロフィール -->
   <div class="row mb-3">
     <div class="col-md-10 offset-md-1">
-      <div class="row align-items-center">
-        <div class="col">
-          <h1 class="mb-0"><%= t(".title") %></h1>
-        </div>
-        <div class="col">
+      <div class="row">
+        <div class="col d-flex flex-row align-items-center">
+          <h1 class="mb-0 me-4 text-main-color"><%= t(".title") %></h1>
           <%= link_to edit_my_page_path, class: "link-success link-underline link-underline-opacity-0", id: "button-edit-user" do %>
-            <i class="fa-solid fa-user-pen fa-2xl"></i>
+            <span class="icon-shadow-common"><i class="fa-solid fa-user-pen fa-2xl"></i></span>
           <% end %>
         </div>
       </div>
@@ -18,9 +16,9 @@
   <div class="row mb-4">
     <div class="col-md-10 offset-md-1 mb-4">
       <% if current_user.avatar.attached? %>
-        <%= image_tag current_user.avatar_as_small, class: "img-thumbnail rounded-circle d-block w-25" %>
+        <%= image_tag current_user.avatar_as_small, class: "img-thumbnail rounded-circle d-block w-25 shadow-lg" %>
       <% else %>
-        <%= image_tag "no_image.png", class: "img-thumbnail rounded-circle d-block w-25" %>
+        <%= image_tag "no_image.png", class: "img-thumbnail rounded-circle d-block w-25 shadow-lg" %>
       <% end %>
     </div>
     <div class="col-md-10 offset-md-1 mb-2">
@@ -49,10 +47,13 @@
     <div class="col-12">
       <div class="border-top border-success border-start-0 border-end-0 border-3 border-opacity-75 mb-4">      
         <div class="d-flex justify-content-between flex-column flex-md-row grid gap-3 row-gap-2 mt-2 fs-5">
-          <%= link_to t(".diagnosis"), "javascript:void(0)", class: "btn btn-outline-secondary active" %>
-          <%= link_to t(".user_posts"), my_posts_my_page_path, class: "btn btn-outline-secondary" %>
-          <%= link_to bookmarks_my_page_path, class: "btn btn-outline-secondary" do %>
-            <i class="fa-solid fa-bookmark fa-xl text-primary"></i>
+          <%= link_to "javascript:void(0)", class: "btn btn-outline-secondary shadow-lg active" do %>
+            <i class="fa-solid fa-clipboard-list fa-xl"></i>
+            <%= t(".diagnosis") %>
+          <% end %>
+          <%= link_to t(".user_posts"), my_posts_my_page_path, class: "btn btn-outline-secondary shadow-lg" %>
+          <%= link_to bookmarks_my_page_path, class: "btn btn-outline-secondary shadow-lg" do %>
+            <span class="text-primary"><i class="fa-solid fa-bookmark fa-xl"></i></span>
             <%= t(".favorite_posts") %>
           <% end %>
         </div>
@@ -64,18 +65,14 @@
             <% @results.each do |result| %>
               <li class="list-group-item" id="diagnosis_result_item_<%= result.id %>">
                 <% if result.title.present? %>
-                  <%= link_to result.title, diagnosis_result_path(result), class: "link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover fs-4" %>
+                  <%= link_to result.title, diagnosis_result_path(result), class: "link-success link-offset-2 link-underline link-underline-opacity-0 fs-5" %>
                 <% else %>
-                  <%= link_to "#{l(result.created_at, format: :long)} #{t(".results_of")}", diagnosis_result_path(result), class: "link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover fs-4" %>
+                  <%= link_to "#{l(result.created_at, format: :long)} #{t(".results_of")}", diagnosis_result_path(result), class: "link-success link-offset-2 link-underline link-underline-opacity-0 fs-5" %>
                 <% end %>
                 <div class="float-end">
-                  <ul class="list-inline mb-0">
-                    <li class="list-inline-item">
-                      <%= link_to diagnosis_result_path(result), data: { turbo_method: :delete, turbo_confirm: t("defaults.message.delete_diagnosis") }, class: "link-success link-underline link-underline-opacity-0" do %>
-                        <i class="fa-regular fa-trash-can fa-2xl"></i>
-                      <% end %>
-                    </li>
-                  </ul>
+                  <%= link_to diagnosis_result_path(result), data: { turbo_method: :delete, turbo_confirm: t("defaults.message.delete_diagnosis") }, class: "link-success link-underline link-underline-opacity-0" do %>
+                    <span class="icon-shadow-common"><i class="fa-regular fa-trash-can fa-xl"></i></span>
+                  <% end %>
                 </div>
               </li>
             <% end %>

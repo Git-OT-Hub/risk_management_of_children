@@ -1,9 +1,9 @@
 <% if logged_in? %>
   <%= link_to new_post_comment_path(post), data: { turbo_stream: true }, class: "link-success link-underline link-underline-opacity-0" do %>
-    <i class="fa-solid fa-circle-plus fa-3x"></i>
+    <span class="icon-shadow-common"><i class="fa-solid fa-circle-plus fa-3x"></i></span>
   <% end %>
 <% else %>
   <%= link_to login_required_post_comments_path(post), class: "link-success link-underline link-underline-opacity-0" do %>
-    <i class="fa-solid fa-circle-plus fa-3x"></i>
+    <span class="icon-shadow-common"><i class="fa-solid fa-circle-plus fa-3x"></i></span>
   <% end %>
 <% end %>

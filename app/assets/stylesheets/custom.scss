@@ -137,6 +137,21 @@ a.progress-compatible-not-compatible-btn {
   background-color: #6aaa54;
 }
 
+//　bg　サブカラー（レッド）
+.bg-danger-subtle {
+  background-color: #f1b4b8 !important;
+}
+
+//　bg　サブカラー（ブルー）
+.bg-info-subtle {
+  background-color: #9cd6e3 !important;
+}
+
+//　bg　サブカラー（グリーン）
+.bg-success-subtle {
+  background-color: #bddfd0 !important;
+}
+
 //　ボタン　メインカラー
 .btn-success {
   --bs-btn-bg: #6aaa54;

@@ -27,10 +27,6 @@ class User < ApplicationRecord
   validates :reset_password_token, uniqueness: true, allow_nil: true
   validate :avatar_content_type, :avatar_size
 
-  #def avatar_as_small
-    #avatar.variant(resize_to_limit: [250, 250]).processed.url
-  #end
-
   def own?(object)
     object.user_id == id
   end

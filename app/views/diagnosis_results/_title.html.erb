@@ -1,7 +1,7 @@
-<div class="container text-center mb-5" id="diagnosis_result_title_<%= diagnosis.id %>"> 
-  <div class="row">
+<div class="container text-center mb-4" id="diagnosis_result_title_<%= diagnosis.id %>"> 
+  <div class="row align-items-center">
     <div class="col-9 shadow-lg bg-body rounded-4 p-3">
-      <h3 class="mb-0">
+      <h3 class="mb-0 text-break">
         <% if diagnosis.title.present? %>
           <%= diagnosis.title %>
         <% else %>
@@ -11,7 +11,7 @@
     </div>
     <div class="col-2 offset-1 shadow-lg bg-body rounded-4 p-3">
       <%= link_to edit_diagnosis_result_path, data: { turbo_stream: true }, class: "link-success link-underline link-underline-opacity-0" do %>
-        <i class="fa-regular fa-pen-to-square fa-2xl"></i>
+        <span class="icon-shadow-common"><i class="fa-regular fa-pen-to-square fa-2xl"></i></span>
       <% end %>
     </div>
   </div>

@@ -15,15 +15,13 @@
   </div>
   <div class="row mb-4">
     <div class="col-md-10 offset-md-1 mb-4">
-      <% if current_user.avatar.attached? %>
-        <div class="ratio ratio-1x1 w-25" >
+      <div class="ratio ratio-1x1 w-25" >
+        <% if current_user.avatar.attached? %>
           <%= image_tag current_user.avatar.variant(:small), class: "img-thumbnail rounded-circle shadow-lg" %>
-        </div>
-      <% else %>
-        <div class="ratio ratio-1x1 w-25" >
+        <% else %>
           <%= image_tag "no_image.png", class: "img-thumbnail rounded-circle shadow-lg" %>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
     <div class="col-md-10 offset-md-1 mb-2">
       <div class="row align-items-center">

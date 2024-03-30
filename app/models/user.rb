@@ -15,7 +15,9 @@ class User < ApplicationRecord
   has_many :received_notifications, class_name: 'Notification', foreign_key: 'recipient_id', dependent: :destroy
   has_many :notifications, as: :notifiable, dependent: :destroy
 
-  has_one_attached :avatar
+  has_one_attached :avatar do |attachable|
+    attachable.variant :small, resize_to_limit: [250, 250], preprocessed: true
+  end
 
   validates :password, length: { minimum: 8 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
@@ -25,9 +27,9 @@ class User < ApplicationRecord
   validates :reset_password_token, uniqueness: true, allow_nil: true
   validate :avatar_content_type, :avatar_size
 
-  def avatar_as_small
-    avatar.variant(resize_to_limit: [250, 250]).processed.url
-  end
+  #def avatar_as_small
+    #avatar.variant(resize_to_limit: [250, 250]).processed.url
+  #end
 
   def own?(object)
     object.user_id == id

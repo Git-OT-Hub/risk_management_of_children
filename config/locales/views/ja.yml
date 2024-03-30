@@ -308,12 +308,12 @@ ja:
       back_to_previous_page: "戻る"
     bookmarks:
       diagnosis: "診断結果一覧"
-      user_posts: "My投稿一覧"
+      user_posts: "My 投稿一覧"
       favorite_posts: "お気に入りの投稿一覧"
       to_my_page: "マイページへ"
     my_posts:
       diagnosis: "診断結果一覧"
-      user_posts: "My投稿一覧"
+      user_posts: "My 投稿一覧"
       favorite_posts: "お気に入りの投稿一覧"
       to_my_page: "マイページへ"
   password_resets:

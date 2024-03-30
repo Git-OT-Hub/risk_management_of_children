@@ -12,12 +12,14 @@
             <div class="card-header p-1">
               <div class="container">
                 <div class="row align-items-center">
-                  <div class="col-4 px-0 text-center">
-                    <% if comment.user.avatar.attached? %>
-                      <%= image_tag comment.user.avatar_as_small, class: "img-thumbnail rounded-circle", size: "60x60" %>
-                    <% else %>
-                      <%= image_tag "no_image.png", class: "img-thumbnail rounded-circle", size: "60x60" %>
-                    <% end %>
+                  <div class="col-4 px-0">
+                    <div class="ratio ratio-1x1" style="width: 60px; height: 60px;">
+                      <% if comment.user.avatar.attached? %>
+                        <%= image_tag comment.user.avatar.variant(:small), class: "img-thumbnail rounded-circle" %>
+                      <% else %>
+                        <%= image_tag "no_image.png", class: "img-thumbnail rounded-circle" %>
+                      <% end %>
+                    </div>
                   </div>
                   <div class="col-8 px-0 text-break">
                     <%= comment.user.name %>
@@ -50,12 +52,14 @@
             <div class="card-header p-1">
               <div class="container">
                 <div class="row align-items-center">
-                  <div class="col-4 px-0 text-center">
-                    <% if comment.user.avatar.attached? %>
-                      <%= image_tag comment.user.avatar_as_small, class: "img-thumbnail rounded-circle", size: "60x60" %>
-                    <% else %>
-                      <%= image_tag "no_image.png", class: "img-thumbnail rounded-circle", size: "60x60" %>
-                    <% end %>
+                  <div class="col-4 px-0">
+                    <div class="ratio ratio-1x1" style="width: 60px; height: 60px;">
+                      <% if comment.user.avatar.attached? %>
+                        <%= image_tag comment.user.avatar.variant(:small), class: "img-thumbnail rounded-circle" %>
+                      <% else %>
+                        <%= image_tag "no_image.png", class: "img-thumbnail rounded-circle" %>
+                      <% end %>
+                    </div>
                   </div>
                   <div class="col-8 px-0 text-break">
                     <%= comment.user.name %>

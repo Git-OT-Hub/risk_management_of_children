@@ -63,7 +63,7 @@
                   <div class="row align-items-center">
                     <div class="col-4 px-0 text-center">
                       <% if @post.user.avatar.attached? %>
-                        <%= image_tag @post.user.avatar_as_small, class: "img-thumbnail rounded-circle", size: "80x80" %>
+                        <%= image_tag @post.user.avatar.variant(:small), class: "img-thumbnail rounded-circle", size: "80x80" %>
                       <% else %>
                         <%= image_tag "no_image.png", class: "img-thumbnail rounded-circle", size: "80x80" %>
                       <% end %>

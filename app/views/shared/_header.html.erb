@@ -28,13 +28,15 @@
               <small><%= t("defaults.logout") %></small>
             <% end %>
           </li>
-          <li class="nav-item dropdown ps-2 ps-lg-0 mb-2 mb-lg-0">
-            <%= link_to "#", class: "nav-link dropdown-toggle p-0", role: "button", "data-bs-toggle" => "dropdown", "aria-expanded" => "false" do %>
-              <% if logged_in? && current_user.avatar.attached? %>
-                <%= image_tag current_user.avatar.variant(:small), class: "img-thumbnail rounded-circle border-0", size: "60x60" %>
-              <% else %>
-                <%= image_tag "no_image.png", class: "img-thumbnail rounded-circle border-0", size: "60x60" %>
-              <% end %>
+          <li class="nav-item dropdown ps-2 ps-lg-0 mb-2 mb-lg-0 d-flex flex-column flex-lg-row">
+            <%= link_to "#", class: "nav-link dropdown-toggle p-0 d-flex align-items-center", role: "button", "data-bs-toggle" => "dropdown", "aria-expanded" => "false" do %>
+              <div class="ratio ratio-1x1" style="width: 60px; height: 60px;">
+                <% if logged_in? && current_user.avatar.attached? %>
+                  <%= image_tag current_user.avatar.variant(:small), class: "img-thumbnail rounded-circle" %>
+                <% else %>
+                  <%= image_tag "no_image.png", class: "img-thumbnail rounded-circle" %>
+                <% end %>
+              </div>
             <% end %>
             <ul class="dropdown-menu dropdown-menu-end mt-2">
               <li class="dropdown-item text-break"><%= current_user.name %></li>

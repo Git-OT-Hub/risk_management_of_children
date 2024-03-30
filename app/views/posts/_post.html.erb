@@ -33,12 +33,14 @@
       <p class="card-text text-truncate"><%= post.body %></p>
       <div class="container mb-2">
         <div class="row align-items-center">
-          <div class="col-4 px-0 text-center">
-            <% if post.user.avatar.attached? %>
-              <%= image_tag post.user.avatar_as_small, class: "img-thumbnail rounded-circle", size: "60x60" %>
-            <% else %>
-              <%= image_tag "no_image.png", class: "img-thumbnail rounded-circle", size: "60x60" %>
-            <% end %>
+          <div class="col-4 px-0">
+            <div class="ratio ratio-1x1" style="width: 60px; height: 60px;">
+              <% if post.user.avatar.attached? %>
+                <%= image_tag post.user.avatar.variant(:small), class: "img-thumbnail rounded-circle" %>
+              <% else %>
+                <%= image_tag "no_image.png", class: "img-thumbnail rounded-circle" %>
+              <% end %>
+            </div>
           </div>
           <div class="col-8 px-0 text-truncate">
             <%= post.user.name %>

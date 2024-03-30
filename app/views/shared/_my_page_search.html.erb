@@ -1,0 +1,57 @@
+<div class="accordion mb-4" id="accordionMyPageSearch">
+  <div class="accordion-item shadow-lg">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+        <span class="icon-shadow-common"><i class="fa-solid fa-magnifying-glass fa-xl"></i></span>
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionMyPageSearch">
+      <div class="accordion-body">
+        <div class="container"> 
+          <%= search_form_for q, url: url do |f| %>
+            <div class="row justify-content-evenly grid gap-3">
+              <div class="col-12 col-sm-5 col-lg-3">
+                <%= f.search_field :user_name_cont, class: "form-control shadow-lg", placeholder: t("defaults.message.search_user_name"), data: { post_search_target: "userNameField" } %>
+              </div>
+              <div class="col-12 col-sm-5 col-lg-3">
+                <%= f.search_field :title_cont, class: "form-control shadow-lg", placeholder: t("defaults.message.search_title"), data: { post_search_target: "postTitleField" } %>
+              </div>
+              <div class="col-12 col-sm-5 col-lg-3">
+                <%= f.search_field :body_cont, class: "form-control shadow-lg", placeholder: t("defaults.message.search_post_body"), data: { post_search_target: "postBodyField" } %>
+              </div>
+              <div class="col-12 col-sm-5 col-lg-3">
+                <%= f.search_field :item_info_cont, class: "form-control shadow-lg", placeholder: t("defaults.message.search_post_info"), data: { post_search_target: "postInfoField" } %>
+              </div>
+              <div class="col-12 col-sm-5 col-lg-3">
+                <%= f.select :item_category_eq, Post.item_categories.keys.map.with_index { |k, i| [t("enums.post.item_category.#{k}"), i] }, { include_blank: t("defaults.message.search_post_category") }, { class: "form-select rounded shadow-lg", data: { post_search_target: "postCategoryField" } } %>
+              </div>
+              <div class="col-12 col-sm-5 col-lg-3">
+                <%= f.search_field :item_merit_cont, class: "form-control shadow-lg", placeholder: t("defaults.message.search_post_merit"), data: { post_search_target: "postMeritField" } %>
+              </div>
+              <div class="col-12 col-sm-5 col-lg-3">
+                <%= f.search_field :item_demerit_cont, class: "form-control shadow-lg", placeholder: t("defaults.message.search_post_demerit"), data: { post_search_target: "postDemeritField" } %>
+              </div>
+              <div class="col-12 col-sm-5 col-lg-3">
+                <div class="row">
+                  <div class="col-10">
+                    <%= f.search_field :comments_body_cont, class: "form-control shadow-lg", placeholder: t("defaults.message.search_comment"), data: { post_search_target: "postCommentsField" } %>
+                  </div>
+                  <div class="col-2 px-0">
+                    <%= f.submit t("defaults.message.search"), class: "btn btn-outline-success shadow-lg", data: { post_search_target: "searchBtn" } %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+          <div class="container mt-3">
+            <div class="row">
+              <div class="col-12 text-end">
+                <%= link_to t("defaults.message.full_search"), "javascript:void(0)", class: "btn btn-outline-secondary rounded-pill shadow-lg", data: { action: "click->post-search#startFullSearch" } %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,42 +1,64 @@
-<%= form_with model: post do |f| %>
-  <%= render "shared/error_messages", object: f.object %>
-  <div class="mb-4">
-    <%= f.label :title, class: "form-label" %>
-    <div class="form-text mb-1"><%= t("defaults.message.input_required") %></div>
-    <%= f.text_field :title, class: "form-control rounded-pill" %>
-  </div>
-  <div class="mb-4">
-    <%= f.label :body, class: "form-label" %>
-    <%= f.text_area :body, class: "form-control rounded-4", rows: 10 %>
-  </div>
-  <div class="mb-4" data-controller="file-upload">
-    <%= f.label :images, class: "form-label" %>
-    <div class="form-text mb-1"><%= t("defaults.message.quantity_limit") %></div>
-    <div class="form-text mb-1"><%= t("defaults.message.byte_size_limit") %></div>
-    <div class="form-text mb-1"><%= t("defaults.message.content_type_limit") %></div>
-    <%= f.file_field :images, multiple: true, direct_upload: true, accept: "image/*", class: "form-control rounded-pill mb-4", data: { "file-upload-target": "fileInput" } %>
-    <div data-file-upload-target="hiddenFields">
+<div class="container bg-body rounded shadow-lg p-3 mb-4">
+  <%= form_with model: post do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
+    <div class="mb-3">
+      <%= f.label :title, class: "form-label" %>
+      <span class="badge text-bg-danger"><%= t("defaults.message.input_required") %></span>
+      <%= f.text_field :title, class: "form-control rounded shadow-lg", placeholder: "#{t("posts.new.title_limit")}" %>
     </div>
-    <div data-file-upload-target="previews">
+    <div class="mb-3">
+      <%= f.label :body, class: "form-label" %>
+      <%= f.text_area :body, class: "form-control rounded shadow-lg", rows: 3, placeholder: "#{t("posts.new.how_to_risk_management")}" %>
     </div>
-    <div data-file-upload-target="validationImages">
-      <% if post.images.attached? %>
-        <% post.images.with_all_variant_records.each_with_index do |image, index| %>
-          <div class="mb-5" id="<%= dom_id(image) %>" data-index="<%= index %>">
-            <%= f.hidden_field :images, multiple: true, value: image.signed_id %>
-            <%= image_tag image.variant(:medium), class: "img-fluid rounded-4 mb-2" %>
-            <p><%= image.blob.filename %></p>
-            <% if image.persisted? %>
-              <%= link_to t("defaults.message.delete"), delete_image_post_path(post, image_id: image.id), data: { turbo_method: :delete }, class: "btn btn-danger rounded-pill mb-4", id: "rspec-image-#{image.id}" %>
-            <% else %>
-              <%= link_to t("defaults.message.delete"), "", class: "btn btn-danger rounded-pill mb-4", data: { action: "click->file-upload#deleteImage", index: "#{index}" } %>
+    <div class="mb-3">
+      <%= f.label :item_info, class: "form-label" %>
+      <%= f.text_area :item_info, class: "form-control rounded shadow-lg", rows: 2, placeholder: "#{t("posts.new.item_information")}" %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :item_category, class: "form-label" %>
+      <%= f.select :item_category, Post.item_categories.keys.map { |k| [t("enums.post.item_category.#{k}"), k] }, {}, class: "form-select rounded shadow-lg" %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :item_merit, class: "form-label" %>
+      <%= f.text_area :item_merit, class: "form-control rounded shadow-lg", rows: 2, placeholder: "#{t("posts.new.character_limit")}" %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :item_demerit, class: "form-label" %>
+      <%= f.text_area :item_demerit, class: "form-control rounded shadow-lg", rows: 2, placeholder: "#{t("posts.new.character_limit")}" %>
+    </div>
+    <div class="" data-controller="file-upload">
+      <%= f.label :images, class: "form-label mb-0" %>
+      <div class="form-text mt-0"><%= t("defaults.message.quantity_limit") %></div>
+      <div class="form-text mt-0"><%= t("defaults.message.byte_size_limit") %></div>
+      <div class="form-text mt-0 mb-1"><%= t("defaults.message.content_type_limit") %></div>
+      <%= f.file_field :images, multiple: true, direct_upload: true, accept: "image/*", class: "form-control rounded-pill shadow-lg mb-3", data: { "file-upload-target": "fileInput" } %>
+      <div class="container mb-3">
+        <div class="row justify-content-around grid gap-3" data-file-upload-target="validationImages">
+          <% if post.images.attached? %>
+            <% post.images.each_with_index do |image, index| %>
+              <div class="col-12 col-sm-5 rounded shadow-lg p-3" id="<%= dom_id(image) %>" data-index="<%= index %>">
+                <%= f.hidden_field :images, multiple: true, value: image.signed_id %>
+                <%= image_tag image, class: "img-fluid rounded shadow-lg mb-2" %>
+                <p class="text-break fs-6 mb-1"><%= image.blob.filename %></p>
+                <% if image.persisted? %>
+                  <%= link_to t("defaults.message.delete"), delete_image_post_path(post, image_id: image.id), data: { turbo_method: :delete }, class: "btn btn-danger rounded-pill float-end shadow-lg", id: "rspec-image-#{image.id}" %>
+                <% else %>
+                  <%= link_to t("defaults.message.delete"), "javascript:void(0)", class: "btn btn-danger rounded-pill float-end shadow-lg", data: { action: "click->file-upload#deleteImage", index: "#{index}" } %>
+                <% end %>
+              </div>
             <% end %>
-          </div>
-        <% end %>
-      <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div data-file-upload-target="hiddenFields">
+      </div>
+      <div class="container">
+        <div class="row justify-content-around grid gap-3" data-file-upload-target="previews">
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="my-5 text-center d-grid gap-2 col-3 mx-auto">
-    <%= f.submit class: "btn btn-success rounded-pill" %>
-  </div>
-<% end %>
+    <div class="my-4 text-center d-grid gap-2 col-3 mx-auto">
+      <%= f.submit class: "btn btn-success rounded-pill shadow-lg" %>
+    </div>
+  <% end %>
+</div>

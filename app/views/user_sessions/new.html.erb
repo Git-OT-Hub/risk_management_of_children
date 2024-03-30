@@ -1,35 +1,47 @@
 <% content_for(:title, t(".title")) %>
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
   <div class="row">
-    <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-      <h1 class="text-center mb-5"><%= t(".title") %></h1>
-      <div class="mb-5 text-center d-grid gap-2 col-6 mx-auto">
-        <%= link_to auth_at_provider_path(provider: :google), class: "btn btn-success rounded-pill" do %>
-          <i class="fa-brands fa-google fa-lg me-2"></i><%= t(".login_with_google") %>
+    <div class="col-md-10 offset-md-1">
+      <h1 class="text-center mb-4 text-main-color"><%= t(".title") %></h1>
+      <div class="container bg-body shadow-lg rounded p-4">
+        <div class="my-4 text-center d-grid gap-2 col-8 mx-auto">
+          <%= link_to auth_at_provider_path(provider: :google), class: "btn btn-success rounded-pill shadow-lg" do %>
+            <i class="fa-brands fa-google fa-lg me-2"></i>
+            <%= t(".login_with_google") %>
+          <% end %>
+        </div>
+        <p class="text-center mb-4"><%= t(".or") %></p>
+        <%= form_with url: login_path, method: :post do |f| %>
+          <div class="mb-3">
+            <%= f.label :email, User.human_attribute_name(:email), class: "form-label" %>
+            <%= f.email_field :email, class: "form-control rounded shadow-lg" %>
+          </div>
+          <div class="mb-5">
+            <%= f.label :password, User.human_attribute_name(:password), class: "form-label" %>
+            <%= f.password_field :password, class: "form-control rounded shadow-lg" %>
+          </div>
+          <div class="mb-5 text-center d-grid gap-2 col-3 mx-auto">
+            <%= f.submit t("defaults.login"), class: "btn btn-success rounded-pill shadow-lg" %>
+          </div>
         <% end %>
-      </div>
-      <p class="text-center mb-5"><%= t(".or") %></p>
-      <%= form_with url: login_path, method: :post do |f| %>
-        <div class="mb-3">
-          <%= f.label :email, User.human_attribute_name(:email), class: "form-label" %>
-          <%= f.email_field :email, class: "form-control rounded-pill" %>
+        <div class="text-center mb-3">
+          <%= link_to guest_login_path, data: { turbo_method: :post }, class: "text-black link-offset-2 link-offset-3-hover link-underline-dark link-underline-opacity-0 link-underline-opacity-75-hover" do %>
+            <i class="fa-regular fa-face-smile fa-lg"></i>
+            <%= t(".guest_user") %>
+          <% end %>
         </div>
-        <div class="mb-5">
-          <%= f.label :password, User.human_attribute_name(:password), class: "form-label" %>
-          <%= f.password_field :password, class: "form-control rounded-pill" %>
+        <div class="text-center mb-3">
+          <%= link_to new_user_path, class: "text-black link-offset-2 link-offset-3-hover link-underline-dark link-underline-opacity-0 link-underline-opacity-75-hover" do %>
+            <i class="fa-solid fa-user-plus fa-lg"></i>
+            <%= t(".to_register_page") %>
+          <% end %>
         </div>
-        <div class="mb-5 text-center d-grid gap-2 col-3 mx-auto">
-          <%= f.submit t("defaults.login"), class: "btn btn-success rounded-pill" %>
+        <div class="text-center mb-3">
+          <%= link_to new_password_reset_path, class: "text-black link-offset-2 link-offset-3-hover link-underline-dark link-underline-opacity-0 link-underline-opacity-75-hover" do %>
+            <i class="fa-solid fa-key fa-lg"></i>
+            <%= t(".password_forget") %>
+          <% end %>
         </div>
-      <% end %>
-      <div class="text-center mb-3">
-        <%= link_to t(".guest_user"), guest_login_path, data: { turbo_method: :post }, class: "text-black link-offset-2 link-offset-3-hover link-underline-dark link-underline-opacity-0 link-underline-opacity-75-hover" %>
-      </div>
-      <div class="text-center mb-3">
-        <%= link_to t(".to_register_page"), new_user_path, class: "text-black link-offset-2 link-offset-3-hover link-underline-dark link-underline-opacity-0 link-underline-opacity-75-hover" %>
-      </div>
-      <div class="text-center mb-3">
-        <%= link_to t(".password_forget"), new_password_reset_path, class: "text-black link-offset-2 link-offset-3-hover link-underline-dark link-underline-opacity-0 link-underline-opacity-75-hover" %>
       </div>
     </div>
   </div>

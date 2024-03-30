@@ -4,9 +4,9 @@
     <%= link_to t("diagnosis_results.show.compatible"), compatible_diagnosis_result_path(diagnosis), data: { turbo_stream: true }, class: "fs-4 rounded-0 border-bottom-0 btn btn-outline-secondary active" %>
   </div>
 </div>        
-<div class="shadow-lg overflow-y-scroll bg-body rounded-bottom border-top p-3 mb-5" style="max-height: 600px; min-height: 300px;">
+<div class="shadow-lg overflow-y-scroll bg-body rounded-bottom border-top p-3 mb-4" style="max-height: 600px; min-height: 300px;">
   <% if statuses.present? %>
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
       <%= render partial: "diagnosis_results/card", collection: statuses, locals: { diagnosis: diagnosis } %>
     </div>
   <% else %>

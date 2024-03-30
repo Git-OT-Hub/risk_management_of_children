@@ -1,16 +1,18 @@
 <div class="container border rounded bg-body shadow-lg mb-2 py-2">
   <div class="row align-items-center grid gap-0 row-gap-1">
-    <div class="col-2 col-md-1">
+    <div class="col-2 col-md-1 pe-0">
       <i class="fa-solid fa-reply"></i>
     </div>
     <div class="col-2 col-md-1 px-0">
-      <% if parent.user.avatar.attached? %>
-        <%= image_tag parent.user.avatar_as_small, class: "img-thumbnail rounded-circle", size: "40x40" %>
-      <% else %>
-        <%= image_tag "no_image.png", class: "img-thumbnail rounded-circle", size: "40x40" %>
-      <% end %>
+      <div class="ratio ratio-1x1" style="width: 40px; height: 40px;">
+        <% if parent.user.avatar.attached? %>
+          <%= image_tag parent.user.avatar.variant(:small), class: "img-thumbnail rounded-circle" %>
+        <% else %>
+          <%= image_tag "no_image.png", class: "img-thumbnail rounded-circle" %>
+        <% end %>
+      </div>
     </div>
-    <div class="col-8 col-md-3 text-truncate ps-0 pe-auto">
+    <div class="col-8 col-md-3 text-truncate">
       <%= parent.user.name %>
     </div>
     <div class="col-10 col-md-6 text-truncate">
@@ -18,7 +20,7 @@
     </div>
     <div class="col-2 col-md-1">
       <%= link_to "javascript:void(0)", class: "link-success link-underline link-underline-opacity-0", data: { action: "click->focus-comment-reply#startFocusReply", parent_id: parent.id } do %>
-        <i class="fa-solid fa-arrow-turn-up fa-lg"></i>
+        <span class="icon-shadow-common"><i class="fa-solid fa-arrow-turn-up fa-lg"></i></span>
       <% end %>
     </div>
   </div>

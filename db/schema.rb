@@ -143,6 +143,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_16_143402) do
   create_table "posts", force: :cascade do |t|
     t.string "title", null: false
     t.text "body"
+    t.text "item_info"
+    t.integer "item_category", default: 0
+    t.text "item_merit"
+    t.text "item_demerit"
     t.integer "user_id"
     t.integer "favorites_count", default: 0
     t.integer "comments_count", default: 0

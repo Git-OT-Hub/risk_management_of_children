@@ -1,7 +1,7 @@
-<li class="list-group-item text-break">
+<li class="list-group-item text-break bold-notification">
   <%= generate_notification_message_reply(unread_comment) %>
   <small class="notification-time bg-body-secondary"><%= "#{time_ago_in_words(unread_comment.created_at)} #{t("notifications.index.ago")}" %></small>
   <%= link_to "javascript:void(0)", class: "link-success link-underline link-underline-opacity-0 ms-2", data: { action: "click->focus-comment#startFocusComment", focus_id: unread_comment.notifiable.id } do %>
-    <i class="fa-solid fa-arrow-turn-up fa-lg"></i>
+    <span class="icon-shadow-common"><i class="fa-solid fa-arrow-turn-up fa-lg"></i></span>
   <% end %>
 </li>

@@ -1,11 +1,13 @@
 <% content_for(:title, t(".title")) %>
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
   <div class="row">
-    <div class="col-lg-8 offset-lg-2">
-      <h1 class="text-center mb-5"><%= t(".title") %></h1>
-      <%= render "form", post: @post %>
-      <div class="text-center mb-3 fs-4">
-        <%= link_to t(".back_to_previous_page"), "javascript:history.back()", class: "text-black link-offset-2 link-offset-3-hover link-underline-dark link-underline-opacity-0 link-underline-opacity-75-hover" %>
+    <div class="col-lg-10 offset-lg-1">
+      <h1 class="text-center mb-4 text-main-color"><%= t(".title") %></h1>
+      <%= render "posts/form", post: @post %>
+      <div class="text-center">
+        <%= link_to "javascript:history.back()", class: "link-success link-underline link-underline-opacity-0" do %>
+          <span class="icon-shadow-common"><i class="fa-solid fa-person-walking-arrow-loop-left fa-3x"></i></span>
+        <% end %>
       </div>
     </div>
   </div>

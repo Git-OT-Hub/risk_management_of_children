@@ -1,12 +1,6 @@
-<ul class="crud-menu-btn list-inline float-start">
-  <li class="list-inline-item me-5 mb-3">
-    <%= link_to edit_post_path(post), class: "link-success link-offset-2 link-underline link-underline-opacity-0 link-opacity-100-hover", id: "button-edit-#{post.id}" do %>
-      <i class="fa-regular fa-pen-to-square fa-xl"></i>
-    <% end %>
-  </li>
-  <li class="list-inline-item">
-    <%= link_to post_path(post), data: { turbo_method: :delete, turbo_confirm: t("defaults.message.delete_confirm") }, class: "link-success link-offset-2 link-underline link-underline-opacity-0 link-opacity-100-hover", id: "button-delete-#{post.id}" do %>
-      <i class="fa-regular fa-trash-can fa-xl"></i>
-    <% end %>
-  </li>
-</ul>
+<%= link_to edit_post_path(post), class: "link-success link-underline link-underline-opacity-0 me-5", id: "button-edit-#{post.id}" do %>
+  <span class="icon-shadow-common"><i class="fa-regular fa-pen-to-square fa-xl"></i></span>
+<% end %>
+<%= link_to post_path(post), data: { turbo_method: :delete, turbo_confirm: t("defaults.message.delete_confirm") }, class: "link-success link-underline link-underline-opacity-0", id: "button-delete-#{post.id}" do %>
+  <span class="icon-shadow-common"><i class="fa-regular fa-trash-can fa-xl"></i></span>
+<% end %>

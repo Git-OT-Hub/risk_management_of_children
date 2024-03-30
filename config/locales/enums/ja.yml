@@ -1,0 +1,15 @@
+ja:
+  enums:
+    post:
+      item_category:
+        others: "その他"
+        stopper: "ストッパー系"
+        gate: "ゲート系"
+        cushion: "クッション系"
+        key: "鍵系"
+        cover: "カバー系"
+        mat: "マット系"
+        fence: "柵系"
+        slope: "スロープ系"
+        fall_prevention: "転倒防止系"
+        storage: "収納系"

@@ -9,7 +9,7 @@ class CommentReply < ApplicationRecord
     attachable.variant :medium, resize_to_limit: [500, 500], preprocessed: true
   end
 
-  validates :body, presence: true, length: { maximum: 65_535 }
+  validates :body, presence: true, length: { maximum: 1000 }
   validate :comment_reply_image_content_type, :comment_reply_image_size
 
   after_create_commit :create_comment_reply_notification

@@ -8,9 +8,14 @@ class Post < ApplicationRecord
     attachable.variant :medium, resize_to_limit: [500, 500], preprocessed: true
   end
 
-  validates :title, presence: true, length: { maximum: 255 }
-  validates :body, length: { maximum: 65_535 }
+  validates :title, presence: true, length: { maximum: 50 }
+  validates :body, length: { maximum: 1000 }
+  validates :item_info, length: { maximum: 1000 }
+  validates :item_merit, length: { maximum: 1000 }
+  validates :item_demerit, length: { maximum: 1000 }
   validate :image_content_type, :image_size, :image_length
+
+  enum item_category: { others: 0, stopper: 1, gate: 2, cushion: 3, key: 4, cover: 5, mat: 6, fence: 7, slope: 8, fall_prevention: 9, storage: 10 }
 
   private
 
@@ -37,10 +42,10 @@ class Post < ApplicationRecord
   end
 
   def self.ransackable_attributes(auth_object = nil)
-    %w[title body comments.body]
+    %w[title body item_info item_category item_merit item_demerit comments.body]
   end
 
   def self.ransackable_associations(auth_object = nil)
-    %w[comments]
+    %w[comments user]
   end
 end

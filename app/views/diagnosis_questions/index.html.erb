@@ -1,28 +1,28 @@
 <% content_for(:title, t(".title")) %>
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
   <div class="row">
     <div class="col-lg-10 offset-lg-1" data-controller="diagnosis-questions">
-      <h1 class="text-center mb-5"><%= t(".title") %></h1>
-      <p class="fs-4 mb-4"><%= t(".diagnosis_overview") %></p>
-      <p class="text-secondary fs-4 mb-4"><%= t(".diagnosis_supplementary") %></p>
-      <p class="text-center fs-4 mb-5"><%= t(".number_of_questiions") %></p>
+      <h1 class="text-center mb-4 text-main-color"><%= t(".title") %></h1>
+      <p class="fs-5 mb-3"><%= t(".diagnosis_overview") %></p>
+      <p class="text-secondary fs-5 mb-4"><%= t(".diagnosis_supplementary") %></p>
+      <p class="text-center fs-5 mb-4"><%= t(".number_of_questiions") %></p>
       <div class="row grid gap-3" data-diagnosis-questions-target="start_diagnosis">
-        <div class="col-sm d-flex flex-column justify-content-center mb-5 mb-sm-0">
+        <div class="col-sm d-flex flex-column justify-content-center mb-3 mb-sm-0">
           <% if !logged_in? %>
             <p class="fs-5"><%= t(".to_login") %></p>
             <%= link_to login_path, class: "link-success text-center" do %>
-              <i class="fa-solid fa-right-to-bracket fa-4x"></i>
+              <i class="fa-solid fa-right-to-bracket fa-3x"></i>
             <% end %>
           <% end %>
         </div>
-        <div class="col-sm d-flex align-items-center justify-content-center mb-4 mb-sm-0">
+        <div class="col-sm d-flex align-items-center justify-content-center mb-3 mb-sm-0">
           <div class="">
-            <%= link_to t(".start_diagnosis"), "javascript:void(0)", class: "btn btn-success rounded-pill fs-4", data: { action: "click->diagnosis-questions#startDiagnosis" } %>
+            <%= link_to t(".start_diagnosis"), "javascript:void(0)", class: "btn btn-success rounded-pill fs-5", data: { action: "click->diagnosis-questions#startDiagnosis" } %>
           </div>
         </div>
         <div class="col-sm">
           <div class="text-center">
-            <%= image_tag "greeting_hedgehog.png", class: "img-fluid" %>
+            <%= image_tag "greeting_hedgehog.png", class: "img-fluid", style: "max-height: 200px;" %>
           </div>
         </div>
       </div>
@@ -30,31 +30,31 @@
         <%= form_with url: calculate_diagnosis_questions_path, scope: :calculate, method: :post do |f| %>
           <div class="text-center bg-danger-subtle text-danger-emphasis rounded-3 fs-5 mb-3 visually-hidden" data-diagnosis-questions-target="error_message"><%= t("diagnosis_questions.index.please_select") %></div>
           <% @diagnosis_questions.each_with_index do |question, index| %>
-            <div class="bg-body rounded-4 p-4 mb-4 visually-hidden" data-diagnosis-questions-target="question_<%= index + 1 %>">
-              <span class="btn btn-success rounded-5 fs-4 mb-4"><%= "#{t("diagnosis_questions.index.q")} #{index + 1}" %></span>
+            <div class="bg-body rounded-4 shadow-lg p-4 mb-4 visually-hidden" data-diagnosis-questions-target="question_<%= index + 1 %>">
+              <span class="btn btn-success rounded-5 fs-4 mb-3"><%= "#{t("diagnosis_questions.index.q")} #{index + 1}" %></span>
               <div class="">
-                <h5 class="mb-5"><%= simple_format(question.body) %></h5>
-                <div class="d-flex flex-row justify-content-around">
+                <%= simple_format(question.body, class: "fs-5") %>
+                <div class="d-flex flex-row justify-content-around flex-column flex-sm-row grid gap-0 row-gap-2">
                   <%= f.radio_button "answer_#{question.diagnosis_content_number}", question.diagnosis_content_number, class: "visually-hidden", data: { action: "change->diagnosis-questions#updateActiveLabels" } %>
-                  <%= f.label "answer_#{question.diagnosis_content_number}", t("diagnosis_questions.index.agree"), value: question.diagnosis_content_number, class: "btn btn-outline-success rounded-pill fs-4" %>
+                  <%= f.label "answer_#{question.diagnosis_content_number}", t("diagnosis_questions.index.agree"), value: question.diagnosis_content_number, class: "btn btn-outline-success rounded-pill fs-5 shadow-lg" %>
                   <%= f.radio_button "answer_#{question.diagnosis_content_number}", "no", class: "visually-hidden", data: { action: "change->diagnosis-questions#updateActiveLabels" } %>
-                  <%= f.label "answer_#{question.diagnosis_content_number}", t("diagnosis_questions.index.deny"), value: "no", class: "btn btn-outline-success rounded-pill fs-4" %>
+                  <%= f.label "answer_#{question.diagnosis_content_number}", t("diagnosis_questions.index.deny"), value: "no", class: "btn btn-outline-success rounded-pill fs-5 shadow-lg" %>
                   <%= f.radio_button "answer_#{question.diagnosis_content_number}", "neither", class: "visually-hidden", data: { action: "change->diagnosis-questions#updateActiveLabels" } %>
-                  <%= f.label "answer_#{question.diagnosis_content_number}", t("diagnosis_questions.index.neither"), value: "neither", class: "btn btn-outline-success rounded-pill fs-4" %>
+                  <%= f.label "answer_#{question.diagnosis_content_number}", t("diagnosis_questions.index.neither"), value: "neither", class: "btn btn-outline-success rounded-pill fs-5 shadow-lg" %>
                 </div>
               </div>
             </div>
           <% end %>
-          <div class="d-flex flex-row justify-content-evenly mb-5">
-            <%= link_to "javascript:void(0)", class: "btn btn-success rounded-4 visually-hidden", data: { diagnosis_questions_target: "previous_button", action: "click->diagnosis-questions#previousQuestion" } do %>
+          <div class="d-flex flex-row justify-content-evenly mb-4">
+            <%= link_to "javascript:void(0)", class: "btn btn-success rounded-4 shadow-lg visually-hidden", data: { diagnosis_questions_target: "previous_button", action: "click->diagnosis-questions#previousQuestion" } do %>
               <span><i class="fa-solid fa-angles-left fa-2x"></i></span>
             <% end %>
-            <%= link_to "javascript:void(0)", class: "btn btn-success rounded-4 visually-hidden", data: { diagnosis_questions_target: "next_button", action: "click->diagnosis-questions#nextQuestion" } do %>
+            <%= link_to "javascript:void(0)", class: "btn btn-success rounded-4 shadow-lg visually-hidden", data: { diagnosis_questions_target: "next_button", action: "click->diagnosis-questions#nextQuestion" } do %>
               <span><i class="fa-solid fa-angles-right fa-2x"></i></span>
             <% end %>
           </div>
           <div class="text-center d-grid gap-2 col-3 mx-auto visually-hidden" data-diagnosis-questions-target="submit_button">
-            <%= f.submit t(".to_results"), class: "btn btn-success rounded-pill fs-4", data: { action: "click->diagnosis-questions#submitQuestions" } %>
+            <%= f.submit t(".to_results"), class: "btn btn-success rounded-pill shadow-lg fs-5", data: { action: "click->diagnosis-questions#submitQuestions" } %>
           </div>
         <% end %>
       </div>

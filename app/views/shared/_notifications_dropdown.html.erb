@@ -1,5 +1,5 @@
-<ul class="dropdown-menu dropdown-menu-end" style="width: 300px;">
-  <li class="dropdown-item"><%= t("notifications.index.notification") %></li>
+<ul class="dropdown-menu dropdown-menu-end overflow-y-scroll" style="width: 300px; max-height: 200px;">
+  <li class="dropdown-item fs-5"><%= t("notifications.index.notification") %></li>
   <li><hr class="dropdown-divider"></li>
   <%= render "notifications/notifications" %>
 </ul>

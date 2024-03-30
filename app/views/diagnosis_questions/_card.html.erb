@@ -1,9 +1,9 @@
 <div class="col" id="<%= dom_id(card) %>">
-  <div class="card h-100">
+  <div class="card h-100 shadow-lg">
     <%= image_tag card.image, class: "card-img-top" %>
     <div class="card-body bg-body-tertiary">
       <h5 class="card-title lh-base mb-0">
-        <%= link_to card.title, diagnosis_content_path(card), class: "link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %>
+        <%= link_to card.title, diagnosis_content_path(card), class: "link-success link-offset-2 link-underline link-underline-opacity-0" %>
       </h5>
     </div>
   </div>

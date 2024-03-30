@@ -1,30 +1,30 @@
 <% content_for(:title, t(".favorite_posts")) %>
-<div class="container mt-5">
+<div class="container mt-5 mb-5" data-controller="post-search">
   <!-- 表示切り替えリンク -->
-  <div class="row">
+  <div class="row mb-4">
     <div class="col-12">
-      <div class="border-top border-success border-start-0 border-end-0 border-3 border-opacity-75 mb-4">      
+      <div class="border-top border-success border-start-0 border-end-0 border-3">      
         <div class="d-flex justify-content-between flex-column flex-md-row grid gap-3 row-gap-2 mt-2 fs-5">
-          <%= link_to t(".diagnosis"), my_page_path, class: "btn btn-outline-secondary" %>
-          <%= link_to "#{current_user.name} #{t(".user_posts")}", my_posts_my_page_path, class: "btn btn-outline-secondary" %>
-          <%= link_to bookmarks_my_page_path, class: "btn btn-outline-secondary active" do %>
-            <i class="fa-solid fa-bookmark fa-xl text-primary"></i>
+          <%= link_to my_page_path, class: "btn btn-outline-secondary shadow-lg" do %>
+            <i class="fa-solid fa-clipboard-list fa-xl"></i>
+            <%= t(".diagnosis") %>
+          <% end %>
+          <%= link_to t(".user_posts"), my_posts_my_page_path, class: "btn btn-outline-secondary shadow-lg" %>
+          <%= link_to bookmarks_my_page_path, class: "btn btn-outline-secondary shadow-lg active" do %>
+            <span class="text-primary"><i class="fa-solid fa-bookmark fa-xl"></i></span>
             <%= t(".favorite_posts") %>
           <% end %>
         </div>
       </div>
     </div>
   </div>
-
   <!-- お気に入りの投稿一覧 -->
-  <div class="row mt-4">
+  <div class="row mt-3">
     <div class="col-12">
-      <h1 class="text-center mb-4"><%= t(".favorite_posts") %></h1>
+      <h1 class="text-center mb-4 text-main-color"><%= t(".favorite_posts") %></h1>
       <!-- 検索フォーム -->
-      <div class="mb-4">
-        <%= render "shared/posts_search_form", q: @q, url: bookmarks_my_page_path %>
-      </div>
-      <div class="row mb-4">
+      <%= render "shared/my_page_search", q: @q, url: bookmarks_my_page_path %>
+      <div class="row">
         <% if @bookmark_posts.present? %>
           <%= render partial: "posts/post", collection: @bookmark_posts %>
         <% else %>
@@ -34,13 +34,11 @@
       <%= render "shared/pagination", objects: @bookmark_posts %>
     </div>
   </div>
-  <div class="row mt-4">
-    <div class="col-12">
-      <ul class="nav nav-underline justify-content-center fs-4">
-        <li class="nav-item">
-          <%= link_to t(".to_my_page"), my_page_path, class: "nav-link text-black p-0" %>
-        </li>
-      </ul>
+  <div class="row">
+    <div class="col-12 text-center">
+      <%= link_to my_page_path, class: "link-success link-underline link-underline-opacity-0" do %>
+        <span class="icon-shadow-common"><i class="fa-solid fa-person-walking-arrow-loop-left fa-3x"></i></span>
+      <% end %> 
     </div>
   </div>
 </div>

@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  skip_before_action :require_login, only: %i[index show reload_images]
-  before_action :set_post, only: %i[edit update destroy]
+  skip_before_action :require_login, only: %i[index show reload_images search cancel_search]
+  before_action :set_post, only: %i[edit update destroy delete_image]
 
   def index
     @q = Post.ransack(params[:q])
@@ -21,7 +21,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
 
     if @post.save
-      redirect_to posts_path, success: t("defaults.message.created", item: Post.model_name.human)
+      redirect_to post_path(@post), success: t("defaults.message.created", item: Post.model_name.human)
     else
       flash.now[:danger] = t("defaults.message.not_created", item: Post.model_name.human)
       render :new, status: :unprocessable_entity
@@ -51,7 +51,6 @@ class PostsController < ApplicationController
   end
 
   def delete_image
-    @post = Post.find(params[:id])
     image = @post.images.find(params[:image_id])
     image.purge
     respond_to do |format|
@@ -65,6 +64,21 @@ class PostsController < ApplicationController
     redirect_to post_path(@post), success: t("defaults.message.updated", item: Post.human_attribute_name(:images))
   end
 
+  def search
+    @q = Post.ransack(params[:q])
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.update("post_change_form", partial: "shared/posts_search", locals: { q: @q, url: posts_path }) }
+      format.html {  }
+    end
+  end
+
+  def cancel_search
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.update("post_change_form", partial: "posts/post_control_panel_part") }
+      format.html {  }
+    end
+  end
+
   private
 
   def set_post
@@ -72,6 +86,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :body, images: [])
+    params.require(:post).permit(:title, :body, :item_info, :item_category, :item_merit, :item_demerit, images: [])
   end
 end

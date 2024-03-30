@@ -1,13 +1,8 @@
 <div class="container px-4 mb-3">
   <div class="row justify-content-between">
     <div class="col-7 px-0 text-start">
-      <%= link_to search_comment_comment_replies_path(comment), data: { turbo_stream: true }, class: "link-success link-underline link-underline-opacity-0 me-4" do %>
+      <%= link_to search_posts_path, data: { turbo_stream: true }, class: "link-success link-underline link-underline-opacity-0" do %>
         <span class="icon-shadow-common"><i class="fa-solid fa-magnifying-glass fa-3x"></i></span>
-      <% end %>
-      <% if current_user.notified_reply_objects(comment).present? %>
-        <%= link_to unread_comment_comment_replies_path(comment), data: { turbo_stream: true }, class: "link-success link-underline link-underline-opacity-0" do %>
-          <span class="icon-shadow-common"><i class="fa-regular fa-comments fa-bounce fa-3x"></i></span>
-        <% end %>
       <% end %>
     </div>
     <div class="col-5 px-0 text-end">
@@ -28,7 +23,7 @@
       <% end %>
     </div>
     <div class="col-2 px-0 text-end">  
-      <%= link_to new_comment_comment_reply_path(comment), data: { turbo_stream: true }, class: "link-success link-underline link-underline-opacity-0" do %>
+      <%= link_to new_post_path, class: "link-success link-underline link-underline-opacity-0" do %>
         <span class="icon-shadow-common"><i class="fa-solid fa-circle-plus fa-3x"></i></span>
       <% end %>
     </div>

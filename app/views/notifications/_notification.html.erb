@@ -1,5 +1,5 @@
 <%= turbo_frame_tag dom_id(notification) do %>
-  <p data-notification-id="<%= notification.id %>" class="<%= notification.read ? "" : "unread" %> text-break px-2 pt-1 pb-0 mb-0">
+  <p data-notification-id="<%= notification.id %>" class="<%= notification.read ? "" : "unread" %> text-break px-2 pt-1 pb-0 mb-0 bold-notification">
     <%= link_to notification_path(notification), data: { turbo_method: :patch }, class: "link-success link-underline link-underline-opacity-0" do %>
       <i class="fa-solid fa-square-check fa-lg"></i>
     <% end %>

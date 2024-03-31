@@ -184,6 +184,7 @@ ja:
     enquiry: "問い合わせ"
     privacy: "プライバシー"
     terms_of_service: "利用規約"
+    copyright: "© 2024 アプリ名"
     password_reset: "パスワードリセット"
     account_create: "アカウント作成"
     message:
@@ -394,6 +395,11 @@ ja:
       ago: "前"
       no_notification: "通知はありません"
       update_fail: "選択した通知の既読処理に失敗しました"
+  top_pages:
+    privacy_policy:
+      title: "プライバシーポリシー"
+    terms_of_service:
+      title: "利用規約"
   views:
     pagination:
       first: "最初"

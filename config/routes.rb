@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 
   root "top_pages#top"
+  get "privacy_policy", to: "top_pages#privacy_policy"
 
   get "login", to: "user_sessions#new"
   post "login", to: "user_sessions#create"
@@ -12,7 +13,6 @@ Rails.application.routes.draw do
   get "oauth/callback", to: "oauths#callback"
   get "oauth/:provider", to: "oauths#oauth", as: :auth_at_provider
 
-  resources :top_pages
   resources :users, only: %i[new create]
   resources :posts, only: %i[index new create show edit update destroy] do
     member do

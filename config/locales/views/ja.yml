@@ -395,6 +395,9 @@ ja:
       ago: "前"
       no_notification: "通知はありません"
       update_fail: "選択した通知の既読処理に失敗しました"
+  top_pages:
+    privacy_policy:
+      title: "プライバシーポリシー"
   views:
     pagination:
       first: "最初"

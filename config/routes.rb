@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   root "top_pages#top"
   get "privacy_policy", to: "top_pages#privacy_policy"
+  get "terms_of_service", to: "top_pages#terms_of_service"
 
   get "login", to: "user_sessions#new"
   post "login", to: "user_sessions#create"

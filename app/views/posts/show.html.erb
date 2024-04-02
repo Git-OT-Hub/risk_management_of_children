@@ -5,7 +5,7 @@
       <div class="col-lg-10 offset-lg-1">
         <h1 class="text-center mb-4 text-main-color"><%= t(".title") %></h1>
         <!-- 掲示板内容 -->
-        <article class="card bg-body shadow-lg">
+        <article class="card bg-body shadow-lg mb-3">
           <div class="card-body">
             <div class="container mb-3">
               <div class="row">
@@ -114,6 +114,11 @@
             </div>
           </div>
         </article>
+        <div class="container">
+          <%= link_to "https://twitter.com/share?url=#{post_url(@post)}&text=【アプリ名】%0a#{@post.title}%0a", target: "_blank", class: "link-secondary link-offset-2 link-underline link-underline-opacity-0" do %>
+            <span class="icon-shadow-common"><i class="fa-brands fa-x-twitter fa-3x"></i></span>
+          <% end %>
+        </div>
       </div>
     </div>
     <!-- コメントエリア -->

@@ -115,7 +115,7 @@
           </div>
         </article>
         <div class="container">
-          <%= link_to "https://twitter.com/share?url=#{post_url(@post)}&text=【アプリ名】%0a#{@post.title}%0a", target: "_blank", class: "link-secondary link-offset-2 link-underline link-underline-opacity-0" do %>
+          <%= link_to "https://twitter.com/share?url=#{post_url(@post)}&text=【#{@post.title}】%0a", target: "_blank", class: "link-secondary link-offset-2 link-underline link-underline-opacity-0" do %>
             <span class="icon-shadow-common"><i class="fa-brands fa-x-twitter fa-3x"></i></span>
           <% end %>
         </div>

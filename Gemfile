@@ -65,6 +65,8 @@ gem "sorcery", "0.16.5"
 
 gem "enum_help", "0.0.19"
 
+gem "meta-tags", "2.20.0"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", "1.8.0", platforms: %i[ mri windows ]

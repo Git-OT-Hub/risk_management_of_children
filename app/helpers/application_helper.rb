@@ -19,6 +19,9 @@ module ApplicationHelper
       keywords: '子ども,室内,安全対策,リスク管理,グッズ,診断',
       canonical: request.original_url,
       separator: '|',
+      icon: [
+        { href: image_url('favicon_test.ico') }
+      ],
       og: {
         site_name: :site,
         title: :title,

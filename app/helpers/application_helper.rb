@@ -20,7 +20,7 @@ module ApplicationHelper
       canonical: request.original_url,
       separator: '|',
       icon: [
-        { href: image_url('favicon_test.ico') }
+        { href: image_url('favicon_test3.ico') }
       ],
       og: {
         site_name: :site,

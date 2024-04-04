@@ -1,0 +1,74 @@
+<div class="accordion" id="accordionTopPageFunction">
+  <div class="accordion-item shadow-lg">
+    <h2 class="accordion-header">
+      <button class="accordion-button py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <span class="text-main-color">
+          <i class="fa-solid fa-clipboard-list fa-xl me-2"></i>
+          <%= t("defaults.diagnosis") %>
+        </span>
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show overflow-y-scroll" style="max-height: 600px;" data-bs-parent="#accordionTopPageFunction">
+      <div class="accordion-body">
+        <span class="top-page-function-font">ログインした状態</span> で診断した場合、診断結果を保存できます。
+        <div class="container p-2 mb-3">
+          <%= image_tag "diagnosis_save_way.gif", class: "img-fluid rounded" %>
+        </div>
+        保存した診断結果は、いつでも <span class="top-page-function-font">マイページ</span> から確認することができます。
+        <div class="container p-2 mb-3">
+          <%= image_tag "diagnosis_confirmation_way.gif", class: "img-fluid rounded" %>
+        </div>
+        <span class="top-page-function-font">診断結果の管理</span> 画面では、各課題の状態（未対応 / 対応）を変更して、管理することができます。
+        <div class="container p-2 mb-3">
+          <%= image_tag "diagnosis_state_way.gif", class: "img-fluid rounded" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item shadow-lg">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        <span class="text-main-color">
+          <i class="fa-solid fa-list-ul fa-xl me-2"></i>
+          <%= t("defaults.post") %>（コメント関連の機能）
+        </span>
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionTopPageFunction">
+      <div class="accordion-body">
+        <span class="top-page-function-font">コメントへの返信</span><br>
+        投稿へのコメントに対して、コメントした相手に返信が可能です。どのコメントに対しても返信が可能です。
+        <div class="container p-2 mb-3">
+          <%= image_tag "reply_to_comment_way.gif", class: "img-fluid rounded" %>
+        </div>
+        <span class="top-page-function-font">リプライ機能</span><br>
+        コメントへの返信機能において、リプライ機能（元になるメッセージと、それに対する自分の返信を一緒に表示して送信する）が使用できます。
+        <div class="container p-2">
+          <%= image_tag "reply_to_commentReply_way.gif", class: "img-fluid rounded" %>
+        </div>
+        また、リプライ機能を使用した場合、<span class="top-page-function-font"><i class="fa-solid fa-arrow-turn-up"></i></span> を押すと、
+        元になったメッセージを <span class="top-page-function-font">フォーカス</span> することができます。
+        <div class="container p-2 mb-3">
+          <%= image_tag "focus_to_commentReply_way.gif", class: "img-fluid rounded" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item shadow-lg">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        <span class="text-main-color">
+          <i class="fa-regular fa-bell fa-xl me-2"></i>
+          通知
+        </span>
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionTopPageFunction">
+      <div class="accordion-body">
+        
+      </div>
+    </div>
+  </div>
+</div>

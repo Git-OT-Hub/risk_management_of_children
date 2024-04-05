@@ -35,7 +35,7 @@
         </span>
       </button>
     </h2>
-    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionTopPageFunction">
+    <div id="collapseTwo" class="accordion-collapse collapse overflow-y-scroll" style="max-height: 600px;" data-bs-parent="#accordionTopPageFunction">
       <div class="accordion-body">
         <span class="top-page-function-font">コメントへの返信</span><br>
         投稿へのコメントに対して、コメントした相手に返信が可能です。どのコメントに対しても返信が可能です。
@@ -61,13 +61,63 @@
       <button class="accordion-button collapsed py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
         <span class="text-main-color">
           <i class="fa-regular fa-bell fa-xl me-2"></i>
-          通知
+          通知（確認方法）
         </span>
       </button>
     </h2>
-    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionTopPageFunction">
+    <div id="collapseThree" class="accordion-collapse collapse overflow-y-scroll" style="max-height: 600px;" data-bs-parent="#accordionTopPageFunction">
       <div class="accordion-body">
-        
+        通知を受け取るタイミングは、下記の3パターンです。<br><br>
+        ・<span class="top-page-function-font">自分の投稿</span> に対して、<span class="top-page-function-font">コメント</span> があった場合<br>
+        <span class="top-page-function-font">通知一覧</span> から、コメントされた自分の投稿に移動できます。
+        <div class="container p-2">
+          <%= image_tag "notice_comment_to_post.gif", class: "img-fluid rounded" %>
+        </div>
+        また、<span class="top-page-function-font">自分の投稿</span> に対して、誰がどのコメントを送信したのかがすぐにわかるよう、フォーカス機能を用意しています。<br>
+        <span class="top-page-function-font"><i class="fa-regular fa-comments fa-bounce"></i></span> 内にある 
+        <span class="top-page-function-font"><i class="fa-solid fa-arrow-turn-up"></i></span> を押してください。
+        <div class="container p-2 mb-3">
+          <%= image_tag "focus_to_comment_notice.gif", class: "img-fluid rounded" %>
+        </div>
+        ・<span class="top-page-function-font">自分のコメント</span> に対して、<span class="top-page-function-font">返信</span> があった場合<br>
+        ・<span class="top-page-function-font">自分のコメントへの返信</span> に対して、<span class="top-page-function-font">リプライ</span> された場合<br>
+        <span class="top-page-function-font">通知一覧</span> から、対象のコメント返信画面に移動できます。
+        <div class="container p-2">
+          <%= image_tag "notice_commentReply_to_comment.gif", class: "img-fluid rounded" %>
+        </div>
+        また、<span class="top-page-function-font">自分のコメント</span> や <span class="top-page-function-font">コメントへの返信</span> に対して、
+        誰がどの返信を送信したのか、誰にリプライされたのかがすぐにわかるよう、フォーカス機能を用意しています。<br>
+        <span class="top-page-function-font"><i class="fa-regular fa-comments fa-bounce"></i></span> 内にある 
+        <span class="top-page-function-font"><i class="fa-solid fa-arrow-turn-up"></i></span> を押してください。
+        <div class="container p-2 mb-3">
+          <%= image_tag "focus_to_commentReply_notice.gif", class: "img-fluid rounded" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item shadow-lg">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+        <span class="text-main-color">
+          <i class="fa-regular fa-bell fa-xl me-2"></i>
+          通知（既読方法）
+        </span>
+      </button>
+    </h2>
+    <div id="collapseFour" class="accordion-collapse collapse overflow-y-scroll" style="max-height: 600px;" data-bs-parent="#accordionTopPageFunction">
+      <div class="accordion-body">
+        通知を既読状態にする方法は、下記の2パターンです。<br><br>
+        ・通知を <span class="top-page-function-font">一通ずつ既読</span> する場合<br>
+        <span class="top-page-function-font">通知一覧</span> の <span class="top-page-function-font"><i class="fa-solid fa-square-check"></i></span> を押してください。
+        <div class="container p-2 mb-3">
+          <%= image_tag "read_one_way.gif", class: "img-fluid rounded" %>
+        </div>
+        ・通知を <span class="top-page-function-font">一度に全て既読</span> する場合<br>
+        <span class="top-page-function-font">通知一覧</span> の <span class="top-page-function-font">全てを既読</span> を押してください。
+        <div class="container p-2 mb-3">
+          <%= image_tag "read_all_way.gif", class: "img-fluid rounded" %>
+        </div>
       </div>
     </div>
   </div>

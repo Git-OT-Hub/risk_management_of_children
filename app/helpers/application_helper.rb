@@ -20,7 +20,7 @@ module ApplicationHelper
       canonical: request.original_url,
       separator: '|',
       icon: [
-        { href: image_url('favicon_test3.ico') }
+        { href: image_url('favicon_riskApp.ico') }
       ],
       og: {
         site_name: :site,
@@ -28,13 +28,13 @@ module ApplicationHelper
         description: :description,
         type: 'website',
         url: request.original_url,
-        image: image_url('test_twitter.jpg'),
+        image: image_url('X_card.png'),
         local: 'ja-JP'
       },
       twitter: {
         card: 'summary_large_image',
         site: '@OhmuraTomo',
-        image: image_url('test_twitter.jpg')
+        image: image_url('X_card.png')
       }
     }
   end

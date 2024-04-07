@@ -5,13 +5,13 @@ module ApplicationHelper
   end
 
   def page_title(page_title = "")
-    base_title = "INDOOR BABY GUARDIAN"
+    base_title = "Little Ones Safety"
     page_title.empty? ? base_title : page_title + " | " + base_title
   end
 
   def default_meta_tags
     {
-      site: 'アプリ名',
+      site: 'Little Ones Safety',
       title: 'グッズを活用した室内における子どもの安全対策',
       reverse: true,
       charset: 'utf-8',

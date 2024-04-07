@@ -184,9 +184,10 @@ ja:
     enquiry: "問い合わせ"
     privacy: "プライバシー"
     terms_of_service: "利用規約"
-    copyright: "© 2024 アプリ名"
+    copyright: "© 2024 Little Ones Safety"
     password_reset: "パスワードリセット"
     account_create: "アカウント作成"
+    app_title: "Little Ones Safety"
     message:
       test: "テストです"
       mixed_alphanumeric: "は半角英数を両方含む必要があります"

@@ -43,15 +43,3 @@
     </div>
   </div>
 </div>
-<!-- テスト領域 -->
-<div class="container mt-5 mb-5">
-  <div class="row">
-    <div class="col-12">
-      <ul class="list-group">
-        <% @diagnosis_contents.each do |content| %>
-          <li class="list-group-item"><%= link_to content.title, diagnosis_content_path(content) %></li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-</div>

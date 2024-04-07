@@ -303,3 +303,10 @@ span.top-page-function-font {
   --bs-alert-border-color: #ced3d8;
   --bs-alert-link-color: #132334;
 }
+
+//　診断　質問文における、文字の強調
+.diagnosis-questions-emphasis {
+  span {
+    color: #6aaa54;
+  }
+}

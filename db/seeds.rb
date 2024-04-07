@@ -211,47 +211,48 @@ DiagnosisContent.create!(
 
 DiagnosisQuestion.create!(
   diagnosis_content_number: 1,
-  body: "子どもの行動範囲内に、角や縁のある家具（例えば、テーブルや棚、ローボードなど）が設置されていますか？"
+  body: "子どもの行動範囲内に、角や縁が露出している家具（例えば、テーブルや棚、ローボードなど）が設置されていますか？"
 )
 
 DiagnosisQuestion.create!(
   diagnosis_content_number: 2,
-  body: "子どもが自由にキッチンや階段、玄関など（子どもにとって危険な場所）へ行けてしまう状態ですか？"
+  body: "子どもがキッチンや階段、玄関など（子どもにとって危険な場所）へ、自由に行けてしまう状態ですか？"
 )
 
 DiagnosisQuestion.create!(
   diagnosis_content_number: 3,
-  body: "子どもが主に過ごす場所の床には、衝撃を吸収するものが敷かれていない状態ですか？"
+  body: "子どもが主に過ごす場所の床は、衝撃を吸収するものが敷かれて<span>いない</span>状態ですか？"
 )
 
 DiagnosisQuestion.create!(
   diagnosis_content_number: 4,
-  body: "子どもの手が届く範囲に、施錠のない引き出しや開き戸収納などが設置されていますか？"
+  body: "子どもの手が届く範囲に、施錠の<span>ない</span>引き出し・開き戸収納などが設置されていますか？"
 )
 
 DiagnosisQuestion.create!(
   diagnosis_content_number: 5,
-  body: "子どもの行動範囲内に、ドア（開き戸・引き戸）が設置されていますか？"
+  body: "子どもの行動範囲内に設置されているドア（開き戸・引き戸）において、「ハンドルや引手側の部分」、「開き戸の場合は、その付け根（丁番側）の部分も含む」で、
+  指がはさまらないような対策が実施されて<span>いない</span>状態ですか？"
 )
 
 DiagnosisQuestion.create!(
   diagnosis_content_number: 6,
-  body: "子どもの行動範囲内に、網戸や窓が設置されていますか？"
+  body: "子どもの行動範囲内に設置されている網戸・窓において、子どもが自由に動かせる状態ですか？"
 )
 
 DiagnosisQuestion.create!(
   diagnosis_content_number: 7,
-  body: "子どもが自由に水場（トイレ・風呂場・洗濯機など）へ行けてしまう状態ですか？"
+  body: "子どもが水場（トイレ・風呂場・洗濯機など）へ、自由に行けてしまう状態ですか？"
 )
 
 DiagnosisQuestion.create!(
   diagnosis_content_number: 8,
-  body: "お風呂場において、洗い場や浴槽内などに、滑りにくくするような対策が実施されていない状態ですか？"
+  body: "お風呂場において、洗い場や浴槽内などを、滑りにくいようにする対策が実施されて<span>いない</span>状態ですか？"
 )
 
 DiagnosisQuestion.create!(
   diagnosis_content_number: 9,
-  body: "大人用のベッドに子どもを寝かせる場合、ベッドからの転落防止対策が実施されていない状態ですか？"
+  body: "大人用のベッドに子どもを寝かせる場合、ベッドからの転落防止対策が実施されて<span>いない</span>状態ですか？"
 )
 
 DiagnosisQuestion.create!(
@@ -261,12 +262,12 @@ DiagnosisQuestion.create!(
 
 DiagnosisQuestion.create!(
   diagnosis_content_number: 11,
-  body: "固定されていない家具やテレビなどがありますか？"
+  body: "固定されて<span>いない</span>家具やテレビなどがありますか？"
 )
 
 DiagnosisQuestion.create!(
   diagnosis_content_number: 12,
-  body: "子どもの手が届く範囲に、コンセントや延長コードなどがあり、差込口を子どもが自由に触れられる状態ですか？"
+  body: "子どもの手が届く範囲に、コンセントや延長コードなどがあり、それらの差込口を、子どもが自由に触れられる状態ですか？"
 )
 
 DiagnosisQuestion.create!(
@@ -281,5 +282,5 @@ DiagnosisQuestion.create!(
 
 DiagnosisQuestion.create!(
   diagnosis_content_number: 15,
-  body: "夏の時期等で扇風機を使用する場合、子どもの指が、扇風機の回転する羽根に触れられる状態ですか？"
+  body: "夏の時期等で扇風機を使用する場合、子どもの指が、扇風機の回転する羽根に届いてしまう状態ですか？"
 )

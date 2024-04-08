@@ -1,6 +1,6 @@
 DiagnosisContent.create!(
   number: 1,
-  title: "角や縁のある家具",
+  title: "子どもの行動範囲内に設置されている角や縁が露出している家具",
   image: "diagnosis_content_image_1.png",
   dangers: ["走り回ったり転んだりした拍子に、家具の角や縁にぶつかって、怪我をする危険性があります。"],
   countermeasures: ["グッズを使用して、家具の角や縁をカバーする方法があります。"],
@@ -14,10 +14,10 @@ DiagnosisContent.create!(
 
 DiagnosisContent.create!(
   number: 2,
-  title: "子どもにとって危険な場所（キッチン、階段、玄関など）へ行けてしまう状態",
+  title: "子どもがキッチンや階段、玄関など（子どもにとって危険な場所）へ、自由に行けてしまう状態",
   image: "diagnosis_content_image_2.png",
   dangers: ["キッチン: 刃物、ポット、コンロなどで怪我をする危険性があります。", "階段: 階段から転落して、怪我をする危険性があります。", "玄関: 鍵が開いているタイミングなどに外へ出て、思わぬ事故や怪我につながる危険性があります。"],
-  countermeasures: ["グッズを使用して、子どもにとって危険な場所へ入り込むのを防ぐ方法があります。"],
+  countermeasures: ["グッズを使用して、子どもが危険な場所へ入り込むのを防ぐ方法があります。"],
   item_names: ["ベビーゲート（突っ張りタイプ）", "ベビーゲート（ネジ固定タイプ）", "ベビーゲート（置くだけタイプ/ワイドタイプ）"],
   item_descriptions: ["キッチンや階段、玄関など、子どもにとって危険な場所の入り口や通路にゲートを設置することで、子どもが入り込むのを防ぐグッズ。"],
   item_points: ["ベビーゲートにはいくつかタイプがあり、「突っ張りタイプ」、「ネジ固定タイプ」、「置くだけタイプ」の他に、ガードしたい場所に合わせて形を変えられ、広い範囲をガードできる「ワイドタイプ」もあります。", "安易に購入した結果、取付ができないといった事態を避けるため、設置場所の状況（設置場所の寸法や壁の構造、壁が頑丈かどうかなど）を事前に調査することをおすすめします。", "階段上にベビーゲートを設置する場合は、設置しようとしているベビーゲートが階段上の設置に対応しているかどうかの確認が必須です（階段からの転落を防止するためには、動くことがないよう強固に設置できる機能が備わっている必要があるため）。"],
@@ -28,7 +28,7 @@ DiagnosisContent.create!(
 
 DiagnosisContent.create!(
   number: 3,
-  title: "衝撃を吸収するものが敷かれていない床",
+  title: "子どもが主に過ごす場所で、衝撃を吸収するものが敷かれていない床",
   image: "diagnosis_content_image_3.png",
   dangers: ["転んだ拍子に、頭や体を硬い床にぶつけて怪我をする危険性があります。"],
   countermeasures: ["グッズを使用して、転んで頭や体をぶつけた時の衝撃を和らげる方法があります。"],
@@ -42,12 +42,12 @@ DiagnosisContent.create!(
 
 DiagnosisContent.create!(
   number: 4,
-  title: "子どもの手が届く範囲に設置されている施錠のない引き出しや開き戸収納など",
+  title: "子どもの手が届く範囲に設置されている施錠のない引き出し・開き戸収納など",
   image: "diagnosis_content_image_4.png",
-  dangers: ["引き出しや開き戸収納などで、指をはさんで怪我をする危険性があります。", "刃物や洗剤など、子どもにとって危険なものが収納されている場合、事故や怪我につながる危険性があります。"],
-  countermeasures: ["グッズを使用して、ロック時は引き出しや開き戸収納などを開けられなくする方法があります。"],
+  dangers: ["引き出し・開き戸収納などで、指をはさんで怪我をする危険性があります。", "刃物や洗剤など、子どもにとって危険なものが収納されている場合、事故や怪我につながる危険性があります。"],
+  countermeasures: ["グッズを使用して、ロック時は引き出し・開き戸収納などを開けられなくする方法があります。"],
   item_names: ["チャイルドロック（バンド式）", "チャイルドロック（回転式）", "チャイルドロック（オートロック式）"],
-  item_descriptions: ["引き出しや開き戸収納などに取り付けることで、鍵の役割をはたし、ロック時は開けられなくなるグッズ。"],
+  item_descriptions: ["引き出し・開き戸収納などに取り付けることで、鍵の役割をはたし、ロック時は開けられなくなるグッズ。"],
   item_points: ["チャイルドロックは、種類ごとにそれぞれ適した使用箇所があるため、取り付け場所の状況（引き出しの厚みや、段差の有無、取り付け面の広さなど）を事前に調査することをおすすめします。", "子どもの興味をひかないよう、チャイルドロックは、家具の色に合った目立たないものがおすすめです。"],
   rakuten_item_image_urls: ["https://hbb.afl.rakuten.co.jp/hgb/3951377e.c455e6a3.3951377f.81477c49/?me_id=1387760&item_id=10000022&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fhigh-high%2Fcabinet%2Fproduct%2Ftop%2Fbaby-guard-001-r.jpg%3F_ex%3D300x300&s=300x300&t=pict", "https://hbb.afl.rakuten.co.jp/hgb/3951377e.c455e6a3.3951377f.81477c49/?me_id=1387760&item_id=10000418&pc=https%3A%2F%2Fimage.rakuten.co.jp%2Fhigh-high%2Fcabinet%2Fproduct%2F07363483%2F09406652%2F02.jpg%3F_ex%3D300x300&s=300x300&t=pict", "https://hbb.afl.rakuten.co.jp/hgb/39566d63.9e5fe9a0.39566d65.d677ad3e/?me_id=1388478&item_id=10000142&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Ffelicitations%2Fcabinet%2Fchild_lock%2Fimgrc0100726857.jpg%3F_ex%3D300x300&s=300x300&t=pict"],
   rakuten_item_urls: ["https://hb.afl.rakuten.co.jp/ichiba/3951377e.c455e6a3.3951377f.81477c49/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fhigh-high%2Fbaby-guard-001%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjMwMHgzMDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9", "https://hb.afl.rakuten.co.jp/ichiba/3951377e.c455e6a3.3951377f.81477c49/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fhigh-high%2Fdoorlock02%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjMwMHgzMDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9", "https://hb.afl.rakuten.co.jp/ichiba/39566d63.9e5fe9a0.39566d65.d677ad3e/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffelicitations%2F20000016%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjMwMHgzMDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9"],
@@ -56,12 +56,12 @@ DiagnosisContent.create!(
 
 DiagnosisContent.create!(
   number: 5,
-  title: "子どもの行動範囲内に設置されているドア（開き戸・引き戸）",
+  title: "子どもの指がはさまらないような対策が実施されていないドア（開き戸・引き戸）",
   image: "diagnosis_content_image_5.png",
   dangers: ["開き戸や引き戸などの開け閉めの際に、指をはさんで怪我をする危険性があります。", "開き戸の場合は、戸の付け根（丁番側）でも、指をはさんで怪我をする危険性があります。"],
   countermeasures: ["グッズを使用して、開き戸や引き戸などの開け閉めの際に、指や手をはさむ事故を防ぐ方法があります。"],
   item_names: ["ドアクッション（ハンドル側、引手側で使用）", "フィンガーアラート（丁番側で使用）"],
-  item_descriptions: ["【ドアクッション（ハンドル側、引手側で使用）】", "開き戸や引き戸に設置することで、ドアが閉まる時に、ハンドル側や引手側の部分で、子どもの指や手をはさむ事故を防ぐグッズ。", " \r\n【フィンガーアラート（丁番側で使用）】", "開き戸の付け根（丁番側）に設置することで、開閉時に、開き戸の付け根（丁番側）で子どもの指や手をはさむ事故を防ぐグッズ。"],
+  item_descriptions: ["【ドアクッション（ハンドル側、引手側で使用）】", "開き戸や引き戸に設置することで、ドアが閉まる時に、ハンドル側や引手側の部分で、子どもの指や手がはさまる事故を防ぐグッズ。", " \r\n【フィンガーアラート（丁番側で使用）】", "開き戸の付け根（丁番側）に設置することで、開閉時に、開き戸の付け根（丁番側）で子どもの指や手がはさまる事故を防ぐグッズ。"],
   item_points: ["【ドアクッション（ハンドル側、引手側で使用）】", "ドアの側面や上面にはさみ込んで使うタイプのドアクッションを選ぶ際は、設置するドアの厚さに対応しているかどうかの確認をおすすめします。", "子どもが立ち上がって手を伸ばしても、届かない高さに取り付けましょう。", " \r\n【フィンガーアラート（丁番側で使用）】", "フィンガーアラートを選ぶ際は、子どもが立ち上がって手を伸ばしても、指や手が守られる高さのものを選びましょう。", "フィンガーアラートにはサイズの種類がいくつかあります。子どもは成長が早く、身長が伸びて買い替えなければならないことを考慮すると、高さがあるものを選択するのもおすすめです。", "ドアの両面に取り付ける必要があるため、内側カバー、外側カバーの両方を購入して設置しましょう。"],
   rakuten_item_image_urls: ["https://hbb.afl.rakuten.co.jp/hgb/39584910.bd93729f.39584911.3605ab15/?me_id=1308652&item_id=10004964&pc=https%3A%2F%2Fimage.rakuten.co.jp%2Ftorekagu%2Fcabinet%2Fcompass1665546177.jpg%3F_ex%3D300x300&s=300x300&t=pict", "https://hbb.afl.rakuten.co.jp/hgb/395861a1.47c5f453.395861a2.15e1c004/?me_id=1332199&item_id=10000001&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Ffingeralert%2Fcabinet%2Fmem_item3%2Fset_1800.jpg%3F_ex%3D300x300&s=300x300&t=pict"],
   rakuten_item_urls: ["https://hb.afl.rakuten.co.jp/ichiba/39584910.bd93729f.39584911.3605ab15/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftorekagu%2F4589971642618%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjMwMHgzMDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9", "https://hb.afl.rakuten.co.jp/ichiba/395861a1.47c5f453.395861a2.15e1c004/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffingeralert%2F10000002%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjMwMHgzMDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9"],
@@ -70,7 +70,7 @@ DiagnosisContent.create!(
 
 DiagnosisContent.create!(
   number: 6,
-  title: "子どもの行動範囲内に設置されている網戸、窓",
+  title: "子どもが自由に動かせる網戸、窓",
   image: "diagnosis_content_image_6.png",
   dangers: ["窓を網戸にして換気をする場合、網戸は軽いため子どもの力だけで開け閉めができてしまいます。そのため、子どもが網戸を開けた際に、外へ転落してしまう危険性があります。", "また、網戸を開かなくしても、窓は動いてしまうため、窓で指をはさむ危険性があります。"],
   countermeasures: ["グッズを使用して、網戸を開けた際の外への転落や窓で指をはさむ事故を防ぐ方法があります。"],
@@ -84,7 +84,7 @@ DiagnosisContent.create!(
 
 DiagnosisContent.create!(
   number: 7,
-  title: "子どもが自由に水場（トイレ・風呂場・洗濯機など）へ行けてしまう状態",
+  title: "子どもが水場（トイレ・風呂場・洗濯機など）へ、自由に行けてしまう状態",
   image: "diagnosis_content_image_7.png",
   dangers: ["トイレや風呂場、洗濯機など水がある場所では、溺れる危険性があります。", "また、トイレや風呂場に置いてある薬品類を口にしてしまう危険性もあります。"],
   countermeasures: ["グッズを使用して、水場（トイレ・風呂場・洗濯機など）へ入り込むのを防ぐ方法があります。", "他にも、グッズを使用して、ロック時にトイレや洗濯機の蓋を開かなくする方法があります。"],
@@ -98,10 +98,10 @@ DiagnosisContent.create!(
 
 DiagnosisContent.create!(
   number: 8,
-  title: "滑り止め対策がされていないお風呂場",
+  title: "滑り止め対策が実施されていないお風呂場",
   image: "diagnosis_content_image_8.png",
-  dangers: ["浴室内は滑りやすい環境のため、転倒により怪我をする危険性があります。"],
-  countermeasures: ["グッズを使用して、浴室内を滑りにくい状態にする方法があります。"],
+  dangers: ["お風呂場は滑りやすい環境のため、転倒により怪我をする危険性があります。"],
+  countermeasures: ["グッズを使用して、お風呂場を滑りにくい状態にする方法があります。"],
   item_names: ["お風呂マット（お座りがまだできない新生児用）", "お風呂マット（洗い場）", "滑り止めマット（浴槽内）"],
   item_descriptions: ["【お風呂マット（お座りがまだできない新生児用）】", "お座りがまだできない新生児用のお風呂マットは、くぼみのあるお風呂マットのため、マットの上に赤ちゃんを仰向けにした状態で安全に洗うことができるグッズ。", " \r\n【お風呂マット（洗い場）】", "滑り止め加工が入っているため、洗い場での転倒リスクを下げることができるグッズ。", " \r\n【滑り止めマット（浴槽内）】", "滑り止め加工が入っているため、浴槽内での転倒リスクを下げることができるグッズ。"],
   item_points: ["【お風呂マット（お座りがまだできない新生児用）】", "お風呂マット（お座りがまだできない新生児用）を検討する際は、「赤ちゃんが冷たさを感じないか」、「赤ちゃんが乗った時に滑りにくくなっているか」、「水はけが良く清潔さを保てるかどうか」といった部分に注目するとよいでしょう。", " \r\n【お風呂マット（洗い場）】", "お風呂マット（洗い場）を検討する際は、「滑り止めがしっかりしているか」、「クッション性があるか」、「防寒性があるか」、「防カビ加工等、清潔さを保てるかどうか」、「自宅の洗い場に合ったサイズかどうか」といった部分に注目するとよいでしょう。", " \r\n【滑り止めマット（浴槽内）】", "滑り止めマット（浴槽内）を検討する際は、「滑り止めがしっかりしているか」、「防カビ加工等、清潔さを保てるかどうか」、「自宅の浴槽内に合ったサイズかどうか」といった部分に注目するとよいでしょう。"],
@@ -112,7 +112,7 @@ DiagnosisContent.create!(
 
 DiagnosisContent.create!(
   number: 9,
-  title: "転落防止対策がされていない大人用ベッド",
+  title: "転落防止対策が実施されていない大人用ベッド",
   image: "diagnosis_content_image_9.png",
   dangers: ["大人用ベッドに子どもを寝かせる場合、寝返り等でベッドから転落した際に、怪我をする危険性があります。"],
   countermeasures: ["グッズを使用して、ベッドからの転落を防ぐ方法があります。"],
@@ -185,7 +185,7 @@ DiagnosisContent.create!(
   title: "子どもがファンヒーターやストーブに触れられる状態",
   image: "diagnosis_content_image_14.png",
   dangers: ["ファンヒーターやストーブの吹き出し口を触って火傷する危険性があります。", "ファンヒーターやストーブでつかまり立ちをした場合などに、ファンヒーターやストーブを転倒させてしまう危険性もあります。"],
-  countermeasures: ["グッズを使用して、ファンヒーターやストーブの全体や吹き出し口に触れられないようにする方法があります。"],
+  countermeasures: ["グッズを使用して、ファンヒーターやストーブ全体を囲ったり、吹き出し口に触れられないようにする方法があります。"],
   item_names: ["ファンヒーターガード", "ストーブガード", "ファンヒーターガード（吹き出し口ガード）"],
   item_descriptions: ["ファンヒーターやストーブの全体や吹き出し口を柵状のものでガードすることで、子どもの手が届かないようにするグッズ。"],
   item_points: ["ガードの種類には、「全面をガードするタイプ」、「吹き出し口をガードするタイプ」などがあります。", "吹き出し口での火傷に加え、子どものつかまり立ちによるファンヒーターやストーブの転倒やいたずらのリスクを考慮すると、「全面をガードするタイプ」がおすすめです。\r\n設置スペース的に「全面をガードするタイプ」の設置が困難な場合は、設置スペースがあまり必要のない「吹き出し口をガードするタイプ」もあるため、吹き出し口での火傷対策を行うことをおすすめします。", "ガードを購入する際は、「自宅のファンヒーターやストーブに設置可能か」、「ガードには温風が当たり続けるため、熱くなりにくい物か」、「ファンヒーターやストーブとガードの距離が近すぎないか（子どもが指を入れた際に、吹き出し口に触れられない距離か）」、「子どもがガードにつかまった場合でも、倒れにくい構造になっているか」、「子どもがガードの上から手を伸ばしても、ファンヒーターやストーブに触れられない高さかどうか」といった部分に注目するとよいでしょう。"],
@@ -196,7 +196,7 @@ DiagnosisContent.create!(
 
 DiagnosisContent.create!(
   number: 15,
-  title: "子どもの指が入ってしまう扇風機（羽根が回転するタイプ）",
+  title: "羽根が回転するタイプの扇風機で、子どもの指が扇風機の回転する羽根に届いてしまう状態",
   image: "diagnosis_content_image_15.png",
   dangers: ["子どもが扇風機の中に指を入れた際に、回転している羽根に接触して怪我をする危険性があります。"],
   countermeasures: ["グッズを使用して、扇風機の中に子どもの指が入らないようにする方法があります。"],
@@ -247,7 +247,7 @@ DiagnosisQuestion.create!(
 
 DiagnosisQuestion.create!(
   diagnosis_content_number: 8,
-  body: "お風呂場において、洗い場や浴槽内などを、滑りにくいようにする対策が実施されて<span>いない</span>状態ですか？"
+  body: "お風呂場の洗い場や浴槽内において、滑り止め対策が実施されて<span>いない</span>状態ですか？"
 )
 
 DiagnosisQuestion.create!(

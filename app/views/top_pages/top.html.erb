@@ -1,22 +1,52 @@
-<div class="container">
+<turbo-frame>
+  <turbo-stream action="update" target="page-title">
+    <% content_for(:title, "") %>
+  </turbo-stream>
+</turbo-frame>
+<div class="container mt-5 mb-5">
   <div class="row">
-    <div class="col-sm-7">
-      <h2>タイトル</h2>
-      <p>説明文</p>
-    </div>
-    <div class="col-sm-5">
-      <%= image_tag "sample2.png", size: "300x200" %>
-    </div>
-  </div>
-
-  <!-- テスト領域 -->
-  <div class="row">
-    <div class="col-12">
-      <ul class="list-group">
-        <% @diagnosis_contents.each do |content| %>
-          <li class="list-group-item"><%= link_to content.title, diagnosis_content_path(content) %></li>
-        <% end %>
-      </ul>
+    <div class="col col-lg-10 offset-lg-1">
+      <div class="container text-center mb-4">
+        <%= image_tag "topPage_mainImage.png", class: "img-fluid" %>
+      </div>
+      <div class="container bg-body shadow-lg rounded p-3 mb-4">
+        <div class="row align-items-center mb-3">
+          <div class="col-8"><span class="top-page-font">Little Ones Safety</span></div>
+          <div class="col-4 text-end">
+            <%= link_to "https://twitter.com/share?url=#{root_url}&text=【Little Ones Safety】%0a", target: "_blank", class: "link-secondary link-offset-2 link-underline link-underline-opacity-0" do %>
+              <span class="icon-shadow-common"><i class="fa-brands fa-x-twitter fa-3x"></i></span>
+            <% end %>
+          </div>
+        </div>
+        Little Ones Safety は、<span class="top-page-font">診断</span> により、自宅内における子どもにとっての危険な物や場所、状態を確認し、
+        グッズを活用した安全対策を紹介するサービスです。<br>
+        <div class="p-2 mb-3">
+          <span class="icon-shadow-common me-2"><i class="fa-solid fa-arrow-right fa-xl"></i></span>
+          <%= link_to diagnosis_questions_path, class: "link-success link-offset-2 link-underline link-underline-opacity-0" do %>
+            <span class="icon-shadow-common d-inline-flex flex-column">
+              <i class="fa-solid fa-clipboard-list fa-2xl"></i>
+              <%= t("defaults.diagnosis") %>
+            </span>
+          <% end %>
+        </div>
+        自宅内の環境は、各ご家庭によって様々なため、安全対策方法や使用するグッズ等が異なると思います。<br>
+        そのため、<span class="top-page-font">投稿機能</span> においては、各ご家庭の環境に応じた安全対策方法を共有することで、助け合いの場になれば幸いです。
+        <div class="p-2">
+          <span class="icon-shadow-common me-2"><i class="fa-solid fa-arrow-right fa-xl"></i></span>
+          <%= link_to posts_path, class: "link-success link-offset-2 link-underline link-underline-opacity-0" do %>
+            <span class="icon-shadow-common d-inline-flex flex-column">
+              <i class="fa-solid fa-list-ul fa-2xl"></i>
+              <%= t("defaults.post") %>
+            </span>
+          <% end %>
+        </div>
+      </div>
+      <div class="container text-center mb-2">
+        <h3 class="text-main-color">一部機能説明</h3>
+      </div>
+      <div class="container">
+        <%= render "top_pages/function_description" %>
+      </div>
     </div>
   </div>
 </div>

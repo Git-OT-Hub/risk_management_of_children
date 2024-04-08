@@ -1,12 +1,16 @@
-<% content_for(:title, t(".title")) %>
+<turbo-frame>
+  <turbo-stream action="update" target="page-title">
+    <% content_for(:title, t(".title")) %>
+  </turbo-stream>
+</turbo-frame>
 <div class="container mt-5 mb-5">
   <div class="row">
     <div class="col-lg-10 offset-lg-1">
       <h1 class="text-center mb-4 text-main-color"><%= t(".title") %></h1>
-      <div class="container shadow-lg bg-body rounded py-4 px-3">
+      <div class="container shadow-lg bg-body rounded py-4 px-3 mb-4">
         <h3 class="mb-2">はじめに</h3>
         <p class="mb-4">
-          アプリ名（以下、「当社」とします）は、当社が運営するWebサービス（以下、「本サービス」とします）において、お客様のプライバシーを尊重し、
+          Little Ones Safety（以下、「当社」とします）は、当社が運営するWebサービス（以下、「本サービス」とします）において、お客様のプライバシーを尊重し、
           お客様から提供される個人情報の保護に努めています。本プライバシーポリシーは、本サービスを利用される際に、当社がどのような情報を収集し、
           その情報をどのように扱うかについて説明しています。
         </p>
@@ -71,6 +75,11 @@
         <p class="mb-0">
           2024年03月31日 制定
         </p>
+      </div>
+      <div class="text-center">
+        <%= link_to "javascript:history.back()", class: "link-success link-underline link-underline-opacity-0" do %>
+          <span class="icon-shadow-common"><i class="fa-solid fa-person-walking-arrow-loop-left fa-3x"></i></span>
+        <% end %>
       </div>
     </div>
   </div>

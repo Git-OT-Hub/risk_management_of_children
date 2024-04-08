@@ -270,3 +270,43 @@ li.bold-notification {
 .border-success {
   border-color: #6aaa54 !important;
 }
+
+//　トップページ font-size 設定
+span.top-page-font {
+  font-size: 1.3rem;
+  color: #6aaa54;
+}
+
+span.top-page-function-font {
+  font-size: 1.2rem;
+  color: #6aaa54;
+}
+
+//　アラート　色設定
+.alert-success {
+  --bs-alert-color: #293f21;
+  --bs-alert-bg: #c2deb9;
+  --bs-alert-border-color: #c2deb9;
+  --bs-alert-link-color: #293f21;
+}
+
+.alert-danger {
+  --bs-alert-color: #630811;
+  --bs-alert-bg: #f7c1c6;
+  --bs-alert-border-color: #f7c1c6;
+  --bs-alert-link-color: #630811;
+}
+
+.alert-dark {
+  --bs-alert-color: #132334;
+  --bs-alert-bg: #ced3d8;
+  --bs-alert-border-color: #ced3d8;
+  --bs-alert-link-color: #132334;
+}
+
+//　診断　質問文における、文字の強調
+.diagnosis-questions-emphasis {
+  span {
+    color: #6aaa54;
+  }
+}

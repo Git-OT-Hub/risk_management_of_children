@@ -1,4 +1,8 @@
-<% content_for(:title, t(".title")) %>
+<turbo-frame>
+  <turbo-stream action="update" target="page-title">
+    <% content_for(:title, t(".title")) %>
+  </turbo-stream>
+</turbo-frame>
 <div class="container mt-5 mb-5">
   <div class="row">
     <div class="col-md-10 offset-md-1">
@@ -18,9 +22,17 @@
             <%= f.label :password, class: "form-label" %>
             <%= f.password_field :password, class: "form-control rounded shadow-lg", placeholder: "#{t("users.new.password_limit")}" %>
           </div>
-          <div class="mb-5">
+          <div class="mb-3">
             <%= f.label :password_confirmation, class: "form-label" %>
             <%= f.password_field :password_confirmation, class: "form-control rounded shadow-lg", placeholder: "#{t("users.new.password_explanation")}" %>
+          </div>
+          <div class="mb-5">
+            <p class="mb-0">
+              <small>
+                ※本サービスに登録することで、「Little Ones Safety」の <span><%= link_to t("defaults.privacy"), privacy_policy_path, class: "link-success link-underline link-underline-opacity-0" %></span>、
+                <span><%= link_to t("defaults.terms_of_service"), terms_of_service_path, class: "link-success link-underline link-underline-opacity-0" %></span> に同意するものとします。
+              </small>
+            </p>  
           </div>
           <div class="mb-5 text-center d-grid gap-2 col-3 mx-auto">
             <%= f.submit t("defaults.register"), class: "btn btn-success rounded-pill shadow-lg" %>

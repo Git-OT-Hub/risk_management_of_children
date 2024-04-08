@@ -1,4 +1,8 @@
-<% content_for(:title, t(".favorite_posts")) %>
+<turbo-frame>
+  <turbo-stream action="update" target="page-title">
+    <% content_for(:title, t(".favorite_posts")) %>
+  </turbo-stream>
+</turbo-frame>
 <div class="container mt-5 mb-5" data-controller="post-search">
   <!-- 表示切り替えリンク -->
   <div class="row mb-4">

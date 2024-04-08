@@ -1,4 +1,8 @@
-<% content_for(:title, t(".title")) %>
+<turbo-frame>
+  <turbo-stream action="update" target="page-title">
+    <% content_for(:title, t(".title")) %>
+  </turbo-stream>
+</turbo-frame>
 <div class="container mt-5 mb-5">
   <!-- プロフィール -->
   <div class="row mb-3">

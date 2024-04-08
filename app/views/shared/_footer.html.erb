@@ -6,9 +6,14 @@
       <div class="col-3 px-0"><%= link_to t("defaults.privacy"), privacy_policy_path, class: "text-black link-offset-2 link-offset-3-hover link-underline-dark link-underline-opacity-0 link-underline-opacity-75-hover" %></div>
       <div class="col-3"><%= link_to t("defaults.terms_of_service"), terms_of_service_path, class: "text-black link-offset-2 link-offset-3-hover link-underline-dark link-underline-opacity-0 link-underline-opacity-75-hover" %></div>
     </div>
-    <div class="row align-items-center justify-content-center p-2">
-      <div class="col">
+    <div class="row align-items-center justify-content-evenly p-2">
+      <div class="col-8 text-center">
         <p class="mb-0"><%= t("defaults.copyright") %></p>
+      </div>
+      <div class="col-3 text-center">
+        <%= link_to "https://twitter.com/share?url=#{root_url}&text=【Little Ones Safety】%0a", target: "_blank", class: "link-secondary link-offset-2 link-underline link-underline-opacity-0" do %>
+          <span class="icon-shadow-common"><i class="fa-brands fa-x-twitter fa-2xl"></i></span>
+        <% end %>
       </div>
     </div>
   </div>

@@ -10,7 +10,14 @@
         <%= image_tag "topPage_mainImage.png", class: "img-fluid" %>
       </div>
       <div class="container bg-body shadow-lg rounded p-3 mb-4">
-        <span class="top-page-font">Little Ones Safety</span><br><br>
+        <div class="row align-items-center mb-3">
+          <div class="col-8"><span class="top-page-font">Little Ones Safety</span></div>
+          <div class="col-4 text-end">
+            <%= link_to "https://twitter.com/share?url=#{root_url}&text=【Little Ones Safety】%0a", target: "_blank", class: "link-secondary link-offset-2 link-underline link-underline-opacity-0" do %>
+              <span class="icon-shadow-common"><i class="fa-brands fa-x-twitter fa-3x"></i></span>
+            <% end %>
+          </div>
+        </div>
         Little Ones Safety は、<span class="top-page-font">診断</span> により、自宅内における子どもにとっての危険な物や場所、状態を確認し、
         グッズを活用した安全対策を紹介するサービスです。<br>
         <div class="p-2 mb-3">

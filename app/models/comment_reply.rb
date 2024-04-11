@@ -6,7 +6,7 @@ class CommentReply < ApplicationRecord
   has_many :notifications, as: :notifiable, dependent: :destroy
 
   has_one_attached :comment_reply_image do |attachable|
-    attachable.variant :medium, resize_to_limit: [500, 500], preprocessed: true
+    attachable.variant :medium, resize_to_limit: [200, 200], preprocessed: true
   end
 
   validates :body, presence: true, length: { maximum: 1000 }

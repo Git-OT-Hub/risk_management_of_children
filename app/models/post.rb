@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   has_many :favorites, dependent: :destroy
 
   has_many_attached :images do |attachable|
-    attachable.variant :medium, resize_to_limit: [500, 500], preprocessed: true
+    attachable.variant :medium, resize_to_limit: [300, 300], preprocessed: true
   end
 
   validates :title, presence: true, length: { maximum: 50 }

@@ -16,7 +16,7 @@ class User < ApplicationRecord
   has_many :notifications, as: :notifiable, dependent: :destroy
 
   has_one_attached :avatar do |attachable|
-    attachable.variant :small, resize_to_limit: [250, 250], preprocessed: true
+    attachable.variant :small, resize_to_limit: [150, 150], preprocessed: true
   end
 
   validates :password, length: { minimum: 8 }, if: -> { new_record? || changes[:crypted_password] }

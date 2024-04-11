@@ -1,0 +1,10 @@
+:concurrency: 10
+:pidfile: ./tmp/pids/sidekiq.pid
+:logfile: ./log/sidekiq.log
+:queues:
+  - default
+  - mailers
+  - active_storage_analysis
+  - active_storage_purge
+  - active_storage_transform
+:daemon: true

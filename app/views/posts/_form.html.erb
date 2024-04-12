@@ -28,7 +28,7 @@
     </div>
     <div class="" data-controller="file-upload">
       <%= f.label :images, class: "form-label mb-0" %>
-      <div class="form-text mt-0"><%= t("defaults.message.quantity_limit") %></div>
+      <div class="form-text mt-0 text-decoration-underline"><%= t("defaults.message.quantity_limit") %></div>
       <div class="form-text mt-0"><%= t("defaults.message.byte_size_limit") %></div>
       <div class="form-text mt-0 mb-1"><%= t("defaults.message.content_type_limit") %></div>
       <%= f.file_field :images, multiple: true, direct_upload: true, accept: "image/*", class: "form-control rounded-pill shadow-lg mb-3", data: { "file-upload-target": "fileInput" } %>

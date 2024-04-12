@@ -36,8 +36,8 @@ class Post < ApplicationRecord
   end
 
   def image_length
-    if images.length > 4
-      errors.add(:images, ": 4枚以下にしてください。")
+    if images.length > 3
+      errors.add(:images, ": 3枚以下にしてください。")
     end
   end
 

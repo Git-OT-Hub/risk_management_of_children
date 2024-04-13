@@ -69,6 +69,8 @@ gem "meta-tags", "2.20.0"
 
 gem "sidekiq", "7.2.2"
 
+gem "sitemap_generator", "6.3.0"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", "1.8.0", platforms: %i[ mri windows ]

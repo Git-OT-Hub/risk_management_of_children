@@ -57,3 +57,6 @@ config/environments/*.local.yml
 /config/certs/*
 
 /spec/fixtures/
+
+# Ignore sitemap file
+public/sitemap.xml.gz

@@ -16,8 +16,8 @@ export default class extends Controller {
     const currentValidationImagesCount = this.validationImagesTarget.children.length;
     const newFileCount = files.length;
     const totalCount = currentPreviewsCount + currentValidationImagesCount + newFileCount
-    if (totalCount > 4) {
-      alert("画像は 4枚以下 にしてください。");
+    if (totalCount > 3) {
+      alert("画像は 3枚以下 にしてください。");
       this.fileInputTarget.value = '';
       return;
     }

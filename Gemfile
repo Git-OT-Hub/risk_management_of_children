@@ -47,6 +47,7 @@ gem "bootsnap", "1.17.0", require: false
 gem "image_processing", "1.12.2"
 
 gem "aws-sdk-s3", "1.142.0", require: false
+gem "aws-sdk", "3.2.0"
 
 gem "config", "5.0.0"
 

@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5HJEMHC0XG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-5HJEMHC0XG');
+    </script>
+
     <title><%= page_title(yield(:title)) %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -10,6 +20,7 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
 
     <%= display_meta_tags(default_meta_tags) %>
+    
     <meta name="google-site-verification" content="ZlSOBcsX2_jJgAFW3mOFj-aYuq9tH3dIZFKr3btIUEU" />
   </head>
 

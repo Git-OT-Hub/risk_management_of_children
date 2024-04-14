@@ -2,5 +2,3 @@ User-agent: *
 Disallow: /
 Allow: /posts/
 Allow: /diagnosis_questions/
-
-Sitemap: https://www.indoor-baby-guardian.com/sitemap.xml.gz

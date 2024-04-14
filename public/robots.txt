@@ -1,5 +1,2 @@
 User-agent: *
-Disallow: /
-Allow: /posts/
-Allow: /diagnosis_questions/
-Allow: /sitemap.xml.gz
+Disallow: /my_page/

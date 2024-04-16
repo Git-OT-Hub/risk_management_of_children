@@ -34,7 +34,7 @@
             <% end %>
           </div>
           <% if @results.present? %>
-            <div class="overflow-y-scroll bg-body rounded-4 shadow-lg p-3" style="max-height: 500px;">
+            <div class="bg-body rounded-4 shadow-lg p-3">
               <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
                 <%= render partial: "diagnosis_questions/card", collection: @results %>
               </div>

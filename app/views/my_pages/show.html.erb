@@ -75,11 +75,9 @@
                 <% else %>
                   <%= link_to "#{l(result.created_at, format: :long)} #{t(".results_of")}", diagnosis_result_path(result), class: "link-success link-offset-2 link-underline link-underline-opacity-0 fs-5" %>
                 <% end %>
-                <div class="float-end">
-                  <%= link_to diagnosis_result_path(result), data: { turbo_method: :delete, turbo_confirm: t("defaults.message.delete_diagnosis") }, class: "link-success link-underline link-underline-opacity-0" do %>
-                    <span class="icon-shadow-common"><i class="fa-regular fa-trash-can fa-xl"></i></span>
-                  <% end %>
-                </div>
+                <%= link_to diagnosis_result_path(result), data: { turbo_method: :delete, turbo_confirm: t("defaults.message.delete_diagnosis") }, class: "link-success link-underline link-underline-opacity-0 ms-4" do %>
+                  <span class="icon-shadow-common"><i class="fa-regular fa-trash-can fa-xl"></i></span>
+                <% end %>
               </li>
             <% end %>
           <% else %>

@@ -9,7 +9,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerHeader">
-        <ul class="navbar-nav ms-auto grid gap-0 column-gap-2">
+        <ul class="navbar-nav ms-auto grid gap-0 column-gap-3">
           <li class="nav-item d-flex align-items-center text-lg-center ps-2 ps-lg-0">
             <%= link_to diagnosis_questions_path, class: "nav-link" do %>
               <i class="fa-solid fa-clipboard-list fa-xl"></i><br>
@@ -27,6 +27,16 @@
               <i class="fa-solid fa-right-from-bracket fa-xl"></i><br>
               <small><%= t("defaults.logout") %></small>
             <% end %>
+          </li>
+          <li class="nav-item ps-2 ps-lg-0 dropdown d-flex flex-column flex-lg-row mb-2 mb-lg-0">
+            <%= turbo_stream_from "notifications_for_user_#{current_user.id}" %>
+            <%= link_to "#", class: "nav-link dropdown-toggle align-self-lg-center", role: "button", "data-bs-toggle" => "dropdown", "data-bs-auto-close" => "false", "aria-expanded" => "false" do %>
+              <label class="position-relative">
+                <i class="fa-regular fa-bell fa-2xl"></i>
+                <%= render "notifications/notification_count" %>
+              </label>
+            <% end %>
+            <%= render "shared/notifications_dropdown" %>
           </li>
           <li class="nav-item dropdown ps-2 ps-lg-0 mb-2 mb-lg-0 d-flex flex-column flex-lg-row">
             <%= link_to "#", class: "nav-link dropdown-toggle p-0 d-flex align-items-center", role: "button", "data-bs-toggle" => "dropdown", "aria-expanded" => "false" do %>
@@ -48,16 +58,6 @@
                 <% end %>
               </li>
             </ul>
-          </li>
-          <li class="nav-item ps-2 ps-lg-0 dropdown d-flex flex-column flex-lg-row">
-            <%= turbo_stream_from "notifications_for_user_#{current_user.id}" %>
-            <%= link_to "#", class: "nav-link dropdown-toggle align-self-lg-center", role: "button", "data-bs-toggle" => "dropdown", "data-bs-auto-close" => "false", "aria-expanded" => "false" do %>
-              <label class="position-relative">
-                <i class="fa-regular fa-bell fa-2xl"></i>
-                <%= render "notifications/notification_count" %>
-              </label>
-            <% end %>
-            <%= render "shared/notifications_dropdown" %>
           </li>
         </ul>
       </div>

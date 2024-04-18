@@ -151,7 +151,7 @@
 
 ## 使用技術
 ### フロントエンド
-- HTML / CSS / JavaScript (Turbo,Stimulus)
+- HTML / CSS / JavaScript (Turbo, Stimulus)
 - CSS frame-work
   - Bootstrap 5.3.2
 
@@ -161,8 +161,9 @@
 
 ### インフラ
 - Heroku
-  - PostgreSQL (データベース)
-  - Redis (セッション管理)
-  - Sidekiq（バックグラウンドジョブ）
-  - Heroku Scheduler（コマンドの定期実行）
-- Amazon S3 (画像データの保存)
+  - PostgreSQL
+  - Redis
+  - Sidekiq
+  - Heroku Scheduler
+- AWS
+  - Amazon S3

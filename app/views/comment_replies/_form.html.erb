@@ -9,7 +9,7 @@
     <% end %>
     <div class="mb-2">
       <%= f.label :body, class: "form-label visually-hidden" %>
-      <%= f.text_area :body, class: "form-control rounded shadow-lg", rows: 2, placeholder: "#{CommentReply.human_attribute_name(:body)} #{t("comment_replies.index.body_limit")}" %>
+      <%= f.text_area :body, class: "form-control rounded shadow-lg", rows: 3, placeholder: "#{CommentReply.human_attribute_name(:body)} #{t("comment_replies.index.body_limit")}" %>
     </div>
     <div class="card mb-2 shadow-lg" data-controller="comment-reply-image">
       <div class="row g-0 justify-content-center">

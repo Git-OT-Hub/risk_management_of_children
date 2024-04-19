@@ -22,10 +22,10 @@ ja:
       post:
         title: "タイトル"
         body: "我が家の安全対策"
-        item_info: "グッズ情報"
-        item_category: "グッズの分類"
-        item_merit: "グッズのメリット"
-        item_demerit: "グッズのデメリット"
+        item_info: "グッズ情報（使用している場合）"
+        item_category: "グッズの分類（使用している場合）"
+        item_merit: "メリット"
+        item_demerit: "デメリット"
         images: "画像"
       comment:
         body: "コメント"

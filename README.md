@@ -58,7 +58,7 @@
       - バリアント処理は Vips を使用
       - preprocessed: true オプションを使用して、バックグラウンドジョブでバリアントの前処理を実施
       - 上記の「バックグラウンドジョブでのバリアントの前処理」には、redis,sidekiq を使用
-      - 複数枚の画像を添付する際は、「フォルダから一度にまとめて選択して添付」、「一枚ずつ添付」どちらも可能
+      - 複数枚の画像を添付する際は、「フォルダから一度にまとめて選択して添付」、「複数回に分けて添付」どちらも可能
       - 添付した画像の中から、任意の画像をフォーム送信前に削除可能
   - 一覧機能
   - 詳細機能
@@ -151,7 +151,7 @@
 
 ## 使用技術
 ### フロントエンド
-- HTML / CSS / JavaScript (Turbo,Stimulus)
+- HTML / CSS / JavaScript (Turbo, Stimulus)
 - CSS frame-work
   - Bootstrap 5.3.2
 
@@ -161,8 +161,9 @@
 
 ### インフラ
 - Heroku
-  - PostgreSQL (データベース)
-  - Redis (セッション管理)
-  - Sidekiq（バックグラウンドジョブ）
-  - Heroku Scheduler（コマンドの定期実行）
-- Amazon S3 (画像データの保存)
+  - PostgreSQL
+  - Redis
+  - Sidekiq
+  - Heroku Scheduler
+- AWS
+  - Amazon S3

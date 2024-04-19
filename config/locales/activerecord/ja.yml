@@ -14,7 +14,7 @@ ja:
       diagnosis_result: "診断結果"
     attributes:
       user:
-        name: "名前"
+        name: "ニックネーム"
         email: "メールアドレス"
         password: "パスワード"
         password_confirmation: "パスワード確認"
@@ -22,10 +22,10 @@ ja:
       post:
         title: "タイトル"
         body: "我が家の安全対策"
-        item_info: "グッズ情報"
-        item_category: "グッズの分類"
-        item_merit: "グッズのメリット"
-        item_demerit: "グッズのデメリット"
+        item_info: "グッズ情報（使用している場合）"
+        item_category: "グッズの分類（使用している場合）"
+        item_merit: "メリット"
+        item_demerit: "デメリット"
         images: "画像"
       comment:
         body: "コメント"

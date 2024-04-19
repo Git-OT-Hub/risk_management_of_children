@@ -271,6 +271,8 @@ ja:
       back_to_previous_page: "戻る"
       title_limit: "(50文字以内)"
       character_limit: "(1000文字以内)"
+      merit_explanation: "「安全対策をして、得られたメリット」や「グッズを使用している場合は、そのメリット」など自由に記載(1000文字以内)"
+      demerit_explanation: "「安全対策をして、生じたデメリット」や「グッズを使用している場合は、そのデメリット」など自由に記載(1000文字以内)"
     show:
       title: "投稿詳細"
       images_reload: "※ 画像再読み込み"
@@ -280,8 +282,8 @@ ja:
       to_posts_page: "投稿一覧へ"
       item_info: "グッズ情報"
       item_category: "グッズの分類"
-      item_merit: "グッズのメリット"
-      item_demerit: "グッズのデメリット"
+      item_merit: "メリット"
+      item_demerit: "デメリット"
     edit:
       title: "投稿編集"
       back_to_previous_page: "戻る"

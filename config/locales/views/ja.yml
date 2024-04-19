@@ -282,8 +282,8 @@ ja:
       to_posts_page: "投稿一覧へ"
       item_info: "グッズ情報"
       item_category: "グッズの分類"
-      item_merit: "グッズのメリット"
-      item_demerit: "グッズのデメリット"
+      item_merit: "メリット"
+      item_demerit: "デメリット"
     edit:
       title: "投稿編集"
       back_to_previous_page: "戻る"

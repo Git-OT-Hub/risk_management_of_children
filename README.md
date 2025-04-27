@@ -138,7 +138,7 @@
 ## ER図
 ![Alt text](app/assets/images/children_risk_ER%E5%9B%B3.drawio.png)
 
-
+https://gyazo.com/96db7b465ede659ef304495b6fdd1753
 ## 使用技術
 ### フロントエンド
 - HTML / CSS / JavaScript (Turbo, Stimulus)
